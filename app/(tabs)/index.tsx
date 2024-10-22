@@ -9,14 +9,24 @@ import Navbar from '@/components/navbar';
 import LandingPage from '@/components/landingPage';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-const Stack = createStackNavigator();
-export default function HomeScreen() {
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from '@/components/homescreen';
+import NavbarScreen from '@/components/navbar';
+import { RootStackParams } from './types';
+const Stack = createStackNavigator<RootStackParams>();
+export default function App() {
   return (
-    <GestureHandlerRootView style ={{flex:1}}>
- 
-       {/* <Navbar></Navbar>  */}
-        <LandingPage></LandingPage>
-      </GestureHandlerRootView>
+     <NavigationContainer independent>
+        <GestureHandlerRootView style ={{flex:1}}>
+          <Stack.Navigator initialRouteName='Home'>
+            {/* Define HomeScreen */}
+            <Stack.Screen name ='Home' component={HomeScreen} options={{headerShown:false}}/>
+            <Stack.Screen name = 'Navbar' component={NavbarScreen} options={{headerShown:false}}/>
+            {/* <Navbar></Navbar>   */}
+            {/* <LandingPage></LandingPage> */}
+          </Stack.Navigator>
+        </GestureHandlerRootView>
+      </NavigationContainer>
   );
 }
 

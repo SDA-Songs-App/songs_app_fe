@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         marginBottom: 15
     }
 })
-const Navbar = () =>{
+const NavbarScreen = () =>{
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isSearchModalVisible, setSearchModalVisible] = useState(false)
     const [searchText, setSearchText] = useState('');
@@ -113,4 +113,4 @@ const Navbar = () =>{
     )
     
 }
-export default Navbar
+export default NavbarScreen
