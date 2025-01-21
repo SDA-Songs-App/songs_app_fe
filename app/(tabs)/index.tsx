@@ -29,9 +29,9 @@ const Stack = createStackNavigator();
 }
 export default function App() {
   return (
-     <NavigationContainer independent>
+     <NavigationContainer independent = {true}>
         <GestureHandlerRootView style ={{flex:1}}>
-          <Stack.Navigator initialRouteName='Home'>
+          <Stack.Navigator>
             {/* Define HomeScreen */}
             <Stack.Screen name ='Home' component={HomeScreen} options={{headerShown:false}}/>
             <Stack.Screen name = 'Navbar' component={NavbarScreen} options={{headerShown:false}}/>
