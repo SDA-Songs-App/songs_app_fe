@@ -74,7 +74,7 @@ const LandingPage = () => {
         <View style={styles.featureContainer}>
          
         <ImageBackground
-              source={require('../assets/images/SDA.jpg')}
+              source={require('../assets/images/SDA1.png')}
                style = {styles.backgroundImage}
             >
               <Text> Features containers</Text>

@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 8,
         width: 150,
-        marginTop:-150,
+        marginTop:-200,
         marginLeft:220
       },
       languageOption: {
