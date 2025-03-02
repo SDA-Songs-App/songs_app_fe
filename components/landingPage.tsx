@@ -1,13 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, Animated , TextInput} from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Animated , TextInput, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import Navbar from './navbar';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParams } from '@/app/(tabs)/types';
+type LandingPageNavigationProp = StackNavigationProp<RootStackParams, 'Home'>
 const LandingPage = () => {
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const [searchText, setSearchText] = useState('');
- // const navigation = useNavigation();
+  const navigation = useNavigation<LandingPageNavigationProp>();
   useEffect(() => {
     startAnimation();
     return () =>{
@@ -33,14 +37,14 @@ const LandingPage = () => {
   }
   const handleInputFocus = () =>{
     scaleAnim.stopAnimation();
-   // navigation.navigate('NavBabar')
+    navigation.navigate('Navbar')
   }
   const handleNoFocus =() =>{
     startAnimation();
   }
 
   return (
-    <LinearGradient colors={['#6a11cb', '#2575fc']} style={styles.gradientBackground}>
+    <LinearGradient colors={['#1abc9c', '#2575fc']} style={styles.gradientBackground}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <Text style={styles.logo}></Text>
@@ -48,12 +52,6 @@ const LandingPage = () => {
             <TouchableOpacity style={styles.navItem}>
               <Text style={styles.NavText}></Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity style={styles.navItem}>
-              <Text style={styles.NavText}>Testing</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.navItem}>
-              <Text style={styles.NavText}>Share</Text>
-            </TouchableOpacity> */}
           </View>
         </View>
         <View style={styles.heroSection}>
@@ -73,16 +71,16 @@ const LandingPage = () => {
             </TouchableOpacity>
           </Animated.View>
         </View>
-        <View style={styles.featuresSection}>
-          <Text style={styles.sectionTitle}>App Features</Text>
-          {featuresData.map((feature, index) => (
-            <View key={index} style={styles.feature}>
-              <Icon name={feature.icon} size={50} color="#6a11cb" />
-              <Text style={styles.featureTitle}>{feature.title}</Text>
-              <Text style={styles.featureDescription}>{feature.description}</Text>
-            </View>
-          ))}
-        </View>
+        <View style={styles.featureContainer}>
+         
+        <ImageBackground
+              source={require('../assets/images/SDA.jpg')}
+               style = {styles.backgroundImage}
+            >
+              <Text> Features containers</Text>
+  {/* Your components here */}
+</ImageBackground>
+      </View>
       </ScrollView>
     </LinearGradient>
   );
@@ -104,11 +102,28 @@ const featuresData = [
     description: 'Sync lyrics with songs for a seamless experience.',
   },
 ];
+const featuresData2 = [
+  {
+  icon:'list',
+  title:'search', 
+  description:'To say something sldnfdfs ksdf skddfjgngdkf'
+  }, 
+  {
+    icon:'play',
+    title:'search', 
+    description:'To say something sdfgk dfgkjs lkdjfg lkdjfg '
+  }, 
+  {
+    icon:'cog',
+    title:'search', 
+    description:'To say something sdfg kldjfgk jdlfgjl dj ksdjlfg'
+  }
+]
 
 const styles = StyleSheet.create({
   gradientBackground: {
     flexGrow: 1,
-  },
+  }, 
   container: {
     flexGrow: 1,
     alignItems: 'center',
@@ -168,34 +183,75 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  featuresSection: {
-    padding: 20,
+  featureContainer:{
+    backgroundColor:'#fff',
+    flexDirection: 'row', // Align the child views horizontally
+    justifyContent: 'space-between', // Place the views on opposite sides (left and right)
+    alignItems: 'center',
+  },
+  featuresSection2: {
+    paddingLeft: 100,
     backgroundColor: '#fff',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     alignItems: 'center',
   },
   sectionTitle: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#6a11cb',
     marginBottom: 20,
-  },
+    alignItems:'center',
+    backgroundColor:'#fff'
+      },
   feature: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginBottom: 30,
   },
+  feature2: {
+    alignItems: 'flex-start',
+    marginBottom: 30,
+    marginLeft:50
+  },
   featureTitle: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#333',
     marginVertical: 10,
   },
+  backgroundImage:{
+     
+    flex: 1,
+    resizeMode: 'cover', // Ensures the image covers the entire background
+    justifyContent: 'center',
+    height:229,
+    width:400 // Centers the content inside
+
+},
+  featureTitle1:{
+      fontSize:14, 
+      fontWeight:'bold',
+      color: '#333'
+  },
   featureDescription: {
     fontSize: 14,
-    textAlign: 'center',
+    textAlign: 'justify',
     color: '#666',
-  },
+     },
+    featureDescription2: {
+      fontSize: 14,
+      textAlign: 'justify',
+      marginRight:0,
+      color: '#666',
+      },
+      featureLeft:{
+        flex:1,
+        alignItems:'flex-start'
+      },
+      featureRight:{
+        flex:1, 
+        alignItems:'flex-end'
+      },
   searchInput:{
     height:40, 
     borderColor:'#ccc', 

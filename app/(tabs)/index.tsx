@@ -9,14 +9,41 @@ import Navbar from '@/components/navbar';
 import LandingPage from '@/components/landingPage';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from '@/components/homescreen';
+import NavbarScreen from '@/components/navbar';
+import { RooStackSettingsParams, RootStackParams } from './types';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Preferences from '@/components/settings-components/Preferences';
+import LanguagesSwitcher from '@/components/settings-components/languages-switcher';
+// import { Drawer } from 'expo-router/drawer'
 const Stack = createStackNavigator();
-export default function HomeScreen() {
+  const Drawer = createDrawerNavigator();
+ const SettingsDrawer = () =>{
   return (
-    <GestureHandlerRootView style ={{flex:1}}>
- 
-       {/* <Navbar></Navbar>  */}
-        <LandingPage></LandingPage>
-      </GestureHandlerRootView>
+    <Drawer.Navigator>
+      <Drawer.Screen name='Personal Preferences' component={Preferences} options={{drawerLabel:'Home', title:'overview'}}/>
+      <Drawer.Screen name ='Languages Switcher'component={LandingPage} options={{drawerLabel:'testing', title:'user'}}/>
+    </Drawer.Navigator>
+  );
+}
+export default function App() {
+  return (
+     <NavigationContainer independent = {true}>
+        <GestureHandlerRootView style ={{flex:1}}>
+          <Stack.Navigator>
+            {/* Define HomeScreen */}
+            <Stack.Screen name ='Home' component={HomeScreen} options={{headerShown:false}}/>
+            <Stack.Screen name = 'Navbar' component={NavbarScreen} options={{headerShown:false}}/>
+            <Stack.Screen 
+              name ='settings' 
+              component={SettingsDrawer} 
+              options={{headerShown:false}}/>
+            {/* <Navbar></Navbar>   */}
+            {/* <LandingPage></LandingPage> */}
+          </Stack.Navigator>
+        </GestureHandlerRootView>
+      </NavigationContainer>
   );
 }
 
