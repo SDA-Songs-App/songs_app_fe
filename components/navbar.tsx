@@ -925,7 +925,7 @@ const NavbarScreen:FC<NavbarScreenProps> = () =>{
                     },
                     {
                       id:2,
-                      song_num: 2,
+                    song_num: 2,
                      title: "Baa j5 puany",
                      category:"Cat 1",
                       chorus: "Kuoth nh5al m5 r7xn5 jvn kv l5aak nhsk5 f`, f`n ram m5 j5``k j5n c5 f` ksk kv r5vvm m5 gsaa,( v r5vm ruath d00ln5) (M5 gsaa m5 gsaan5 ) Kuray vjvn c5 f`n ku gsaa kv jv",

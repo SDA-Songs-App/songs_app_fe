@@ -225,6 +225,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover', // Ensures the image covers the entire background
     justifyContent: 'center',
     height:229,
+    backgroundColor:'none',
     width:400 // Centers the content inside
 
 },
