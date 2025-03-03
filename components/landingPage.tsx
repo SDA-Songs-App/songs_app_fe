@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity, Animated , TextInput} from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Animated , TextInput, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -52,12 +52,6 @@ const LandingPage = () => {
             <TouchableOpacity style={styles.navItem}>
               <Text style={styles.NavText}></Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity style={styles.navItem}>
-              <Text style={styles.NavText}>Testing</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.navItem}>
-              <Text style={styles.NavText}>Share</Text>
-            </TouchableOpacity> */}
           </View>
         </View>
         <View style={styles.heroSection}>
@@ -78,26 +72,14 @@ const LandingPage = () => {
           </Animated.View>
         </View>
         <View style={styles.featureContainer}>
-          
-        <View style={styles.featureLeft}>
-          
-          {featuresData.map((feature, index) => (
-            <View key={index} style={styles.feature}>
-              <Icon name={feature.icon} size={20} color="#6a11cb" />
-              <Text style={styles.featureTitle}>{feature.title}</Text>
-              <Text style={styles.featureDescription}>{feature.description}</Text>
-            </View>
-          ))}
-          </View>
-          <View style={styles.featureRight}>
-            {featuresData2.map((feature, index) => (
-            <View key={index} style={styles.feature2}>
-              <Icon name={feature.icon} size={20} color="#6a11cb" />
-              <Text style={styles.featureTitle1}>{feature.title}</Text>
-              <Text style={styles.featureDescription2}>{feature.description}</Text>
-            </View>
-          ))}
-        </View>
+         
+        <ImageBackground
+              source={require('../assets/images/SDA.jpg')}
+               style = {styles.backgroundImage}
+            >
+              <Text> Features containers</Text>
+  {/* Your components here */}
+</ImageBackground>
       </View>
       </ScrollView>
     </LinearGradient>
@@ -207,15 +189,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', // Place the views on opposite sides (left and right)
     alignItems: 'center',
   },
-
-  // featuresSection: {
-  //   padding: 20,
-  //   backgroundColor: '#fff',
-  //   borderTopLeftRadius: 20,
-  //   borderTopRightRadius: 20,
-  //  flexDirection:'row', 
-  //  justifyContent:'space-between'
-  //   },
   featuresSection2: {
     paddingLeft: 100,
     backgroundColor: '#fff',
@@ -246,6 +219,15 @@ const styles = StyleSheet.create({
     color: '#333',
     marginVertical: 10,
   },
+  backgroundImage:{
+     
+    flex: 1,
+    resizeMode: 'cover', // Ensures the image covers the entire background
+    justifyContent: 'center',
+    height:229,
+    width:400 // Centers the content inside
+
+},
   featureTitle1:{
       fontSize:14, 
       fontWeight:'bold',
