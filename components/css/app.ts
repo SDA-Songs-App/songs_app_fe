@@ -52,7 +52,7 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       fontFamily: fontFamily,
     },
     verse1Style: {
-      color: "black",
+      color: isDarkMode ? "black":'white',
       fontFamily: fontFamily,
       fontSize: fontSize, //20
       paddingBottom: 30,
@@ -168,7 +168,7 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     selectedSongPlainTitle:{
         fontFamily:fontFamily,
         fontSize:40,
-        color:'black',
+        color:isDarkMode ?'black':'white',
         fontWeight:'bold',
         justifyContent:'center',
         alignItems:'center'
@@ -177,7 +177,7 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       fontSize: fontSize, //22
       fontFamily: fontFamily,
       fontWeight: "bold",
-      color: "green",
+      color:isDarkMode?"green": "red",
       paddingBottom: 20,
     },
     selectedSongTitle1: {
@@ -237,14 +237,17 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       alignItems: "center",
       backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
-    modalContent: {
-      backgroundColor: "#fff",
+    modalContent: {     
       borderRadius: 8,
       width: width * 0.3, 
       marginTop: height * -0.315,
       marginLeft: width * 0.645, 
       marginRight: width * 0.01,
       paddingRight: width * 0.06, 
+       borderWidth:isDarkMode?0:2,
+      borderColor:'white',
+      backgroundColor: isDarkMode?'#fff': "black",
+
     },
     languageOption: {
       paddingVertical: 10,
@@ -257,6 +260,7 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       fontSize: fontSize, //20,
       fontFamily: fontFamily,
       textAlign: "center",
+      color:isDarkMode?'black':'white'
     },
     langContainer: {
       flexDirection: "row",
@@ -286,7 +290,7 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       height:'100%',
       // Add padding for better content spacing
       borderRadius: 15, // Rounded corners
-      backgroundColor: "#f8f9fa", // Soft background color
+      backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a", // Soft background color
       shadowColor: "#000", // Add shadow for depth
       shadowOffset: { width: 0, height: 5 },
       shadowOpacity: 0.2,

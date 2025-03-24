@@ -499,7 +499,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             isVisible={isModalVisible}
             onBackdropPress={() => setModalVisible(false)}
             animationOut="slideOutDown"
-            backdropColor="#000"
+            
             backdropOpacity={0.5}
           >
             <View style={styles.modalContent}>
@@ -627,7 +627,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             <View style={styles.songContainer}>
               <ImageBackground
-                source={require("../assets/images/S.jpg")}
+                source= {isDarkMode ? require("../assets/images/S.jpg"):require("../assets/images/inverted_S.jpg")}
                 style={[styles.backgroundImage, { paddingBottom: 60 }]}
               >
                 {/* Verses Display */}
