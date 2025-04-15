@@ -31,12 +31,13 @@ import { Picker } from "@react-native-picker/picker";
 import GestureRecognizer from "react-native-swipe-gestures";
 import { SlideInUp, SlideOutDown } from "react-native-reanimated";
 import LinearGradient from "react-native-linear-gradient";
+import TextGradient from "react-native-text-gradient";
 import { Appearance } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SongList from "./SongList";
 import FontSizeAdjustScreen from "./FontAdjustScreen";
 import CollapsibleActionButton from "./CollapsibleActionButton";
-import  getStyles from '../components/css/app'
+import getStyles from "../components/css/app";
 import allSongs from "@/data/allsongs";
 
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
@@ -45,7 +46,7 @@ type NavbarScreenProps = {
   route: RouteProp<any>;
 };
 const NavbarScreen: FC<NavbarScreenProps> = () => {
-  const [fontSize, setFontSize] = useState(16);
+  const [fontSize, setFontSize] = useState(14);
   const [fontFamily, setFontFamily] = useState("Roboto");
   const [isDarkMode, setIsDarkMode] = useState(
     Appearance.getColorScheme() === "dark"
@@ -149,7 +150,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   }[];
 
   type FavoriteKey = `${string}_${number}`; // literal type for language_id
- 
 
   // Load favorites on mount
   useEffect(() => {
@@ -278,13 +278,13 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             <Text style={styles.songTitle}>{item.title}</Text>
             <Text style={styles.songCategory}>{item.artist}</Text>
-            <Icon
+            <Ionicons
               name={
                 favorites.includes(`${selectedLanguage}_${item.id}`)
-                  ? "delete"
-                  : "delete"
+                  ? "heart"
+                  : "heart"
               }
-              size={16}
+              size={20}
               color={
                 favorites.includes(`${selectedLanguage}_${item.id}`)
                   ? "#ff4444"
@@ -354,7 +354,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       setFilteredSongs(results);
     }
   };
-  
+
   const verses = [
     { text: selectedSong?.verse_1, style: styles.verse1Style },
     { text: selectedSong?.verse_2, style: styles.verse1Style },
@@ -632,12 +632,13 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               >
                 {/* Verses Display */}
                 {selectedSong.chorus && (
-                  <Text style = {styles.selectedSongPlainTitle}>"{selectedSong.title}"</Text>
-                 
+                  <Text style={styles.selectedSongPlainTitle}>
+                    {selectedSong.title}
+                  </Text>
                 )}
                 <Text style={styles.selectedSongTitle}>
-                                    {selectedSong.chorus}
-                                  </Text>
+                  {selectedSong.chorus}
+                </Text>
                 {[
                   selectedSong.verse_1,
                   selectedSong.verse_2,
@@ -653,7 +654,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       {verse}
                     </Text>
                   ))}
-                  <Text>Author: {selectedSong.artist} </Text>
+                <Text>Author: {selectedSong.artist} </Text>
               </ImageBackground>
             </View>
             <CollapsibleActionButton
