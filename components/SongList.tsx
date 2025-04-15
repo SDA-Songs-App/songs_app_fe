@@ -10,6 +10,7 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { Song } from "@/app/types";
 import { ActivityIndicator } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 type FavoriteKey = `${string}_${number}`;
 
@@ -76,8 +77,8 @@ const SongList = memo(
             onPress={() => onToggleFavorite(item.id)}
             style={styles.favoriteButton}
           >
-            <Icon
-              name={isFavorite ? "heart" : "heart"}
+            <Ionicons
+              name={isFavorite ? "remove-circle-sharp" : "remove-circle-sharp"}
               size={20}
               color={isFavorite ? "#ff4444" : "#888"}
             />
