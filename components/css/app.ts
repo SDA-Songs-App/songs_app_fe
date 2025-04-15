@@ -1,6 +1,6 @@
-import {Dimensions, StyleSheet} from 'react-native'
-import { withDecay } from 'react-native-reanimated';
-const { width, height } = Dimensions.get('window');
+import { Dimensions, StyleSheet } from "react-native";
+import { withDecay } from "react-native-reanimated";
+const { width, height } = Dimensions.get("window");
 const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
   StyleSheet.create({
     container: {
@@ -165,13 +165,23 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
     },
-    selectedSongPlainTitle:{
-        fontFamily:fontFamily,
-        fontSize:40,
-        color:'black',
-        fontWeight:'bold',
-        justifyContent:'center',
-        alignItems:'center'
+    selectedSongPlainTitle: {
+      fontFamily: fontFamily,
+      fontSize: fontSize + fontSize * 0.2, //22
+      textShadowColor: "rgba(13, 106, 18, 0.75)",
+      textShadowOffset: { width: 1, height: 1 },
+      textShadowRadius: 3,
+      color: "#0B1C1C",
+      //color: isDarkMode ? "#00b1c" : "#0b1c1",
+      textDecorationLine: "underline",
+      textDecorationColor: "green",
+      textDecorationStyle: "solid",
+      paddingBottom: 10,
+      textAlign: "center",
+      fontWeight: "bold",
+      padding: 5,
+      borderRadius: 5,
+      backgroundColor: "rgb(255, 255, 255, 0.2)",
     },
     selectedSongTitle: {
       fontSize: fontSize, //22
@@ -240,21 +250,21 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     modalContent: {
       backgroundColor: "#fff",
       borderRadius: 8,
-      width: width * 0.3, 
+      width: width * 0.3,
       marginTop: height * -0.315,
-      marginLeft: width * 0.645, 
+      marginLeft: width * 0.645,
       marginRight: width * 0.01,
-      paddingRight: width * 0.06, 
+      paddingRight: width * 0.06,
     },
     languageOption: {
       paddingVertical: 10,
-      marginLeft:'auto',
+      marginLeft: "auto",
       borderBottomWidth: 1,
       borderBottomColor: "#ccc",
-      alignSelf:'auto',
+      alignSelf: "auto",
     },
     languageText: {
-      fontSize: fontSize, //20,
+      fontSize: 14, //20,
       fontFamily: fontFamily,
       textAlign: "center",
     },
@@ -283,9 +293,9 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     songContainer: {
       width: Dimensions.get("window").width * 0.99, // Slightly narrower for balanced spacing
       justifyContent: "flex-start",
-      height:'100%',
+      height: "100%",
       // Add padding for better content spacing
-      borderRadius: 15, // Rounded corners
+      borderRadius: 6, // Rounded corners
       backgroundColor: "#f8f9fa", // Soft background color
       shadowColor: "#000", // Add shadow for depth
       shadowOffset: { width: 0, height: 5 },
@@ -350,4 +360,4 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       zIndex: 1,
     },
   });
-  export default getStyles
+export default getStyles;
