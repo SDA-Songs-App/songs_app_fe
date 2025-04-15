@@ -56,7 +56,12 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
     <View>
       <Text>Font Size</Text>
       <Slider
-        minimumValue={14}
+        style={{
+          width: 300,
+          height: 40,
+          transform: [{ scaleY: 3 }],
+        }}
+        minimumValue={18}
         maximumValue={30}
         step={2}
         value={fontSize}
