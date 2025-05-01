@@ -113,7 +113,7 @@ const getStyles = (isDarkMode:boolean) =>{
     width: 300,
     //borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: 'white',
+    borderColor: isDarkMode? 'black':"white",
     justifyContent: "center",
     },
     noResultsText: {
