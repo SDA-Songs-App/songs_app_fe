@@ -11,6 +11,7 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { Song } from "@/app/types";
 import { ActivityIndicator } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import songListStyles from "./css/song-list";
 
 type FavoriteKey = `${string}_${number}`;

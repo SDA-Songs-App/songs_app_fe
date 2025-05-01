@@ -246,9 +246,9 @@ const getStyles = (isDarkMode:boolean) =>{
     },
     modalContent: {     
       borderRadius: 8,
-      width: width * 0.3, 
+      width: width * 0.3,
       marginTop: height * -0.315,
-      marginLeft: width * 0.645, 
+      marginLeft: width * 0.645,
       marginRight: width * 0.01,
       paddingRight: width * 0.06, 
        borderWidth:isDarkMode?0:2,
@@ -258,10 +258,10 @@ const getStyles = (isDarkMode:boolean) =>{
     },
     languageOption: {
       paddingVertical: 10,
-      marginLeft:'auto',
+      marginLeft: "auto",
       borderBottomWidth: 1,
       borderBottomColor: "#ccc",
-      alignSelf:'auto',
+      alignSelf: "auto",
     },
     languageText: {
       fontSize:20,

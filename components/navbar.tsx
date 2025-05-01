@@ -29,11 +29,14 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 import { Picker } from "@react-native-picker/picker";
 import GestureRecognizer from "react-native-swipe-gestures";
+import { SlideInUp, SlideOutDown } from "react-native-reanimated";
+import LinearGradient from "react-native-linear-gradient";
+import TextGradient from "react-native-text-gradient";
 import { Appearance } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SongList from "./SongList";
 import CollapsibleActionButton from "./CollapsibleActionButton";
-import  getStyles from '../components/css/app'
+import getStyles from "../components/css/app";
 import allSongs from "@/data/allsongs";
 import  {useTheme } from "@/app/ThemeProvier";
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
@@ -140,7 +143,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   }[];
 
   type FavoriteKey = `${string}_${number}`; // literal type for language_id
- 
 
   // Load favorites on mount
   useEffect(() => {
@@ -338,7 +340,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       setFilteredSongs(results);
     }
   };
-  
+
   const verses = [
     { text: selectedSong?.verse_1, style: styles.verse1Style },
     { text: selectedSong?.verse_2, style: styles.verse1Style },
@@ -620,12 +622,13 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               >
                 {/* Verses Display */}
                 {selectedSong.chorus && (
-                  <Text style = {styles.selectedSongPlainTitle}>"{selectedSong.title}"</Text>
-                 
+                  <Text style={styles.selectedSongPlainTitle}>
+                    {selectedSong.title}
+                  </Text>
                 )}
                 <Text style={styles.selectedSongTitle}>
-                                    {selectedSong.chorus}
-                                  </Text>
+                  {selectedSong.chorus}
+                </Text>
                 {[
                   selectedSong.verse_1,
                   selectedSong.verse_2,
