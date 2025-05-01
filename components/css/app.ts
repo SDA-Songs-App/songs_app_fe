@@ -1,8 +1,9 @@
+import { useTheme } from '@/app/ThemeProvier';
 import {Dimensions, StyleSheet} from 'react-native'
-import { withDecay } from 'react-native-reanimated';
 const { width, height } = Dimensions.get('window');
-const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
-  StyleSheet.create({
+const getStyles = (isDarkMode:boolean) =>{
+ // const { isDarkMode } = useTheme();
+  return StyleSheet.create({
     container: {
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a",
       width: "100%",
@@ -20,14 +21,16 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     number: {
       color: "#fff",
       fontSize: 20,
-      fontFamily: fontFamily,
+      
     },
     modalContainer: {
       width: "100%",
       padding: 10,
-      backgroundColor: isDarkMode ? "#fff" : "#2a2a2a",
+       backgroundColor: isDarkMode ? "white" : "black",
       borderRadius: 10,
       alignItems: "center",
+      borderWidth:1,
+    borderColor:'white',
     },
     backgroundImage: {
       paddingLeft: 20,
@@ -49,17 +52,24 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     modalTitle: {
       fontSize: 18,
       marginBottom: 15,
-      fontFamily: fontFamily,
+      
+      color:isDarkMode?"black":'white'
+    },
+    favoriteSongItem:{
+      
     },
     verse1Style: {
       color: isDarkMode ? "black":'white',
-      fontFamily: fontFamily,
-      fontSize: fontSize, //20
+      fontSize: 20, //20
       paddingBottom: 30,
       fontWeight: "bold",
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "flex-start",
+    },
+    footer:{
+      color:isDarkMode ? "black":"white"
+
     },
     categoryContainer: {
       flexDirection: "row",
@@ -81,7 +91,6 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     },
     categoryButtonText: {
       fontSize: 14,
-      fontFamily: fontFamily,
       color: "#888",
     },
     selectedCategoryButtonText: {
@@ -91,22 +100,21 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       padding: 15,
       backgroundColor: "#f8f8f8",
       borderBottomWidth: 1,
-      borderBottomColor: "#eee",
+      
     },
     songCard: {
-      backgroundColor: "#fff",
+      backgroundColor: isDarkMode ? "white":"black",
       borderRadius: 2,
-      elevation: 5, // Shadow for Android
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 1 },
-      shadowOpacity: 0.2,
-      shadowRadius: 2,
-      marginBottom: 0,
-      width: 350,
-
-      justifyContent: "center",
-
-      marginVertical: 1,
+ 
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    marginBottom: 0,
+    width: 300,
+    //borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: 'white',
+    justifyContent: "center",
     },
     noResultsText: {
       marginTop: 20,
@@ -116,7 +124,7 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     searchInput: {
       height: 50,
       fontSize: 11,
-      backgroundColor: "#fff",
+      backgroundColor: isDarkMode ?"white":"black",
       borderRadius: 8,
       paddingHorizontal: 16,
       marginBottom: 10,
@@ -126,27 +134,30 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       textAlign: "left",
       writingDirection: "ltr",
       direction: "ltr",
+      color:isDarkMode ?"black":"white",
     },
     listContent: {
       paddingVertical: 10,
     },
     songDate: {
       fontSize: 12,
-      fontFamily: fontFamily,
-      color: "#888",
+       color: "#888",
       marginBottom: 5,
+    },
+    songListContainer:{
+      backgroundColor:isDarkMode ? "white":"black"
     },
     songTitle: {
       fontSize: 16,
-      fontFamily: fontFamily,
       fontWeight: "bold",
       marginBottom: 5,
       marginLeft: 15,
+      color: isDarkMode?"white":"black",
+
     },
     songLyrics: {
-      fontSize: fontSize, //14
-      fontFamily: fontFamily,
-      color: "#555",
+      fontSize: 14,
+        color: "#555",
     },
     iconContainer: {
       padding: 8,
@@ -154,6 +165,8 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     songCategory: {
       fontStyle: "italic",
       marginLeft: 15,
+      color: isDarkMode?"white":"black",
+
     },
     columnWrapper: {
       justifyContent: "space-between",
@@ -161,12 +174,12 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     selectedSongContainer: {
       padding: 16,
       marginTop: 40,
-      backgroundColor: "#fff",
+      backgroundColor: isDarkMode ? "white":"black",
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
     },
     selectedSongPlainTitle:{
-        fontFamily:fontFamily,
+       
         fontSize:40,
         color:isDarkMode ?'black':'white',
         fontWeight:'bold',
@@ -174,22 +187,20 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
         alignItems:'center'
     },
     selectedSongTitle: {
-      fontSize: fontSize, //22
-      fontFamily: fontFamily,
+      fontSize: 22,
       fontWeight: "bold",
-      color:isDarkMode?"green": "red",
+      color:isDarkMode?"green": "#00FFFF",
       paddingBottom: 20,
     },
     selectedSongTitle1: {
-      fontSize: fontSize, //22,
-      fontFamily: fontFamily,
+      fontSize: 22,
+      
       fontWeight: "bold",
       color: "black",
       marginBottom: 10,
     },
     controlButton: {
       fontSize: 18,
-      fontFamily: fontFamily,
       padding: 10,
       marginHorizontal: 10,
       color: "#007BFF",
@@ -203,25 +214,21 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     },
     selectedSongCategory: {
       fontSize: 16,
-      fontFamily: fontFamily,
       fontStyle: "italic",
       marginBottom: 5,
     },
     selectedSongArtist: {
       fontSize: 16,
-      fontFamily: fontFamily,
       color: "#555",
       marginBottom: 5,
     },
     selectedSongLyrics: {
       fontSize: 16,
-      fontFamily: fontFamily,
       color: "#777",
       marginBottom: 10,
     },
     closeButton: {
       fontSize: 16,
-      fontFamily: fontFamily,
       color: "#007bff",
       marginTop: 10,
       textAlign: "right",
@@ -257,8 +264,7 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       alignSelf:'auto',
     },
     languageText: {
-      fontSize: fontSize, //20,
-      fontFamily: fontFamily,
+      fontSize:20,
       textAlign: "center",
       color:isDarkMode?'black':'white'
     },
@@ -270,7 +276,6 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     pickerContainer: {
       width: 50,
       fontSize: 20,
-      fontFamily: fontFamily,
       fontWeight: "100",
       paddingVertical: 5,
       paddingRight: -7,
@@ -278,8 +283,7 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
     pickerText: {
       color: "#fff",
       fontSize: 14,
-      fontFamily: fontFamily,
-    },
+      },
     scrollContainer: {
       flexGrow: 1, // Allows the content to grow
       // Center content vertically
@@ -288,16 +292,12 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       width: Dimensions.get("window").width * 0.99, // Slightly narrower for balanced spacing
       justifyContent: "flex-start",
       height:'100%',
-      // Add padding for better content spacing
-      borderRadius: 15, // Rounded corners
+      borderRadius: 0, // Rounded corners
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a", // Soft background color
-      shadowColor: "#000", // Add shadow for depth
       shadowOffset: { width: 0, height: 5 },
       shadowOpacity: 0.2,
-      shadowRadius: 10,
+      shadowRadius: 0,
       elevation: 5, // For Android shadow
-      borderWidth: 1, // Add a light border for separation
-      borderColor: "#ddd", // Light border color
       alignSelf: "center", // Center horizontally
     },
     filterContainer: {
@@ -329,9 +329,11 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       margin: 20,
     },
     favoritesModalContent: {
-      backgroundColor: "#fff",
+      backgroundColor: isDarkMode? "#fff":"black",
       padding: 20,
       borderRadius: 20,
+      borderWidth:0.5,
+      borderColor:'white',
       maxHeight: "80%",
     },
     lyricContainer: {
@@ -353,5 +355,6 @@ const getStyles = (isDarkMode: boolean, fontSize: number, fontFamily: string) =>
       marginTop: 10,
       zIndex: 1,
     },
-  });
+  })
+};
   export default getStyles

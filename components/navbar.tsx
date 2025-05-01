@@ -29,32 +29,23 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 import { Picker } from "@react-native-picker/picker";
 import GestureRecognizer from "react-native-swipe-gestures";
-import { SlideInUp, SlideOutDown } from "react-native-reanimated";
-import LinearGradient from "react-native-linear-gradient";
 import { Appearance } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SongList from "./SongList";
-import FontSizeAdjustScreen from "./FontAdjustScreen";
 import CollapsibleActionButton from "./CollapsibleActionButton";
 import  getStyles from '../components/css/app'
 import allSongs from "@/data/allsongs";
-
+import  {useTheme } from "@/app/ThemeProvier";
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
   route: RouteProp<any>;
 };
 const NavbarScreen: FC<NavbarScreenProps> = () => {
+  const { isDarkMode, toggleTheme } = useTheme();
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Roboto");
-  const [isDarkMode, setIsDarkMode] = useState(
-    Appearance.getColorScheme() === "dark"
-  );
-
-  const styles = useMemo(
-    () => getStyles(isDarkMode, fontSize, fontFamily),
-    [isDarkMode, fontSize, fontFamily]
-  );
+  const styles = getStyles(isDarkMode);
 
   Dimensions.get("window");
 
@@ -253,48 +244,41 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   };
 
   // song item renderer
-  const renderSongItem: ListRenderItem<Song> = useMemo(
-    () =>
-      ({ item }: { item: Song }) => {
-        // Get full song list for current language
-        const fullSongs =
-          allSongs.find((lang) => lang.language_key === selectedLanguage)
-            ?.Content || [];
-
-        return (
-          <TouchableOpacity
-            style={styles.songCard}
-            onPress={() => {
-              // Find index in FULL list, not filtered
-              const indexInFullList = fullSongs.findIndex(
-                (song) => song.id === item.id
-              );
-              if (indexInFullList !== -1) {
-                setCurrentSongIndex(indexInFullList);
-                setSelectedSong(fullSongs[indexInFullList]);
-              }
-              closeSearchModal();
-            }}
-          >
-            <Text style={styles.songTitle}>{item.title}</Text>
-            <Text style={styles.songCategory}>{item.artist}</Text>
-            <Icon
-              name={
-                favorites.includes(`${selectedLanguage}_${item.id}`)
-                  ? "delete"
-                  : "delete"
-              }
-              size={16}
-              color={
-                favorites.includes(`${selectedLanguage}_${item.id}`)
-                  ? "#ff4444"
-                  : "#888"
-              }
-            />
-          </TouchableOpacity>
-        );
-      },
-    [favorites, selectedLanguage]
+  const renderSongItem: ListRenderItem<Song> = useCallback(
+    ({ item }: { item: Song }) => {
+      const fullSongs =
+        allSongs.find((lang) => lang.language_key === selectedLanguage)
+          ?.Content || [];
+  
+      return (
+        <TouchableOpacity
+        style={[
+      styles.songCard, // base static styles
+      {
+        backgroundColor: isDarkMode ? "white" : "black",
+        }
+    ]}
+          onPress={() => {
+            const indexInFullList = fullSongs.findIndex(
+              (song) => song.id === item.id
+            );
+            if (indexInFullList !== -1) {
+              setCurrentSongIndex(indexInFullList);
+              setSelectedSong(fullSongs[indexInFullList]);
+            }
+            closeSearchModal();
+          }}
+        >
+          <Text style={[styles.songTitle, {color: isDarkMode ? "black" : "white"}]}>
+            {item.title}
+          </Text>
+          <Text style={[styles.songCategory,{color: isDarkMode ? "black" : "white"}]}>
+            {item.artist}
+          </Text>
+        </TouchableOpacity>
+      );
+    },
+    [allSongs, favorites, selectedLanguage, isDarkMode]
   );
 
   const setDefaultSongsForLanguage = () => {
@@ -413,9 +397,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   }, [swipeLock, currentSongIndex, selectedLanguage]);
 
   // Dark mode toggle
-  const toggleDarkMode = useCallback(() => {
-    setIsDarkMode((prev) => !prev);
-  }, []);
+  // const toggleDarkMode = useCallback(() => {
+  //   setIsDarkMode((prev) => !prev);
+  // }, []);
 
   const handleSongSelect = (item: Song): void => {
     setSelectedSong(item);
@@ -448,6 +432,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
+
+
+
         {selectedSong && (
           <TouchableOpacity
             style={styles.backButton}
@@ -581,7 +568,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               <TextInput
                 style={styles.searchInput}
                 placeholder={searchPlaceholders[selectedLanguage] || "ይፈልጉ..."}
-                placeholderTextColor={"#888"}
+                placeholderTextColor={isDarkMode?"black":"white"}
                 value={searchText}
                 onChangeText={(text) => {
                   setSearchText(text);
@@ -596,6 +583,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                   }
                   renderItem={renderSongItem}
                   nestedScrollEnabled={true}
+                  extraData={isDarkMode}
                 />
               ) : (
                 <Text style={styles.noResultsText}></Text>
@@ -603,7 +591,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             </View>
           </Modal>
         )}
-        <TouchableOpacity onPress={toggleDarkMode}>
+        <TouchableOpacity onPress={toggleTheme}>
           <Ionicons
             name={isDarkMode ? "sunny" : "moon"}
             size={25}
@@ -653,7 +641,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       {verse}
                     </Text>
                   ))}
-                  <Text>Author: {selectedSong.artist} </Text>
+                  <Text style = {styles.footer}>Author: {selectedSong.artist} </Text>
               </ImageBackground>
             </View>
             <CollapsibleActionButton
