@@ -38,7 +38,7 @@ import SongList from "./SongList";
 import CollapsibleActionButton from "./CollapsibleActionButton";
 import getStyles from "../components/css/app";
 import allSongs from "@/data/allsongs";
-import  {useTheme } from "@/app/ThemeProvier";
+import { useTheme } from "@/app/ThemeProvier";
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -48,7 +48,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Roboto");
-  const styles = getStyles(isDarkMode);
+  const styles = getStyles(isDarkMode, fontSize, fontFamily);
 
   Dimensions.get("window");
 
@@ -251,15 +251,15 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       const fullSongs =
         allSongs.find((lang) => lang.language_key === selectedLanguage)
           ?.Content || [];
-  
+
       return (
         <TouchableOpacity
-        style={[
-      styles.songCard, // base static styles
-      {
-        backgroundColor: isDarkMode ? "white" : "black",
-        }
-    ]}
+          style={[
+            styles.songCard, // base static styles
+            {
+              backgroundColor: isDarkMode ? "white" : "black",
+            },
+          ]}
           onPress={() => {
             const indexInFullList = fullSongs.findIndex(
               (song) => song.id === item.id
@@ -271,10 +271,20 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             closeSearchModal();
           }}
         >
-          <Text style={[styles.songTitle, {color: isDarkMode ? "black" : "white"}]}>
+          <Text
+            style={[
+              styles.songTitle,
+              { color: isDarkMode ? "black" : "white" },
+            ]}
+          >
             {item.title}
           </Text>
-          <Text style={[styles.songCategory,{color: isDarkMode ? "black" : "white"}]}>
+          <Text
+            style={[
+              styles.songCategory,
+              { color: isDarkMode ? "black" : "white" },
+            ]}
+          >
             {item.artist}
           </Text>
         </TouchableOpacity>
@@ -434,9 +444,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
-
-
-
         {selectedSong && (
           <TouchableOpacity
             style={styles.backButton}
@@ -488,7 +495,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             isVisible={isModalVisible}
             onBackdropPress={() => setModalVisible(false)}
             animationOut="slideOutDown"
-            
             backdropOpacity={0.5}
           >
             <View style={styles.modalContent}>
@@ -570,7 +576,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               <TextInput
                 style={styles.searchInput}
                 placeholder={searchPlaceholders[selectedLanguage] || "ይፈልጉ..."}
-                placeholderTextColor={isDarkMode?"black":"white"}
+                placeholderTextColor={isDarkMode ? "black" : "white"}
                 value={searchText}
                 onChangeText={(text) => {
                   setSearchText(text);
@@ -617,7 +623,11 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             <View style={styles.songContainer}>
               <ImageBackground
-                source= {isDarkMode ? require("../assets/images/S.jpg"):require("../assets/images/inverted_S.jpg")}
+                source={
+                  isDarkMode
+                    ? require("../assets/images/S.jpg")
+                    : require("../assets/images/inverted_S.jpg")
+                }
                 style={[styles.backgroundImage, { paddingBottom: 60 }]}
               >
                 {/* Verses Display */}
@@ -644,7 +654,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       {verse}
                     </Text>
                   ))}
-                  <Text style = {styles.footer}>Author: {selectedSong.artist} </Text>
+                <Text style={styles.footer}>
+                  Author: {selectedSong.artist}{" "}
+                </Text>
               </ImageBackground>
             </View>
             <CollapsibleActionButton
