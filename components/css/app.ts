@@ -16,7 +16,7 @@ const getStyles = (isDarkMode:boolean) =>{
       alignItems: "center",
       padding: 10,
       backgroundColor: isDarkMode ? "green" : "#2a2a2a",
-      marginTop: 2,
+     //// marginTop: 2,
     },
     number: {
       color: "#fff",

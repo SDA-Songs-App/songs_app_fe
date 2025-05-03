@@ -13,7 +13,7 @@ import { Song } from "@/app/types";
 import { ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import songListStyles from "./css/song-list";
-
+import allSongs from "@/data/allsongs";
 type FavoriteKey = `${string}_${number}`;
 
 // Type guard to validate favorite keys
@@ -107,7 +107,7 @@ const SongList = memo(
         }
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
-            <Text style={styles.emptyText}>No songs found</Text>
+            <Text style={styles.emptyText}>{allSongs.find((key) =>key.language_key ===currentLanguage)?.notFound}</Text>
           </View>
         }
       />

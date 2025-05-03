@@ -162,7 +162,7 @@ const LandingPage = () => {
         </View>
         <View style={styles.heroSection}>
           <Text style={styles.heroTitle}>
-            በኢትዮጲያ ሰባተኛ ቀን አድቬንቲስት ቤ/ክ በተለያየ ቋንቋ የተዘጋጀ የመዝሙር ደብተር
+            በኢትዮጲያ ሰባተኛ ቀን አድቬንቲስት ቤ/ክ በተለያየ ቋንቋ የተዘጋጀ የመዝሙር መተግበሪያ
           </Text>
           {/** Welcome To The SDA Songs App*
             Explore lyrics, favorites, and albums with ease.
@@ -199,7 +199,7 @@ const LandingPage = () => {
           {/* Now list the lines or items from your image */}
 
           <View style={styles.footerRow}>
-            <Text style={styles.headingTitle}>የመዝሙር ደብተር</Text>
+            <Text style={styles.headingTitle}>የመዝሙር መተግበሪያ</Text>
           </View>
           <View style={styles.twoColumnContainer}>
             <View style={styles.column}>
