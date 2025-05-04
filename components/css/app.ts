@@ -252,15 +252,19 @@ const getStyles = (isDarkMode:boolean) =>{
       paddingRight: width * 0.03,
     },
     modalContent: {     
+      position: 'absolute',
+      top: 60, 
+      right: 5, 
+      width: width * 0.3 ,//for responsive sizing
+      backgroundColor: isDarkMode ? '#fff' : '#2a2a2a',
       borderRadius: 8,
-      width: width * 0.3,
-      // marginTop: height * -0.315,
-      marginLeft: width * 0.645,
-      marginRight: width * 0.0001,
-      paddingRight: width * 0.06, 
-      borderWidth:isDarkMode?0:2,
-      borderColor:'white',
-      backgroundColor: isDarkMode?'#fff': "black",
+      borderWidth: isDarkMode ? 0 : 1,
+      borderColor: 'white',
+      paddingVertical: 8,
+      zIndex: 999, // Make sure it overlays
+      justifyContent:'center',
+      alignItems:'center',
+      paddingRight:25,
 
     },
     languageOption: {

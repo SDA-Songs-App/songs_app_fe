@@ -15,9 +15,9 @@ const localizations =[
     },
     {
         language_key: "ሀዲይኛ",
-        Header:"የተመረጡ መዝሙሮች",
-        notFound:"",
-    author:"",
+        Header:"Doollaanto'o geemmuwwa",
+        notFound:"Mahiimmi geemmo'o siidaamuukkooyyo",
+        author:"Geemmoaanchich (geemmooaaninne)",
 
     },
     { 

@@ -491,7 +491,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             animationOut="slideOutDown"
             
             backdropOpacity={0.5}
-            style = {styles.langOptionModalContainer}
+            style={{ margin: 0 }}
           >
             <View style={styles.modalContent}>
               {allSongs.map((language) => (
