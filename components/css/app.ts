@@ -248,17 +248,17 @@ const getStyles = (isDarkMode:boolean) =>{
       justifyContent: 'flex-start', // Align at top
       alignItems: 'flex-end', // Align to right
       margin: 0,
-      paddingTop: height * 0.075, // Adjust depending on navbar height
+      paddingTop: height * 0.08, // Adjust depending on navbar height
       paddingRight: width * 0.03,
     },
     modalContent: {     
       borderRadius: 8,
       width: width * 0.3,
       // marginTop: height * -0.315,
-       marginLeft: width * 0.645,
-       marginRight: width * 0.0001,
+      marginLeft: width * 0.645,
+      marginRight: width * 0.0001,
       paddingRight: width * 0.06, 
-       borderWidth:isDarkMode?0:2,
+      borderWidth:isDarkMode?0:2,
       borderColor:'white',
       backgroundColor: isDarkMode?'#fff': "black",
 
