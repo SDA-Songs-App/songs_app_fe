@@ -331,7 +331,7 @@ const getStyles = (
       shadowOffset: { width: 0, height: 5 },
       shadowOpacity: 0.2,
       shadowRadius: 0,
-      elevation: 5, // For Android shadow
+      // elevation: 5, // For Android shadow
       alignSelf: "center", // Center horizontally
     },
     filterContainer: {
