@@ -38,7 +38,8 @@ import SongList from "./SongList";
 import CollapsibleActionButton from "./CollapsibleActionButton";
 import getStyles from "../components/css/app";
 import allSongs from "@/data/allsongs";
-import { useTheme } from "@/app/ThemeProvier";
+import localizations from "@/data/localizations"
+import  {useTheme } from "@/app/ThemeProvier";
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -98,14 +99,14 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const searchPlaceholders: Record<string, string> = {
     አማርኛ: "በመዝ. ርዕስ፣ ቁጥር፣ ምድብ፣ ወይም በዘማሪ ስም ይፈልጉ",
     English: "Search by title, category, or artist name",
-    Oromo: "Search by title, category, or artist name",
-    ሲዳሚኛ: "Search by title, category, or artist name",
-    ትግርኛ: "በመዝ. ርዕስ፣ ቁጥር፣ ምድብ፣ ወይም በዘማሪ ስም ይፈልጉ",
-    ከምባትኛ: "Search by title, category, or artist name",
+    Oromo: "Mata dureen, Tartiibaan ykn faarfattootaan/ Maqaa faarfattootaa barbaadaa",
+    ሲዳሚኛ: "Birxichunni, gaamotenni wey faarsaannote su'minni hasse",
+    ትግርኛ: "ብኣርእስቲ ብመደብ ወይ ከዓ ብዘማሪ ስም ይድለዩ",
+    ከምባትኛ: "boqqo xawwin te zammaraanch/zamaran su'mmin su'mmiin hashe",
     ሀዲይኛ: "በመዝ. ርዕስ፣ ቁጥር፣ ምድብ፣ ወይም በዘማሪ ስም ይፈልጉ",
-    ወላይትኛ: "Search by title, category, or artist name",
-    Neur: "Search by title, category, or artist name",
-    ጉራጊኛ: "Search by title, category, or artist name",
+    ወላይትኛ: "Huuphe yohuwan Woyikko Sabanchchan / Sabanchatu Sunttaa Koyite",
+    Neur: "Kä göörɛ kɛ  kɛ thäänyniknɛn kiɛ caak ti cikɛ cak/wutnikiɛ män",
+    ጉራጊኛ: "በሸድ ሸድ ዌም ቢዘምር ዌም ቢዘምሮዌ ሽም ሳቦ።",
   };
 
   const resetActiveSongsForLanguage = () => {
@@ -496,6 +497,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             onBackdropPress={() => setModalVisible(false)}
             animationOut="slideOutDown"
             backdropOpacity={0.5}
+            style={{ margin: 0 }}
           >
             <View style={styles.modalContent}>
               {allSongs.map((language) => (
@@ -532,7 +534,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             {selectedSong && (
               <View style={styles.favoritesModalContent}>
-                <Text style={styles.modalTitle}>ተወዳጅ መዝሙሮች</Text>
+                <Text style={styles.modalTitle}>{allSongs.find((l) => l.language_key === selectedLanguage)?.Header || "No Header"}</Text>
                 <SongList
                   data={
                     allSongs.find((l) => l.language_key === selectedLanguage)
@@ -594,7 +596,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                   extraData={isDarkMode}
                 />
               ) : (
-                <Text style={styles.noResultsText}></Text>
+                <Text style={styles.noResultsText}>{allSongs.find((key) =>key.language_key ===selectedLanguage)?.notFound}</Text>
               )}
             </View>
           </Modal>
@@ -654,9 +656,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       {verse}
                     </Text>
                   ))}
-                <Text style={styles.footer}>
-                  Author: {selectedSong.artist}{" "}
-                </Text>
+                  <Text style = {styles.footer}>{localizations.find((key) =>key.language_key === selectedLanguage)?.author}: {selectedSong.artist} </Text>
               </ImageBackground>
             </View>
             <CollapsibleActionButton

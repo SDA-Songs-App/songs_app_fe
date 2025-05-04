@@ -7,6 +7,7 @@ const landingPageStyles = () =>
           container: {
             flexGrow: 1,
             alignItems: "center",
+            paddingTop:80
           },
           header: {
             paddingTop: 50,

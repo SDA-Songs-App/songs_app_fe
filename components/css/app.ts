@@ -20,7 +20,7 @@ const getStyles = (
       alignItems: "center",
       padding: 10,
       backgroundColor: isDarkMode ? "green" : "#2a2a2a",
-      marginTop: 2,
+     //// marginTop: 2,
     },
     number: {
       color: "#fff",
@@ -265,16 +265,28 @@ const getStyles = (
       alignItems: "center",
       backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
-    modalContent: {
+    langOptionModalContainer:{
+      justifyContent: 'flex-start', // Align at top
+      alignItems: 'flex-end', // Align to right
+      margin: 0,
+      paddingTop: height * 0.08, // Adjust depending on navbar height
+      paddingRight: width * 0.03,
+    },
+    modalContent: {     
+      position: 'absolute',
+      top: 60, 
+      right: 5, 
+      width: width * 0.3 ,//for responsive sizing
+      backgroundColor: isDarkMode ? '#fff' : '#2a2a2a',
       borderRadius: 8,
-      width: width * 0.3,
-      marginTop: height * -0.09,
-      marginLeft: width * 0.645,
-      marginRight: width * 0.01,
-      paddingRight: width * 0.06,
-      borderWidth: isDarkMode ? 0 : 2,
-      borderColor: "white",
-      backgroundColor: isDarkMode ? "#fff" : "black",
+      borderWidth: isDarkMode ? 0 : 1,
+      borderColor: 'white',
+      paddingVertical: 8,
+      zIndex: 999, // Make sure it overlays
+      justifyContent:'center',
+      alignItems:'center',
+      paddingRight:25,
+
     },
     languageOption: {
       paddingVertical: 10,
