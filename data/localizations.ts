@@ -50,7 +50,7 @@ const localizations =[
     },
     {
         language_key: "ትግርኛ",
-        Header:"የተመረጡ መዝሙሮች",
+        Header:"ዝመረጽዎ መዝሙር",
         notFound:"ዝደለይዎ መዝሙር ኣይተረኽበን",
         author:"ዘማሪ / ዘመርቲ"
     },
