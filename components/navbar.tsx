@@ -49,7 +49,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Roboto");
-  const styles = getStyles(isDarkMode);
+  const styles = getStyles(isDarkMode, fontSize, fontFamily);
 
   Dimensions.get("window");
 
@@ -252,15 +252,15 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       const fullSongs =
         allSongs.find((lang) => lang.language_key === selectedLanguage)
           ?.Content || [];
-  
+
       return (
         <TouchableOpacity
-        style={[
-      styles.songCard, // base static styles
-      {
-        backgroundColor: isDarkMode ? "white" : "black",
-        }
-    ]}
+          style={[
+            styles.songCard, // base static styles
+            {
+              backgroundColor: isDarkMode ? "white" : "black",
+            },
+          ]}
           onPress={() => {
             const indexInFullList = fullSongs.findIndex(
               (song) => song.id === item.id
@@ -272,10 +272,20 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             closeSearchModal();
           }}
         >
-          <Text style={[styles.songTitle, {color: isDarkMode ? "black" : "white"}]}>
+          <Text
+            style={[
+              styles.songTitle,
+              { color: isDarkMode ? "black" : "white" },
+            ]}
+          >
             {item.title}
           </Text>
-          <Text style={[styles.songCategory,{color: isDarkMode ? "black" : "white"}]}>
+          <Text
+            style={[
+              styles.songCategory,
+              { color: isDarkMode ? "black" : "white" },
+            ]}
+          >
             {item.artist}
           </Text>
         </TouchableOpacity>
@@ -435,9 +445,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
-
-
-
         {selectedSong && (
           <TouchableOpacity
             style={styles.backButton}
@@ -489,7 +496,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             isVisible={isModalVisible}
             onBackdropPress={() => setModalVisible(false)}
             animationOut="slideOutDown"
-            
             backdropOpacity={0.5}
             style={{ margin: 0 }}
           >
@@ -572,7 +578,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               <TextInput
                 style={styles.searchInput}
                 placeholder={searchPlaceholders[selectedLanguage] || "ይፈልጉ..."}
-                placeholderTextColor={isDarkMode?"black":"white"}
+                placeholderTextColor={isDarkMode ? "black" : "white"}
                 value={searchText}
                 onChangeText={(text) => {
                   setSearchText(text);
@@ -619,7 +625,11 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             <View style={styles.songContainer}>
               <ImageBackground
-                source= {isDarkMode ? require("../assets/images/S.jpg"):require("../assets/images/inverted_S.jpg")}
+                source={
+                  isDarkMode
+                    ? require("../assets/images/S.jpg")
+                    : require("../assets/images/inverted_S.jpg")
+                }
                 style={[styles.backgroundImage, { paddingBottom: 60 }]}
               >
                 {/* Verses Display */}

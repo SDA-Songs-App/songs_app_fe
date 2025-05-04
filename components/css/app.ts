@@ -1,8 +1,12 @@
-import { useTheme } from '@/app/ThemeProvier';
-import {Dimensions, StyleSheet} from 'react-native'
-const { width, height } = Dimensions.get('window');
-const getStyles = (isDarkMode:boolean) =>{
- // const { isDarkMode } = useTheme();
+import { useTheme } from "@/app/ThemeProvier";
+import { Dimensions, StyleSheet } from "react-native";
+const { width, height } = Dimensions.get("window");
+const getStyles = (
+  isDarkMode: boolean,
+  fontSize: number,
+  fontFamily: string
+) => {
+  // const { isDarkMode } = useTheme();
   return StyleSheet.create({
     container: {
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a",
@@ -21,16 +25,16 @@ const getStyles = (isDarkMode:boolean) =>{
     number: {
       color: "#fff",
       fontSize: 20,
-      
+      fontFamily: fontFamily,
     },
     modalContainer: {
       width: "100%",
       padding: 10,
-       backgroundColor: isDarkMode ? "white" : "black",
+      backgroundColor: isDarkMode ? "white" : "black",
       borderRadius: 10,
       alignItems: "center",
-      borderWidth:1,
-    borderColor:'white',
+      borderWidth: 1,
+      borderColor: "white",
     },
     backgroundImage: {
       paddingLeft: 20,
@@ -42,7 +46,7 @@ const getStyles = (isDarkMode:boolean) =>{
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "rgb(0, 0, 0, 0.5",
+      backgroundColor: "rgb(0, 0, 0, 0.5)",
     },
     filterRow: {
       flexDirection: "row",
@@ -51,25 +55,23 @@ const getStyles = (isDarkMode:boolean) =>{
     },
     modalTitle: {
       fontSize: 18,
+      fontFamily: fontFamily,
       marginBottom: 15,
-      
-      color:isDarkMode?"black":'white'
+      color: isDarkMode ? "black" : "white",
     },
-    favoriteSongItem:{
-      
-    },
+    favoriteSongItem: {},
     verse1Style: {
-      color: isDarkMode ? "black":'white',
-      fontSize: 20, //20
+      color: isDarkMode ? "black" : "white",
+      fontSize: fontSize, //20
+      fontFamily: fontFamily,
       paddingBottom: 30,
       fontWeight: "bold",
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "flex-start",
     },
-    footer:{
-      color:isDarkMode ? "black":"white"
-
+    footer: {
+      color: isDarkMode ? "black" : "white",
     },
     categoryContainer: {
       flexDirection: "row",
@@ -91,30 +93,30 @@ const getStyles = (isDarkMode:boolean) =>{
     },
     categoryButtonText: {
       fontSize: 14,
+      fontFamily: fontFamily,
       color: "#888",
     },
     selectedCategoryButtonText: {
       color: "#fff",
+      fontFamily: fontFamily,
     },
     songItem: {
       padding: 15,
       backgroundColor: "#f8f8f8",
       borderBottomWidth: 1,
-      
     },
     songCard: {
-      backgroundColor: isDarkMode ? "white":"black",
+      backgroundColor: isDarkMode ? "white" : "black",
       borderRadius: 2,
- 
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    marginBottom: 0,
-    width: 300,
-    //borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: isDarkMode? 'black':"white",
-    justifyContent: "center",
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.2,
+      shadowRadius: 2,
+      marginBottom: 0,
+      width: 300,
+      //borderTopWidth: 1,
+      borderBottomWidth: 1,
+      borderColor: isDarkMode ? "black" : "white",
+      justifyContent: "center",
     },
     noResultsText: {
       marginTop: 20,
@@ -124,7 +126,8 @@ const getStyles = (isDarkMode:boolean) =>{
     searchInput: {
       height: 50,
       fontSize: 11,
-      backgroundColor: isDarkMode ?"white":"black",
+      fontFamily: fontFamily,
+      backgroundColor: isDarkMode ? "white" : "black",
       borderRadius: 8,
       paddingHorizontal: 16,
       marginBottom: 10,
@@ -134,39 +137,43 @@ const getStyles = (isDarkMode:boolean) =>{
       textAlign: "left",
       writingDirection: "ltr",
       direction: "ltr",
-      color:isDarkMode ?"black":"white",
+      color: isDarkMode ? "black" : "white",
     },
     listContent: {
       paddingVertical: 10,
     },
     songDate: {
       fontSize: 12,
-       color: "#888",
+      fontFamily: fontFamily,
+      color: "#888",
       marginBottom: 5,
     },
-    songListContainer:{
-      backgroundColor:isDarkMode ? "white":"black"
+    songListContainer: {
+      backgroundColor: isDarkMode ? "white" : "black",
     },
     songTitle: {
-      fontSize: 16,
+      fontSize: 18,
+      fontFamily: fontFamily,
       fontWeight: "bold",
       marginBottom: 5,
       marginLeft: 15,
-      color: isDarkMode?"white":"black",
-
+      color: isDarkMode ? "white" : "black",
     },
+    //Not used any where
     songLyrics: {
-      fontSize: 14,
-        color: "#555",
+      fontSize: 30,
+      fontFamily: fontFamily,
+      color: "#555",
     },
     iconContainer: {
       padding: 8,
     },
     songCategory: {
       fontStyle: "italic",
+      fontSize: 16,
+      fontFamily: fontFamily,
       marginLeft: 15,
-      color: isDarkMode?"white":"black",
-
+      color: isDarkMode ? "white" : "black",
     },
     columnWrapper: {
       justifyContent: "space-between",
@@ -174,33 +181,43 @@ const getStyles = (isDarkMode:boolean) =>{
     selectedSongContainer: {
       padding: 16,
       marginTop: 40,
-      backgroundColor: isDarkMode ? "white":"black",
+      backgroundColor: isDarkMode ? "white" : "black",
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
     },
-    selectedSongPlainTitle:{
-       
-        fontSize:40,
-        color:isDarkMode ?'black':'white',
-        fontWeight:'bold',
-        justifyContent:'center',
-        alignItems:'center'
+    selectedSongPlainTitle: {
+      fontSize: fontSize + fontSize * 0.25,
+      textShadowColor: isDarkMode ? "rgba(13, 106, 18, 0.75)" : "#F295ED",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 10,
+      fontFamily: fontFamily,
+      textDecorationLine: "underline",
+      textDecorationStyle: "solid",
+      textDecorationColor: isDarkMode ? "rgba(13, 106, 18, 0.75)" : "#F295ED",
+      textAlign: "center",
+      color: isDarkMode ? "rgba(0, 11, 28, 0.8)" : "rgba(255, 244, 227, 0.8)",
+      fontWeight: "bold",
+      paddingBottom: 10,
+      padding: 5,
     },
     selectedSongTitle: {
-      fontSize: 22,
+      fontSize: fontSize,
+      fontFamily: fontFamily,
       fontWeight: "bold",
-      color:isDarkMode?"green": "#00FFFF",
+      color: isDarkMode ? "green" : "#00FFFF",
       paddingBottom: 20,
     },
     selectedSongTitle1: {
-      fontSize: 22,
-      
+      fontSize: fontSize,
+      fontFamily: fontFamily,
       fontWeight: "bold",
       color: "black",
       marginBottom: 10,
     },
     controlButton: {
       fontSize: 18,
+      fontFamily: fontFamily,
+      fontWeight: "bold",
       padding: 10,
       marginHorizontal: 10,
       color: "#007BFF",
@@ -214,21 +231,25 @@ const getStyles = (isDarkMode:boolean) =>{
     },
     selectedSongCategory: {
       fontSize: 16,
+      fontFamily: fontFamily,
       fontStyle: "italic",
       marginBottom: 5,
     },
     selectedSongArtist: {
       fontSize: 16,
+      fontFamily: fontFamily,
       color: "#555",
       marginBottom: 5,
     },
     selectedSongLyrics: {
-      fontSize: 16,
+      fontSize: fontSize,
+      fontFamily: fontFamily,
       color: "#777",
       marginBottom: 10,
     },
     closeButton: {
       fontSize: 16,
+      fontFamily: fontFamily,
       color: "#007bff",
       marginTop: 10,
       textAlign: "right",
@@ -275,9 +296,9 @@ const getStyles = (isDarkMode:boolean) =>{
       alignSelf: "auto",
     },
     languageText: {
-      fontSize:20,
+      fontSize: 16,
       textAlign: "center",
-      color:isDarkMode?'black':'white'
+      color: isDarkMode ? "black" : "white",
     },
     langContainer: {
       flexDirection: "row",
@@ -294,7 +315,9 @@ const getStyles = (isDarkMode:boolean) =>{
     pickerText: {
       color: "#fff",
       fontSize: 14,
-      },
+      fontFamily: fontFamily,
+      fontWeight: "bold",
+    },
     scrollContainer: {
       flexGrow: 1, // Allows the content to grow
       // Center content vertically
@@ -302,7 +325,7 @@ const getStyles = (isDarkMode:boolean) =>{
     songContainer: {
       width: Dimensions.get("window").width * 0.99, // Slightly narrower for balanced spacing
       justifyContent: "flex-start",
-      height:'100%',
+      height: "100%",
       borderRadius: 0, // Rounded corners
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a", // Soft background color
       shadowOffset: { width: 0, height: 5 },
@@ -340,11 +363,12 @@ const getStyles = (isDarkMode:boolean) =>{
       margin: 20,
     },
     favoritesModalContent: {
-      backgroundColor: isDarkMode? "#fff":"black",
+      backgroundColor: isDarkMode ? "#fff" : "black",
+      fontFamily: fontFamily,
       padding: 20,
       borderRadius: 20,
-      borderWidth:0.5,
-      borderColor:'white',
+      borderWidth: 0.5,
+      borderColor: "white",
       maxHeight: "80%",
     },
     lyricContainer: {
@@ -356,8 +380,9 @@ const getStyles = (isDarkMode:boolean) =>{
     },
     fullLyricText: {
       fontSize: 16,
+      fontFamily: fontFamily,
+      color: isDarkMode ? "black" : "white",
       fontWeight: "bold",
-      color: "#333",
       marginBottom: 8,
     },
     actionButtons: {
@@ -366,6 +391,6 @@ const getStyles = (isDarkMode:boolean) =>{
       marginTop: 10,
       zIndex: 1,
     },
-  })
+  });
 };
-  export default getStyles
+export default getStyles;

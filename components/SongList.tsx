@@ -13,6 +13,8 @@ import { Song } from "@/app/types";
 import { ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import songListStyles from "./css/song-list";
+import { useTheme } from "@/app/ThemeProvier";
+
 import allSongs from "@/data/allsongs";
 type FavoriteKey = `${string}_${number}`;
 
@@ -48,9 +50,12 @@ const SongList = memo(
       () => favorites.filter((key) => key.startsWith(`${currentLanguage}_`)),
       [favorites, currentLanguage]
     );
-    
-  
-  const styles = songListStyles()
+
+    const { isDarkMode, toggleTheme } = useTheme();
+    const [fontSize, setFontSize] = useState(16);
+    const [fontFamily, setFontFamily] = useState("Roboto");
+
+    const styles = songListStyles(isDarkMode, fontSize, fontFamily);
     // Filter data to show only favorited songs
     const filteredData = useMemo(
       () =>
