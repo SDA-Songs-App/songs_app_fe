@@ -3,14 +3,14 @@ const localizations =[
         language_key: "ጉራጊኛ",
         Header:"የሸፗችዮ ዝምራ",
         notFound:"ዝምራ አቸም አነከዊ",
-    author:" ዝሙረነ",
+        author:" ዝሙረነ",
 
     },
     {
         language_key: "አማርኛ",
         Header:"የተመረጡ መዝሙሮች",
         notFound:"ምንም መዝሙር አልተገኘም",
-    author:"ዘማሪ / ዘማሪያን",
+        author:"ዘማሪ / ዘማሪያን",
 
     },
     {
@@ -31,21 +31,21 @@ const localizations =[
         language_key: "Neur",
         Header:"Kɛn diit tin caa liny",
         notFound:"Thiɛlɛ diit mi cakɔ jek",
-    author:"Cääk/Caak",
+        author:"Cääk/Caak",
 
     },
     {
         language_key: "Oromo",
         Header:"Faarfannoota filataman",
         notFound:"Faarfannaan hin argamne",
-    author:"Faarfataa/Faarfattoota",
+        author:"Faarfataa/Faarfattoota",
 
     },
     {
         language_key: "ሲዳሚኛ",
         Header:"Doorantino faarsubba",
         notFound:"Mitte faarsono diafantino",
-    author:"Faarsaancho / faarsaano",
+        author:"Faarsaancho / faarsaano",
 
     },
     {
