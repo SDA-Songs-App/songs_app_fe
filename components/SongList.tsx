@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useState } from "react";
 import {
   View,
   Text,
@@ -6,12 +6,16 @@ import {
   FlatList,
   ListRenderItem,
   StyleSheet,
+  Appearance,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { Song } from "@/app/types";
 import { ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import songListStyles from "./css/song-list";
+import { useTheme } from "@/app/ThemeProvier";
 
+import allSongs from "@/data/allsongs";
 type FavoriteKey = `${string}_${number}`;
 
 // Type guard to validate favorite keys
@@ -47,6 +51,11 @@ const SongList = memo(
       [favorites, currentLanguage]
     );
 
+    const { isDarkMode, toggleTheme } = useTheme();
+    const [fontSize, setFontSize] = useState(16);
+    const [fontFamily, setFontFamily] = useState("Roboto");
+
+    const styles = songListStyles(isDarkMode, fontSize, fontFamily);
     // Filter data to show only favorited songs
     const filteredData = useMemo(
       () =>
@@ -77,9 +86,9 @@ const SongList = memo(
             onPress={() => onToggleFavorite(item.id)}
             style={styles.favoriteButton}
           >
-            <Ionicons
-              name={isFavorite ? "remove-circle-sharp" : "remove-circle-sharp"}
-              size={20}
+            <Icon
+              name={"trash"}
+              size={16}
               color={isFavorite ? "#ff4444" : "#888"}
             />
           </TouchableOpacity>
@@ -103,7 +112,7 @@ const SongList = memo(
         }
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
-            <Text style={styles.emptyText}>No songs found</Text>
+            <Text style={styles.emptyText}>{allSongs.find((key) =>key.language_key ===currentLanguage)?.notFound}</Text>
           </View>
         }
       />
@@ -111,54 +120,55 @@ const SongList = memo(
   }
 );
 
-const styles = StyleSheet.create({
-  songCard: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 15,
-    backgroundColor: "#fff",
-    marginVertical: 4,
-    borderRadius: 8,
-    elevation: 2,
-  },
-  songInfoContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    flex: 1,
-  },
-  songTextContainer: {
-    marginLeft: 12,
-  },
-  songNumber: {
-    fontSize: 16,
-    color: "#888",
-  },
-  songTitle: {
-    fontSize: 16,
-    fontWeight: "500",
-    color: "#333",
-  },
-  songArtist: {
-    fontSize: 14,
-    color: "#666",
-    marginTop: 4,
-  },
-  favoriteButton: {
-    padding: 8,
-  },
-  loadingContainer: {
-    padding: 16,
-    alignItems: "center",
-  },
-  emptyContainer: {
-    padding: 20,
-    alignItems: "center",
-  },
-  emptyText: {
-    color: "#888",
-    fontSize: 16,
-  },
-});
+// const styles = StyleSheet.create({
+//   songCard: {
+//     flexDirection: "row",
+//     justifyContent: "space-between",
+//     alignItems: "center",
+//     padding: 15,
+//     backgroundColor: "#fff",
+//     marginVertical: 4,
+//     borderRadius: 8,
+//     elevation: 2,
+//   },
+//   songInfoContainer: {
+//     flexDirection: "row",
+//     alignItems: "center",
+//     flex: 1,
+//     color:'white'
+//   },
+//   songTextContainer: {
+//     marginLeft: 12,
+//   },
+//   songNumber: {
+//     fontSize: 16,
+//     color: "#888",
+//   },
+//   songTitle: {
+//     fontSize: 16,
+//     fontWeight: "500",
+//     color: "#333",
+//   },
+//   songArtist: {
+//     fontSize: 14,
+//     color: "#666",
+//     marginTop: 4,
+//   },
+//   favoriteButton: {
+//     padding: 8,
+//   },
+//   loadingContainer: {
+//     padding: 16,
+//     alignItems: "center",
+//   },
+//   emptyContainer: {
+//     padding: 20,
+//     alignItems: "center",
+//   },
+//   emptyText: {
+//     color: "#888",
+//     fontSize: 16,
+//   },
+// });
 
 export default SongList;

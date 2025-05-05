@@ -1,6 +1,8 @@
 const allSongs = [
   {
     language_key: "አማርኛ",
+    Header:"የተመረጡ መዝሙሮች",
+    notFound:"ምንም መዝሙር አልተገኘም",
     Content: [
       {
         id: 1,
@@ -20,6 +22,7 @@ const allSongs = [
         artist: "ተፈራ ወ/ማሪያም",
         language_value: "አማርኛ",
         displayOrder: 1,
+        
       },
       {
         id: 2,
@@ -57,7 +60,7 @@ const allSongs = [
         verse_4:
           "ተራራ ሆኖብን የጋረደን\nአሻግረን እንዳናይ የከለለን\nታምረኛ ስሙን ስንጠራ\nይወዳደቅ ጀመር  በየተራ /2*/\n\n",
         verse_5: "",
-        artist: "ሀዋሳ መናኸሪያ ቤ/ክ አማኑዔል መዘምራን",
+        artist: "ሀዋሳ መናኸሪያ ቤ/ክ አማኑዔል",
         language_value: "አማርኛ",
         displayOrder: 1,
       },
@@ -77,7 +80,7 @@ const allSongs = [
         verse_4:
           "መጨረሻዉ ተቃርቧል ጌታ የሱስ ይመጣል \nብለን ለሁሉ እናዉጅ ይህን የምስራች ቃል \nይመጣል ይመጣል እያልን እንናገር ምፃቱን\n\n",
         verse_5: "",
-        artist: "አ/አ ገርጂ ቤ/ክ መዘምራን",
+        artist: "አ/አ ገርጂ ቤ/ክ",
         language_value: "አማርኛ",
         displayOrder: 1,
       },
@@ -107,6 +110,8 @@ const allSongs = [
 
   {
     language_key: "ጉራጊኛ",
+    Header:"የሸፗችዮ ዝምራ",
+    notFound:"ዝምራ አቸም አነከዊ",
     Content: [
       {
         id: 1,
@@ -213,6 +218,8 @@ const allSongs = [
 
   {
     language_key: "ሀዲይኛ",
+    Header:"የተመረጡ መዝሙሮች",
+    notFound:"",
     Content: [
       {
         id: 1,
@@ -320,6 +327,8 @@ const allSongs = [
 
   {
     language_key: "ከምባትኛ",
+    Header:"Doo'rrantoo mazmurrata",
+    notFound:"Mazmuru lalimba'a",
     Content: [
       {
         id: 1,
@@ -337,7 +346,7 @@ const allSongs = [
         verse_4:
           "\nመኬን ጉራን ጎንበንኬዕ ሲኣዝሾኬ ሀዊ ሐዊ መቃሙ\nመስቹ ሶኬንስ ዋልኬዕ ሲአዝሾኬ ወዕ ወርጃሙ\nመኒ አብሽ ኬዕሜሩ መገኒሃ ኬዕሙምቧ\nጡዲ አብሽ ቱንሴኬሩ እሲች ቴዕሉምቧ\nጡፈንትዳ ኡሩኪ ዲንክ ዳፊን\nጡድ አንክበ ብዝት ዋለኖ ጊራን\n\n",
         verse_5: "",
-        artist: "ዘማሪ በረከት ዮሐንስ ",
+        artist: "በረከት ዮሐንስ ",
         language_value: "ከምባትሳ",
         displayOrder: 1,
       },
@@ -377,7 +386,7 @@ const allSongs = [
         verse_4:
           "\nመቅች ደማ አፌን ሞቹ ሸርናም ዬን ምንች ፉሌኖዕንዶ\nመቃሙ ሞቹ ጎጫ ዑሪ ሁኑ ግብ ቴሸሞዳ ወቀሬን ሼኖዕንዶ\nአማዕነት ቁጡ ከኒች ህጋ ባሳ ሸዕሌን ህጌኑምቧ\n\n",
         verse_5: "",
-        artist: "ዘማራንቹ ሙሉነህ አኑሎ",
+        artist: "ሙሉነህ አኑሎ",
         language_value: "ከምባትሳ",
         displayOrder: 1,
       },
@@ -397,8 +406,9 @@ const allSongs = [
         verse_4:
           "አበተ አሙሬን ገበሉ ዮበዕ ህቢን ሰሜን ጫኬ ጄቹተ\nሰሞሁ ከዕተ ከበሀ ኡለት ቁሙጭ ብድቅ ይተን ህጋ ጃተ\nሀከን ቆጠራ መንቹ ብሬንተስ እግማን ኡሮተ ደንደኖሁ\nመነ ቆርሰቅኑን አጉሬ በቅ ይኑን ከኔት ቃግሳሚሁ\n\n",
         verse_5: "",
-        artist: "ዘማራንቹ ሙሉነህ አኑሎ",
+        artist: "ሙሉነህ አኑሎ",
         language_value: "ከምባትሳ",
+
         displayOrder: 1,
       },
       {
@@ -417,7 +427,7 @@ const allSongs = [
         verse_4:
           "ኦርጫ ከድስሳን ኬኤማሻ እይሳን ፋሪኦን ጅቻንያን\nአኑ ዮባእ ኡጃንቴ እለጋ አስኬኤች ጡዳንያን\nመገኑ ጡጅኬኤች አበታንስ አሙሬን ግብጻ ሙሴ ሶኮ\nማለሉታ ሁጃታን ጎምኒ ግራኒ ኦሶሃስ ብጣታ ኣጎ\n\n",
         verse_5: "",
-        artist: "ዘማራንቹ ጴጥሮስ ተሰማ",
+        artist: "ጴጥሮስ ተሰማ",
         language_value: "ከምባትሳ",
         displayOrder: 2,
       },
@@ -426,6 +436,8 @@ const allSongs = [
 
   {
     language_key: "Neur",
+    Header:"Kɛn diit tin caa liny",
+    notFound:"Thiɛlɛ diit mi cakɔ jek",
     Content: [
       {
         id: 1,
@@ -532,6 +544,8 @@ const allSongs = [
 
   {
     language_key: "Oromo",
+    Header:"Faarfannoota filataman",
+    notFound:"Faarfannaan hin argamne",
     Content: [
       {
         id: 1,
@@ -635,6 +649,8 @@ const allSongs = [
   },
   {
     language_key: "ሲዳሚኛ",
+    Header:"Doorantino faarsubba",
+    notFound:"Mitte faarsono diafantino",
     Content: [
       {
         id: 1,
@@ -657,7 +673,7 @@ const allSongs = [
           "Heeshshonniha reyeeteewoori mereero haafate hassanni raatabbanni\nBorreessinoyi qaale qaaga hooge kuloottoha rewookkira albaanni\nAte afa hoolteennase hindiido illese jaanjursite\nLeellito mayiiraami wi'litanna mooticha'ya moroonnie yitei\n\n",
         verse_7:
           "Leellinke magano leellinke\nLeellinke mooticha Leellinke\nMullawa raataambanni he'noommona\nMayiiramira leellittohu leellinke\nMagano leellinke\n\n",
-        artist: "Faarsancho Eliasi Batiro",
+        artist: "Eliasi Batiro",
         language_value: "Sidaamu Afoo",
         displayOrder: 1,
       },
@@ -677,7 +693,7 @@ const allSongs = [
         verse_4:
           "Ledonke hosanna ledonke itanna\nMe eho kulloommo lubbo rewoote hadhanna\nXa'misiissannonke lubbuwate hajo\nHonseemmo Jaalira kullo shoolki hajajo\nMannu xiikkamanna giiramara\nWaajja dasiissaawoonke ma're reyaara\nQawaandanke geeshsha baqqaallanke \nMikiyaasi cooyiiri gede cooyiira noonke\n\n",
         verse_5: "",
-        artist: "Faarsancho Argiso Adiso",
+        artist: "Argiso Adiso",
         language_value: "Sidaamu Afoo",
         displayOrder: 1,
       },
@@ -697,7 +713,7 @@ const allSongs = [
         verse_4:
           "ሽማ ማና አጉራና ክሬ ቱንቃንክ ማን\nኣለሜ ዶጋይ ሳእኖ ማጋኖ ዳድልሳን\nእንሳ ጫላ ድኩላይና ተዮኖ ንንኬ ዶርሽ ማት\nዶጸነ ሔኖሞ ጋሞንከ አለሜተንሶ የሱሳት\n\n",
         verse_5: "",
-        artist: "ዘማሪ አሰፋ ናሮ",
+        artist: "አሰፋ ናሮ",
         language_value: "ሲዳሚኛ መዝሙር",
         displayOrder: 1,
       },
@@ -718,7 +734,7 @@ const allSongs = [
         verse_4:
           "አልብ ሀዋርያት ጣገ አስትኖ\n ሁጫቶተ ናፋ ሬይኖሃ ካይስኖ\nንንከ ካይን ሙንጎሞ ዶጋና ድኒንከ\nአያናክ ሶይኖንከ ጎርዱ ማጋኖንንከ\nኬሩይ እልሽንከ እምሃ ምነንከ\n\n",
         verse_5: "",
-        artist: "ዘማሪ ኢያሱ ራጋሳ",
+        artist: "ኢያሱ ራጋሳ",
         language_value: "ሲዳሚኛ መዝሙር",
         displayOrder: 1,
       },
@@ -739,7 +755,7 @@ const allSongs = [
         verse_4:
           "ማጋኑ ጋልትኖስ አስርኖ ግራማ ካታም ግዶ\nባአዎር ዳፍራ ዱንታና አት እለክ ህንድዶ \nሁንታዮ ካዮ ዶገ ቶታዬስታን ኖንከና ኩኔ  2*\nማስተ እልሽንከ ወዳንንከ ወጅ ያኖ ምኔ\n\n",
         verse_5: "",
-        artist: "ዘማሪ ለገሰ ላንቃሞ",
+        artist: "ለገሰ ላንቃሞ",
         language_value: "ስዳሚኛ መዝሙር",
         displayOrder: 1,
       },
@@ -747,6 +763,8 @@ const allSongs = [
   },
   {
     language_key: "ትግርኛ",
+    Header:"የተመረጡ መዝሙሮች",
+    notFound:"ዝደለይዎ መዝሙር ኣይተረኽበን",
     Content: [
       {
         id: 1,
@@ -764,7 +782,7 @@ const allSongs = [
         verse_4:
           "ዘመናት ክልወጥ ነገስታት ክሓልፉ\nቃላትካ ግን ህያው እዮም ኣብ ልበይ ዝተፃሕፉ\nካብ ፍቓድካ ከይወፅእ ንነብሰይ ዝግስፁ\nንነብሰይ ካብ ኩሉ ንዓኻ ዘምረፁ\nካባኻ ዝመፁ\n\n",
         verse_5: "",
-        artist: "መዘምራን ሻብዐይቲ መዓልቲ\nኣድቬንቲስት ቤ/ያን መቐለ",
+        artist: "ሻብዐይቲ መዓልቲ\nኣድቬንቲስት ቤ/ያን መቐለ",
         language_value: "ትግርኛ",
         displayOrder: 1,
       },
@@ -801,7 +819,7 @@ const allSongs = [
         verse_3: "",
         verse_4: "",
         verse_5: "",
-        artist: "መዘምራን ሻብዐይቲ መዓልቲ\nኣድቬንቲስት ቤ/ያን መቐለ",
+        artist: "ሻብዐይቲ መዓልቲ\nኣድቬንቲስት ቤ/ያን መቐለ",
         language_value: "ትግርኛ",
         displayOrder: 1,
       },
@@ -820,7 +838,7 @@ const allSongs = [
           "ነቲ ፍቕርኻ ጎይታ መግለፂ ስኢነ\nብዝገበርካለይ ሰናይ ተገሪመ\nክሳብ መስቀል ሞይትኻ ኣድሒንካኒ ኢኻ\nበቲ ክቡር ቃልካ ባሪኽካኒ እንዲኻ |*2\n\n",
         verse_4: "",
         verse_5: "",
-        artist: "መዘምራን ሻብዐይቲ መዓልቲ\nኣድቬንቲስት ቤ/ያን መቐለ",
+        artist: "ሻብዐይቲ መዓልቲ\nኣድቬንቲስት ቤ/ያን መቐለ",
         language_value: "ትግርኛ",
         displayOrder: 1,
       },
@@ -838,7 +856,7 @@ const allSongs = [
           "ፈተና መከራ ሕማም ከምኡ'ውን ሞት\nበቲ ዝበፅሕ ኩሉ ምስ ርእሰይ እንትሙግት\nብበዝሒ ስቅያት ኣብ ዝስእነሉ ትርጉም ህይወት\nሽዑ በለኒ ኣለኹ እጥምት\n\n",
         verse_4: "",
         verse_5: "",
-        artist: "ኡሪም ቱሚም መዘምራን",
+        artist: "ኡሪም ቱሚም ",
         language_value: "ትግርኛ",
         displayOrder: 1,
       },
@@ -847,6 +865,8 @@ const allSongs = [
 
   {
     language_key: "ወላይትኛ",
+    Header:"Dooretida Sabati",
+    notFound:"Ayba Sabayikka beettibeena,",
     Content: [
       {
         id: 1,
@@ -863,7 +883,7 @@ const allSongs = [
         verse_4:
           "የሱሳ ያጊዲ ካውያይ ኦኔ\nአን ጬቄቲዲ ጉጣይ ኦኔ\nሙሌ በኢቦኮ ኑ አይፊያን\nጋላቴቶ ያጎስ ኑ ዶናን\n\n",
         verse_5: "",
-        artist: "ዘማሪ ዳታን ደምሴ",
+        artist: " ዳታን ደምሴ",
         language_value: "ወላይትኛ",
         displayOrder: 1,
       },
@@ -883,7 +903,7 @@ const allSongs = [
         verse_4:
           "ሀጋ ኔ ዴሪያ ኢሲቶ ኔ ቆፓ\nሜቱዋ ጫርኩዋ ኔ ሱንታን ሴራ\nጦኒያ ዎልቃ ኔጋ ኡባ ቤሳ\nኔ ኬታ ጋካናው ኑ ኩሺያ ኔ ኦይቃ\n\n",
         verse_5: "",
-        artist: "ዘማሪ ተገኝ ጋንታ",
+        artist: " ተገኝ ጋንታ",
         language_value: "ወላይትኛ",
         displayOrder: 1,
       },
@@ -903,7 +923,7 @@ const allSongs = [
         verse_4:
           "ኑሲካ ኪጢያ አባታ ሻካናው ዎልቃይ ዲዮጎ\nፓሮናዳን ዬዴቲያባታ ጦኒሳናው ኑ ጎንዳሊያው\nኔና ካሉ ኪዪዲ አሳ ውርሳ ኦላዳ ዶጋ አጌናጎ\nሀሹ አማኒዲ ኔና ኑጎ ጦሶ ኦፔኔ ኑዮ ማታቲሰያጎ\n\n",
         verse_5: "",
-        artist: "ዘማሪ ዳንኤል ዳምጠው",
+        artist: "ዳንኤል ዳምጠው",
         language_value: "ወላይትኛ",
       },
       {
@@ -939,7 +959,7 @@ const allSongs = [
         verse_4:
           "ኦይዱ ጋላ ሙልያ ዱፖይ ጌንቲዶጋ \nሃይቂዳ አሳን ጋቲዲ ይባቲቺዶጋ\nላ ፉጣ ጊዲ ፓት ኤስድ ኡባ ኡፓይሲያጋ\nጎይኒድ ዲን ሳቢድ ዲን ሙሌ ቆህያቢ ባ \n\n",
         verse_5: "",
-        artist: "ዘማሪ ገነቱ ጋጋዶ",
+        artist: "ገነቱ ጋጋዶ",
         language_value: "ወላይትኛ",
         displayOrder: 1,
       },

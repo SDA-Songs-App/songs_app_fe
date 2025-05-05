@@ -20,77 +20,17 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Preferences from "@/components/settings-components/Preferences";
 import LanguagesSwitcher from "@/components/settings-components/languages-switcher";
 import FontSizeAdjustScreen from "@/components/FontAdjustScreen";
+import  ThemeProvider from "../ThemeProvier";
+
+import MainApp from "../(tabs)/MainApp"
 // import { Drawer } from 'expo-router/drawer'
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
-const SettingsDrawer = () => {
-  return (
-    <Drawer.Navigator>
-      <Drawer.Screen
-        name="Personal Preferences"
-        component={Preferences}
-        options={{ drawerLabel: "Home", title: "overview" }}
-      />
-      <Drawer.Screen
-        name="Languages Switcher"
-        component={LandingPage}
-        options={{ drawerLabel: "testing", title: "user" }}
-      />
-    </Drawer.Navigator>
-  );
-};
 export default function App() {
-  return (
-    <NavigationIndependentTree>
-      <NavigationContainer>
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <Stack.Navigator>
-            {/* Define HomeScreen */}
-            <Stack.Screen
-              name="Home"
-              component={HomeScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Navbar"
-              component={NavbarScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="FontSettings"
-              component={FontSizeAdjustScreen}
-            />
-            {/**
-            *  <Stack.Screen
-              name="settings"
-              component={SettingsDrawer}
-              options={{ headerShown: false }}
-            />
-            */}
-            {/* <Navbar></Navbar>   */}
-            {/* <LandingPage></LandingPage> */}
-          </Stack.Navigator>
-        </GestureHandlerRootView>
-      </NavigationContainer>
-    </NavigationIndependentTree>
-  );
+    return (
+      <ThemeProvider >
+        
+        <MainApp />
+      </ThemeProvider>
+            
+          )
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});

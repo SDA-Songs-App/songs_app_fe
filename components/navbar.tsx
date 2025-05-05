@@ -35,27 +35,21 @@ import TextGradient from "react-native-text-gradient";
 import { Appearance } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SongList from "./SongList";
-import FontSizeAdjustScreen from "./FontAdjustScreen";
 import CollapsibleActionButton from "./CollapsibleActionButton";
 import getStyles from "../components/css/app";
 import allSongs from "@/data/allsongs";
-
+import localizations from "@/data/localizations"
+import  {useTheme } from "@/app/ThemeProvier";
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
   route: RouteProp<any>;
 };
 const NavbarScreen: FC<NavbarScreenProps> = () => {
-  const [fontSize, setFontSize] = useState(14);
+  const { isDarkMode, toggleTheme } = useTheme();
+  const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Roboto");
-  const [isDarkMode, setIsDarkMode] = useState(
-    Appearance.getColorScheme() === "dark"
-  );
-
-  const styles = useMemo(
-    () => getStyles(isDarkMode, fontSize, fontFamily),
-    [isDarkMode, fontSize, fontFamily]
-  );
+  const styles = getStyles(isDarkMode, fontSize, fontFamily);
 
   Dimensions.get("window");
 
@@ -105,14 +99,14 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const searchPlaceholders: Record<string, string> = {
     አማርኛ: "በመዝ. ርዕስ፣ ቁጥር፣ ምድብ፣ ወይም በዘማሪ ስም ይፈልጉ",
     English: "Search by title, category, or artist name",
-    Oromo: "Search by title, category, or artist name",
-    ሲዳሚኛ: "Search by title, category, or artist name",
-    ትግርኛ: "በመዝ. ርዕስ፣ ቁጥር፣ ምድብ፣ ወይም በዘማሪ ስም ይፈልጉ",
-    ከምባትኛ: "Search by title, category, or artist name",
+    Oromo: "Mata dureen, Tartiibaan ykn faarfattootaan/ Maqaa faarfattootaa barbaadaa",
+    ሲዳሚኛ: "Birxichunni, gaamotenni wey faarsaannote su'minni hasse",
+    ትግርኛ: "ብኣርእስቲ ብመደብ ወይ ከዓ ብዘማሪ ስም ይድለዩ",
+    ከምባትኛ: "boqqo xawwin te zammaraanch/zamaran su'mmin su'mmiin hashe",
     ሀዲይኛ: "በመዝ. ርዕስ፣ ቁጥር፣ ምድብ፣ ወይም በዘማሪ ስም ይፈልጉ",
-    ወላይትኛ: "Search by title, category, or artist name",
-    Neur: "Search by title, category, or artist name",
-    ጉራጊኛ: "Search by title, category, or artist name",
+    ወላይትኛ: "Huuphe yohuwan Woyikko Sabanchchan / Sabanchatu Sunttaa Koyite",
+    Neur: "Kä göörɛ kɛ  kɛ thäänyniknɛn kiɛ caak ti cikɛ cak/wutnikiɛ män",
+    ጉራጊኛ: "በሸድ ሸድ ዌም ቢዘምር ዌም ቢዘምሮዌ ሽም ሳቦ።",
   };
 
   const resetActiveSongsForLanguage = () => {
@@ -253,48 +247,51 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   };
 
   // song item renderer
-  const renderSongItem: ListRenderItem<Song> = useMemo(
-    () =>
-      ({ item }: { item: Song }) => {
-        // Get full song list for current language
-        const fullSongs =
-          allSongs.find((lang) => lang.language_key === selectedLanguage)
-            ?.Content || [];
+  const renderSongItem: ListRenderItem<Song> = useCallback(
+    ({ item }: { item: Song }) => {
+      const fullSongs =
+        allSongs.find((lang) => lang.language_key === selectedLanguage)
+          ?.Content || [];
 
-        return (
-          <TouchableOpacity
-            style={styles.songCard}
-            onPress={() => {
-              // Find index in FULL list, not filtered
-              const indexInFullList = fullSongs.findIndex(
-                (song) => song.id === item.id
-              );
-              if (indexInFullList !== -1) {
-                setCurrentSongIndex(indexInFullList);
-                setSelectedSong(fullSongs[indexInFullList]);
-              }
-              closeSearchModal();
-            }}
+      return (
+        <TouchableOpacity
+          style={[
+            styles.songCard, // base static styles
+            {
+              backgroundColor: isDarkMode ? "white" : "black",
+            },
+          ]}
+          onPress={() => {
+            const indexInFullList = fullSongs.findIndex(
+              (song) => song.id === item.id
+            );
+            if (indexInFullList !== -1) {
+              setCurrentSongIndex(indexInFullList);
+              setSelectedSong(fullSongs[indexInFullList]);
+            }
+            closeSearchModal();
+          }}
+        >
+          <Text
+            style={[
+              styles.songTitle,
+              { color: isDarkMode ? "black" : "white" },
+            ]}
           >
-            <Text style={styles.songTitle}>{item.title}</Text>
-            <Text style={styles.songCategory}>{item.artist}</Text>
-            <Ionicons
-              name={
-                favorites.includes(`${selectedLanguage}_${item.id}`)
-                  ? "heart"
-                  : "heart"
-              }
-              size={20}
-              color={
-                favorites.includes(`${selectedLanguage}_${item.id}`)
-                  ? "#ff4444"
-                  : "#888"
-              }
-            />
-          </TouchableOpacity>
-        );
-      },
-    [favorites, selectedLanguage]
+            {item.title}
+          </Text>
+          <Text
+            style={[
+              styles.songCategory,
+              { color: isDarkMode ? "black" : "white" },
+            ]}
+          >
+            {item.artist}
+          </Text>
+        </TouchableOpacity>
+      );
+    },
+    [allSongs, favorites, selectedLanguage, isDarkMode]
   );
 
   const setDefaultSongsForLanguage = () => {
@@ -413,9 +410,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   }, [swipeLock, currentSongIndex, selectedLanguage]);
 
   // Dark mode toggle
-  const toggleDarkMode = useCallback(() => {
-    setIsDarkMode((prev) => !prev);
-  }, []);
+  // const toggleDarkMode = useCallback(() => {
+  //   setIsDarkMode((prev) => !prev);
+  // }, []);
 
   const handleSongSelect = (item: Song): void => {
     setSelectedSong(item);
@@ -499,8 +496,8 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             isVisible={isModalVisible}
             onBackdropPress={() => setModalVisible(false)}
             animationOut="slideOutDown"
-            backdropColor="#000"
             backdropOpacity={0.5}
+            style={{ margin: 0 }}
           >
             <View style={styles.modalContent}>
               {allSongs.map((language) => (
@@ -537,7 +534,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             {selectedSong && (
               <View style={styles.favoritesModalContent}>
-                <Text style={styles.modalTitle}>ተወዳጅ መዝሙሮች</Text>
+                <Text style={styles.modalTitle}>{allSongs.find((l) => l.language_key === selectedLanguage)?.Header || "No Header"}</Text>
                 <SongList
                   data={
                     allSongs.find((l) => l.language_key === selectedLanguage)
@@ -581,7 +578,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               <TextInput
                 style={styles.searchInput}
                 placeholder={searchPlaceholders[selectedLanguage] || "ይፈልጉ..."}
-                placeholderTextColor={"#888"}
+                placeholderTextColor={isDarkMode ? "black" : "white"}
                 value={searchText}
                 onChangeText={(text) => {
                   setSearchText(text);
@@ -596,14 +593,15 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                   }
                   renderItem={renderSongItem}
                   nestedScrollEnabled={true}
+                  extraData={isDarkMode}
                 />
               ) : (
-                <Text style={styles.noResultsText}></Text>
+                <Text style={styles.noResultsText}>{allSongs.find((key) =>key.language_key ===selectedLanguage)?.notFound}</Text>
               )}
             </View>
           </Modal>
         )}
-        <TouchableOpacity onPress={toggleDarkMode}>
+        <TouchableOpacity onPress={toggleTheme}>
           <Ionicons
             name={isDarkMode ? "sunny" : "moon"}
             size={25}
@@ -627,7 +625,11 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             <View style={styles.songContainer}>
               <ImageBackground
-                source={require("../assets/images/S.jpg")}
+                source={
+                  isDarkMode
+                    ? require("../assets/images/S.jpg")
+                    : require("../assets/images/inverted_S.jpg")
+                }
                 style={[styles.backgroundImage, { paddingBottom: 60 }]}
               >
                 {/* Verses Display */}
@@ -654,7 +656,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       {verse}
                     </Text>
                   ))}
-                <Text>Author: {selectedSong.artist} </Text>
+                  <Text style = {styles.footer}>{localizations.find((key) =>key.language_key === selectedLanguage)?.author}: {selectedSong.artist} </Text>
               </ImageBackground>
             </View>
             <CollapsibleActionButton
