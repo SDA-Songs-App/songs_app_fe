@@ -1,12 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   View,
-  StyleSheet,
   Text,
   TouchableOpacity,
   Animated,
   TextInput,
-  ImageBackground,
   Image,
   ListRenderItemInfo,
 } from "react-native";
@@ -14,11 +12,10 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import { LinearGradient } from "expo-linear-gradient";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
-import Navbar from "./navbar";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParams } from "@/app/types";
 import { Dimensions } from "react-native";
-import landingPageStyles from '../components/css/landing-page'
+import landingPageStyles from "../components/css/landing-page";
 type FeatureType = {
   icon: string;
   title: string;
@@ -292,7 +289,5 @@ const featuresData2 = [
     description: "To say something sdfg kldjfgk jdlfgjl dj ksdjlfg",
   },
 ];
-
-
 
 export default LandingPage;
