@@ -108,7 +108,7 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
           textAlign: "center",
         }}
       >
-        🎚️Adjust Size
+        መጠን ያስተካክሉ
       </Text>
       <Slider
         style={{
@@ -147,7 +147,7 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
             letterSpacing: 1,
           }}
         >
-          🖋️ Select Font:{" "}
+          የቅርጸ-ቁምፊ ቤተሰብን ይምረጡ:{" "}
           <Text
             style={{ textDecorationLine: "underline", fontStyle: "italic" }}
           >

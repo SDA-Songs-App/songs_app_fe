@@ -16,6 +16,9 @@ import {
   ListRenderItem,
   Alert,
   Share,
+  SafeAreaView,
+  ToastAndroid,
+  Platform,
 } from "react-native";
 import * as Clipboard from "expo-clipboard";
 import Modal from "react-native-modal";
@@ -32,6 +35,7 @@ import getStyles from "../components/css/app";
 import allSongs from "@/data/allsongs";
 import localizations from "@/data/localizations";
 import { useTheme } from "@/app/ThemeProvier";
+const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -82,7 +86,13 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     setSearchModalVisible(false);
   };
   const handlePress = (actionName: string) => {
-    console.log(`${actionName} component to be implemented`);
+    const message = "መዝሙር ማጨዎቻ ሊሰራ ታቅዷል";
+
+  if (Platform.OS === "android") {
+    ToastAndroid.show(message, ToastAndroid.SHORT);
+  } else {
+    Alert.alert("Info", message); // fallback for iOS
+  }
   };
   const handleSettingPress = () => {
     console.log("navigation:", navigation);
@@ -613,6 +623,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       </View>
 
       {/* Swipe-enabled Content */}
+      <View style={{ flex: 1, position:'relative' }}>
       <GestureRecognizer
         onSwipeLeft={onSwipeLeft}
         onSwipeRight={onSwipeRight}
@@ -622,8 +633,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           // view WHERE SELECTED SONG DISPLAYED
           <ScrollView
             style={styles.scrollContainer}
-            contentContainerStyle={{ paddingBottom: 50 }} // Add padding for the bottom
-            showsVerticalScrollIndicator={false}
+// Add padding for the bottom
+           contentContainerStyle={{ flexGrow: 1 }}
+            showsVerticalScrollIndicator={true}
           >
             <View style={styles.songContainer}>
               <ImageBackground
@@ -632,8 +644,11 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                     ? require("../assets/images/S.jpg")
                     : require("../assets/images/inverted_S.jpg")
                 }
-                style={[styles.backgroundImage, { paddingBottom: 60 }]}
+               resizeMode="cover"
+                style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42 }]}
+
               >
+                <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
                 {/* Verses Display */}
                 {selectedSong.chorus && (
                   <Text style={styles.selectedSongPlainTitle}>
@@ -666,17 +681,43 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                   }
                   : {selectedSong.artist}{" "}
                 </Text>
+                </SafeAreaView>
               </ImageBackground>
             </View>
-            <CollapsibleActionButton
+            
+          </ScrollView>
+        )}
+       
+      </GestureRecognizer>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 10,
+            right: 10,
+            zIndex: 999,
+          }}
+        >
+             </View>
+      </View>
+      <View
+          style={{
+            position: 'absolute',
+            bottom: 30,
+            right: 40,
+            zIndex: 999,
+          }}
+        >
+          
+          
+            </View>
+            <View style={styles.floatingButtonContainer}>
+        <CollapsibleActionButton
               fullLyricText={fullLyricText}
               onCopy={handleCopy}
               onShare={handleShare}
               isDarkMode={isDarkMode}
             />
-          </ScrollView>
-        )}
-      </GestureRecognizer>
+          </View>
     </View>
   );
 };

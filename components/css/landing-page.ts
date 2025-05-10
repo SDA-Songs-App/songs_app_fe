@@ -1,4 +1,6 @@
-import {StyleSheet} from 'react-native'
+import {StyleSheet, Dimensions} from 'react-native'
+const { height: deviceHeight } = Dimensions.get("window");
+const { width: deviceWidth } = Dimensions.get("window");
 const landingPageStyles = () =>
     StyleSheet.create({
         gradientBackground: {
@@ -33,8 +35,9 @@ const landingPageStyles = () =>
             color: "#fff",
           },
           heroSection: {
-            padding: 40,
-            alignItems: "center",
+          height: deviceHeight / 3,
+          alignItems: "center",
+          justifyContent: "center",
           },
           heroTitle: {
             fontSize: 20,
@@ -71,31 +74,26 @@ const landingPageStyles = () =>
             fontWeight: "bold",
           },
           featureContainer: {
+            flex:1,
             width: "100%",
+            height:deviceHeight/2,
             backgroundColor: "rgba(255,255,255,0.9)",
             justifyContent: "space-between", // Place the views on opposite sides (left and right)
             alignItems: "center",
-            borderRadius: 12,
-            padding: 16,
-            marginBottom: 1,
+            padding: 10,
             shadowColor: "#000",
             shadowOffset: { width: 0, height: 3 },
             shadowOpacity: 0.2,
             shadowRadius: 4,
             elevation: 5, // For Android
+            paddingBottom:200,
           },
+
           featureContainerTitle: {
             fontSize: 16,
             fontWeight: "bold",
             marginBottom: 8,
             color: "#333",
-          },
-          featuresSection2: {
-            paddingLeft: 100,
-            backgroundColor: "#fff",
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            alignItems: "center",
           },
           featureLine: {
             fontSize: 14,
@@ -107,7 +105,6 @@ const landingPageStyles = () =>
             justifyContent: "space-between",
             borderTopWidth: 1,
             borderTopColor: "#ddd",
-            paddingTop: 10,
           },
           footerText: {
             fontSize: 14,
@@ -124,30 +121,37 @@ const landingPageStyles = () =>
           // Two-column layout + logo in center
           twoColumnContainer: {
             flexDirection: "row",
+            justifyContent: "space-between",
             alignItems: "center",
-            justifyContent: "space-between", // space-around or space-evenly if you prefer
-            marginBottom: 10,
+          //  paddingHorizontal: 12, // Equal margin left and right
+            paddingVertical: 20,
+          //  backgroundColor: "rgba(255,255,255,0.9)",
+            width: "100%",
+        //  backgroundColor: "rgba(255,255,255,0.9)",
           },
           column: {
             flex: 1,
+            
+          },
+          columnT: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "flex-start",
+            
           },
           centerLogoContainer: {
-            width: 100,
-            height: 100,
-           
-            borderRadius: 50,
-            alignItems: "center",
-            justifyContent: "center",
-         
-            // Shadow for the circular logo container
-          
-          
-          },
-          centerLogo: {
             width: 200,
             height: 200,
-            //marginHorizontal: 16,
-            resizeMode: "contain",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingRight:20,
+            marginRight: deviceWidth * 0.00005,
+            marginLeft:deviceWidth * 0.00005
+          },
+          centerLogo: {
+             width: 180,
+             height: 180,
+           //  marginHorizontal: 6,
           },
           feature: {
             alignItems: "flex-start",
@@ -164,7 +168,7 @@ const landingPageStyles = () =>
             color: "#333",
             marginVertical: 10,
           },
-          // The heading outside (above) the container
+          
           headingTitle: {
             fontSize: 16,
             fontWeight: "bold",

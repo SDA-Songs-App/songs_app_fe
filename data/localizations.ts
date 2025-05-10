@@ -24,7 +24,7 @@ const localizations =[
         language_key: "ከምባትኛ",
         Header:"Doo'rrantoo mazmurrata",
         notFound:"Mazmuru lalimba'a",
-        author:"Zamaaraanichu/t \n(Zamaraannu)",
+        author:"ዘማራንቹ/ት",
 
     },
     {

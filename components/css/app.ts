@@ -11,7 +11,7 @@ const getStyles = (
     container: {
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a",
       width: "100%",
-      height: "100%",
+      flex: 1,
     },
 
     navbar: {
@@ -39,7 +39,7 @@ const getStyles = (
     backgroundImage: {
       paddingLeft: 20,
       flex: 1,
-      resizeMode: "cover", // Ensures the image covers the entire background
+    // Ensures the image covers the entire background
       justifyContent: "center",
     },
     modalBackground: {
@@ -78,6 +78,10 @@ const getStyles = (
       justifyContent: "space-around",
       marginBottom: 20,
     },
+    floatingButtonContainer:{
+      position: "relative",
+      marginBottom:-75,
+     },
     categoryButton: {
       padding: 10,
       borderWidth: 1,
@@ -314,7 +318,7 @@ const getStyles = (
     },
     pickerText: {
       color: "#fff",
-      fontSize: 14,
+      fontSize: 13.5,
       fontFamily: fontFamily,
       fontWeight: "bold",
     },
@@ -325,7 +329,7 @@ const getStyles = (
     songContainer: {
       width: Dimensions.get("window").width * 0.99, // Slightly narrower for balanced spacing
       justifyContent: "flex-start",
-      height: "100%",
+      flex:1,
       borderRadius: 0, // Rounded corners
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a", // Soft background color
       shadowOffset: { width: 0, height: 5 },
