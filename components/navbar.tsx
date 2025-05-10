@@ -1,17 +1,14 @@
 import {
-  DrawerActions,
   RouteProp,
   useNavigation,
   useFocusEffect,
 } from "@react-navigation/native";
-import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import {
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   TextInput,
-  Button,
   FlatList,
   ScrollView,
   Dimensions,
@@ -24,22 +21,17 @@ import * as Clipboard from "expo-clipboard";
 import Modal from "react-native-modal";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
-import { RooStackSettingsParams, RootStackParams } from "@/app/types";
+import { RootStackParams } from "@/app/types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
-import { Picker } from "@react-native-picker/picker";
 import GestureRecognizer from "react-native-swipe-gestures";
-import { SlideInUp, SlideOutDown } from "react-native-reanimated";
-import LinearGradient from "react-native-linear-gradient";
-import TextGradient from "react-native-text-gradient";
-import { Appearance } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SongList from "./SongList";
 import CollapsibleActionButton from "./CollapsibleActionButton";
 import getStyles from "../components/css/app";
 import allSongs from "@/data/allsongs";
-import localizations from "@/data/localizations"
-import  {useTheme } from "@/app/ThemeProvier";
+import localizations from "@/data/localizations";
+import { useTheme } from "@/app/ThemeProvier";
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -99,7 +91,8 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const searchPlaceholders: Record<string, string> = {
     አማርኛ: "በመዝ. ርዕስ፣ ቁጥር፣ ምድብ፣ ወይም በዘማሪ ስም ይፈልጉ",
     English: "Search by title, category, or artist name",
-    Oromo: "Mata dureen, Tartiibaan ykn faarfattootaan/ Maqaa faarfattootaa barbaadaa",
+    Oromo:
+      "Mata dureen, Tartiibaan ykn faarfattootaan/ Maqaa faarfattootaa barbaadaa",
     ሲዳሚኛ: "Birxichunni, gaamotenni wey faarsaannote su'minni hasse",
     ትግርኛ: "ብኣርእስቲ ብመደብ ወይ ከዓ ብዘማሪ ስም ይድለዩ",
     ከምባትኛ: "boqqo xawwin te zammaraanch/zamaran su'mmin su'mmiin hashe",
@@ -534,7 +527,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             {selectedSong && (
               <View style={styles.favoritesModalContent}>
-                <Text style={styles.modalTitle}>{allSongs.find((l) => l.language_key === selectedLanguage)?.Header || "No Header"}</Text>
+                <Text style={styles.modalTitle}>
+                  {allSongs.find((l) => l.language_key === selectedLanguage)
+                    ?.Header || "No Header"}
+                </Text>
                 <SongList
                   data={
                     allSongs.find((l) => l.language_key === selectedLanguage)
@@ -596,7 +592,13 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                   extraData={isDarkMode}
                 />
               ) : (
-                <Text style={styles.noResultsText}>{allSongs.find((key) =>key.language_key ===selectedLanguage)?.notFound}</Text>
+                <Text style={styles.noResultsText}>
+                  {
+                    allSongs.find(
+                      (key) => key.language_key === selectedLanguage
+                    )?.notFound
+                  }
+                </Text>
               )}
             </View>
           </Modal>
@@ -656,7 +658,14 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       {verse}
                     </Text>
                   ))}
-                  <Text style = {styles.footer}>{localizations.find((key) =>key.language_key === selectedLanguage)?.author}: {selectedSong.artist} </Text>
+                <Text style={styles.footer}>
+                  {
+                    localizations.find(
+                      (key) => key.language_key === selectedLanguage
+                    )?.author
+                  }
+                  : {selectedSong.artist}{" "}
+                </Text>
               </ImageBackground>
             </View>
             <CollapsibleActionButton

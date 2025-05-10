@@ -3,14 +3,12 @@ import {
   View,
   Text,
   Platform,
-  useColorScheme,
   StyleSheet,
   TouchableOpacity,
   Modal,
   FlatList,
 } from "react-native";
 import Slider from "@react-native-community/slider";
-import { Picker } from "@react-native-picker/picker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTheme } from "@/app/ThemeProvier";
 const FONT_SIZES = [14, 16, 18, 20, 24, 28, 30];
