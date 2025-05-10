@@ -16,8 +16,8 @@ function MainApp (){
         <SafeAreaProvider>
         <StatusBar
         style="light"                // light-content icons
-        backgroundColor = {isDarkMode ? "black":"green"}
-        translucent={true}
+        backgroundColor = {isDarkMode ? "#0a8f25": "#1a1a1a"} // background color
+        translucent={false}
       />
       <SafeAreaView style={{ flex: 1, backgroundColor:  isDarkMode ?"black":"green"}}>
         <NavigationIndependentTree>
