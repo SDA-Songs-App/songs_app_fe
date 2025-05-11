@@ -32,17 +32,17 @@ const FONT_FAMILIES =
       "Palatino-Roman",
     ],
     android: [
-      "Roboto",
-      "sans-serif",
-      "sans-serif-light",
-      "sans-serif-thin",
-      "sans-serif-condensed",
-      "sans-serif-medium",
-      "sans-serif-black",
-      "serif",
-      "serif-monospace",
-      "notoserif",
-      "monospace",
+      "ሮቦቶ",
+      "ሳንስ-ሰሪፍ",
+      "ሳንስ-ሰሪፍ-ብርሃን",
+      "ሳንስ-ሰሪፍ-ቀጭን",
+      "ሳንስ-ሰሪፍ-ኮንደንስድ",
+      "ሳንስ-ሰሪፍ-መካከለኛ",
+      "ሳንስ-ሰሪፍ-ጥቁር",
+      "ሰሪፍ",
+      "ሰሪፍ-ሞኖስፔስ",
+      "ኖቶሴሪፍ",
+      "ሚኒቫን",
     ],
   }) || [];
 
@@ -57,7 +57,7 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
 }) => {
   const { isDarkMode, toggleTheme } = useTheme();
   const [fontSize, setFontSize] = useState<number>(16);
-  const [fontFamily, setFontFamily] = useState<string>("Roboto");
+  const [fontFamily, setFontFamily] = useState<string>("ሮቦቶ");
   const [selectedFont, setSelectedFont] = useState(FONT_FAMILIES[0]);
   const [modalVisible, setModalVisible] = useState(false);
   useEffect(() => {
@@ -182,7 +182,7 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
               onPress={() => setModalVisible(false)}
               style={styles.cancelButton}
             >
-              <Text style={{ color: "red", textAlign: "center" }}>Cancel</Text>
+              <Text style={{ color: "red", textAlign: "center" }}>አጥፈ</Text>
             </TouchableOpacity>
           </View>
         </View>

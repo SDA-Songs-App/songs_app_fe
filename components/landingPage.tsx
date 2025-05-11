@@ -34,11 +34,11 @@ const LandingPage = () => {
   const leftLines = [
     "Waaqayyoon \nfaarfadhaa\n Bau 15:21",
     "Maganoho \nFaarse! \n Fulo 15፡21",
-    "Maganii \nZammarre!” \n Fuli Max. 15፡21",
-    "የጔታ አዝምሮ!” \n  ዘጸ. 15፡21",
+    "Maganii \nZammarre \n Fuli Max. 15፡21",
+    "የጔታ አዝምሮ \n  ዘጸ. 15፡21",
   ];
   const rightLines = [
-    "Waa'ina \nzammallehe! \nDooyyi 15:21",
+    "Waa'ina \nzammallehe \nDooyyi 15:21",
     "ንእግዚኣብሄር ዘምሩሉ!\nዘፀ. 15:21",
     "KietnƐ Kuoth \nnhial diit! \nDiit. 15:21",
     "Xoossasi sabbite! \nKes. 15:21",
