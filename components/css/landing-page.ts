@@ -9,7 +9,7 @@ const landingPageStyles = () =>
     container: {
       flexGrow: 1,
       alignItems: "center",
-      paddingTop: 80,
+      paddingTop: 50,
     },
     header: {
       paddingTop: 50,
@@ -35,7 +35,7 @@ const landingPageStyles = () =>
       color: "#fff",
     },
     heroSection: {
-      height: deviceHeight / 3,
+      height: deviceHeight /4,
       width: "100%",
       alignItems: "center",
       justifyContent: "center",
@@ -45,7 +45,7 @@ const landingPageStyles = () =>
       fontWeight: "bold",
       color: "#fff",
       textAlign: "center",
-      marginBottom: 10,
+      marginBottom: 20,
       textShadowColor: "rgba(0,0,0,0.75)",
       textShadowOffset: { width: 1, height: 1 },
       textShadowRadius: 2,
@@ -72,7 +72,7 @@ const landingPageStyles = () =>
       shadowOpacity: 0.2,
       shadowRadius: 4,
       elevation: 5, // For Android
-      paddingBottom: 200,
+      paddingBottom: 100,
     },
     featureLine: {
       fontSize: 14,
@@ -99,7 +99,6 @@ const landingPageStyles = () =>
     },
      // Two-column layout + logo in center
     twoColumnContainer: {
-      paddingTop:10,
      flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
@@ -184,7 +183,6 @@ const landingPageStyles = () =>
       width: "100%",
       paddingHorizontal: deviceWidth * 0.06,
       paddingLeft: 10,
-      marginBottom: 20,
       backgroundColor: "#fff",
     },
   });

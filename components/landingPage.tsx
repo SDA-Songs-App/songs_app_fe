@@ -147,9 +147,7 @@ const LandingPage = () => {
           <Text style={styles.heroTitle}>
             በኢትዮጵያ ሰባተኛ ቀን አድቬንቲስት ቤተክርስቲያን በተለያየ ቋንቋ የተዘጋጀ የመዝሙር መተግበሪያ
           </Text>
-          <Text style={styles.heroSubtitle}>
-            የመዝሙር ግጥሞችን፣ ተወዳጅ መዝሙሮችን እና አልበሞችን በቀላሉ ያግኙ።
-          </Text>
+          
           <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
             <TouchableOpacity>
               <TextInput

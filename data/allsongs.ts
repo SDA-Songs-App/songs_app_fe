@@ -658,21 +658,21 @@ const allSongs = [
         title: "Leellinke",
         category: "Cat 1",
         chorus:
-          'Leellinke, coyiirinke, xaadinke, iillinke magano\nWolasaanke yite agartewooha xagicho shiteenna roortinori"\nGodowa cortuhe laittota mararsituhe hexxo qoortinori.\nWolasaanke yite agartewooha Xagicho shiteenna roortinori.\nEemawusi doogo aana xaadde hasaawisse ille xawisitto.\nHexxo haaroonsanno qaale coyiidhe xaadeewonsa dadille hawisitto\n\n',
+          'Leellinke, coyiirinke, xaadinke, iillinke Magano\nWolasaanke yite agartewooha xagicho shiteenna roortinori"\nGodowa cortuhe laittota mararsituhe hexxo qoortinori.\nWolasaanke yite agartewooha Xagicho shiteenna roortinori.\nEemawusi doogo aana xaadde hasaawisse ille xawisitto.\nHexxo haaroonsanno qaale coyiidhe xaadeewonsa dadille hawisitto\n\n',
         verse_1:
-          "Coyiirinke magano coyiirinke\nCoyiirinke mooticha coyiirinke\nBorreessinoye fojo buunxeemmona mooticha atilla coyiirinke\nIi Magano coyiirinke\n\n",
+          "Coyiirinke Magano coyiirinke\nCoyiirinke mooticha coyiirinke\nBorreessinoye fojo buunxeemmona mooticha atilla coyiirinke\nIi Magano coyiirinke\n\n",
         verse_2:
-          "Wayi aana Hadhanna lae halche anino dayeemmo yii pheexiroosi\nMayi Darawoonyeeti yiittokkinni faanakki daa gede fajjitosi\nHuluullo boo'nate karsiisante sayiisse uutinoha dambalaho\niillie yee raarita iillito mule nootto woshaahu baalaho.\n\n",
+          "Wayi aana Hadhanna lae halche anino dayeemmo yii pheexiroosi\nMayi Darawoonyeeti yiittokkinni faanakki daa gede fajjitosi\nHuluullo boo'nate karsiisante sayiisse uuyitinoha dambalaho\nIillie yee raarita iillito mule nootto woshaahu baalaho.\n\n",
         verse_3:
-          "Iillinke magano iillinke\niillinke mooticha iillinke\nDambalu egemma yorewoonkena\nPheexiroosira iillittohu iillinke\nMagano iiillinke\n\n",
+          "Iillinke Magano iillinke\niillinke mooticha iillinke\nDambalu egemma yoriyoonkena\nPheexiroosira iillittohu iillinke\nMagano iiillinke\n\n",
         verse_4:
-          "Maalu hinaasinni bubbuqame dancha assayi nooha laweennasi\nShorra noonku ate ikkoottota lii'lu haweennasi\nHaranna doogote xaadittosi qasanno bagado heleelloha.\niimi caabichinni qafadittosi isitero baalanka qeelloha.\n\n",
+          "Maalu hinaasinni bubbuqame dancha assayi nooha laweennasi\nShorra noonku ate ikkoottota lii'lu haweennasi\nHaranna doogote xaadittosi qasanno bagado heleelloha.\nIimi caabichinni qafadittosi isitero baalanka qeelloha.\n\n",
         verse_5:
           "Xaadinke mooticha xaadinke\nUurrinoommo doogo laa'neemmona\nSawulira xaadittohu xaadinke\nMagano xaadinke\n",
         verse_6:
           "Heeshshonniha reyeeteewoori mereero haafate hassanni raatabbanni\nBorreessinoyi qaale qaaga hooge kuloottoha rewookkira albaanni\nAte afa hoolteennase hindiido illese jaanjursite\nLeellito mayiiraami wi'litanna mooticha'ya moroonnie yitei\n\n",
         verse_7:
-          "Leellinke magano leellinke\nLeellinke mooticha Leellinke\nMullawa raataambanni he'noommona\nMayiiramira leellittohu leellinke\nMagano leellinke\n\n",
+          "Leellinke Magano leellinke\nLeellinke mooticha Leellinke\nMullawa raataambanni he'noommona\nMayiiramira leellittohu leellinke\nMagano leellinke\n\n",
         artist: "Eliasi Batiro",
         language_value: "Sidaamu Afoo",
         displayOrder: 1,
@@ -699,7 +699,7 @@ const allSongs = [
       },
       {
         id: 3,
-        song_num: 6,
+        song_num: 3,
         title: "ተዮኖ ዶርሽነ",
         category: "Cat 1",
         chorus:
@@ -720,7 +720,7 @@ const allSongs = [
 
       {
         id: 4,
-        song_num: 9,
+        song_num: 4,
         title: "ሎወሬ ሎሱና",
         category: "Cat 1",
         chorus:
