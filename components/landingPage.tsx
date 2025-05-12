@@ -32,16 +32,16 @@ const LandingPage = () => {
   const containerAnim = useRef(new Animated.Value(0)).current;
 
   const leftVerses = [
-    "Waaqayyoon \nfaarfadhaa\n Bau 15:21\n",
-    "Maganoho \nFaarse! \n Fulo 15፡21\n",
-    "Maganii \nZammarre \n Fuli Max. 15፡21\n",
-    "የጔታ አዝምሮ \n  ዘጸ. 15፡21",
+   { text: "Waaqayyoon \nfaarfadhaa", verse: "Bau 15:21" },
+  { text: "Maganoho \nFaarse!", verse: "Fulo 15፡21" },
+  { text: "Maganii \nZammarre", verse: "Fuli Max. 15፡21" },
+  { text: "የጔታ አዝምሮ", verse: "ዘጸ. 15፡21" },
   ];
   const rightVerses = [
-    "Waa'ina \nzammallehe \nDooyyi 15:21\n",
-    "ንእግዚኣብሄር ዘምሩሉ\nዘፀ. 15:21\n",
-    "KietnƐ Kuoth \nnhial diit \nDiit. 15:21",
-    "Xoossasi sabbite! \nKes. 15:21\n",
+    { text: "Waa'ina \nzammallehe", verse: "Dooyyi 15:21" },
+  { text: "ንእግዚኣብሄር ዘምሩሉ", verse: "ዘፀ. 15:21" },
+  { text: "KietnƐ Kuoth \nnhial diit", verse: "Diit. 15:21" },
+  { text: "Xoossasi sabbite!", verse: "Kes. 15:21" },
   ];
 
   const allLines = [...leftVerses, ...rightVerses];
@@ -145,10 +145,10 @@ const LandingPage = () => {
 
         <View style={styles.heroSection}>
           <Text style={styles.heroTitle}>
-            በኢትዮጲያ ሰባተኛ ቀን አድቬንቲስት ቤ/ክ በተለያየ ቋንቋ የተዘጋጀ የመዝሙር መተግበሪያ
+            በኢትዮጵያ ሰባተኛ ቀን አድቬንቲስት ቤተክርስቲያን በተለያየ ቋንቋ የተዘጋጀ የመዝሙር መተግበሪያ
           </Text>
           <Text style={styles.heroSubtitle}>
-            የመዝሙር ግጥሞችን ተወዳጅ መዝሞሮችን እና አልበሞችን በቀላሉ ያግኙ።
+            የመዝሙር ግጥሞችን፣ ተወዳጅ መዝሙሮችን እና አልበሞችን በቀላሉ ያግኙ።
           </Text>
           <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
             <TouchableOpacity>
@@ -171,26 +171,40 @@ const LandingPage = () => {
             <Text style={styles.headingTitle}>የመዝሙር መተግበሪያ</Text>
           </View>
           <View style={styles.twoColumnContainer}>
-            <View style={styles.column}>
-              {leftVerses.map((verse, index) => (
-                  <Text key={index} style={styles.leftVerseText}>{verse}</Text>
-                ))}
-            </View>
             
+            <View  style={styles.column}>
+              {leftVerses.map((verse, index) => (
+                 <View key={index} style={styles.entry}>
+                  <Text  style={styles.VerseText}>{verse.text}</Text>
+                  <Text  style={styles.verse}>{verse.verse}</Text>
+                  
+                  </View>
+           ))}
+           </View>
+               <View style={styles.iconContainer}>
               <Image
-                source={require("../assets/images/sda-logo.png")}
+                source={require("../assets/images/sda-logo.png")
+
+                }
                 style={styles.centerLogo}
                 resizeMode="contain"
               />
-            
-            <View style={styles.column}>
-              {rightVerses.map((verse, index) => (
-                <Text key={index} style={styles.rightVerseText}>{verse}</Text>
-              ))}
             </View>
+          
+            <View style={styles.column}>
+               {rightVerses.map((verse, index) => (
+                 <View key={index} style={styles.entryRight}>
+                  <Text  style={styles.VerseTextRight}>{verse.text}</Text>
+                  <Text  style={styles.verseRight}>{verse.verse}</Text>
+            </View>
+             ))}   
+            </View>
+              
           </View>
           <View style={styles.footerRow}>
-            <Text style={styles.footerText}>“ለእግዚአብሔር ዘምሩ!” ዘጸ. 15፡21</Text>
+            <Text style={styles.footerText}>ለእግዚአብሔር ዘምሩ! </Text>
+            <Text style={styles.footerVerse}> ዘጸ. 15፡21</Text>
+
           </View>
         </Animated.View>
       </ScrollView>

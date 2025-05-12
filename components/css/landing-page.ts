@@ -59,21 +59,6 @@ const landingPageStyles = () =>
       textShadowOffset: { width: 1, height: 1 },
       textShadowRadius: 1,
     },
-    ctaButton: {
-      backgroundColor: "#fff",
-      paddingHorizontal: 30,
-      paddingVertical: 12,
-      borderRadius: 5,
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.2,
-      shadowRadius: 4,
-    },
-    ctaText: {
-      color: "#6a11cb",
-      fontSize: 18,
-      fontWeight: "bold",
-    },
     featureContainer: {
       flex: 1,
       width: "100%",
@@ -89,19 +74,13 @@ const landingPageStyles = () =>
       elevation: 5, // For Android
       paddingBottom: 200,
     },
-featureContainerTitle: {
-      fontSize: 14,
-      fontWeight: "bold",
-      marginBottom: 8,
-      color: "#333",
-    },
     featureLine: {
       fontSize: 14,
       color: "#333",
       marginVertical: deviceHeight * 0.002,
     },
     footerRow: {
-      flexDirection: "row",
+      flexDirection: "column",
       justifyContent: "space-between",
       borderTopWidth: 1,
       borderTopColor: "#ddd",
@@ -109,62 +88,39 @@ featureContainerTitle: {
       //paddingHorizontal: 10,
     },
     footerText: {
+      fontWeight:'bold',
       fontSize: 14,
       color: "#555",
     },
-    sectionTitle: {
-      fontSize: 18,
-      fontWeight: "bold",
-      color: "#6a11cb",
-      marginBottom: 20,
-      alignItems: "center",
-      backgroundColor: "#fff",
+    footerVerse: {
+       fontStyle:'italic',
+      fontSize: 14,
+      color: "#555",
     },
-    // Two-column layout + logo in center
+     // Two-column layout + logo in center
     twoColumnContainer: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "flex-start",
-      paddingHorizontal: 10, // Equal margin left and right
-
-     
-      
+      paddingTop:10,
+     flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: 0,
+      gap: 5,
     },
     column: {
       flex: 1,
-      paddingHorizontal: 10,
+      justifyContent: 'center',
+       paddingHorizontal: 0, 
     },
-     centerLogoContainer: {
-      width: deviceWidth * 0.3,
-      height: deviceWidth * 0.3,
-      justifyContent: "center",
-      alignItems: "center",
-      paddingRight: deviceWidth * 0.05,
-      marginRight: deviceWidth * 0.01,
-      marginLeft: deviceWidth * 0.01,
+    iconContainer:{
+       flex: 2,
+       alignItems: 'center',
+       justifyContent: 'center',
     },
     centerLogo: {
-        width: 200,
-        height: 200,
-        marginHorizontal: 10,
-        alignSelf: "center",
-    },
-    feature: {
-      alignItems: "flex-start",
-      marginBottom: 30,
-    },
-    feature2: {
-      alignItems: "flex-start",
-      marginBottom: 30,
-      marginLeft: 50,
-    },
-    featureTitle: {
-      fontSize: 14,
-      fontWeight: "bold",
-      color: "#333",
-      marginVertical: 10,
-    },
-
+        width: 180,
+        height: 180,
+         resizeMode: 'contain',
+    }, 
     headingTitle: {
       fontSize: 16,
       fontWeight: "bold",
@@ -175,41 +131,50 @@ featureContainerTitle: {
       textShadowOffset: { width: 1, height: 1 },
       textShadowRadius: 2,
     },
-    backgroundImage: {
-      flex: 1,
-      resizeMode: "cover", // Ensures the image covers the entire background
-      justifyContent: "center",
-      height: "100%",
-      width: "100%", // Centers the content inside
+    rightVerse: {
+        fontSize: 12,
+        textAlign: "right", // ensures alignment from start
+        marginBottom: 6,
+        marginRight:0
     },
-    featureTitle1: {
-      fontSize: 14,
-      fontWeight: "bold",
-      color: "#333",
+    entry:{ 
+      marginBottom: 12,
     },
-    featureDescription: {
-      fontSize: 14,
-      textAlign: "justify",
-      color: "#666",
-    },
-    featureDescription2: {
-      fontSize: 14,
-      textAlign: "justify",
-      marginRight: 0,
-      color: "#666",
+     entryRight:{ 
+      marginBottom: 12,
+      //marginRight:0
     },
     rightVerseText: {
-    fontSize: 16,
-    textAlign: "right", // ensures alignment from start
-    marginBottom: 6,
-    marginRight:0
+        fontSize: 12,
+        textAlign: "right", // ensures alignment from start
+        marginRight:0
     },
-    leftVerseText: {
-        fontSize: 16,
+    verse: {
+        fontSize: 12,
         textAlign: "left", // ensures alignment from start
-        marginBottom: 6,
-        marginLeft:0,
+        fontStyle:'italic',
         gap:12,
+        marginLeft: 5,
+
+    },
+    VerseText: {
+        fontWeight:'600',
+        fontSize: 14,
+        textAlign: 'left',
+        marginLeft: 5,
+    },
+     verseRight: {
+        fontSize: 12,
+        fontStyle:'italic',
+        textAlign: "left", // ensures alignment from start
+        gap:12,
+        
+    },
+    VerseTextRight: {
+      fontWeight:'600',
+       fontSize: 14,
+       textAlign: 'left',
+       
     },
     searchInput: {
       height: 40,
