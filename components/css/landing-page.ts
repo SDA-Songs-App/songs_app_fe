@@ -124,22 +124,17 @@ featureContainerTitle: {
     twoColumnContainer: {
       flexDirection: "row",
       justifyContent: "space-between",
-      alignItems: "center",
-      paddingHorizontal: deviceWidth * 0.05, // Equal margin left and right
-      //paddingVertical: 10,
-      //  backgroundColor: "rgba(255,255,255,0.9)",
-      width: "100%",
-      //  backgroundColor: "rgba(255,255,255,0.9)",
+      alignItems: "flex-start",
+      paddingHorizontal: 10, // Equal margin left and right
+
+     
+      
     },
     column: {
       flex: 1,
+      paddingHorizontal: 10,
     },
-    columnT: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "flex-start",
-    },
-    centerLogoContainer: {
+     centerLogoContainer: {
       width: deviceWidth * 0.3,
       height: deviceWidth * 0.3,
       justifyContent: "center",
@@ -149,9 +144,10 @@ featureContainerTitle: {
       marginLeft: deviceWidth * 0.01,
     },
     centerLogo: {
-      width: "100%",
-      height: "100%",
-      //marginHorizontal: 6,
+        width: 200,
+        height: 200,
+        marginHorizontal: 10,
+        alignSelf: "center",
     },
     feature: {
       alignItems: "flex-start",
@@ -202,13 +198,18 @@ featureContainerTitle: {
       marginRight: 0,
       color: "#666",
     },
-    featureLeft: {
-      flex: 1,
-      alignItems: "flex-start",
+    rightVerseText: {
+    fontSize: 16,
+    textAlign: "right", // ensures alignment from start
+    marginBottom: 6,
+    marginRight:0
     },
-    featureRight: {
-      flex: 1,
-      alignItems: "flex-end",
+    leftVerseText: {
+        fontSize: 16,
+        textAlign: "left", // ensures alignment from start
+        marginBottom: 6,
+        marginLeft:0,
+        gap:12,
     },
     searchInput: {
       height: 40,

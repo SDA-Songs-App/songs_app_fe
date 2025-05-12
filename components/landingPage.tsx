@@ -31,20 +31,20 @@ const LandingPage = () => {
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const containerAnim = useRef(new Animated.Value(0)).current;
 
-  const leftLines = [
-    "Waaqayyoon \nfaarfadhaa\n Bau 15:21",
-    "Maganoho \nFaarse! \n Fulo 15፡21",
-    "Maganii \nZammarre \n Fuli Max. 15፡21",
+  const leftVerses = [
+    "Waaqayyoon \nfaarfadhaa\n Bau 15:21\n",
+    "Maganoho \nFaarse! \n Fulo 15፡21\n",
+    "Maganii \nZammarre \n Fuli Max. 15፡21\n",
     "የጔታ አዝምሮ \n  ዘጸ. 15፡21",
   ];
-  const rightLines = [
-    "Waa'ina \nzammallehe \nDooyyi 15:21",
-    "ንእግዚኣብሄር ዘምሩሉ!\nዘፀ. 15:21",
-    "KietnƐ Kuoth \nnhial diit! \nDiit. 15:21",
-    "Xoossasi sabbite! \nKes. 15:21",
+  const rightVerses = [
+    "Waa'ina \nzammallehe \nDooyyi 15:21\n",
+    "ንእግዚኣብሄር ዘምሩሉ\nዘፀ. 15:21\n",
+    "KietnƐ Kuoth \nnhial diit \nDiit. 15:21",
+    "Xoossasi sabbite! \nKes. 15:21\n",
   ];
 
-  const allLines = [...leftLines, ...rightLines];
+  const allLines = [...leftVerses, ...rightVerses];
 
   const lineAnimValues = useRef(
     allLines.map(() => new Animated.Value(0))
@@ -172,19 +172,21 @@ const LandingPage = () => {
           </View>
           <View style={styles.twoColumnContainer}>
             <View style={styles.column}>
-              {leftLines.map((line, i) => renderAnimatedLine(line, i))}
+              {leftVerses.map((verse, index) => (
+                  <Text key={index} style={styles.leftVerseText}>{verse}</Text>
+                ))}
             </View>
-            <View style={styles.centerLogoContainer}>
+            
               <Image
                 source={require("../assets/images/sda-logo.png")}
                 style={styles.centerLogo}
+                resizeMode="contain"
               />
-            </View>
+            
             <View style={styles.column}>
-              {rightLines.map((line, i) =>
-                // The index for the right lines starts after left lines
-                renderAnimatedLine(line, i + leftLines.length)
-              )}
+              {rightVerses.map((verse, index) => (
+                <Text key={index} style={styles.rightVerseText}>{verse}</Text>
+              ))}
             </View>
           </View>
           <View style={styles.footerRow}>
