@@ -71,7 +71,9 @@ const getStyles = (
       alignItems: "flex-start",
     },
     footer: {
+      fontSize:12,
       color: isDarkMode ? "black" : "white",
+      fontStyle:'italic'
     },
     categoryContainer: {
       flexDirection: "row",
@@ -331,7 +333,7 @@ const getStyles = (
     songContainer: {
       width: Dimensions.get("window").width * 0.99, // Slightly narrower for balanced spacing
       justifyContent: "flex-start",
-      flex:1,
+       height: "100%",
       borderRadius: 0, // Rounded corners
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a", // Soft background color
       shadowOffset: { width: 0, height: 5 },
