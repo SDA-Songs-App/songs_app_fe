@@ -80,7 +80,9 @@ const getStyles = (
     },
     floatingButtonContainer:{
       position: "relative",
-      marginBottom:-75,
+      marginBottom:-40,
+      transform: [{ scale: 0.6 }],
+      marginRight:-80,
      },
     categoryButton: {
       padding: 10,

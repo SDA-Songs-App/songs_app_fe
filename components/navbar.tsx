@@ -674,12 +674,8 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                     </Text>
                   ))}
                 <Text style={styles.footer}>
-                  {
-                    localizations.find(
-                      (key) => key.language_key === selectedLanguage
-                    )?.author
-                  }
-                  : {selectedSong.artist}{" "}
+
+                   {selectedSong.artist}{" "}
                 </Text>
                 </SafeAreaView>
               </ImageBackground>

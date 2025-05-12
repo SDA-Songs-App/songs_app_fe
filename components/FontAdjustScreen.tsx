@@ -192,10 +192,6 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
 };
 
 const styles = StyleSheet.create({
-  // container: {
-  //   flex: 1,
-  //   padding: 16,
-  // },
   label: {
     marginVertical: 8,
     fontSize: 16,

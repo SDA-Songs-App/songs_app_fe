@@ -237,7 +237,7 @@ const allSongs = [
         verse_4:
           "ሊረንችኔ መዝሙሉምተእኔ\nእሱክ ኤሮማ ጠንዱም-ቤዕተዕኔ\nህንክ ሀወኔም ሀንዳ ይኑምተዕኔ\nንቡድ እምኮ ዲነእ ሀኔኔ\n\n",
         verse_5: "",
-        artist: "አለሙ ብላቱ",
+        artist: "",
         language_value: "ሀዲይኛ",
         displayOrder: 1,
       },
@@ -256,7 +256,7 @@ const allSongs = [
         verse_5:
           "ገምበብ ቱንስ ወሪ ፍሳ\nገቶም ጎጎ እነ ሞእሳ\nአንገ አመዳ አወንሳ \nእጥ ለጎዮ መአንሳ\n\n",
         verse_6: "ዋእ በጦ ጉላ ኩሬና\nከቀጣ ያ ቆዴና\nጠኖሞዮ በሽላ\nሎጶና እጥ አድላ\n\n",
-        artist: "አለሙ ብላቱ",
+        artist: "",
         language_value: "ሀዲይኛ",
         displayOrder: 1,
       },
@@ -276,7 +276,7 @@ const allSongs = [
           "ዋዕ ደናሞ ህራጋንና አወናንና ኩራ እጥ ዎሻ\nወደለኔዮ ከዶሌኔም ኤች ጎጎ ንና ኩሻ\nዌሻ ዎራ ሀንቅ ጫክሳ አንም ነቃሻ\n ወንጌል ሰገር ዶል ሁንደኔም ቤዶቤዕ ምሻ ወንጌል ቤዶቤዕ ምሻ\n\n",
         verse_4: "",
         verse_5: "",
-        artist: "አለሙ ብላቱ",
+        artist: "",
         language_value: "ሀዲይኛ",
         displayOrder: 1,
       },
@@ -296,7 +296,7 @@ const allSongs = [
           "ዶል ዮኮ ይናማ ድርሉምሰም\nየሱስ ዋሬነቴ ኔስ በቅኖኔም\nኤብክን አመናን ንጋጋ ጉድንሶና\nኤ ዋሮ ጊል ብችንስ ጋጋንባ ግንቦና\n\n",
         verse_4: "",
         verse_5: "",
-        artist: "አለሙ ብላቱ",
+        artist: "",
         language_value: "ሀዲይኛ",
         displayOrder: 1,
       },
@@ -318,7 +318,7 @@ const allSongs = [
           "ጎቅ ሀኔኔ የምኔዕሳ ድናክች ጠድሳ\nጌጅ ኡስን ከራኮ ሄኖም ኡልሳ እሳ\nአመንና ፍታካ ግግሮ ሉዋ ሎንሳ\nአረቅ መን ኤሃኖን እል ካሶዕሳ እሳ\nእማዕን ዎሾ ጠደማ መኒ ኡልና በቶላ\nአት ንእል ፎቃኤ ኬስ ኡንጥኖሙላ\n\n",
         verse_5:
           "አረቅ ሉዊ ከኡላን መንካ ትሮ አጎላ\nአማዕን ፋሽና ለሴሽ ክንስ ኡቡሶላ\nማኣል ምጣኖ ዎሽምና ዱት ኬን ጋጋቦላ\nሞኣካማ ዋዕ መን ፋንዴንስ ጆሮላ\nሄኤኖና ሃስት ለሴንስ የሱሳ ሀዳራ\nሀሬች ዎደኑ ቆጬ ለይ አት ህሞ ደራ\n\n",
-        artist: "አለሙ ብላቱ",
+        artist: "",
         language_value: "ሀዲይኛ",
         displayOrder: 1,
       },
@@ -366,7 +366,7 @@ const allSongs = [
         verse_4:
           "\nባጢሉሁ ጤሌሉሁ ሆረን ዮበዕ መዕኔን\nአንነ ቤት ላሁ ሄጌጉሴ ክቤ መዕኔን\nማሰቱ ጡሙ አብኑ አብኑ በጅጉት ዊንት ትርፍቴ መዕኔን\nሬኑነ በኑዕነ ሰዕምን ሄዕናም ሃሮ ዬሩሳሌንቾን\n\n",
         verse_5: "",
-        artist: "Qeesichu Bayana Badcha",
+        artist: "በየነ በዲቻ",
         language_value: "kambaatisata",
         displayOrder: 1,
       },
@@ -435,7 +435,7 @@ const allSongs = [
   },
 
   {
-    language_key: "Neur",
+    language_key: "Nuer",
     Header:"Kɛn diit tin caa liny",
     notFound:"Thiɛlɛ diit mi cakɔ jek",
     Content: [
@@ -454,7 +454,7 @@ const allSongs = [
           "K` b77thdan n5 J5thvth k` cuumdan n5 jvn Y522 Kusth, v t0th lsac tee Kuoth in Gu1n bv tee ns m`n5 c`xkvl.\n\n",
         verse_4:
           "K` lu]]ku kv cu]x cu]x baa j5 l5ak kv ku5c vms k` gssydu jvn d5tv bv tee ns m`n5 c`xkvl\n\n",
-        verse_5: "_",
+        verse_5: "",
         artist: "D22b5t K0k Cusl",
         language_value: "Nueer",
       },
@@ -492,8 +492,8 @@ const allSongs = [
           "J5thvth v y5eend` p1ny, k` f`n m5 w11 j1l jvn b` v du]]pd` min th5vl muth. J5thvth v yuupd` p1ny, k` f`n m5 c` c56t, jvn bv f` looc kv jsw m5 pusl.\n",
         verse_3:
           "J5thvth v f77r` p1ny, tvy fsaa c`x nyu1n` b` x`thn5 f77r` min te nh5al. J5thvth bv f` ben nax, b0c b0c fsaa vmv m5 w22 we jssc b5 kvn cu dusth.\n",
-        verse_4: "_",
-        verse_5: "_",
+        verse_4: "",
+        verse_5: "",
         artist: "D22-b5t K0k",
         language_value: "Nuer",
         displayOrder: 1,
@@ -513,7 +513,7 @@ const allSongs = [
           "Kuoth cv naath k`n rvy cuc` m5 d55t, k` cuv kv b7th kv du]p m5 cux. Am`n5 m22 c5kv cop wecd5vn in d55t l1rkv Kuoth nh5al t0th lsac kv diit.\n",
         verse_4:
           "Th11x nath c5kv nyuur rvy mu]th m5 col vl7x, kvn nvy tin caa y5an kv kuatn5 kv f66 c5kv Kuoth l7k am`n5 lu22kv, k` cuv kv moc cu]c l1t m5 bvc. K` cukv Kuoth nh5al csl kv riik5vn t5 uan k` cuv kv k1m raar n5 rvy mu]th. Akv puanykv Kuoth nh5al kv t0th lsac m5 d55t.\n",
-        verse_5: "_",
+        verse_5: "",
         artist: "D22-b5t K00k",
         language_value: "Nueer",
         displayOrder: 1,
@@ -534,7 +534,7 @@ const allSongs = [
           "Kv gssy pusny`du l66 C``k vjvn in nyuth ks t22k. K` j5n la mooc5 ks pu]]th rvy n5n5 ks tin yoop j5n.\n",
         verse_4:
           "Kv gssy pusny`du l66 C``k, cur5 ks nyu]th nh6kdu min d55t. Min cur5 nyooth kv l511 gatdu in luvl ks k` dueer.\n",
-        verse_5: "_",
+        verse_5: "",
         artist: "Bol Thsst",
         language_value: "Nuer",
         displayOrder: 1,
@@ -664,9 +664,9 @@ const allSongs = [
         verse_2:
           "Wayi aana Hadhanna lae halche anino dayeemmo yii pheexiroosi\nMayi Darawoonyeeti yiittokkinni faanakki daa gede fajjitosi\nHuluullo boo'nate karsiisante sayiisse uutinoha dambalaho\niillie yee raarita iillito mule nootto woshaahu baalaho.\n\n",
         verse_3:
-          "iillinke magano iillinke\niillinke mooticha iillinke\nDambalu egemma yorewoonkena\nPheexiroosira iillittohu iillinke\nMagano iiillinke\n\n",
+          "Iillinke magano iillinke\niillinke mooticha iillinke\nDambalu egemma yorewoonkena\nPheexiroosira iillittohu iillinke\nMagano iiillinke\n\n",
         verse_4:
-          "maalu hinaasinni bubbuqame dancha assayi nooha laweennasi\nShorra noonku ate ikkoottota lii'lu haweennasi\nHaranna doogote xaadittosi qasanno bagado heleelloha.\niimi caabichinni qafadittosi isitero baalanka qeelloha.\n\n",
+          "Maalu hinaasinni bubbuqame dancha assayi nooha laweennasi\nShorra noonku ate ikkoottota lii'lu haweennasi\nHaranna doogote xaadittosi qasanno bagado heleelloha.\niimi caabichinni qafadittosi isitero baalanka qeelloha.\n\n",
         verse_5:
           "Xaadinke mooticha xaadinke\nUurrinoommo doogo laa'neemmona\nSawulira xaadittohu xaadinke\nMagano xaadinke\n",
         verse_6:
