@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sda-songs",
-    "slug": "sda-songs",
+    "name": "አድቬንቲስት_መዝሙሮች",
+    "slug": "adventist-hegergna-songs",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/splashImageps.png",
@@ -13,7 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sda.songs.hegerigna",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.sda.songs.hagarigna",
@@ -27,7 +31,11 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": ["expo-router", "expo-asset", "expo-font"],
+    "plugins": [
+      "expo-router",
+      "expo-asset",
+      "expo-font"
+    ],
     "experiments": {
       "typedRoutes": true
     },
@@ -36,7 +44,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "ba6b0bcf-af8f-4360-a946-b5ae058f744d"
+        "projectId": "04a54419-8b9c-47ab-8ca7-d103380dca93"
       }
     },
     "runtimeVersion": {
@@ -44,6 +52,7 @@
     },
     "updates": {
       "url": "https://u.expo.dev/ba6b0bcf-af8f-4360-a946-b5ae058f744d"
-    }
+    },
+    "owner": "sda-user"
   }
 }

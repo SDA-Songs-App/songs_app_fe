@@ -11,7 +11,7 @@ const getStyles = (
     container: {
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a",
       width: "100%",
-      height: "100%",
+      flex: 1,
     },
 
     navbar: {
@@ -20,7 +20,7 @@ const getStyles = (
       alignItems: "center",
       padding: 10,
       backgroundColor: isDarkMode ? "green" : "#2a2a2a",
-     //// marginTop: 2,
+      //// marginTop: 2,
     },
     number: {
       color: "#fff",
@@ -39,7 +39,7 @@ const getStyles = (
     backgroundImage: {
       paddingLeft: 20,
       flex: 1,
-      resizeMode: "cover", // Ensures the image covers the entire background
+      // Ensures the image covers the entire background
       justifyContent: "center",
     },
     modalBackground: {
@@ -71,12 +71,20 @@ const getStyles = (
       alignItems: "flex-start",
     },
     footer: {
+      fontSize: 12,
       color: isDarkMode ? "black" : "white",
+      fontStyle: "italic",
     },
     categoryContainer: {
       flexDirection: "row",
       justifyContent: "space-around",
       marginBottom: 20,
+    },
+    floatingButtonContainer: {
+      position: "relative",
+      marginBottom: -40,
+      transform: [{ scale: 0.6 }],
+      marginRight: -80,
     },
     categoryButton: {
       padding: 10,
@@ -265,28 +273,27 @@ const getStyles = (
       alignItems: "center",
       backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
-    langOptionModalContainer:{
-      justifyContent: 'flex-start', // Align at top
-      alignItems: 'flex-end', // Align to right
+    langOptionModalContainer: {
+      justifyContent: "flex-start", // Align at top
+      alignItems: "flex-end", // Align to right
       margin: 0,
       paddingTop: height * 0.08, // Adjust depending on navbar height
       paddingRight: width * 0.03,
     },
-    modalContent: {     
-      position: 'absolute',
-      top: 60, 
-      right: 5, 
-      width: width * 0.3 ,//for responsive sizing
-      backgroundColor: isDarkMode ? '#fff' : '#2a2a2a',
+    modalContent: {
+      position: "absolute",
+      top: 60,
+      right: 5,
+      width: width * 0.3, //for responsive sizing
+      backgroundColor: isDarkMode ? "#fff" : "#2a2a2a",
       borderRadius: 8,
       borderWidth: isDarkMode ? 0 : 1,
-      borderColor: 'white',
+      borderColor: "white",
       paddingVertical: 8,
       zIndex: 999, // Make sure it overlays
-      justifyContent:'center',
-      alignItems:'center',
-      paddingRight:25,
-
+      justifyContent: "center",
+      alignItems: "center",
+      paddingRight: 25,
     },
     languageOption: {
       paddingVertical: 10,
@@ -314,8 +321,8 @@ const getStyles = (
     },
     pickerText: {
       color: "#fff",
-      fontSize: 14,
-      fontFamily: fontFamily,
+      fontSize: 13,
+      //fontFamily: fontFamily,
       fontWeight: "bold",
     },
     scrollContainer: {

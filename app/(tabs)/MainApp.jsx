@@ -10,7 +10,8 @@ import {NavigationIndependentTree, NavigationContainer} from '@react-navigation/
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 const Stack = createStackNavigator(); 
 function MainApp (){
-    const {isDarkMode, theme} = useTheme()
+    const {theme} = useTheme()
+    const { isDarkMode, toggleTheme } = useTheme();
       return theme ? (
         <SafeAreaProvider>
         <StatusBar
@@ -18,7 +19,7 @@ function MainApp (){
         backgroundColor = {isDarkMode ? "#0a8f25": "#1a1a1a"} // background color
         translucent={false}
       />
-      <SafeAreaView style={{ flex: 1, backgroundColor: "transparent"}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor:  isDarkMode ?"black":"green"}}>
         <NavigationIndependentTree>
           <NavigationContainer theme = {theme}>
             <GestureHandlerRootView style={{ flex: 1 }}>
