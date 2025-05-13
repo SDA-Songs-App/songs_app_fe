@@ -1,19 +1,19 @@
 const allSongs = [
   {
     language_key: "አማርኛ",
-    Header:"የተመረጡ መዝሙሮች",
-    notFound:"ምንም መዝሙር አልተገኘም",
+    Header: "የተመረጡ መዝሙሮች",
+    notFound: "ምንም መዝሙር አልተገኘም",
     Content: [
       {
         id: 1,
         song_num: 1,
         title: "ኃይል ያለው በጉልበት ላይ ነው",
         category: "Cat 1",
-        chorus: " ኃይል ያለው በጉልበት ላይ ነው /2*/\nመንበርከክ መፀለይ ካለ\nሁሉም ነገር በእጃችን አለ\n",
+        chorus: "ኃይል ያለው በጉልበት ላይ ነው /2x/\nመንበርከክ መፀለይ ካለ\nሁሉም ነገር በእጃችን አለ\n",
         verse_1:
           "ሙሴ በኮሬብ ተራራ እግዚአብሄርን ያናገረው\nበደመና ውስጥ ተከብቦ ክብሩን ማየት የቻለው\nአርባ ቀንና አርባ ሌሊት በመፆም በመፀለይ ነው\n",
         verse_2:
-          "ሙሴ በኮሬብ ተራራ እግዚአብሄርን ያናገረው\nበደመና ውስጥ ተከብቦ ክብሩን ማየት የቻለው\nአርባ ቀንና አርባ ሌሊት በመፆም በመፀለይ ነው\n",
+          "ሐና ለረጅም ዓመታት በምላስ ዱላ ተመትታ\nጣውንቷ ስታስጨንቃት ሁል ጊዜ ጧትና ማታ\nለአምላኳ ነግራ አልቅሳ ሳሙኤልን ሰጣት ጌታ\n",
         verse_3:
           "ኤልያስ ሦስት ዓመት ሙሉ ዝናብ እንዳይወርድ የዘጋው\nበእምነት በፀሎት ኃይል ነው አመፀኛውን ሕዝብ የቀጣው\nለነገሥታትና ለአህዛብ የአምላኩን ክንድ የገለጸው\n\n",
         verse_4:
@@ -22,7 +22,6 @@ const allSongs = [
         artist: "ተፈራ ወ/ማሪያም",
         language_value: "አማርኛ",
         displayOrder: 1,
-        
       },
       {
         id: 2,
@@ -30,77 +29,74 @@ const allSongs = [
         title: "ልመችህ ማደሪያህ ልሁን",
         category: "Cat 1",
         chorus:
-          "ልመችህ ማደሪያህ ልሁን\nአፅዳኝና ገብተህ ተደላደል}2 \nአንተ እንዳትገባ ሚያደርገውን ሁሉ\nበጅራፍህ ገርፈህ አስወጣው በሙሉ/2\n\n",
+          "ልመችህ ማደሪያህ ልሁን\nአፅዳኝና ገብተህ ተደላደል}x2\nአንተ እንዳትገባ ሚያደርገውን ሁሉ\nበጅራፍህ ገርፈህ አስወጣው በሙሉ}x2\n\n",
         verse_1:
-          "አቤቱ አባታችን ይኸው በፊትህ ነን\nንስሐ እንገባለን ተቀበለን\nየምህረት አምላክ ነህ ርኅሩኅ ነህጌታ\nኃጢአታችን በዝቷል አርግልን ይቅርታ\nአርግልን ይቅርታ)x2\n\n",
+          "አቤቱ አባታችን ይኸው በፊትህ ነን\nንስሐ እንገባለን ተቀበለን\nየምህረት አምላክ ነህ ርኅሩኅ ነህ ጌታ\nኃጢአታችን በዝቷል አርግልን ይቅርታ\nአርግልን ይቅርታ)x2\n\n",
         verse_2:
-          "መች በእኛ ይጨክናል ልብህ\nመች በእኛ ይጨክናል ያ ኃይልህ\nየምህረት ምንጭ ነህ ራስህ)2\nለምህረት የፈጠንክ ለቁጣ የዘገየህ\nአምላኬ አንተ ነህ የምህረት አባት/2/\n\n",
+          "መች በእኛ ይጨክናል ልብህ\nመች በእኛ ይጨክናል ያ ኃይልህ\nየምህረት ምንጭ ነህ ራስህ)x2\nለምህረት የፈጠንክ ለቁጣ የዘገየህ\nአምላኬ አንተ ነህ የምህረት አባት/x2/\n\n",
         verse_3:
           "አለም በዘፈኗ ገና ሳትወስደኝ\nበጠላት መጋጋ ወስዳ ሳትከተኝ\nፈጥነህ ደርሰህ ጌታ እንድታስመልጠኝ\nጠዋትና ማታ እለምንሃለሁ\nማስመለጥ ታውቃለህና ታስመለጠናለህ\nመለየት ታውቃለህና ትለየናለህ\n\n",
-        verse_4: "\n",
+        verse_4: "",
         verse_5: "",
         artist: "ሀዋሳ ታቦር ቤ/ክ ውዳሴ ኳየር",
         language_value: "አማርኛ",
         displayOrder: 1,
       },
-
       {
         id: 3,
         song_num: 3,
         title: "ስሙ የማይንደው ተራራ ",
         category: "Cat 1",
         chorus:
-          "ስሙ የማይንደው ተራራ \nበርሱ የማይታለፍ መከራ\nየለምና እኛም በእምነት ስሙን እንጥራ /2*/ አዎን\n\n",
+          "ስሙ የማይንደው ተራራ \nበርሱ የማይታለፍ መከራ\nየለምና እኛም በእምነት ስሙን እንጥራ /x2/ አዎን\n\n",
         verse_1:
-          "አሁን በዙሪያችን የከበበን\nየማይታለፍ መስሎ የሚታየን\nስሙን ስንጠራ ሁሉ ይፈርሳል\nእንደ አመድ ሆኖ በኖ ይጠፋል /2*\n\n",
+          "አሁን በዙሪያችን የከበበን\nየማይታለፍ መስሎ የሚታየን\nስሙን ስንጠራ ሁሉ ይፈርሳል\nእንደ አመድ ሆኖ በኖ ይጠፋል /x2\n\n",
         verse_2:
-          "የሚገዳደረን ብርቱ ሆኖ\nለዓይናችን የታየን እጅግ ገኖ\nረዳታችን ከላይ ሲደርስልን\nጠላት የካበብን ተናደልን /2*/\n\n",
+          "የሚገዳደረን ብርቱ ሆኖ\nለዓይናችን የታየን እጅግ ገኖ\nረዳታችን ከላይ ሲደርስልን\nጠላት የካበብን ተናደልን /x2/\n\n",
         verse_3:
-          "ደመና ከሰማይ አይታይም\nምልክት የሚሆን ነፋስ የለም\nግን ሸለቆ ሁሉ ውኃ ሞልቷል\nስሙ ያደርገው ዘንድ   ተችሎታል /2*/\n\n",
+          "ደመና ከሰማይ አይታይም\nምልክት የሚሆን ነፋስ የለም\nግን ሸለቆ ሁሉ ውኃ ሞልቷል\nስሙ ያደርገው ዘንድ ተችሎታል /x2/\n\n",
         verse_4:
-          "ተራራ ሆኖብን የጋረደን\nአሻግረን እንዳናይ የከለለን\nታምረኛ ስሙን ስንጠራ\nይወዳደቅ ጀመር  በየተራ /2*/\n\n",
+          "ተራራ ሆኖብን የጋረደን\nአሻግረን እንዳናይ የከለለን\nታምረኛ ስሙን ስንጠራ\nይወዳድቅ ጀመር በየተራ /x2/\n\n",
         verse_5: "",
-        artist: "ሀዋሳ መናኸሪያ ቤ/ክ አማኑዔል",
+        artist: "ሀዋሳ መናኸሪያ ቤ/ክ አማኑዔል መዘምራን",
         language_value: "አማርኛ",
         displayOrder: 1,
       },
-
       {
         id: 4,
         song_num: 4,
         title: "በደመና ይመለሳል ",
         category: "Cat 1",
-        chorus: "በደመና ይመለሳል \nበክብርም ይመለሳል \nየወጉትም ያዩታል \nጌታ አይቀርም ይመጣል/2x/\n\n",
+        chorus: "በደመና ይመለሳል\nበክብርም ይመለሳል\nየወጉትም ያዩታል\nጌታ አይቀርም ይመጣል/2x/\n\n",
         verse_1:
-          "ጽድቅ የሚኖርባትን አዲስ ምድር ሊያወርሰን \nእንደ ተስፋ ቃሉ ወደ ክብሩ ሊያገባን \nይመጣል/3/ በእርግጥም ይመጣል\n\n",
+          "ጽድቅ የሚኖርባትን አዲስ ምድር ሊያወርሰን\nእንደ ተስፋ ቃሉ ወደ ክብሩ ሊያገባን\nይመጣል/x3/ በእርግጥም ይመጣል\n\n",
         verse_2:
-          "የተስፋ ቃል የሰጠን እግዚአብሔር ታማኝ ነዉ \nሊፈጽመዉ ይችላል በትዕግሥት እንጠብቀዉ \nበቃሉ በተስፋ ብንቆም መገለፁ አይቀርም\n\n",
+          "የተስፋ ቃል የሰጠን እግዚአብሔር ታማኝ ነው\nሊፈጽመው ይችላል በትዕግሥት እንጠብቀው\nበቃሉ በተስፋ ብንቆም መገለፁ አይቀርም\n\n",
         verse_3:
-          "ለብዙዎች መዳን እያለ ቢዘገይም \nየተናገረዉን ቃል በፍፁም አያጥፈዉም \nይመጣል አይቀርም ይመጣል አይዋሽም ይመጣል\n\n",
+          "ለብዙዎች መዳን እያለ ቢዘገይም\nየተናገረውን ቃል በፍፁም አያጥፈውም\nይመጣል አይቀርም ይመጣል አይዋሽም ይመጣል\n\n",
         verse_4:
-          "መጨረሻዉ ተቃርቧል ጌታ የሱስ ይመጣል \nብለን ለሁሉ እናዉጅ ይህን የምስራች ቃል \nይመጣል ይመጣል እያልን እንናገር ምፃቱን\n\n",
+          "መጨረሻው ተቃርቧል ጌታ የሱስ ይመጣል\nብለን ለሁሉ እናውጅ ይህን የምስራች ቃል\nይመጣል ይመጣል እያልን እንናገር ምፃቱን\n\n",
         verse_5: "",
-        artist: "አ/አ ገርጂ ቤ/ክ",
+        artist: "አ/አ ገርጂ ቤ/ክ መዘምራን",
         language_value: "አማርኛ",
         displayOrder: 1,
       },
-
       {
         id: 5,
         song_num: 5,
-        title: "ባመልከዉ አይበዛበትም",
+        title: "ባመልከው አይበዛበትም",
         category: "Cat 1",
-        chorus: "ባመልከዉ አይበዛበትም\nብሰግድም አይበዛበትም\nምስጋና አይበዛበትም\nለእየሱስ እበዛበትም\n\n",
+        chorus: "ባመልከው አይበዛበትም\nብሰግድም አይበዛበትም\nምስጋና አይበዛበትም\nለኢየሱስ እበዛበትም\n\n",
         verse_1:
-          "ከሞት ነዉ እኔን ያዳነኝ\nሕይወቱን በመስቀል ሰጥቶኝ\nስለዚህ አመልከዋለሁ\nለፍቅሩ ምላሽ ይሄዉ ነዉ\nይሄው ነው/2* ምላሹ ይሄ ነው\n\n",
+          "ከሞት ነው እኔን ያዳነኝ\nሕይወቱን በመስቀል ሰጥቶኝ\nስለዚህ አመልከዋለሁ\nለፍቅሩ ምላሽ ይሄው ነው\nይሄው ነው/x2 ምላሹ ይሄ ነው\n\n",
         verse_2:
-          "ከእሥራት ፈትቶኛልና\nነፃነት ሰጥቶኛልና\nሰይጣንን ላሳፈረልኝ\nለየሱስ እሰገዳለሁኝ\nእየሱስ ጌታ ነዉ\n\n",
+          "ከእሥራት ፈትቶኛልና\nነፃነት ሰጥቶኛልና\nሰይጣንን ላሳፈረልኝ\nለየሱስ እሰገዳለሁኝ\nኢየሱስ ጌታ ነው\n\n",
         verse_3:
-          "ጨለማን የገፈፈነዉ \nብርሃንን ያበራልኝ ነዉ\nህይወቴን ያረካልኝ ነዉ\nሰላምን ያበዛልኝ ነዉ\nጌታዬን ኢየሱሴን ሁሌ እባርከዋለሁ\n\n",
+          "ጨለማን የገፈፈነው\nብርሃንን ያበራልኝ ነው\nህይወቴን ያረካልኝ ነው\nሰላምን ያበዛልኝ ነው\nጌታዬን ኢየሱሴን ሁሌ እባርከዋለሁ\n\n",
         verse_4:
-          "ስቸገር የደረሰልኝ\nስታረዝ ደግሞ ያለበሰኝ\nስቸገር ደርሶ ያገዘኝ\nየሱስ ነዉ እንዲህ ያደረገልኝ\nጌታ ነዉ የሱስ ነዉ እዲህ ያረገልኝ\n\n",
+          "ስቸገር የደረሰልኝ\nስታረዝ ደግሞ ያለበሰኝ\nስቸገር ደርሶ ያገዘኝ\nየሱስ ነው እንዲህ ያደረገልኝ\nጌታ ነው የሱስ ነው እዲህ ያረገልኝ\n\n",
         verse_5:
-          "ምስኪኑን የማይንቅ ጌታ\nየድኃ አደጎች አለኝታ\nከፍ አድርጎ የሚያከብር ነው\nለቸርነቱ ወሰን የለው\nእየሱስ እየሱስ እጅግ ቸር አባት ነው\n\n",
+          "ምስኪኑን የማይንቅ ጌታ\nየድኃ አደጎች አለኝታ\nከፍ አድርጎ የሚያከብር ነው\nለቸርነቱ ወሰን የለው\nኢየሱስ አይበዛበትም እጅግ ቸር አባት ነው\n\n",
         artist: "ተስፋዬ ሽብሩ",
         language_value: "አማርኛ",
         displayOrder: 1,
@@ -110,8 +106,8 @@ const allSongs = [
 
   {
     language_key: "ጉራጊኛ",
-    Header:"የሸፗችዮ ዝምራ",
-    notFound:"ዝምራ አቸም አነከዊ",
+    Header: "የሸፗችዮ ዝምራ",
+    notFound: "ዝምራ አቸም አነከዊ",
     Content: [
       {
         id: 1,
@@ -120,13 +116,13 @@ const allSongs = [
         category: "Cat 1",
         chorus: "ይናሽ በጋደንዳ ይናሸ ባማደንዳ\nትንም ንቅ የኸረ ይሱስ ጔታነዳ\nአሜን የሱስ አባንዳ\n\n",
         verse_1:
-          "ሲጣር ይና ቲሽ ቢቸን ተደወታ  \nባነ ቲና ግዝይ ንቅ የኽረ  ጔታ \nይና አትጨንቅ በዋናም በምሳረ\nትንም ንቅ የኸረ የሱስንዳ ነረ  አሜን የሱሰንዳ ነረ\n\n",
+          "ሲጣር ይና ቲሽ ቢቸን ተደወታ\nባነ ቲና ግዝይ ንቅ የኽረ ጔታ\nይና አትጨንቅ በዋናም በምሳረ\nትንም ንቅ የኸረ የሱስንዳ ነረ አሜን የሱሰንዳ ነረ\n\n",
         verse_2:
           "ጔታ ቲጠራንደ ትክኖ ቲብርንደ\nእዮ ይሽርኸማ ትሁትም ቲያስድንደ\nተጥፚ ጥፚ ዘንጋ እንምጊ ይቅየንደ\nያገነንደ እንም የሁዝህ ይብርንደ አሜን የሁዝህ ይብርንደ\n\n",
         verse_3:
-          "ይናሽ በጋደንዳ የሱስ  ነመደንደም\nይናሽ ባማደንዳ ትከሮ ባረንደም\nትፍትሜ ተንቛሜ ይቅየንደቃር ናኸም\nምስጋና የሁት የኽር የዝህ አበቃንደም አሜን የዝህ አበቃንደም\n\n",
+          "ይናሽ በጋደንዳ የሱስ ነመደንደም\nይናሽ ባማደንዳ ትከሮ ባረንደም\nትፍትሜ ተንቛሜ ይቅየንደቃር ናኸም\nምስጋና የሁት የኽር የዝህ አበቃንደም አሜን የዝህ አበቃንደም\n\n",
         verse_4:
-          "ቲያጌንደ ይና የሁትሄ  ንሮጥነ\nጅጔረንዳ ኑድኔይ  ይፈተቴ ንቸነ\nየሱስ ያገነደ  እንም ቃር አበንደም \nእዮ ዝህ ንቅ ጔታ መምር ነመደንደም አሜን መምር ነመደንደም\n\n",
+          "ቲያጌንደ ይና የሁትሄ ንሮጥነ\nጅጔረንዳ ኑድኔይ ይፈተቴ ንቸነ\nየሱስ ያገነደ እንም ቃር አበንደም\nእዮ ዝህ ንቅ ጔታ መምር ነመደንደም አሜን መምር ነመደንደም\n\n",
         verse_5: "",
         artist: "አለሙ ብላቱ",
         language_value: "ጉራጊኛ",
@@ -140,13 +136,13 @@ const allSongs = [
         category: "Cat 1",
         chorus: "የሰብ አትመሮ ሰቦ\nየሰብ አትዘቦ ሰቦ\nሰብሽ እንም ኸጂ ቃሩ\nበዝረኵን ዘንጋ ኤቛም ቃሩ\n\n",
         verse_1:
-          "ሠብ ባፚታ ቢቅማምሩህ \nየግዚየታ ነረኹ ቢብርሁ\nአትመሮይ ይፈጥርሁ\nያርወታ ቲብር ያታልልሁ\n\n",
+          "ሠብ ባፚታ ቢቅማምሩህ\nየግዚየታ ነረኹ ቢብርሁ\nአትመሮይ ይፈጥርሁ\nያርወታ ቲብር ያታልልሁ\n\n",
         verse_2:
-          "በዝ አፈር ፚር ያሙሪ እኔ\nበጉራም ኸረም ዌም በከነ\nዩርም በኸረ ኤማ ያርቅር\nየሱስ ባንኸሬ ኤነ እንጛድ ቃር \n\n",
+          "በዝ አፈር ፚር ያሙሪ እኔ\nበጉራም ኸረም ዌም በከነ\nዩርም በኸረ ኤማ ያርቅር\nየሱስ ባንኸሬ ኤነ እንጛድ ቃር\n\n",
         verse_3:
           "እማት በየሱስ ኧመሮ\nታለም ዘንጋሁ ተቤተሮ\nሰብ በግብታ ኤም ቴቃሽሁ\nኸሮ ተጔታ ይፈዝሁ\n\n",
         verse_4:
-          "ይረምድሁ ቃር ኸማ ቃር\nያታልልሁ ቢዝረኲን ቃር \nዩርም ዘንጋ ያጭዋድሽ ቃር\nተጔታ በረን ኤን እንጉድ ቃር\n\n",
+          "ይረምድሁ ቃር ኸማ ቃር\nያታልልሁ ቢዝረኲን ቃር\nዩርም ዘንጋ ያጭዋድሽ ቃር\nተጔታ በረን ኤን እንጉድ ቃር\n\n",
         verse_5: "",
         artist: "አለሙ ብላቱ",
         language_value: "ጉራጊኛ",
@@ -159,13 +155,13 @@ const allSongs = [
         title: "የጌታ ምህረት ሥርም ኤያርቅ ",
         category: "Cat 1",
         chorus:
-          "የጌታ ምህረት ሥርም ኤያርቅ \nየየሱስ ፍቅር ሥርም ኤያርቅ\nቛጫ ኤነን ቃሩ ትንም ቃር ይርቅ \nየጔታ ምህረት ሥርም ኤያርቅ\n\n",
+          "የጌታ ምህረት ሥርም ኤያርቅ\nየየሱስ ፍቅር ሥርም ኤያርቅ\nቛጫ ኤነን ቃሩ ትንም ቃር ይርቅ \nየጔታ ምህረት ሥርም ኤያርቅ\n\n",
         verse_1:
-          "ኧኳ ኤቴ ባነኸ የሱስ ታንቅየናኸ\nኧኳ  ኤቴ ባነኸ የሱስ ታሟተንኸ\nአዊ ይብራኸባ የቀነ ጣይኸማ\nበጐጀ ትጠቅባ በዱየ ጠነማ\n\n",
+          "ኧኳ ኤቴ ባነኸ የሱስ ታንቅየናኸ\nኧኳ ኤቴ ባነኸ የሱስ ታሟተንኸ\nአዊ ይብራኸባ የቀነ ጣይኸማ\nበጐጀ ትጠቅባ በዱየ ጠነማ\n\n",
         verse_2:
-          "ባጢር ናዘንደምታ ወሮት ቲቜምንደ \nእንባቋም ተፈምታ ጠላት ቲደቅብንደ \nተዝህ እንም ዉርደት ጔታ አተነፈንደም \nየሰማይ ንቅ አግዘር ባፈር ተጨነንደም\n\n",
+          "ባጢር ናዘንደምታ ወሮት ቲቜምንደ\nእንባቋም ተፈምታ ጠላት ቲደቅብንደ\nተዝህ እንም ውርደት ጔታ አተነፈንደም\nየሰማይ ንቅ አግዘር ባፈር ተጨነንደም\n\n",
         verse_3:
-          "ቢና ሟሬ ኸረም ጮረም ባጢረንደ \nበሁት ጭንቀት ሥቃይ አፈካም ባሸንዳ \nበቀራንዩ መስቀር ይና ዃም ደመታ\nጄነት ንገባኔ ሥየም ህይወተንዳ\n\n",
+          "ቢና ሟሬ ኸረም ጮረም ባጢረንደ\nበሁት ጭንቀት ሥቃይ አፈካም ባሸንዳ\nበቀራንዩ መስቀር ይና ዃም ደመታ\nጄነት ንገባኔ ሥየም ህይወተንዳ\n\n",
         verse_4:
           "የሁትሄ የቸነ ሥርም ኤያቅሟጭን\nየምህረት ኧጅታ ዝራግም ይትቕቧን\nኧኳ አኸም ኔኸ ጔታ ይሳንሽ\nየዘላለም ህይወት በነፃ ትንክብሽ\n\n",
         verse_5: "",
@@ -179,15 +175,15 @@ const allSongs = [
         title: "የሱስ ጔታነዳ ይቸንደቴ ",
         category: "Cat 1",
         chorus:
-          "የሱስ ጔታነዳ ይቸንደቴ ይወስድንተዴ \nይናም ተሁትም ጊ ንፈካነቴ ተሁትም ናነቴ\nበዛህ ይሽር ቤት ንሰራነቴ ንረብነቴ \nህጊ ትቅጭነረ ንተርፈነቴ አሁ ንብነቴ\n\n",
+          "የሱስ ጔታነዳ ይቸንደቴ ይወስድንተዴ\nይናም ተሁትም ጊ ንፈካነቴ ተሁትም ናነቴ\nበዛህ ይሽር ቤት ንሰራነቴ ንረብነቴ\nህጊ ትቅጭነረ ንተርፈነቴ አሁ ንብነቴ\n\n",
         verse_1:
-          "የሱስ ያመነ  ይና እንመዳ\nይቸንደቴ ተሰቀረ አባንዳ\nይወስድነቴ የሱስ ጔታነዳ\nያተረፍንደቴ ተቕጭነረንድ ተጥፚ ባሸንዳ/x2/\n\n",
+          "የሱስ ያመነ ይና እንመዳ\nይቸንደቴ ተሰቀረ አባንዳ\nይወስድነቴ የሱስ ጔታነዳ\nያተረፍንደቴ ተቕጭነረንድ ተጥፚ ባሸንዳ/x2/\n\n",
         verse_2:
-          "ሁታ ያመነ ይወርድነቴ \nያናመሮይ ሰብ ይወርድቦቴ \nበሁት ደን ያነዎ ሰብ ይሽኖቴ \nየኸደዊ እንም ይጠርቅኖቴ ንቃር ያዝኖቴ/2/\n\n",
+          "ሁታ ያመነ ይወርድነቴ\nያናመሮይ ሰብ ይወርድቦቴ\nበሁት ደን ያነዎ ሰብ ይሽኖቴ\nየኸደዊ እንም ይጠርቅኖቴ ንቃር ያዝኖቴ/x2/\n\n",
         verse_3:
-          "በገደር ገነ ትነብነ  ጊ \nአዘን ተቕጭነር ኤነ አትምጊ \nፉያቱ ያነ እንስማ የሰማ\nተህ አንቛ ኤነ ይንጘድ  ሰብ ወማ ኦጀ  ቶጃም/2/\n\n",
+          "በገደር ገነ ትነብነ ጊ\nአዘን ተቕጭነር ኤነ አትምጊ\nፉያቱ ያነ እንስማ የሰማ\nተህ አንቛ ኤነ ይንጘድ ሰብ ወማ ኦጀ ቶጃም/x2/\n\n",
         verse_4:
-          "የሱስ ይቸንም ይሰብሰብንደቴ\nበከነ ወኽን ያቕምንደቴ\nተሁትም ንቛመነም ገዝምነቴ\nእልልታ ህጊ ንስብኔቴ ንክሰክስነቴ/2/\n\n",
+          "የሱስ ይቸንም ይሰብሰብንደቴ\nበከነ ወኽን ያቕምንደቴ\nተሁትም ንቛመነም ገዝምነቴ\nእልልታ ህጊ ንስብኔቴ ንክሰክስነቴ/x2/\n\n",
         verse_5: "",
         artist: "አለሙ ብላቱ ",
         language_value: "ጉራጊኛ",
@@ -198,15 +194,15 @@ const allSongs = [
         song_num: 5,
         title: "ኤቸሁ የጔታንዳ ",
         category: "Cat 1",
-        chorus: "ኤቸሁ /3/የጔተታንዳ ኤቸሁ \nኤቸሁ /3/ይግዘረንዳ ኤቸሁ\n\n",
+        chorus: "ኤቸሁ /x3/የጔተታንዳ ኤቸሁ\nኤቸሁ /x3/ይግዘረንዳ ኤቸሁ\n\n",
         verse_1:
-          "ስግደትም የሁት ቃሩ እንዴ ንሰገድኔረ\nወየግመ የሁት ቃሩ ይና ኖጣኔረ \nየጔታንዳ ንቅነት ብንሜ ንዝራነ\nተህም በሰናረ ኤቸሁ ጉ ንበነ\n\n",
+          "ስግደትም የሁት ቃሩ እንዴ ንሰገድኔረ\nወየግመ የሁት ቃሩ ይና ኖጣኔረ\nየጔታንዳ ንቅነት ብንሜ ንዝራነ\nተህም በሰናረ ኤቸሁ ጉ ንበነ\n\n",
         verse_2:
-          "እነዴ ናጫምትኔ  ጔታ የፚጠረን \nይና ያነኔፐ አፈር የጘተረን \nበግረንዳ ታዊምታ ቤነንዳ እነደምድኔ \nየጔታ ንቅነት እንዴ ናጫምትኔ\n\n",
+          "እነዴ ናጫምትኔ ጔታ የፚጠረን\nይና ያነኔፐ አፈር የጘተረን\nበግረንዳ ታዊምታ ቤነንዳ እነደምድኔ\nየጔታ ንቅነት እንዴ ናጫምትኔ\n\n",
         verse_3:
-          "ይና ፈጠረምታ እክም አንቃሸንደ \nቅረረ ተገፓት ኤ ነረሁ ይብረንደ \nዝህ አህሬ ሰናነም ሁት ባበንደ ደሆን\nመዚቶ አጀፑሪ የዝ እግዘረንዳ ወግ\n\n",
+          "ይና ፈጠረምታ እክም አንቃሸንደ\nቅረረ ተገፓት ኤ ነረሁ ይብረንደ\nዝህ አህሬ ሰናነም ሁት ባበንደ ደሆን\nመዚቶ አጀፑሪ የዝ እግዘረንዳ ወግ\n\n",
         verse_4:
-          "እያ ምስ የባረ ጋዘነ የኸረ\nየሞት ኧጅ ያናበ ጦራማ የትቤረ\nትግዘረንዳ እንጘድ እንዴ  ምርሰብ ነረ\nተጨነም ተራቅም ባፈር ያንትቀፐረ\n\n",
+          "እያ ምስ የባረ ጋዘነ የኸረ\nየሞት ኧጅ ያናበ ጦራማ የትቤረ\nትግዘረንዳ እንጘድ እንዴ ምርሰብ ነረ\nተጨነም ተራቅም ባፈር ያንትቀፐረ\n\n",
         verse_5:
           "ቕጥሁም እያ ኤብር ቃር ጩት በስቁር እናንደም\nኾኾብ ተጠናቃ የምሳርም አበንደም\nሜናታ ንቃሩ ኤተሁና ንጥራና\nእንም ንቴነምታ ኤቸሁ ጉ ንበነ\n\n",
         artist: "አለሙ ብላቱ ",
@@ -218,8 +214,8 @@ const allSongs = [
 
   {
     language_key: "ሀዲይኛ",
-    Header:"የተመረጡ መዝሙሮች",
-    notFound:"",
+    Header: "የተመረጡ መዝሙሮች",
+    notFound: "",
     Content: [
       {
         id: 1,
@@ -227,11 +223,11 @@ const allSongs = [
         title: "ገለተኔ ካች ዮሀኔ",
         category: "Cat 1",
         chorus:
-          "ሀንደ ሀንደ ንዋእነ ሀንዳ \nሀንደ ሀንደ እሱክ አንግና   2*\nአን ኡዎሞ ጉራል ገለታ ጌጅ ገለታ\nአን ኡዎሞ  ሉዳም ገለተ ዋእነ ገለታ \nገለተኔ ካች ዮሀኔ(2*) መዝሙረኔም ካች ዮሀኔ\nዲነዕ ሀኔኔ ካቸ ኡዎሀኔ ሀንቀሜ ካቸ ኡዎሀኔ\nሀንቀሜ ካቸ ኡዎሀኔ(2*) እያርኮእ ዱነ ትግሶሀኔ\nሀንቀሜ ካቸ ኡዎሀኔ(2*) ከረጥ ችምችመ ሙረንሶሀኔ\n\n",
+          "ሀንደ ሀንደ ንዋእነ ሀንዳ\nሀንደ ሀንደ እሱክ አንግና x2\nአን ኡዎሞ ጉራል ገለታ ጌጅ ገለታ\nአን ኡዎሞ  ሉዳም ገለተ ዋእነ ገለታ \nገለተኔ ካች ዮሀኔ(x2) መዝሙረኔም ካች ዮሀኔ\nዲነዕ ሀኔኔ ካቸ ኡዎሀኔ ሀንቀሜ ካቸ ኡዎሀኔ\nሀንቀሜ ካቸ ኡዎሀኔ(x2) እያርኮእ ዱነ ትግሶሀኔ\nሀንቀሜ ካቸ ኡዎሀኔ(x2) ከረጥ ችምችመ ሙረንሶሀኔ\n\n",
         verse_1:
           "ጰውሎሳም ከረጥ ምኔኔ\nእጡዊ ዋእነ ኦቶስምኔ\nመዝሙርኔ ገለጥምኔ\nዋእ ወደ ሞዕሎኦ ማለለትኔ\n\n",
         verse_2:
-          "ኢመኒንሴ ዋእ መላይ  አፋ\nኤከረጥ ምዕን ሾሆዕ ሸፍሸፋ\nአይም ነኮዕኔ ጎጩዊ ፎቁኮ\nከቶዕ ኬዕን ወሽ ኮመም ገቱኮ\n\n",
+          "ኢመኒንሴ ዋእ መላይ አፋ\nኤከረጥ ምዕን ሾሆዕ ሸፍሸፋ\nአይም ነኮዕኔ ጎጩዊ ፎቁኮ\nከቶዕ ኬዕን ወሽ ኮመም ገቱኮ\n\n",
         verse_3:
           "እዮብ ኤ ኬእማል ሀዎኔ\nአመጥ ሁንድም ቤዱክ በለኔ\nእመዕን ዋኣ ገለጥምኔ\nኤጡኮ ማስ እጥ ምኔኔ\n\n",
         verse_4:
@@ -247,14 +243,13 @@ const allSongs = [
         title: "አን በኬኦሞ ዋአ",
         category: "Cat 1",
         chorus:
-          "አን በኬኦሞ ዋአ\nአመእነሞሞ ዋአ\nአፋ ለኣሞ ቆሳ(ሞአ)\nእጥ ኦስከ ዲነአ ካኣ\nሆጎዮ(4*) ሁንድ በለም እጥ ካች ዋአ(2*)\n\n",
+          "አን በኬኦሞ ዋአ\nአመእነሞሞ ዋአ\nአፋ ለኣሞ ቆሳ(ሞአ)\nእጥ ኦስከ ዲነአ ካኣ\nሆጎዮ(4x) ሁንድ በለም እጥ ካች ዋአ(2x)\n\n",
         verse_1: "ኦድ ኤሴ መህ በድሶኮ\nእጥ ለጥ ወሮኔ ቃጳኮ\nኡልጠማን ጠኖዮ\nእጠበቅች ሆጎዮ\n\n",
         verse_2: "አግደንንሴ ፍሳኮ\nእቀቾ ያ ዌሻኮ\nኡንጆዮ ዋእ ሞጋከ\nኤሴ ዲነእና ኡዋከ\n\n",
         verse_3: "አን ጀቡምበለ ፈይሳ\nአን ሆጉም በለ ቆጥሳ\nኡንጠቁምበለ መጬሳ\nአፈ ለኣሞ ቆሳ\n\n",
         verse_4:
           "ኤራዕል ዶሌም ከበላ\nእስረኤእል ዋእ አድላ\nእጤኔ ጉዶ ህንክ ዳና\nአበጉድ ቤእ ሎብ ዳና\n\n",
-        verse_5:
-          "ገምበብ ቱንስ ወሪ ፍሳ\nገቶም ጎጎ እነ ሞእሳ\nአንገ አመዳ አወንሳ \nእጥ ለጎዮ መአንሳ\n\n",
+        verse_5: "ገምበብ ቱንስ ወሪ ፍሳ\nገቶም ጎጎ እነ ሞእሳ\nአንገ አመዳ አወንሳ\nእጥ ለጎዮ መአንሳ\n\n",
         verse_6: "ዋእ በጦ ጉላ ኩሬና\nከቀጣ ያ ቆዴና\nጠኖሞዮ በሽላ\nሎጶና እጥ አድላ\n\n",
         artist: "",
         language_value: "ሀዲይኛ",
@@ -267,13 +262,13 @@ const allSongs = [
         title: "ደናሞ የሱስ ብጃላ",
         category: "Cat 1",
         chorus:
-          "ደናደናሞ የሱስ ብጃላ\n ዱና ጥጊን ብታአካ ዕጥ እት ማለላ\nድናዕና ኡዉቤአኔ ቅሽጣላ\n ዶዕጥየሄ ምናደባ ከደናም  ዶላ አት ከደናም ዶላ\n\n",
+          "ደናደናሞ የሱስ ብጃላ\nዱና ጥጊን ብታአካ ዕጥ እት ማለላ\nድናዕና ኡዉቤአኔ ቅሽጣላ\nዶዕጥየሄ ምናደባ ከደናም ዶላ አት ከደናም ዶላ\n\n",
         verse_1:
-          "ብራ ዮንት መንቾ ከበድን ዋዕ ኮሎ ዋሬ\nብኦ ኩ ኡል ሁንድ አመኔም ጡም ኡዎ  ቤአኔ\nበጥ ባጥል ብራ ይታ ዋዕን ዎር ኩሬ\n ብጃላ ዋዕ ህንጩ ኬንና ሀፋ ዮሃኔ ዋዕ ሀፋ ዮሃኔ\n\n",
+          "ብራ ዮንት መንቾ ከበድን ዋዕ ኮሎ ዋሬ\nብኦ ኩ ኡል ሁንድ አመኔም ጡም ኡዎ ቤአኔ\nበጥ ባጥል ብራ ይታ ዋዕን ዎር ኩሬ\nብጃላ ዋዕ ህንጩ ኬንና ሀፋ ዮሃኔ ዋዕ ሀፋ ዮሃኔ\n\n",
         verse_2:
-          "ኩኡል ሴር ቤዕ ታኬኡኩይ የሱስ ሞአካ\nሶኖ ሁንደም ሎስሱኮ ጎጎ ሞዕሳካ\nሶጉካሬ ደበሉኮ እጃጀማካ\n ሰኡቤአኔ ከበል ክነም ዋዕስ አይ መካ ክና ዋዕስ አይ መካ\n\n",
+          "ኩኡል ሴር ቤዕ ታኬኡኩይ የሱስ ሞአካ\nሶኖ ሁንደም ሎስሱኮ ጎጎ ሞዕሳካ\nሶጉካሬ ደበሉኮ እጃጀማካ\nሰኡቤአኔ ከበል ክነም ዋዕስ አይ መካ ክና ዋዕስ አይ መካ\n\n",
         verse_3:
-          "ዋዕ ደናሞ ህራጋንና አወናንና ኩራ እጥ ዎሻ\nወደለኔዮ ከዶሌኔም ኤች ጎጎ ንና ኩሻ\nዌሻ ዎራ ሀንቅ ጫክሳ አንም ነቃሻ\n ወንጌል ሰገር ዶል ሁንደኔም ቤዶቤዕ ምሻ ወንጌል ቤዶቤዕ ምሻ\n\n",
+          "ዋዕ ደናሞ ህራጋንና አወናንና ኩራ እጥ ዎሻ\nወደለኔዮ ከዶሌኔም ኤች ጎጎ ንና ኩሻ\nዌሻ ዎራ ሀንቅ ጫክሳ አንም ነቃሻ\nወንጌል ሰገር ዶል ሁንደኔም ቤዶቤዕ ምሻ ወንጌል ቤዶቤዕ ምሻ\n\n",
         verse_4: "",
         verse_5: "",
         artist: "",
@@ -327,8 +322,8 @@ const allSongs = [
 
   {
     language_key: "ከምባትኛ",
-    Header:"Doo'rrantoo mazmurrata",
-    notFound:"Mazmuru lalimba'a",
+    Header: "Doo'rrantoo mazmurrata",
+    notFound: "Mazmuru lalimba'a",
     Content: [
       {
         id: 1,
@@ -336,7 +331,7 @@ const allSongs = [
         title: "እሶን ኩዕል",
         category: "Cat 1",
         chorus:
-          "\nእሶን ኩዕል 2* አዝክ ቦረሸተ ሙልክ ሆንግተ መገኖንተክ ኩዕል\nእሶን ኩዕል 2* ሜጥን ኦዕሲሾኬረ እንጂጄዕሾኬረ ፈዕሱናን ኩዕል\nእሶን ኩዕል 2* ቢዝማሃንስ ገበሉ ኣሰንቺሃንስ ወሉት ዮበዕሃኔን ኩዕል\nእሶን ኩዕል 2* ቢጠተ ኢል ጠዋክ ዙንስ አሰኖሃኒን መገኒሃንክ ኩዕል\n\n",
+          "\nእሶን ኩዕል x2 አዝክ ቦረሸተ ሙልክ ሆንግተ መገኖንተክ ኩዕል\nእሶን ኩዕል x2 ሜጥን ኦዕሲሾኬረ እንጂጄዕሾኬረ ፈዕሱናን ኩዕል\nእሶን ኩዕል x2 ቢዝማሃንስ ገበሉ ኣሰንቺሃንስ ወሉት ዮበዕሃኔን ኩዕል\nእሶን ኩዕል x2 ቢጠተ ኢል ጠዋክ ዙንስ አሰኖሃኒን መገኒሃንክ ኩዕል\n\n",
         verse_1:
           "\nመኑ መኑ እኮደ አፌን ኦሰዕለን አዚን ጬመኖ\nመቴ ለሜ አሴዕች ሰክ ተኔን ሚንተ ጡረኖ\nመገኑ መኒገ እሁምቧ ጃን ጃን ሀለስ ዶሩምቧ\nመከራሮኬ ጠዋን ኡጅ ሁኑምቧ\nመገኑ መንገ እሁምቧ ጃን ጃን ሚንስ ዶሩምቧ\nመር ገአተ ፈንቀልት ዋል ይ ኮመ ሂርሲሱምቧ\n\n",
         verse_2:
@@ -358,7 +353,7 @@ const allSongs = [
         chorus:
           "ኡለ አሌን ፍንጨሞ ባጢሉ ጎሞገ ሻረሜን\nጡንዱነን አመዕንኖም ተሶ ብሬንተኔ ብድቅዬን\nሀሹ እልል ሀንደ ይነን ሀጢጥናም በጅጎን(x2)\n\n",
         verse_1:
-          "\nሱዕሙኔ ሄቻ መዝገባን ጣፈሞረ\nባጥሉኔ ፈኤኡ በጅቀሜ ያመሞሩ\nፈኡ ደቅት ሀሹ እልል ይታራን\n ነኦንት መናም በቅይዬ ፅዮንቹተ ኣጋራን\n\n",
+          "\nሱዕሙኔ ሄቻ መዝገባን ጣፈሞረ\nባጥሉኔ ፈኤኡ በጅቀሜ ያመሞሩ\nፈኡ ደቅት ሀሹ እልል ይታራን\nነኦንት መናም በቅይዬ ፅዮንቹተ ኣጋራን\n\n",
         verse_2:
           "\nአለም አል ሀዋ ሀምብ አጉን\nፈዕ ሳሙ አሰሜን ሰሜ ባዱ ጡንደን\nሾሏንከ ውዲች ጣጭኖም ኬኑ ኢየሱሰ ጡንደን\nኒ ቀርቾ ሀንደሄ ይናም ሁንዱንኩ ጡምጨመን\n\n",
         verse_3:
@@ -366,7 +361,7 @@ const allSongs = [
         verse_4:
           "\nባጢሉሁ ጤሌሉሁ ሆረን ዮበዕ መዕኔን\nአንነ ቤት ላሁ ሄጌጉሴ ክቤ መዕኔን\nማሰቱ ጡሙ አብኑ አብኑ በጅጉት ዊንት ትርፍቴ መዕኔን\nሬኑነ በኑዕነ ሰዕምን ሄዕናም ሃሮ ዬሩሳሌንቾን\n\n",
         verse_5: "",
-        artist: "በየነ በዲቻ",
+        artist: "Qeesichu Bayana Baddichcha",
         language_value: "kambaatisata",
         displayOrder: 1,
       },
@@ -435,9 +430,9 @@ const allSongs = [
   },
 
   {
-    language_key: "Nuer",
-    Header:"Kɛn diit tin caa liny",
-    notFound:"Thiɛlɛ diit mi cakɔ jek",
+    language_key: "Neur",
+    Header: "Kɛn diit tin caa liny",
+    notFound: "Thiɛlɛ diit mi cakɔ jek",
     Content: [
       {
         id: 1,
@@ -454,9 +449,9 @@ const allSongs = [
           "K` b77thdan n5 J5thvth k` cuumdan n5 jvn Y522 Kusth, v t0th lsac tee Kuoth in Gu1n bv tee ns m`n5 c`xkvl.\n\n",
         verse_4:
           "K` lu]]ku kv cu]x cu]x baa j5 l5ak kv ku5c vms k` gssydu jvn d5tv bv tee ns m`n5 c`xkvl\n\n",
-        verse_5: "",
+        verse_5: "_",
         artist: "D22b5t K0k Cusl",
-        language_value: "Nueer",
+        language_value: "Neur",
       },
       {
         id: 2,
@@ -466,17 +461,17 @@ const allSongs = [
         chorus:
           "Kuoth nh5al m5 r7xn5 jvn kv l5aak nhsk5 f`, f`n ram m5 j5``k j5n c5 f` ksk kv r5vvm m5 gsaa,( v r5vm ruath d00ln5) (M5 gsaa m5 gsaan5 ) Kuray vjvn c5 f`n ku gsaa kv jv\n",
         verse_1:
-          "Baa j5 puany kv diit Kuoth nh5al j5n m5 r7xn5 j5n kv l5aak. B5 t5eyd` j5 puany rvy fsaa vj5``k vmv.",
+          "Baa j5 puany kv diit Kuoth nh5al j5n m5 r7xn5 j5n kv l5aak. B5 t5eyd` j5 puany rvy fsaa vj5``k vmv.\n",
         verse_2:
           "Baa j5 puany kv tin c5 l11t j5n m5 r7xn5 j5n kv l5ak, Gu1 gsaa n5 j5n k` rsaadu y5er teek`. T22 kv kir m5 n7x p5kv wec Kusth t0th lsac gu11th c52x Kusth in D55tn5 jvn k` rvlgssydv rs\n",
         verse_3:
-          "V pu11r l5ak l`tku tin g``y naath j5n m5 r7xn5 j5n kv l5aak, v gssydu l1tkv dol`du mn rvlrs",
+          "V pu11r l5ak l`tku tin g``y naath j5n m5 r7xn5 j5n kv l5aak, v gssydu l1tkv dol`du mn rvlrs\n",
         verse_4:
           "N5 m22 /ken5 p``mn5 caak, n5 m22 /ken5 fswn5 caak, vj5n Kuoth m5 te th5n n5 wal. V j5n min jak naath k` l5w w55 5, 'luscv tuur l6 gaat Advm, kv f66 cet run t5 bathdssr kv c`xkvl k` j5\n",
         verse_5:
           "Dee gsaa n5 f66 dee f`n a g``x thusk kal Kusthd`, k` f66 d22 c5ex kvvmvk` gu1n nyusn5. Gsaa n5 f66 dee ran c`x kvl ku thukn5 rvy kalu, k` n5n t5 bathdssr5 rvy gu1th m5 d].\n",
         artist: "D22b5t K0k Cusl",
-        language_value: "Nueer",
+        language_value: "Neur",
         displayOrder: 1,
       },
       {
@@ -492,10 +487,10 @@ const allSongs = [
           "J5thvth v y5eend` p1ny, k` f`n m5 w11 j1l jvn b` v du]]pd` min th5vl muth. J5thvth v yuupd` p1ny, k` f`n m5 c` c56t, jvn bv f` looc kv jsw m5 pusl.\n",
         verse_3:
           "J5thvth v f77r` p1ny, tvy fsaa c`x nyu1n` b` x`thn5 f77r` min te nh5al. J5thvth bv f` ben nax, b0c b0c fsaa vmv m5 w22 we jssc b5 kvn cu dusth.\n",
-        verse_4: "",
-        verse_5: "",
+        verse_4: "_",
+        verse_5: "_",
         artist: "D22-b5t K0k",
-        language_value: "Nuer",
+        language_value: "Neur",
         displayOrder: 1,
       },
       {
@@ -513,9 +508,9 @@ const allSongs = [
           "Kuoth cv naath k`n rvy cuc` m5 d55t, k` cuv kv b7th kv du]p m5 cux. Am`n5 m22 c5kv cop wecd5vn in d55t l1rkv Kuoth nh5al t0th lsac kv diit.\n",
         verse_4:
           "Th11x nath c5kv nyuur rvy mu]th m5 col vl7x, kvn nvy tin caa y5an kv kuatn5 kv f66 c5kv Kuoth l7k am`n5 lu22kv, k` cuv kv moc cu]c l1t m5 bvc. K` cukv Kuoth nh5al csl kv riik5vn t5 uan k` cuv kv k1m raar n5 rvy mu]th. Akv puanykv Kuoth nh5al kv t0th lsac m5 d55t.\n",
-        verse_5: "",
+        verse_5: "_",
         artist: "D22-b5t K00k",
-        language_value: "Nueer",
+        language_value: "Neur",
         displayOrder: 1,
       },
 
@@ -534,9 +529,9 @@ const allSongs = [
           "Kv gssy pusny`du l66 C``k vjvn in nyuth ks t22k. K` j5n la mooc5 ks pu]]th rvy n5n5 ks tin yoop j5n.\n",
         verse_4:
           "Kv gssy pusny`du l66 C``k, cur5 ks nyu]th nh6kdu min d55t. Min cur5 nyooth kv l511 gatdu in luvl ks k` dueer.\n",
-        verse_5: "",
+        verse_5: "_",
         artist: "Bol Thsst",
-        language_value: "Nuer",
+        language_value: "Neur",
         displayOrder: 1,
       },
     ],
@@ -544,8 +539,8 @@ const allSongs = [
 
   {
     language_key: "Oromo",
-    Header:"Faarfannoota filataman",
-    notFound:"Faarfannaan hin argamne",
+    Header: "Faarfannoota filataman",
+    notFound: "Faarfannaan hin argamne",
     Content: [
       {
         id: 1,
@@ -649,8 +644,8 @@ const allSongs = [
   },
   {
     language_key: "ሲዳሚኛ",
-    Header:"Doorantino faarsubba",
-    notFound:"Mitte faarsono diafantino",
+    Header: "Doorantino faarsubba",
+    notFound: "Mitte faarsono diafantino",
     Content: [
       {
         id: 1,
@@ -658,7 +653,7 @@ const allSongs = [
         title: "Leellinke",
         category: "Cat 1",
         chorus:
-          'Leellinke, coyiirinke, xaadinke, iillinke Magano\nWolasaanke yite agartewooha xagicho shiteenna roortinori"\nGodowa cortuhe laittota mararsituhe hexxo qoortinori.\nWolasaanke yite agartewooha Xagicho shiteenna roortinori.\nEemawusi doogo aana xaadde hasaawisse ille xawisitto.\nHexxo haaroonsanno qaale coyiidhe xaadeewonsa dadille hawisitto\n\n',
+          "Leellinke, coyiirinke, xaadinke, iillinke Magano\nWolasaanke yite agartewooha xagicho shiteenna roortinori\nGodowa cortuhe laittota mararsituhe hexxo qoortinori.\nWolasaanke yite agartewooha Xagicho shiteenna roortinori.\nEemawusi doogo aana xaadde hasaawisse ille xawisitto.\nHexxo haaroonsanno qaale coyiidhe xaadeewonsa dadille hawisitto\n\n",
         verse_1:
           "Coyiirinke Magano coyiirinke\nCoyiirinke mooticha coyiirinke\nBorreessinoye fojo buunxeemmona mooticha atilla coyiirinke\nIi Magano coyiirinke\n\n",
         verse_2:
@@ -670,7 +665,7 @@ const allSongs = [
         verse_5:
           "Xaadinke mooticha xaadinke\nUurrinoommo doogo laa'neemmona\nSawulira xaadittohu xaadinke\nMagano xaadinke\n",
         verse_6:
-          "Heeshshonniha reyeeteewoori mereero haafate hassanni raatabbanni\nBorreessinoyi qaale qaaga hooge kuloottoha rewookkira albaanni\nAte afa hoolteennase hindiido illese jaanjursite\nLeellito mayiiraami wi'litanna mooticha'ya moroonnie yitei\n\n",
+          "Heeshshonniha reyeeteewoori mereero haafate hassanni raatabbanni\nBorreessinoyi qaale qaaga hooge kuloottoha rewookkira albaanni\nAte afa hoolteennase hindiido illese jaanjursite\nLeellito mayiiraami wi'litanna mooticha'ya moroonnie yite\n\n",
         verse_7:
           "Leellinke Magano leellinke\nLeellinke mooticha Leellinke\nMullawa raataambanni he'noommona\nMayiiramira leellittohu leellinke\nMagano leellinke\n\n",
         artist: "Eliasi Batiro",
@@ -683,15 +678,15 @@ const allSongs = [
         title: "Muse",
         category: "Cat 1",
         chorus:
-          "Xiinbo Wongeellu gafa (2)\nBadhe higa dasiissannonke noonke alba hige qaafa\nManqisaame baatto dola dubbo e'ne faasha\nWongrella assira noonke looso barra hashsha\n\n",
+          "Xiinbo Wongeellu gafa (x2)\nBadhe higa dasiissannonke noonke alba hige qaafa\nManqisaame baatto dola dubbo e'ne faasha\nWongrella assira noonke looso barra hashsha\n\n",
         verse_1:
-          "Muse diwaajjino Firiooniwa mara \nNigusa ikkeenna diwaajjino cooyiira \nMishe giwi wooylite Mannasi agura\nDano dirrisino Gibtsete baattora\nAgurino Manna Maganuuyiiha\nGaabbe sooyiino diina shorrannoha\nMaganu fushshi Manni fuli taayiise \nDiinansa gudino dimme eesse\n\n",
+          "Muse diwaajjino Firiooniwa mara\nNigusa ikkeenna diwaajjino cooyiira\nMishe giwi wooylite Mannasi agura\nDano dirrisino Gibtsete baattora\nAgurino Manna Maganuuyiiha\nGaabbe sooyiino diina shorrannoha\nMaganu fushshi Manni fuli taayiise\nDiinansa gudino dimme eesse\n\n",
         verse_2:
-          " Goowi ale doge heeranni no\n Mannu Giddo wodananke illaaho\n Maganu Badhe hanni qollo anfoommoha dinbe \n Massine guxxino ganto gafa xiinbe\nBalaxo aa noonke tee sokkara\nSokka ranke kulle gundammora\nMuddineemmo gede ballo daasi \nBaala baqqi assonke ayyaanisi\n\n",
+          "Goowi ale doge heeranni no\nMannu Giddo wodananke illaaho\nMaganu Badhe hanni qollo anfoommoha dinbe\nMassine guxxino ganto gafa xiinbe\nBalaxo aa noonke tee sokkara\nSokka ranke kulle gundammora\nMuddineemmo gede ballo daasi\nBaala baqqi assonke ayyaanisi\n\n",
         verse_3:
           "Waajja dasiissaawoonke\nNigussano ikkituro\nKulleemmo halaalesi baxxure abbito\nHee'neemmo olliira ikko katammate\nBaxxino fiixa'ya Wongellaho heerate\nAlamete ledo jirte e'ne\nMageeshsha hee'neemmo tenneeyi hee'ne\nHeera hasiissuro baxxa noonke\nMuse ledo ikkihu no ledonke\n\n",
         verse_4:
-          "Ledonke hosanna ledonke itanna\nMe eho kulloommo lubbo rewoote hadhanna\nXa'misiissannonke lubbuwate hajo\nHonseemmo Jaalira kullo shoolki hajajo\nMannu xiikkamanna giiramara\nWaajja dasiissaawoonke ma're reyaara\nQawaandanke geeshsha baqqaallanke \nMikiyaasi cooyiiri gede cooyiira noonke\n\n",
+          "Ledonke hosanna ledonke itanna\nMe eho kulloommo lubbo rewoote hadhanna\nXa'misiissannonke lubbuwate hajo\nHonseemmo Jaalira kullo shoolki hajajo\nMannu xiikkamanna giiramara\nWaajja dasiissaawoonke ma're reyaara\nQawaandanke geeshsha baqqaallanke\nMikiyaasi cooyiiri gede cooyiira noonke\n\n",
         verse_5: "",
         artist: "Argiso Adiso",
         language_value: "Sidaamu Afoo",
@@ -703,7 +698,7 @@ const allSongs = [
         title: "ተዮኖ ዶርሽነ",
         category: "Cat 1",
         chorus:
-          "ተዮኖ ዶርሽነ ማት/2\nተዮኖ ዶርሽነ ማት ዓለመተንሶ የሱሳት\nጎፌ ዳይኖ ድር ግዶ ንንኬ ካይን ሮዶዋ\nቃራ ባላ ሳይሳኖሃ ሄገር ሔሾ የሱሳ ቡሳ ዶረሻንከ አስኖ የሱሳ\n\n",
+          "ተዮኖ ዶርሽነ ማት/x2\nተዮኖ ዶርሽነ ማት ዓለመተንሶ የሱሳት\nጎፌ ዳይኖ ድር ግዶ ንንኬ ካይን ሮዶዋ\nቃራ ባላ ሳይሳኖሃ ሄገር ሔሾ የሱሳ ቡሳ ዶረሻንከ አስኖ የሱሳ\n\n",
         verse_1:
           "አልባንሰን ሽቅንሸ የሱሳና ባርባን\nክነራ ወያኖነሐ ራክኔ ዶጸ(doodhe) ጣን\nይንሳ ወይቴ አይሁዴ ሀበ ባኦ ደድትኖ\nየሱስ ሱታሜና ባርባን ትሮንከ ይትኖ\n\n",
         verse_2:
@@ -732,7 +727,7 @@ const allSongs = [
         verse_3:
           "ድንኤል ቆድኖ አማተ ሀሎ\nዶብቹ ባለ ግዶ እታምክን ጋሎ\nካካቹ ኑጉስ ሻራ ሀስሬና\nማጋኑ ጋሸዮስ ሄጦ አስሬና\nተዮኖ ሄጥኖላ ንንለዶ ኖና\n\n",
         verse_4:
-          "አልብ ሀዋርያት ጣገ አስትኖ\n ሁጫቶተ ናፋ ሬይኖሃ ካይስኖ\nንንከ ካይን ሙንጎሞ ዶጋና ድኒንከ\nአያናክ ሶይኖንከ ጎርዱ ማጋኖንንከ\nኬሩይ እልሽንከ እምሃ ምነንከ\n\n",
+          "አልብ ሀዋርያት ጣገ አስትኖ\nሁጫቶተ ናፋ ሬይኖሃ ካይስኖ\nንንከ ካይን ሙንጎሞ ዶጋና ድኒንከ\nአያናክ ሶይኖንከ ጎርዱ ማጋኖንንከ\nኬሩይ እልሽንከ እምሃ ምነንከ\n\n",
         verse_5: "",
         artist: "ኢያሱ ራጋሳ",
         language_value: "ሲዳሚኛ መዝሙር",
@@ -745,15 +740,15 @@ const allSongs = [
         title: "ካዊ ፉላ ሀስነሞ ",
         category: "Cat 1",
         chorus:
-          "ካዊ ፉላ ሀስነሞ ምቴ ቃፎ ለንደ\nሔሾተ ኡርንሳሃ ቃለክ ሄሳንጌ\nጩቡ ጥብ አማደዮንከ ድህሳትወንከ ኡርደ\nዳፉራሞ እክንና  ህኩያኖ ወርቡ\n\n",
+          "ካዊ ፉላ ሀስነሞ ምቴ ቃፎ ለንደ\nሔሾተ ኡርንሳሃ ቃለክ ሄሳንጌ\nጩቡ ጥብ አማደዮንከ ድህሳትወንከ ኡርደ\nዳፉራሞ እክንና ህኩያኖ ወርቡ\n\n",
         verse_1:
-          "ኑጉሳተ አልባ ሀላለክ ኩላተ ድዋጅኔሞ\nኑጉሳተ አልባ ሀላለክ ኩላተ ድዋጅኔሞ\nጮይነ ድሳሌሞ ሳልስሳኖክሀ እኮቶሁራ *2\nሶቃኖ አጉር ኮ ዳፉራማ ዶዳቶሁራ\n\n",
+          "ኑጉሳተ አልባ ሀላለክ ኩላተ ድዋጅኔሞ\nኑጉሳተ አልባ ሀላለክ ኩላተ ድዋጅኔሞ\nጮይነ ድሳሌሞ ሳልስሳኖክሀ እኮቶሁራ x2\nሶቃኖ አጉር ኮ ዳፉራማ ዶዳቶሁራ\n\n",
         verse_2:
-          "አድንታይ ሞትቻ ለዶንከ ኖቶታ ጣን ኤጌንስስንከ\nፉልቶክን ፉለ ድናሆ አማማሞራ ላኦትንከ\nዱቹርች እካዎንከ አተ አፋማ መሬሮሆ ሄዱሮ 2*\nማይኖ ድዱሻዎንከ እካዎንከ ቃልክ ዳይሮ\n\n",
+          "አድንታይ ሞትቻ ለዶንከ ኖቶታ ጣን ኤጌንስስንከ\nፉልቶክን ፉለ ድናሆ አማማሞራ ላኦትንከ\nዱቹርች እካዎንከ አተ አፋማ መሬሮሆ ሄዱሮ x2\nማይኖ ድዱሻዎንከ እካዎንከ ቃልክ ዳይሮ\n\n",
         verse_3:
-          "ሬዮተ ጎጥቾ ጎጣይክ ገደ አት እለያ ጣዊስ\nተቾ ያና ሔዴና ጃዋችሽኤና አንጋክ ድርርስ\nወዳንዌሎታ እለ ሔዴናንሳ ባልትዮረ 2*\nሀን ላዌ ሌሎ  ማጫ ኖንሳ ካይን ዳንቅተዎረ\n\n",
+          "ሬዮተ ጎጥቾ ጎጣይክ ገደ አት እለያ ጣዊስ\nተቾ ያና ሔዴና ጃዋችሽኤና አንጋክ ድርርስ\nወዳንዌሎታ እለ ሔዴናንሳ ባልትዮረ x2\nሀን ላዌ ሌሎ ማጫ ኖንሳ ካይን ዳንቅተዎረ\n\n",
         verse_4:
-          "ማጋኑ ጋልትኖስ አስርኖ ግራማ ካታም ግዶ\nባአዎር ዳፍራ ዱንታና አት እለክ ህንድዶ \nሁንታዮ ካዮ ዶገ ቶታዬስታን ኖንከና ኩኔ  2*\nማስተ እልሽንከ ወዳንንከ ወጅ ያኖ ምኔ\n\n",
+          "ማጋኑ ጋልትኖስ አስርኖ ግራማ ካታም ግዶ\nባአዎር ዳፍራ ዱንታና አት እለክ ህንድዶ\nሁንታዮ ካዮ ዶገ ቶታዬስታን ኖንከና ኩኔ x2\nማስተ እልሽንከ ወዳንንከ ወጅ ያኖ ምኔ\n\n",
         verse_5: "",
         artist: "ለገሰ ላንቃሞ",
         language_value: "ስዳሚኛ መዝሙር",
@@ -763,8 +758,8 @@ const allSongs = [
   },
   {
     language_key: "ትግርኛ",
-    Header:"የተመረጡ መዝሙሮች",
-    notFound:"ዝደለይዎ መዝሙር ኣይተረኽበን",
+    Header: "የተመረጡ መዝሙሮች",
+    notFound: "ዝደለይዎ መዝሙር ኣይተረኽበን",
     Content: [
       {
         id: 1,
@@ -772,7 +767,7 @@ const allSongs = [
         title: "ዝያዳ",
         category: "Cat 1",
         chorus:
-          "ዝያዳ፡ ዝያዳ |*2\nመሪፀካ ኣነ ካብ ኩሉ ኣብሊፀ\nኣይፍለየካን’የ ዝመፀ እንተመፀ\nንዓኻ መሪፀ\n\n",
+          "ዝያዳ፡ ዝያዳ |x2\nመሪፀካ ኣነ ካብ ኩሉ ኣብሊፀ\nኣይፍለየካን’የ ዝመፀ እንተመፀ\nንዓኻ መሪፀ\n\n",
         verse_1:
           "ጎይታይ ብምሕረትካ ፈዊስካኒ እንዲኻ\nብርሃን ኣብሪህካለይ ካብ ፀላም ኣውፂእካ\nካብ ውሽጢ ካብ ልበይ ምስጋና ይብፃሕካ\nኣብ ቤትኻ’ዩ መንበረይ ኣይፍለይን ካባኻ\nመሪፀ ንዓኻ\n\n",
         verse_2:
@@ -813,9 +808,9 @@ const allSongs = [
         chorus:
           "ኣበይ እሞ ኣሎኒ ወረቐት ክንድቲ ዝሓስቦ ዝኾነለይ\nዘርዚረ ዝፅሕፈሉ ጎይታየይ ንዓይ ዝኾንካለይ\nምድርን ባሕርን ብርዕን ወረቐትን ጌርካ ተትህበኒ\nዘርዚረ ክፅሕፎ ክውድኦ ፍጹም ዘይኣኽለኒ\n\n",
         verse_1:
-          "ገና ካብ ፍጥረተይ ዝኸድ ተዓሚተ\nንስኻ ትመርሓኒ እናበልካ ታተ\nጽምዋ ዓሲሉኒ ንበይነይ ብሒተ\nንርእሰይ እንትምልከት ካብ ኩሉ ኣትሒተ |*2\nመልኣኽካ ልኢእኻ ክተበርትዓኒ\nኣለኩልካ ኣነ ኣጆኻ ትብለኒ\n\n",
+          "ገና ካብ ፍጥረተይ ዝኸድ ተዓሚተ\nንስኻ ትመርሓኒ እናበልካ ታተ\nጽምዋ ዓሲሉኒ ንበይነይ ብሒተ\nንርእሰይ እንትምልከት ካብ ኩሉ ኣትሒተ |x2\nመልኣኽካ ልኢእኻ ክተበርትዓኒ\nኣለኩልካ ኣነ ኣጆኻ ትብለኒ\n\n",
         verse_2:
-          "እንተይፈተኹኻ ኣዚኻ ኣፍቂርካኒ\nኣነ እንትርሕቐካ የሱስ ቀሪብካኒ\nጸልማት እናሓረኹ ብርሃንካ ሂብካኒ\nብምንታይ ክገልጾ ቃላት ሓፂሩኒ |*2\nብሒተ እንከለኹ ጎይታ ዝኾንካኒ\nምስ ብዙሕ ሓጥያተይ ንዓይ ሓሪኻኒ\n\n",
+          "እንተይፈተኹኻ ኣዚኻ ኣፍቂርካኒ\nኣነ እንትርሕቐካ የሱስ ቀሪብካኒ\nጸልማት እናሓረኹ ብርሃንካ ሂብካኒ\nብምንታይ ክገልጾ ቃላት ሓፂሩኒ |x2\nብሒተ እንከለኹ ጎይታ ዝኾንካኒ\nምስ ብዙሕ ሓጥያተይ ንዓይ ሓሪኻኒ\n\n",
         verse_3: "",
         verse_4: "",
         verse_5: "",
@@ -831,11 +826,11 @@ const allSongs = [
         chorus:
           "ፍቕሪ ኢኻ’ሞ ስለ ፍቕርኻ ተመስገን\nሓላዪ ኢኻ’ሞ ስለ ሓልዮትካ ተመስገን\nኣኽባሪ ኢኻ’ሞ ስለ ኽብረትካ ተመስገን\nመሓሪ ኢኻ’ሞ ስለ ምሕረትካ ተመስገን\n\n",
         verse_1:
-          "ኣብ ፅምዋ ኣብቲ ፀምፀም በረኻ\nነፍሰይ ረዳኢ ስኢና ተሃዊኻ\nንስኻ መፂእካ ዕረፍቲ ሂብካያ\nስለቲ ምሕረትካ ተመስግነካ’ላ |*2\n\n",
+          "ኣብ ፅምዋ ኣብቲ ፀምፀም በረኻ\nነፍሰይ ረዳኢ ስኢና ተሃዊኻ\nንስኻ መፂእካ ዕረፍቲ ሂብካያ\nስለቲ ምሕረትካ ተመስግነካ’ላ |x2\n\n",
         verse_2:
-          "ንግብፂ ንባርነት ሸይጦምኒ\nኣይርከብን’ዩ ኢሎም ደርብዮምኒ\nንስኻ ኣምላኸይ ኣብ ዝፋንካ ኮይንኻ\nኣኽቢርካኒ ኢኻ’ሞ ጎይታ ከኽብረካ |*2\n\n",
+          "ንግብፂ ንባርነት ሸይጦምኒ\nኣይርከብን’ዩ ኢሎም ደርብዮምኒ\nንስኻ ኣምላኸይ ኣብ ዝፋንካ ኮይንኻ\nኣኽቢርካኒ ኢኻ’ሞ ጎይታ ከኽብረካ |x2\n\n",
         verse_3:
-          "ነቲ ፍቕርኻ ጎይታ መግለፂ ስኢነ\nብዝገበርካለይ ሰናይ ተገሪመ\nክሳብ መስቀል ሞይትኻ ኣድሒንካኒ ኢኻ\nበቲ ክቡር ቃልካ ባሪኽካኒ እንዲኻ |*2\n\n",
+          "ነቲ ፍቕርኻ ጎይታ መግለፂ ስኢነ\nብዝገበርካለይ ሰናይ ተገሪመ\nክሳብ መስቀል ሞይትኻ ኣድሒንካኒ ኢኻ\nበቲ ክቡር ቃልካ ባሪኽካኒ እንዲኻ |x2\n\n",
         verse_4: "",
         verse_5: "",
         artist: "ሻብዐይቲ መዓልቲ\nኣድቬንቲስት ቤ/ያን መቐለ",
@@ -847,7 +842,7 @@ const allSongs = [
         song_num: 5,
         title: "ኦ ነብሰይ",
         category: "Cat 5",
-        chorus: "ኦ ነብሰይ መን'ዩ ኣባዲኺ\nኦ ነብሰይ መን'ዩ ኣባዲኺ |*2\n\n",
+        chorus: "ኦ ነብሰይ መን'ዩ ኣባዲኺ\nኦ ነብሰይ መን'ዩ ኣባዲኺ |x2\n\n",
         verse_1:
           "ክፀሮ ዘይእኽል ሓዘን እንትወድቀኒ\nፈተውተይ 'ውን ዝብሎም እንትፍለዩኒ\nፍቓድካ ኣምላኸይ ኣብ ዘይጥዕመኒ\nሽዑ በፂሕካ ኣፀናንዓኒ\n\n",
         verse_2:
@@ -865,8 +860,8 @@ const allSongs = [
 
   {
     language_key: "ወላይትኛ",
-    Header:"Dooretida Sabati",
-    notFound:"Ayba Sabayikka beettibeena,",
+    Header: "Dooretida Sabati",
+    notFound: "Ayba Sabayikka beettibeena,",
     Content: [
       {
         id: 1,
@@ -913,7 +908,7 @@ const allSongs = [
         title: "ጮ ታና አሺዳጎ",
         category: "Cat 3",
         chorus:
-          "ጮ ታና አሺዳጎ\nጮ ታና ማዲዳጎ\nጮ ታና ሲቂዳጎ\nአይባኔ ቃንጤናን ኔዮ ናአ ኦቲዳጎ\nጋላታይ ኒዮ ጊዶ (3) ጦሶ ታጎ ጋላታይ ኒዮ ጊዶ\n\n",
+          "ጮ ታና አሺዳጎ\nጮ ታና ማዲዳጎ\nጮ ታና ሲቂዳጎ\nአይባኔ ቃንጤናን ኔዮ ናአ ኦቲዳጎ\nጋላታይ ኒዮ ጊዶ (x3) ጦሶ ታጎ ጋላታይ ኒዮ ጊዶ\n\n",
         verse_1:
           "ታ ጉዪያ ታ ዛሪያ ቆዴናን ጤሲዲጎ\nታጋ ላፋቴታ ነ ዎልቃን ሚንቲዳጎ\nሀይቋ ያአፔ ታ ሀራቂያ ኦይካ ሾዲዳጎ\nያኮ ኔዮ ዳና ታና ጮ ሺሻ ኤካጎ\n\n",
         verse_2:
@@ -937,7 +932,7 @@ const allSongs = [
           "ኑ ማሊ ባ ጊያ ኡባታ\nጣጷ ጤራ ጣይሲዮ ማታ\nባ ኩሺያን ኦይቂ ዎቲስ\nጦሳ ዎሌቃን አማኔቶስ\n\n",
         verse_2: "ብኤሊ ናቤታ ካውሺስ\nኤሊያሳዮ ታማን ዛሪስ\nባናቱዮ ቱማ ኬሲስ\nባ ዎዲያን ጦሳይ ጋኪስ\n\n",
         verse_3:
-          "ኤርቴራ አባ ናአው ሻኪስ \nእሥራኤሊያ ፒንቲ ኬሲስ\nፈርዖና ጊዷን አሺስ\nሙሴ ጦሳይ ሀቺካ ዴስ\n\n",
+          "ኤርቴራ አባ ናአው ሻኪስ\nእሥራኤሊያ ፒንቲ ኬሲስ\nፈርዖና ጊዷን አሺስ\nሙሴ ጦሳይ ሀቺካ ዴስ\n\n",
         verse_4: "ዎልቃማ ጎሊያዳ ኦጊስ ",
         verse_5: "",
         artist: "የሳኬና አከባቢ ማህበር ሙዚቃና ዜማ ኳየር",
@@ -955,9 +950,9 @@ const allSongs = [
         verse_2:
           "አፑና በኢዶ ጦሲ ጎባይ ሀኒን\nአፑን አፑዋ ጣሊዶ እ ኑ ዛርጴ ግዲን\nመኢን ስሊን ቱሊን ቆቂን የሱሳ ፓቴስ\nዴጥዳባ ቶሆ ግዲዳባ ኡባ እ ካውሼስ\n\n",
         verse_3:
-          "ሐይቅዳ የሱሲ ዱፑዋ ጦቆሊኒ \nወልቃማ ሹቻካ ባኮያ ኦቲኒ \nደንዲድ ቢን ጦኒ ስሚን ሞርኬ የላቲስ\nጫዳይ ወራይ ሚጫይ ጉፓይ ኡባይ ጉጢጊስ\n\n",
+          "ሐይቅዳ የሱሲ ዱፑዋ ጦቆሊኒ\nወልቃማ ሹቻካ ባኮያ ኦቲኒ\nደንዲድ ቢን ጦኒ ስሚን ሞርኬ የላቲስ\nጫዳይ ወራይ ሚጫይ ጉፓይ ኡባይ ጉጢጊስ\n\n",
         verse_4:
-          "ኦይዱ ጋላ ሙልያ ዱፖይ ጌንቲዶጋ \nሃይቂዳ አሳን ጋቲዲ ይባቲቺዶጋ\nላ ፉጣ ጊዲ ፓት ኤስድ ኡባ ኡፓይሲያጋ\nጎይኒድ ዲን ሳቢድ ዲን ሙሌ ቆህያቢ ባ \n\n",
+          "ኦይዱ ጋላ ሙልያ ዱፖይ ጌንቲዶጋ\nሃይቂዳ አሳን ጋቲዲ ይባቲቺዶጋ\nላ ፉጣ ጊዲ ፓት ኤስድ ኡባ ኡፓይሲያጋ\nጎይኒድ ዲን ሳቢድ ዲን ሙሌ ቆህያቢ ባ \n\n",
         verse_5: "",
         artist: "ገነቱ ጋጋዶ",
         language_value: "ወላይትኛ",
