@@ -93,7 +93,7 @@ const landingPageStyles = () =>
       color: "#555",
     },
     footerVerse: {
-       fontStyle:'italic',
+      fontStyle:'italic',
       fontSize: 14,
       color: "#555",
     },

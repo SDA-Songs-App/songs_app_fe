@@ -3,6 +3,7 @@ import {
   useNavigation,
   useFocusEffect,
 } from "@react-navigation/native";
+import Toast from 'react-native-toast-message';
 import React, { FC, useCallback, useEffect, useState } from "react";
 import {
   View,
@@ -434,14 +435,18 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
 
   const handleCopy = (text: string) => {
     Clipboard.setString(text);
-    Alert.alert("Copied", "Lyrics copied to clipboard.");
-  };
+    //  const title =  localizations.find(key => key.language_key === selectedLanguage)?.LyricsCopiedTitle || ''
+
+    //  const description =  localizations.find(key => key.language_key === selectedLanguage)?.LyricsCopiedDescription || ''
+ 
+        Alert.alert(localizations.find(key =>key.language_key === selectedLanguage)?.LyricsCopiedTitle||'',localizations.find(key =>key.language_key === selectedLanguage)?.LyricsCopiedDescription ||'')
+       };
 
   const handleShare: (text: string) => Promise<void> = async (text: string) => {
     try {
       await Share.share({ message: text });
     } catch (error) {
-      Alert.alert("Error", "Unable to share lyrics.");
+      Alert.alert(localizations.find(key =>key.language_key === selectedLanguage)?.CopyErrorTitle||'',localizations.find(key =>key.language_key === selectedLanguage)?.CopyErrorDescription ||'')
     }
   };
 
@@ -615,7 +620,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
         )}
         <TouchableOpacity onPress={toggleTheme}>
           <Ionicons
-            name={isDarkMode ? "sunny" : "moon"}
+            name={isDarkMode ? "moon" : "sunny"}
             size={25}
             color="#fff"
           />

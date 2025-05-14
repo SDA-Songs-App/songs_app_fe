@@ -145,7 +145,7 @@ const LandingPage = () => {
 
         <View style={styles.heroSection}>
           <Text style={styles.heroTitle}>
-            በኢትዮጵያ ሰባተኛ ቀን አድቬንቲስት ቤተክርስቲያን በተለያየ ቋንቋ የተዘጋጀ የመዝሙር መተግበሪያ
+            በኢትዮጵያ ሰባተኛ ቀን አድቬንቲስት ቤተክርስቲያን በተለያዩ ቋንቋዎች የተዘጋጀ የመዝሙር መተግበሪያ
           </Text>
           
           <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
@@ -201,7 +201,7 @@ const LandingPage = () => {
           </View>
           <View style={styles.footerRow}>
             <Text style={styles.footerText}>ለእግዚአብሔር ዘምሩ! </Text>
-            <Text style={styles.footerVerse}> ዘጸ. 15፡21</Text>
+            <Text style={styles.footerVerse}>ዘጸ. 15፡21</Text>
 
           </View>
         </Animated.View>

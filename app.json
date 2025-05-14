@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "አድቬንቲስት_መዝሙሮች",
+    "name": "ሃሌሉያ ዝማሬዎች: Hallujah Songs",
     "slug": "adventist-hegergna-songs",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/splashImageps.png",
+    "icon": "./assets/images/sda-logo-icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -22,7 +22,7 @@
     "android": {
       "package": "com.sda.songs.hagarigna",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/SDAPS1.png",
+        "foregroundImage": "./assets/images/sda-logo-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
