@@ -36,27 +36,55 @@ import getStyles from "../components/css/app";
 import allSongs from "@/data/allsongs";
 import localizations from "@/data/localizations";
 import { useTheme } from "@/app/ThemeProvier";
+import Constants from 'expo-constants'
+import {LyricsContent, SongContent} from "../constants/songsTypes"
+import {transformSongsByLanguage} from "../configurations/dataTransformations"
+import { LANGUAGE_MAP} from "@/configurations/language-map";
 const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
   route: RouteProp<any>;
 };
+
 const NavbarScreen: FC<NavbarScreenProps> = () => {
+  //const { dataSongs, loadingData, error } = useExternalSongsHook();
   const { isDarkMode, toggleTheme } = useTheme();
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Roboto");
   const styles = getStyles(isDarkMode, fontSize, fontFamily);
 
-  Dimensions.get("window");
+  const [windowDimensions, setWindowDimensions] = useState(Dimensions.get("window"));
+  const [orientation, setOrientation] = useState<'portrait' | 'landscape'>(
+    windowDimensions.width > windowDimensions.height ? 'landscape' : 'portrait'
+  );
+
+ useEffect(() => {
+  const handleOrientationChange = ({ window }: { window: any }) => {
+    setWindowDimensions(window);
+    setOrientation(window.width > window.height ? 'landscape' : 'portrait');
+  };
+
+  // Subscribe to dimension changes
+  const subscription = Dimensions.addEventListener('change', handleOrientationChange);
+
+  // Cleanup subscription on unmount
+  return () => {
+    subscription.remove(); // <-- Correct way to remove
+  };
+}, []);
+
+
 
   const navigation = useNavigation<NavigationProp>();
   const [isSearchModalVisible, setSearchModalVisible] = useState(false);
   const [isFavoritesModalVisible, setFavoritesModalVisible] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [filteredSongs, setFilteredSongs] = useState<Song[]>([]);
-  const [selectedSong, setSelectedSong] = useState<Song | null>(null);
+
+  const [filteredSongs, setFilteredSongs] = useState<LyricsContent[]>([]);
+  const [selectedSong, setSelectedSong] = useState<LyricsContent | null>(null);
+
   const [selectedLanguage, setSelectedLanguage] = useState("አማርኛ");
   const [isModalVisible, setModalVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,8 +99,8 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [swipeLock, setSwipeLock] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   //const [cursorSelection, setCursorSelection] = useState(start: 0, end: 0);
-
   const openSearchModal = () => {
     setSearchModalVisible(true);
   };
@@ -98,6 +126,73 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const handleSettingPress = () => {
     console.log("navigation:", navigation);
   };
+//calling API 
+  const [dataSongs, setData] = useState<SongContent[]>([]);
+  const[loadingData, setLoadingData] = useState(true)
+  const[error, setError] = useState('')
+  const selectedSongGroup = dataSongs.find((item) =>item.language ===selectedLanguage)
+  const handleSwipe = (direction:'left' | 'right')=>{
+    const languageSongs = dataSongs
+                                  .filter((lang) => lang.language === selectedLanguage)
+                                  .flatMap((lang) => lang.LyricsContents.map((lyric, index) => ({
+                                    ...lyric,
+                                    displayId: index + 1,
+                                  })));
+
+    const currentIndex = languageSongs.findIndex((song) =>song.displayId ===selectedSong?.displayId)
+    if(currentIndex === -1) return;
+    let newIndex = direction ==='left'?currentIndex+1:currentIndex -1
+    if(newIndex < 0) newIndex = 0
+    if(newIndex >=languageSongs.length){
+      newIndex = languageSongs.length -1 ;
+    }
+    setSelectedSong(languageSongs[newIndex])
+  }
+  useEffect(() =>{
+  const fetchData=async()=>{
+        try{
+              let debuggerHost: string | undefined;
+
+        // Expo Go / development mode
+        if (Constants.expoGoConfig?.debuggerHost) {
+          debuggerHost = Constants.expoGoConfig.debuggerHost;
+        }
+        // Fallback to expoConfig if available
+        else if (Constants.expoConfig?.hostUri) {
+          debuggerHost = Constants.expoConfig.hostUri;
+        }
+
+        // Extract IP address
+        const host = debuggerHost?.split(':')[0] || 'localhost';
+        const apiUrl = `http://${host}:3001/lyrics`;
+
+        const response =  await fetch(apiUrl);;
+        if(!response.ok){
+          throw new Error('Network response was not ok');
+        }
+      let dt = await response.json();
+      dt =  dt.map((song: any) => ({
+        ...song,
+        LyricsContents: Array.isArray(song.LyricsContents)
+          ? song.LyricsContents
+          : [],
+      }));
+      
+   //dt = JSON.stringify(dt, null, 2);
+    //   console.log('Fetched Data:', JSON.stringify(dt, null, 2));
+       const transformedSongs = transformSongsByLanguage(dt);
+       console.log('Transformed Data:', JSON.stringify(transformedSongs, null, 2));
+
+      setData(transformedSongs);
+       }
+        catch(e:any){
+          setError(e.message || 'something is wrong')
+    } finally{
+      setLoadingData(false)
+    }
+  };
+  fetchData()
+}, [])
 
   const searchPlaceholders: Record<string, string> = {
     አማርኛ: "በመዝ. ርዕስ፣ ቁጥር፣ ምድብ፣ ወይም በዘማሪ ስም ይፈልጉ",
@@ -112,41 +207,22 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     Neur: "Kä göörɛ kɛ  kɛ thäänyniknɛn kiɛ caak ti cikɛ cak/wutnikiɛ män",
     ጉራጊኛ: "በሸድ ሸድ ዌም ቢዘምር ዌም ቢዘምሮዌ ሽም ሳቦ።",
   };
+// Transformate the Json
 
   const resetActiveSongsForLanguage = () => {
-    const selectedLanguageSongs = allSongs.find(
-      (lang) => lang.language_key === selectedLanguage
-    )?.Content;
-    if (selectedLanguageSongs && selectedLanguageSongs.length > 0) {
-      setFilteredSongs(selectedLanguageSongs);
+    const selectedLanguageSongs = dataSongs.filter(
+      (lang) => {
+        lang.language.toLowerCase() === 'AMHARIC' ? 'አማርኛ' : lang.language;
+        lang.language === selectedLanguage}
+    );
+      const allLyrics = selectedLanguageSongs.flatMap((lang) =>lang.LyricsContents)
+
+    if (selectedLanguageSongs && selectedLanguageSongs) {
+      setFilteredSongs(allLyrics);
       return selectedLanguageSongs;
     }
     return [];
   };
-
-  type Song = {
-    id: number;
-    song_num: number;
-    date?: string;
-    title: string;
-    chorus: string;
-    category: string;
-    artist: string;
-    verse_1?: string;
-    verse_2?: string;
-    verse_3?: string;
-    verse_4?: string;
-    verse_5?: string;
-    verse_6?: string;
-    verse_7?: string;
-    language_value: string;
-    displayOrder?: number;
-  };
-  type AllSongs = {
-    language_key: string;
-    Content: Song[];
-  }[];
-
   type FavoriteKey = `${string}_${number}`; // literal type for language_id
 
   // Load favorites on mount
@@ -168,7 +244,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     };
     loadFavorites();
   }, []);
-
   //for font and font family change effect
   useFocusEffect(
     useCallback(() => {
@@ -181,19 +256,30 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       loadPreferences();
     }, [])
   );
-
   // When the language changes, reset the song list and pagination.
-  useEffect(() => {
-    const selectedLanguageSongs = allSongs.find(
-      (lang) => lang.language_key === selectedLanguage
-    );
-    if (selectedLanguageSongs) {
-      setFilteredSongs(selectedLanguageSongs.Content);
-      setSelectedSong(selectedLanguageSongs.Content[0]);
-      setPage(1);
-      setHasMore(true);
-    }
-  }, [selectedLanguage]);
+ useEffect(() => {
+  if (!dataSongs || dataSongs.length === 0) return;
+
+
+  // Normalize languages inside songs
+  const normalizedSongs = dataSongs.map((song) => {
+   return {
+    ...song,
+   }
+  });
+
+  // Filter by selected language, flatten, and add displayId
+  const selectedLanguageSongs = normalizedSongs
+    .filter((song) => song.language === selectedLanguage)
+    .flatMap((song) => song.LyricsContents || [])
+    .map((song, index) => ({
+      ...song,
+      displayId: index + 1,
+    }));
+
+  setFilteredSongs(selectedLanguageSongs);
+  setSelectedSong(selectedLanguageSongs[0] ?? null);
+}, [dataSongs, selectedLanguage]);
 
   // Toggle favorite handler
   const toggleFavorite = useCallback(
@@ -237,12 +323,12 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   // Handle language selection and reset pagination.
   const handleLanguageSelect = (language: string) => {
     setSelectedLanguage(language);
-    const selectedLanguageSongs = allSongs.find(
-      (lang) => lang.language_key === language
-    );
-    if (selectedLanguageSongs && selectedLanguageSongs.Content.length > 0) {
-      setSelectedSong(selectedLanguageSongs.Content[0]);
-      setFilteredSongs(selectedLanguageSongs.Content);
+    const selectedLanguageSongs = dataSongs
+                .filter((lang) => lang.language === language)
+                .flatMap((lang) =>lang.LyricsContents);
+    if (selectedLanguageSongs && selectedLanguageSongs.length > 0) {
+      setSelectedSong(selectedLanguageSongs[0]);
+      setFilteredSongs(selectedLanguageSongs);
       setPage(1);
       setHasMore(true);
       setVerseIndex(0);
@@ -251,11 +337,12 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   };
 
   // song item renderer
-  const renderSongItem: ListRenderItem<Song> = useCallback(
-    ({ item }: { item: Song }) => {
+  const renderSongItem: ListRenderItem<LyricsContent> = useCallback(
+    ({ item }: { item: LyricsContent }) => {
       const fullSongs =
-        allSongs.find((lang) => lang.language_key === selectedLanguage)
-          ?.Content || [];
+        dataSongs.filter((lang) => lang.language === selectedLanguage)
+                .flatMap((lang) =>lang.LyricsContents)
+           || [];
 
       return (
         <TouchableOpacity
@@ -267,7 +354,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           ]}
           onPress={() => {
             const indexInFullList = fullSongs.findIndex(
-              (song) => song.id === item.id
+              (song) => song.Id === item.Id
             );
             if (indexInFullList !== -1) {
               setCurrentSongIndex(indexInFullList);
@@ -290,22 +377,22 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               { color: isDarkMode ? "black" : "white" },
             ]}
           >
-            {item.artist}
           </Text>
         </TouchableOpacity>
       );
     },
-    [allSongs, favorites, selectedLanguage, isDarkMode]
+    [dataSongs, favorites, selectedLanguage, isDarkMode]
   );
 
   const setDefaultSongsForLanguage = () => {
-    const selectedLanguageSongs = allSongs.find(
-      (language) => language.language_key === selectedLanguage
+    const selectedLanguageSongs = dataSongs.filter(
+      (language) => language.language === selectedLanguage
     );
 
     // If there are songs for the selected language, set them as default
-    if (selectedLanguageSongs) {
-      setFilteredSongs(selectedLanguageSongs.Content.slice(0, 5));
+    if (selectedLanguageSongs.length > 0) {
+        const allLyrics = selectedLanguageSongs.flatMap(song => song.LyricsContents);
+      setFilteredSongs(allLyrics.slice(0, 5));
     } else {
       setFilteredSongs([]); // No songs available for the selected language
     }
@@ -313,11 +400,11 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
 
   const searchSongs = (text: string) => {
     const trimmedSearch = searchText.trim();
-    const selectedLanguageSongs = allSongs.find(
-      (language) => language.language_key === selectedLanguage
-    );
+    const selectedLanguageSongs = dataSongs
+    .filter((language) => language.language === selectedLanguage)
+    .flatMap((song) =>song.LyricsContents)
 
-    if (!selectedLanguageSongs) {
+    if (!selectedLanguageSongs || selectedLanguageSongs.length === 0) {
       setFilteredSongs([]);
       return;
       //} else if (selectedLanguageSongs) {
@@ -327,9 +414,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     const isNumeric = /^d+$/.test(trimmedSearch);
     const lowerSearchText = trimmedSearch.toLowerCase();
 
-    const results = selectedLanguageSongs.Content.filter((song) => {
+    const results = selectedLanguageSongs.filter((song) => {
+    
       const matchesCategory = selectedCategory
-        ? song.category === selectedCategory
+        ? song.Category === selectedCategory
         : true;
 
       let matchesText = false;
@@ -338,13 +426,11 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
         matchesText = true;
       } else if (isNumeric) {
         matchesText =
-          song.song_num.toString() === trimmedSearch ||
-          song.id.toString() === trimmedSearch;
+          song.Id.toString() === trimmedSearch;
       } else {
         matchesText =
-          song.title.toLowerCase().includes(lowerSearchText) ||
-          song.artist.toLowerCase().includes(lowerSearchText) ||
-          song.id.toString().includes(trimmedSearch); // Check if ID matches search text
+          song.title?.toLowerCase().includes(lowerSearchText) ||
+          song.Id.toString().includes(trimmedSearch); // Check if ID matches search text
       }
       return matchesCategory && matchesText;
     });
@@ -357,13 +443,13 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   };
 
   const verses = [
-    { text: selectedSong?.verse_1, style: styles.verse1Style },
-    { text: selectedSong?.verse_2, style: styles.verse1Style },
-    { text: selectedSong?.verse_3, style: styles.verse1Style },
-    { text: selectedSong?.verse_4, style: styles.verse1Style },
-    { text: selectedSong?.verse_5, style: styles.verse1Style },
-    { text: selectedSong?.verse_6, style: styles.verse1Style },
-    { text: selectedSong?.verse_7, style: styles.verse1Style },
+    { text: selectedSong?.verse1, style: styles.verse1Style },
+    { text: selectedSong?.verse2, style: styles.verse1Style },
+    { text: selectedSong?.verse3, style: styles.verse1Style },
+    { text: selectedSong?.verse4, style: styles.verse1Style },
+    { text: selectedSong?.verse5, style: styles.verse1Style },
+    { text: selectedSong?.verse6, style: styles.verse1Style },
+    { text: selectedSong?.verse7, style: styles.verse1Style },
   ];
 
   // Pagination handler
@@ -371,7 +457,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     if (hasMore && !loading) {
       setLoading(true);
       // Simulated pagination
-      const newSongs = allSongs[0].Content.slice((page - 1) * 10, page * 10);
+      const selectedLanguageSongs : LyricsContent[] = dataSongs
+                     .filter((song) =>song.language === selectedLanguage)
+                     .flatMap((song) =>song.LyricsContents)
+      const newSongs = selectedLanguageSongs.slice((page - 1) * 10, page * 10);
       setFilteredSongs((prev) => [...prev, ...newSongs]);
       setPage((prev) => prev + 1);
       setLoading(false);
@@ -383,8 +472,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   // Swipe Handlers using currentSongIndex:
   const onSwipeLeft = useCallback(() => {
     const fullSongs =
-      allSongs.find((lang) => lang.language_key === selectedLanguage)
-        ?.Content || [];
+      dataSongs.filter((lang) => lang.language === selectedLanguage)
+               .flatMap((lang) =>lang.LyricsContents)
+        || [];
 
     if (swipeLock) return;
 
@@ -400,9 +490,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   // Swipe right
   const onSwipeRight = useCallback(() => {
     const fullSongs =
-      allSongs.find((lang) => lang.language_key === selectedLanguage)
-        ?.Content || [];
-
+      dataSongs.filter((lang) => lang.language === selectedLanguage)
+              .flatMap((lang) => lang.LyricsContents)
+        || [];
+   
     if (swipeLock) return;
     if (currentSongIndex > 0) {
       const newIndex = currentSongIndex - 1;
@@ -418,17 +509,16 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   //   setIsDarkMode((prev) => !prev);
   // }, []);
 
-  const handleSongSelect = (item: Song): void => {
-    setSelectedSong(item);
-    setFavoritesModalVisible(false);
-  };
+  // const handleSongSelect = (item: SongContent): void => {
+  //   setSelectedSong(item);
+  //   setFavoritesModalVisible(false);
+  // };
 
   // Compute the full lyric text by concatenating all verses with newlines.
   // for the copy and share functionality
 
   const fullLyricText = [
     selectedSong?.title,
-    selectedSong?.artist,
     selectedSong?.chorus,
     ...verses.filter((verse) => verse?.text).map((verse) => verse.text),
   ].join("\n");
@@ -439,20 +529,21 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
 
     //  const description =  localizations.find(key => key.language_key === selectedLanguage)?.LyricsCopiedDescription || ''
  
-        Alert.alert(localizations.find(key =>key.language_key === selectedLanguage)?.LyricsCopiedTitle||'',localizations.find(key =>key.language_key === selectedLanguage)?.LyricsCopiedDescription ||'')
+        Alert.alert(localizations.find(key =>key.language === selectedLanguage)?.LyricsCopiedTitle||'',localizations.find(key =>key.language === selectedLanguage)?.LyricsCopiedDescription ||'')
        };
 
   const handleShare: (text: string) => Promise<void> = async (text: string) => {
     try {
       await Share.share({ message: text });
     } catch (error) {
-      Alert.alert(localizations.find(key =>key.language_key === selectedLanguage)?.CopyErrorTitle||'',localizations.find(key =>key.language_key === selectedLanguage)?.CopyErrorDescription ||'')
+      Alert.alert(localizations.find(key =>key.language === selectedLanguage)?.CopyErrorTitle||'',localizations.find(key =>key.language === selectedLanguage)?.CopyErrorDescription ||'')
     }
   };
 
   return (
+    
     <View style={styles.container}>
-      <View style={styles.navbar}>
+       <View style={styles.navbar}>
         {selectedSong && (
           <TouchableOpacity
             style={styles.backButton}
@@ -463,7 +554,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
         )}
         {/* Number Display*/}
         <Text style={styles.number}>
-          {selectedSong ? `#${selectedSong?.id}` : ""}
+          {selectedSong ? `#${filteredSongs.findIndex(s => s.Id === selectedSong.Id) + 1}` : ""}
         </Text>
         {/*Search icon*/}
         <TouchableOpacity onPress={openSearchModal}>
@@ -472,7 +563,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
         {/*heart icon*/}
         {selectedSong && (
           <TouchableOpacity
-            onPress={() => toggleFavorite(selectedSong.id, true)}
+            onPress={() => toggleFavorite(selectedSong.Id, true)}
           >
             <Icon name="plus-square" size={20} color={"#fff"}></Icon>
           </TouchableOpacity>
@@ -495,7 +586,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           onPress={() => setModalVisible(true)}
           style={styles.pickerContainer}
         >
-          <Text style={styles.pickerText}>{selectedLanguage}</Text>
+        <Text style={styles.pickerText}>{selectedLanguage}</Text>
         </TouchableOpacity>
 
         {/* Modal for language selection */}
@@ -508,14 +599,14 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             style={{ margin: 0 }}
           >
             <View style={styles.modalContent}>
-              {allSongs.map((language) => (
+              {dataSongs.map((language) => (
                 <TouchableOpacity
-                  key={language.language_key}
-                  onPress={() => handleLanguageSelect(language.language_key)}
+                  key={`${language.language}_${language.Id}`}
+                  onPress={() => handleLanguageSelect(language.language)}
                   style={styles.languageOption}
                 >
                   <Text style={styles.languageText}>
-                    {language.language_key}
+                    {language.language}
                   </Text>
                 </TouchableOpacity>
               ))}
@@ -530,11 +621,12 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             isVisible={isFavoritesModalVisible}
             onBackdropPress={() => {
               setFavoritesModalVisible(false);
-              const selectedLanguageSongs = allSongs.find(
-                (lang) => lang.language_key === selectedLanguage
+              const selectedLanguageSongs = dataSongs.filter(
+                (lang) => lang.language === selectedLanguage
               );
-              if (selectedLanguageSongs) {
-                setFilteredSongs(selectedLanguageSongs.Content);
+              const allLyrics = selectedLanguageSongs.flatMap(song => song.LyricsContents);
+              if (selectedLanguageSongs.length >0) {
+                setFilteredSongs(allLyrics);
               }
             }}
             backdropTransitionOutTiming={0}
@@ -542,14 +634,17 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           >
             {selectedSong && (
               <View style={styles.favoritesModalContent}>
+                <Text>Title</Text>
                 <Text style={styles.modalTitle}>
-                  {allSongs.find((l) => l.language_key === selectedLanguage)
+                  
+                  {dataSongs.find((l) => l.language === selectedLanguage)
                     ?.Header || "No Header"}
                 </Text>
                 <SongList
                   data={
-                    allSongs.find((l) => l.language_key === selectedLanguage)
-                      ?.Content || []
+                    dataSongs.filter((l) => l.language === selectedLanguage)
+                             .flatMap((l) =>l.LyricsContents)
+                      
                   }
                   onPressItem={(item) => {
                     setSelectedSong(item);
@@ -597,10 +692,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                 }}
               ></TextInput>
               {filteredSongs.length > 0 ? (
-                <FlatList
+                <FlatList<LyricsContent>
                   data={filteredSongs}
-                  keyExtractor={(item, index) =>
-                    `${item.language_value}_${item.id}_${index}`
+                  keyExtractor={(item) =>
+                    `${item.Id}`
                   }
                   renderItem={renderSongItem}
                   nestedScrollEnabled={true}
@@ -609,9 +704,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               ) : (
                 <Text style={styles.noResultsText}>
                   {
-                    allSongs.find(
-                      (key) => key.language_key === selectedLanguage
-                    )?.notFound
+                    dataSongs.find(
+                      (key) => key.language === selectedLanguage
+                    )?.Header
                   }
                 </Text>
               )}
@@ -663,14 +758,15 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                 <Text style={styles.selectedSongTitle}>
                   {selectedSong.chorus}
                 </Text>
+
                 {[
-                  selectedSong.verse_1,
-                  selectedSong.verse_2,
-                  selectedSong.verse_3,
-                  selectedSong.verse_4,
-                  selectedSong.verse_5,
-                  selectedSong.verse_6,
-                  selectedSong.verse_7,
+                  selectedSong.verse1,
+                  selectedSong.verse2,
+                  selectedSong.verse3,
+                  selectedSong.verse4,
+                  selectedSong.verse5,
+                  selectedSong.verse6,
+                  selectedSong.verse7,
                 ]
                   .filter((verse) => verse && verse.trim() !== "")
                   .map((verse, index) => (
@@ -678,10 +774,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       {verse}
                     </Text>
                   ))}
-                <Text style={styles.footer}>
-
-                   {selectedSong.artist}{" "}
-                </Text>
                 </SafeAreaView>
               </ImageBackground>
             </View>
@@ -708,8 +800,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             zIndex: 999,
           }}
         >
-          
-          
             </View>
             <View style={styles.floatingButtonContainer}>
         <CollapsibleActionButton

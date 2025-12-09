@@ -13,19 +13,18 @@ import { Song } from "@/app/types";
 import { ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import songListStyles from "./css/song-list";
+import { LyricsContent, SongContent } from "@/constants/songsTypes";
 import { useTheme } from "@/app/ThemeProvier";
-
 import allSongs from "@/data/allsongs";
 type FavoriteKey = `${string}_${number}`;
-
 // Type guard to validate favorite keys
 const isFavoriteKey = (key: any): key is FavoriteKey => {
   return typeof key === "string" && key.includes("_");
 };
 
 type SongListProps = {
-  data: Song[];
-  onPressItem: (item: Song) => void;
+  data: LyricsContent[];
+  onPressItem: (item: LyricsContent) => void;
   favorites: FavoriteKey[];
   onToggleFavorite: (songId: number) => void;
   loadMore?: () => void;
@@ -60,14 +59,14 @@ const SongList = memo(
     const filteredData = useMemo(
       () =>
         data.filter((item) =>
-          currentLangFavorites.includes(`${currentLanguage}_${item.id}`)
+          currentLangFavorites.includes(`${currentLanguage}_${item.Id}`)
         ),
       [data, currentLangFavorites, currentLanguage]
     );
 
-    const renderItem: ListRenderItem<Song> = ({ item }) => {
+    const renderItem: ListRenderItem<LyricsContent> = ({ item }) => {
       const isFavorite = currentLangFavorites.includes(
-        `${currentLanguage}_${item.id}`
+        `${currentLanguage}_${item.Id}`
       );
 
       return (
@@ -76,14 +75,14 @@ const SongList = memo(
           onPress={() => onPressItem(item)}
         >
           <View style={styles.songInfoContainer}>
-            <Text style={styles.songNumber}>#{item.song_num}</Text>
+            <Text style={styles.songNumber}>#{item.Id}</Text>
             <View style={styles.songTextContainer}>
               <Text style={styles.songTitle}>{item.title}</Text>
-              <Text style={styles.songArtist}>{item.artist}</Text>
+              {/* <Text style={styles.songArtist}>{item.artist}</Text> */}
             </View>
           </View>
           <TouchableOpacity
-            onPress={() => onToggleFavorite(item.id)}
+            onPress={() => onToggleFavorite(item.Id)}
             style={styles.favoriteButton}
           >
             <Icon
@@ -100,7 +99,7 @@ const SongList = memo(
       <FlatList
         data={filteredData}
         renderItem={renderItem}
-        keyExtractor={(item) => `${currentLanguage}_${item.id}`}
+        keyExtractor={(item) => `${currentLanguage}_${item.Id}`}
         onEndReached={loadMore}
         onEndReachedThreshold={0.5}
         ListFooterComponent={

@@ -1,6 +1,6 @@
 const localizations =[
     {
-        language_key: "ጉራጊኛ",
+        language: "ጉራጊኛ",
         Header:"የሸፗችዮ ዝምራ",
         notFound:"ዝምራ አቸም አነከዊ",
         author:"",
@@ -11,7 +11,7 @@ const localizations =[
 
     },
     {
-        language_key: "አማርኛ",
+        language: "AMHARIC",
         Header:"የተመረጡ መዝሙሮች",
         notFound:"ምንም መዝሙር አልተገኘም",
         author:"",
@@ -22,7 +22,7 @@ const localizations =[
         
     },
     {
-        language_key: "ሀዲይኛ",
+        language: "ሀዲይኛ",
         Header:"Doollaanto'o geemmuwwa",
         notFound:"Mahiimmi geemmo'o siidaamuukkooyyo",
         author:"",
@@ -32,7 +32,7 @@ const localizations =[
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     { 
-        language_key: "ከምባትኛ",
+        language: "ከምባትኛ",
         Header:"Doo'rrantoo mazmurrata",
         notFound:"Mazmuru lalimba'a",
         author:"",
@@ -42,7 +42,7 @@ const localizations =[
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     {
-        language_key: "Neur",
+        language: "Neur",
         Header:"Kɛn diit tin caa liny",
         notFound:"Thiɛlɛ diit mi cakɔ jek",
         author:"",
@@ -52,7 +52,7 @@ const localizations =[
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     {
-        language_key: "Oromo",
+        language: "AFAAN_OROMO",
         Header:"Faarfannoota filataman",
         notFound:"Faarfannaan hin argamne",
         author:"",
@@ -62,18 +62,18 @@ const localizations =[
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     {
-        language_key: "ሲዳሚኛ",
+        language: "ሲዳሚኛ",
         Header:"Doorantino faarsubba",
         notFound:"Mitte faarsono diafantino",
         author:"",
-       CopyErrorTitle:"ስህተት",
+        CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
 
     },
     {
-        language_key: "ትግርኛ",
+        language: "ትግርኛ",
         Header:"ዝመረጽዎ መዝሙር",
         notFound:"ዝደለይዎ መዝሙር ኣይተረኽበን",
         CopyErrorTitle:"ስህተት",
@@ -82,7 +82,7 @@ const localizations =[
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     {
-        language_key: "ወላይትኛ",
+        language: "ወላይትኛ",
         Header:"Dooretida Sabati",
         notFound:"Ayba Sabayikka beettibeena,",
         CopyErrorTitle:"ስህተት",
