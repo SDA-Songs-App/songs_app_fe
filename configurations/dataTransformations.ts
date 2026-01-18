@@ -1,3 +1,19 @@
+import { LyricsContent } from "@/constants/songsTypes";
+
+const normalizeLyricsContents = (value: any): LyricsContent[] => {
+  if (Array.isArray(value)) return value;
+
+  if (typeof value === "string") {
+    try {
+      const parsed = JSON.parse(value);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+
+  return [];
+};
 export const transformSongsByLanguage = (dataSongs: any[]) => {
   const result: any[] = [];
   let activeCount=0;
@@ -7,18 +23,10 @@ export const transformSongsByLanguage = (dataSongs: any[]) => {
     }
     let languageKey = song.language?.toLowerCase();
    
-     if(languageKey ==='afaan_oromo'){
-       languageKey =='oromo' 
-    }
-    else if(languageKey ==='guragigna'){
-       languageKey =='ጉራጊኛ' 
-    }
-    else if(languageKey ==='sidama'){
-       languageKey =='ሲዳምኛ' 
-    }
+    
      const existingLang = result.find((item) => item.language === languageKey);
     // Merge LyricsContents with top-level properties
-    const mergedLyrics = (song.LyricsContents || []).map((lyric: any) => ({
+    const mergedLyrics = normalizeLyricsContents(song.LyricsContents || []).map((lyric: any) => ({
       ...lyric,
       
       albumId: song.albumId,

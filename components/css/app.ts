@@ -398,6 +398,24 @@ const getStyles = (
       marginTop: 10,
       zIndex: 1,
     },
+      footerContainer: {
+    width: "100%",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderTopWidth: 0.5,
+    borderTopColor: "#888",
+    position: "absolute",
+    bottom: 40,
+    left: 10,
+  },
+  artistName: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  artistBio: {
+    fontSize: 12,
+    marginTop: 4,
+  },
   });
 };
 export default getStyles;

@@ -1,4 +1,4 @@
-import Constants from 'expo-constants';
+//import Constants from 'expo-constants';
 
 // get your local machine's IP 
 const localhost = '10.72.30.211'

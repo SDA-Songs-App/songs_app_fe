@@ -6,6 +6,7 @@ import NavbarScreen from "@/components/navbar";
 import { createStackNavigator } from "@react-navigation/stack";
 import FontSizeAdjustScreen from "@/components/FontAdjustScreen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import NavbarWithSongs from "../screens/NavbarWithSongs"
 import {NavigationIndependentTree, NavigationContainer} from '@react-navigation/native'
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 const Stack = createStackNavigator(); 
@@ -31,7 +32,7 @@ function MainApp (){
                 />
                 <Stack.Screen
                   name="Navbar"
-                  component={NavbarScreen}
+                  component={NavbarWithSongs}
                   options={{ headerShown: false }}
                 />
                 <Stack.Screen

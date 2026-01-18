@@ -30,23 +30,15 @@ export type LyricsContent = {
   verse5?: string;
   verse6?: string;
   verse7?: string;
+  Artist:Artist
   
 };
- type Song = {
-    id: number;
-    title: string;
-    chorus: string;
-    category: string;
-    verse_1?: string;
-    verse_2?: string;
-    verse_3?: string;
-    verse_4?: string;
-    verse_5?: string;
-    verse_6?: string;
-    verse_7?: string;
-    language_value: string;
-    displayOrder?: number;
-    createdAt?:Date
-    deletedAt?:Date
-    updatedAt?:Date
-  };
+  export type Artist={
+            Id :number,
+            name: string,
+            genre: string,
+            bio: string,
+            imageUrl:string,
+            createdAt:string,
+            deletedAt:string
+  }
