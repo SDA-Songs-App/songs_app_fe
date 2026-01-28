@@ -1,5 +1,5 @@
 import React from "react";
-import ThemeProvider from "../ThemeProvier";
+import ThemeProvider from "../ThemeProvider";
 
 import MainApp from "../(tabs)/MainApp";
 export default function App() {

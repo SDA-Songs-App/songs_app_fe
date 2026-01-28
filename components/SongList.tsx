@@ -14,7 +14,7 @@ import { ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import songListStyles from "./css/song-list";
 import { LyricsContent, SongContent } from "@/constants/songsTypes";
-import { useTheme } from "@/app/ThemeProvier";
+import { useTheme } from "@/app/ThemeProvider";
 import allSongs from "@/data/allsongs";
 type FavoriteKey = `${string}_${number}`;
 // Type guard to validate favorite keys

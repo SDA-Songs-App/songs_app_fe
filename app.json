@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ሃሌሉያ ዝማሬዎች: Hallujah Songs",
-    "slug": "adventist-hegergna-songs",
+    "name": "ሃሌሉያ ዝማሬዎች: Hallelujah Songs",
+    "slug": "Hallelujah",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/sda-logo-icon.png",
@@ -40,20 +40,18 @@
     "experiments": {
       "typedRoutes": true
     },
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/ba6b0bcf-af8f-4360-a946-b5ae058f744d"
+    },
+    "owner": "sda-user",
     "extra": {
       "router": {
         "origin": false
       },
       "eas": {
-        "projectId": "04a54419-8b9c-47ab-8ca7-d103380dca93"
+        "projectId": "12ff9f06-1cc6-496d-9116-ea9c7fd0f738"
       }
-    },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/ba6b0bcf-af8f-4360-a946-b5ae058f744d"
-    },
-    "owner": "sda-user"
+    }
   }
 }

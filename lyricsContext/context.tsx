@@ -119,8 +119,6 @@ const normalizeSongs = (songs: any[]): SongContent[] => {
       : [],
   }));
 };
-
-
   const syncUpdates = async () => {
     try {
       const lastSyncedAt = await getLastSyncedAt();

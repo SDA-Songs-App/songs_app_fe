@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Slider from "@react-native-community/slider";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useTheme } from "@/app/ThemeProvier";
+import { useTheme } from "@/app/ThemeProvider";
 const FONT_SIZES = [14, 16, 18, 20, 24, 28, 30];
 
 // Use platform-specific font names
@@ -95,39 +95,13 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
     <View
       style={[
         styles.container,
-        { backgroundColor: isDarkMode ? "white" : "black" },
+        { backgroundColor: isDarkMode ? "#fff" : "#2e2c2c" },
       ]}
     >
-      <Text
-        style={{
-          color: isDarkMode ? "#000" : "#fff",
-          fontSize: 22,
-          fontWeight: "600",
-          letterSpacing: 1,
-          marginBottom: 10,
-          textAlign: "center",
-        }}
-      >
-        መጠን ያስተካክሉ
-      </Text>
-      <Slider
-        style={{
-          width: 300,
-          height: 40,
-          transform: [{ scaleY: 2.5 }],
-          marginBottom: 20,
-        }}
-        minimumValue={16}
-        maximumValue={30}
-        step={2}
-        value={fontSize}
-        onValueChange={handleFontSizeChange}
-      />
-
-      <TouchableOpacity
+       <TouchableOpacity
         onPress={() => setModalVisible(true)}
         style={{
-          backgroundColor: isDarkMode ? "#fff" : "#000",
+          backgroundColor: isDarkMode ? "#fff" : "#2e2929",
           paddingVertical: 12,
           paddingHorizontal: 24,
           borderRadius: 10,
@@ -141,13 +115,13 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
       >
         <Text
           style={{
-            color: isDarkMode ? "#000" : "#fff",
+            color: isDarkMode ? "#000000" : "#fff",
             fontSize: 18,
             fontWeight: "bold",
             letterSpacing: 1,
           }}
         >
-          የቅርጸ-ቁምፊ ቤተሰብን ይምረጡ:{" "}
+          የፍደል ቅርጽ ይምረጡ:{" "}
           <Text
             style={{ textDecorationLine: "underline", fontStyle: "italic" }}
           >
@@ -161,7 +135,7 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
           <View
             style={[
               styles.modalContainer,
-              { backgroundColor: isDarkMode ? "#fff" : "#000" },
+              { backgroundColor: isDarkMode ? "#fff" : "#332a2a" },
             ]}
           >
             <FlatList
@@ -182,7 +156,10 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
               onPress={() => setModalVisible(false)}
               style={styles.cancelButton}
             >
-              <Text style={{ color: "red", textAlign: "center" }}>አጥፈ</Text>
+              <View style ={{backgroundColor:"#464444", width:100, alignItems:"center"}}>
+                <Text style={{ color: "red", textAlign: "center", fontSize:20 }}>አጥፈ</Text>
+              </View>
+              
             </TouchableOpacity>
           </View>
         </View>

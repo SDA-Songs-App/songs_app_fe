@@ -4,6 +4,7 @@ type RootStackParams = {
   Home: undefined;
   Navbar: undefined;
   FontSettings: undefined;
+  ቅርጽ፟_ማስተካከያ: undefined;
   settings: undefined;
 };
 type RooStackSettingsParams = {

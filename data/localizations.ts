@@ -7,17 +7,19 @@ const localizations =[
         CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+        SearchHolder:"ሴ ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
 
     },
     {
-        language: "AMHARIC",
+        language: "አማርኛ",
         Header:"የተመረጡ መዝሙሮች",
         notFound:"ምንም መዝሙር አልተገኘም",
         author:"",
         CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+        SearchHolder:"ፈልግ ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
         
     },
@@ -29,6 +31,7 @@ const localizations =[
          CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+        SearchHolder:"Hase ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     { 
@@ -39,6 +42,7 @@ const localizations =[
         CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+        SearchHolder:"ሀስ ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     {
@@ -49,6 +53,7 @@ const localizations =[
          CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+        SearchHolder:"Gör ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     {
@@ -59,6 +64,7 @@ const localizations =[
         CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+        SearchHolder:"Barbaad ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     {
@@ -69,6 +75,7 @@ const localizations =[
         CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+          SearchHolder:"Hasi ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
 
     },
@@ -79,6 +86,7 @@ const localizations =[
         CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+        SearchHolder:"ድለይ ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     },
     {
@@ -88,6 +96,7 @@ const localizations =[
         CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
+        SearchHolder:"ኮያ ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
 
   

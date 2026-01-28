@@ -1,4 +1,4 @@
-import { useTheme } from "@/app/ThemeProvier";
+import { useTheme } from "@/app/ThemeProvider";
 import { StyleSheet } from "react-native";
 
 const songListStyles = (

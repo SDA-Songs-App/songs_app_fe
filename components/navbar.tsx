@@ -1,20 +1,20 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
   TextInput,
-  FlatList,
   ScrollView,
   Dimensions,
   ImageBackground,
   Alert,
   Share,
   SafeAreaView,
-  ToastAndroid,
   Platform,
+  KeyboardAvoidingView,
+  Animated,
 } from "react-native";
-import { useNavigation, RouteProp } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { StackNavigationProp } from "@react-navigation/stack";
 import GestureRecognizer from "react-native-swipe-gestures";
@@ -23,32 +23,35 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Clipboard from "expo-clipboard";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { Ionicons } from "@expo/vector-icons";
-import Constants from "expo-constants";
-
+import { FlashList } from "@shopify/flash-list";
 import SongList from "./SongList";
 import CollapsibleActionButton from "./CollapsibleActionButton";
 import getStyles from "../components/css/app";
-import { useTheme } from "@/app/ThemeProvier";
-import allSongs from "@/data/allsongs";
+import { useTheme } from "@/app/ThemeProvider";
 import localizations from "@/data/localizations";
-import { LyricsContent, SongContent } from "../constants/songsTypes";
-import { getFromLocalDB, initializeDatabase, saveToLocalDB } from "@/data/database/localDb";
+import { LyricsContent } from "../constants/songsTypes";
+import { initializeDatabase } from "@/data/database/localDb";
 import { useSongs } from "@/lyricsContext/context";
 import { RootStackParams } from "@/app/types";
-
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
+import { runOnJS, useSharedValue } from "react-native-reanimated";
 
 const { height: deviceHeight } = Dimensions.get("window");
 
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
-  route: RouteProp<any>;
+  route:  {
+    key: string;
+    name: string;
+    params?: any;
+  };
 };
 
 type FavoriteKey = `${string}_${number}`;
+
 const normalizeLyricsContents = (value: any): LyricsContent[] => {
   if (Array.isArray(value)) return value;
-
   if (typeof value === "string") {
     try {
       const parsed = JSON.parse(value);
@@ -57,22 +60,24 @@ const normalizeLyricsContents = (value: any): LyricsContent[] => {
       return [];
     }
   }
-
   return [];
 };
+
 const NavbarScreen: FC<NavbarScreenProps> = () => {
   const navigation = useNavigation<NavigationProp>();
   const { isDarkMode, toggleTheme } = useTheme();
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Roboto");
   const styles = getStyles(isDarkMode, fontSize, fontFamily);
-  const [isModalVisible, setModalVisible] = useState(false)
+  const [isModalVisible, setModalVisible] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState(Dimensions.get("window"));
   const [orientation, setOrientation] = useState<'portrait' | 'landscape'>(
     windowDimensions.width > windowDimensions.height ? "landscape" : "portrait"
   );
-const { dataSongsToLoad: dataSongs, setDataSongs, syncUpdates } = useSongs();
-  // Orientation change
+
+  const { dataSongsToLoad: dataSongs, setDataSongs, syncUpdates } = useSongs();
+
+  // Orientation
   useEffect(() => {
     const handleOrientationChange = ({ window }: { window: any }) => {
       setWindowDimensions(window);
@@ -86,19 +91,15 @@ const { dataSongsToLoad: dataSongs, setDataSongs, syncUpdates } = useSongs();
   const [isSearchModalVisible, setSearchModalVisible] = useState(false);
   const [isFavoritesModalVisible, setFavoritesModalVisible] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [filteredSongs, setFilteredSongs] = useState<LyricsContent[]>([]);
   const [selectedSong, setSelectedSong] = useState<LyricsContent | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState("አማርኛ");
 
-  // Pagination & swipe
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [swipeLock, setSwipeLock] = useState(false);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
-
-  // Favorites
+  const scale = useSharedValue(1);
+  const savedScale = useSharedValue(16);
   const [favorites, setFavorites] = useState<FavoriteKey[]>([]);
 
   // Load font preferences
@@ -117,68 +118,47 @@ const { dataSongsToLoad: dataSongs, setDataSongs, syncUpdates } = useSongs();
     const loadFavorites = async () => {
       const storedFavorites = await AsyncStorage.getItem("favorites");
       if (storedFavorites) {
-  const parsedFavorites = JSON.parse(storedFavorites);
-  const validFavorites = parsedFavorites
-    .filter((key: any) => {
-      if (typeof key !== "string") return false;
-      const parts = key.split("_");
-      return parts.length === 2 && !isNaN(Number(parts[1]));
-    })
-    .map((key: string) => key as FavoriteKey); // <-- assert the type here
-
-  setFavorites(validFavorites);
-}
-
+        const parsedFavorites = JSON.parse(storedFavorites);
+        const validFavorites = parsedFavorites
+          .filter((key: any) => typeof key === "string" && key.includes("_"))
+          .map((key: string) => key as FavoriteKey);
+        setFavorites(validFavorites);
+      }
     };
     loadFavorites();
   }, []);
 
   // Fetch songs from backend or local DB
- useEffect(() => {
-  const fetchAndSyncSongs = async () => {
-    try {
-      setLoading(true);
-      await initializeDatabase();
-
-      // First, try to sync with backend
-      await syncUpdates(); // <-- fetch new/updated songs from backend
-
-      // After sync, load songs from context
-      const songsFromContext = dataSongs; // this comes from useSongs()
-      if (songsFromContext.length > 0) {
-        const languageSongs = songsFromContext
-          .filter((l) => l.language === selectedLanguage && !l.deletedAt)
-          .flatMap((l) => normalizeLyricsContents(l.LyricsContents));
-
-        if (languageSongs.length > 0) {
-          setFilteredSongs(languageSongs);
-          setSelectedSong(languageSongs[0]);
-          setCurrentSongIndex(0);
-        }
+  useEffect(() => {
+    const fetchAndSyncSongs = async () => {
+      try {
+        setLoading(true);
+        await initializeDatabase();
+        await syncUpdates(); // fetch new songs from backend
+      } catch (error) {
+        console.error("Failed to fetch and sync songs:", error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Failed to fetch and sync songs:", error);
-    } finally {
-      setLoading(false);
+    };
+    fetchAndSyncSongs();
+  }, []);
+
+  // Derived: full songs of selected language
+  const fullSongs = useMemo(() => {
+    return dataSongs
+      .filter((l) => l.language === selectedLanguage && !l.deletedAt)
+      .flatMap((l) => normalizeLyricsContents(l.LyricsContents));
+  }, [dataSongs, selectedLanguage]);
+
+  // Set filtered songs when dataSongs or language changes
+  useEffect(() => {
+    if (fullSongs.length > 0) {
+      setFilteredSongs(fullSongs);
+      setSelectedSong(fullSongs[0]);
+      setCurrentSongIndex(0);
     }
-  };
-
-  fetchAndSyncSongs();
-}, []); // runs once on mount
-
-useEffect(() => {
-  if (!dataSongs.length) return;
-
-  const languageSongs = dataSongs
-    .filter(l => l.language === selectedLanguage && !l.deletedAt)
-    .flatMap(l => normalizeLyricsContents(l.LyricsContents));
-
-  if (languageSongs.length > 0) {
-    setFilteredSongs(languageSongs);
-    setSelectedSong(languageSongs[0]);
-    setCurrentSongIndex(0);
-  }
-}, [dataSongs, selectedLanguage]);
+  }, [fullSongs]);
 
   const uniqueLanguages = Array.from(new Set(dataSongs.map((song) => song.language)));
 
@@ -187,11 +167,9 @@ useEffect(() => {
     async (songId: number, isAdding: boolean) => {
       const favoriteKey: FavoriteKey = `${selectedLanguage}_${songId}`;
       setFavorites((prev) => {
-        let newFavorites;
+        let newFavorites = prev;
         if (isAdding) {
-          newFavorites = prev.includes(favoriteKey)
-            ? prev.filter((key) => key !== favoriteKey)
-            : [...prev, favoriteKey];
+          if (!prev.includes(favoriteKey)) newFavorites = [...prev, favoriteKey];
         } else {
           newFavorites = prev.filter((key) => key !== favoriteKey);
         }
@@ -202,69 +180,49 @@ useEffect(() => {
     [selectedLanguage]
   );
 
+  const getSwipeSongs = useCallback(() => fullSongs, [fullSongs]);
+
   // Swipe handlers
   const onSwipeLeft = useCallback(() => {
-    const fullSongs =
-      dataSongs
-        .filter((lang) => lang.language === selectedLanguage && !lang.deletedAt)
-        .flatMap((lang) => lang.LyricsContents) || [];
-
-    if (swipeLock || currentSongIndex >= fullSongs.length - 1) return;
-
-    setCurrentSongIndex((prev) => prev + 1);
-    setSelectedSong(fullSongs[currentSongIndex + 1]);
+    const songs = getSwipeSongs();
+    if (swipeLock || currentSongIndex >= songs.length - 1) return;
+    const nextIndex = currentSongIndex + 1;
+    setCurrentSongIndex(nextIndex);
+    setSelectedSong(songs[nextIndex]);
     setSwipeLock(true);
-    setTimeout(() => setSwipeLock(false), 300);
-  }, [swipeLock, currentSongIndex, selectedLanguage]);
+    setTimeout(() => setSwipeLock(false), 250);
+  }, [currentSongIndex, swipeLock, getSwipeSongs]);
 
   const onSwipeRight = useCallback(() => {
-    const fullSongs =
-      dataSongs
-        .filter((lang) => lang.language === selectedLanguage && !lang.deletedAt)
-        .flatMap((lang) => lang.LyricsContents) || [];
-
+    const songs = getSwipeSongs();
     if (swipeLock || currentSongIndex <= 0) return;
-
-    setCurrentSongIndex((prev) => prev - 1);
-    setSelectedSong(fullSongs[currentSongIndex - 1]);
+    const prevIndex = currentSongIndex - 1;
+    setCurrentSongIndex(prevIndex);
+    setSelectedSong(songs[prevIndex]);
     setSwipeLock(true);
-    setTimeout(() => setSwipeLock(false), 300);
-  }, [swipeLock, currentSongIndex, selectedLanguage]);
+    setTimeout(() => setSwipeLock(false), 250);
+  }, [currentSongIndex, swipeLock, getSwipeSongs]);
 
   // Language selection
   const handleLanguageSelect = (language: string) => {
     setSelectedLanguage(language);
-    const selectedLanguageSongs = dataSongs
-      .filter((lang) => lang.language === language && !lang.deletedAt)
-      .flatMap((lang) => lang.LyricsContents);
-
-    if (selectedLanguageSongs.length > 0) {
-      setSelectedSong(selectedLanguageSongs[0]);
-      setFilteredSongs(selectedLanguageSongs);
-      setPage(1);
-      setHasMore(true);
-    }
   };
 
   // Search
   const searchSongs = (text: string) => {
-    const selectedLanguageSongs = dataSongs
-      .filter((lang) => lang.language === selectedLanguage)
-      .flatMap((lang) => lang.LyricsContents);
-
     const trimmed = text.trim().toLowerCase();
-    const results = selectedLanguageSongs.filter((song) => {
-      const matchesCategory = selectedCategory ? song.Category === selectedCategory : true;
-      const matchesText =
-        !trimmed ||
-        song.title?.toLowerCase().includes(trimmed) ||
-        song.Id.toString().includes(trimmed);
-      return matchesCategory && matchesText;
-    });
-    setFilteredSongs(results);
+    if (/^\d+$/.test(trimmed)) {
+      const idx = parseInt(trimmed, 10) - 1;
+      setFilteredSongs(idx >= 0 && idx < fullSongs.length ? [fullSongs[idx]] : []);
+      return;
+    }
+    const filtered = fullSongs.filter((song) =>
+      song.title?.toLowerCase().includes(trimmed) ||
+      song.Artist?.name?.toLowerCase().includes(trimmed)
+    );
+    setFilteredSongs(filtered);
   };
 
-  // Copy & Share
   const fullLyricText = [
     selectedSong?.title,
     selectedSong?.chorus,
@@ -275,9 +233,7 @@ useEffect(() => {
     selectedSong?.verse5,
     selectedSong?.verse6,
     selectedSong?.verse7,
-  ]
-    .filter(Boolean)
-    .join("\n");
+  ].filter(Boolean).join("\n");
 
   const handleCopy = (text: string) => {
     Clipboard.setString(text);
@@ -298,29 +254,22 @@ useEffect(() => {
     }
   };
 
-  // Render
-  const renderSongItem = useCallback(
-    ({ item }: { item: LyricsContent }) => (
-      <TouchableOpacity
-        style={[styles.songCard, { backgroundColor: isDarkMode ? "white" : "black" }]}
-        onPress={() => {
-          const fullSongs =
-            dataSongs
-              .filter((lang) => lang.language === selectedLanguage && !lang.deletedAt)
-              .flatMap((lang) => lang.LyricsContents) || [];
-          const index = fullSongs.findIndex((song) => song.Id === item.Id);
-          if (index !== -1) {
-            setCurrentSongIndex(index);
-            setSelectedSong(fullSongs[index]);
-          }
-          setSearchModalVisible(false);
-        }}
-      >
-        <Text style={[styles.songTitle, { color: isDarkMode ? "black" : "white" }]}>{item.title}</Text>
-      </TouchableOpacity>
-    ),
-    [dataSongs, selectedLanguage, isDarkMode]
-  );
+  const closeSearchModal = useCallback(() => {
+    setSearchText("");
+    setFilteredSongs(fullSongs);
+    setSearchModalVisible(false);
+  }, [fullSongs]);
+
+  const songIndexInFullList = fullSongs.findIndex(s => s.Id === selectedSong?.Id);
+
+  const pinchGesture = Gesture.Pinch()
+    .onUpdate((event) => { scale.value = event.scale; })
+    .onEnd(() => {
+      const newSize = Math.min(Math.max(savedScale.value * scale.value, 12), 40);
+      savedScale.value = newSize;
+      scale.value = 1;
+      runOnJS(setFontSize)(newSize);
+    });
 
   return (
     <View style={styles.container}>
@@ -332,7 +281,7 @@ useEffect(() => {
           </TouchableOpacity>
         )}
         <Text style={styles.number}>
-          {selectedSong ? `#${filteredSongs.findIndex((s) => s.Id === selectedSong.Id) + 1}` : ""}
+          {songIndexInFullList >= 0 ? `#${songIndexInFullList + 1}` : ""}
         </Text>
         <TouchableOpacity onPress={() => setSearchModalVisible(true)}>
           <Icon name="search" size={20} color="#fff" />
@@ -348,7 +297,7 @@ useEffect(() => {
         <TouchableOpacity onPress={() => Alert.alert("Info", "መዝሙር ማጨዎቻ ሊሰራ ታቅዷል")}>
           <Icon name="play" size={20} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("FontSettings")}>
+        <TouchableOpacity onPress={() => navigation.navigate("ቅርጽ፟_ማስተካከያ")}>
           <Icon name="cog" size={20} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.pickerContainer}>
@@ -360,95 +309,131 @@ useEffect(() => {
       </View>
 
       {/* Swipe Gesture */}
-      <GestureRecognizer
-        onSwipeLeft={onSwipeLeft}
-        onSwipeRight={onSwipeRight}
-        config={{ velocityThreshold: 0.5, directionalOffsetThreshold: 100 }}
-      >
-        <ScrollView style={styles.scrollContainer} contentContainerStyle={{ flexGrow: 1 }}>
-          {selectedSong && (
-            <View style={styles.songContainer}>
-              <ImageBackground
-                source={
-                  isDarkMode
-                    ? require("../assets/images/S.jpg")
-                    : require("../assets/images/inverted_S.jpg")
-                }
-                resizeMode="cover"
-                style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42 }]}
-              >
-                <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
-                  {selectedSong.title && <Text style={styles.selectedSongPlainTitle}>{selectedSong.title}</Text>}
-                  {selectedSong.chorus && <Text style={styles.selectedSongTitle}>{selectedSong.chorus}</Text>}
-                  {[selectedSong.verse1, selectedSong.verse2, selectedSong.verse3, selectedSong.verse4,
-                    selectedSong.verse5, selectedSong.verse6, selectedSong.verse7]
-                    .filter(Boolean)
-                    .map((verse, idx) => (
-                      <Text key={idx} style={styles.verse1Style}>{verse}</Text>
-                    ))}
-                </SafeAreaView>
-                <View style={styles.footerContainer}>
-                  <Text style={[styles.artistName, { color: isDarkMode ? "#aaa" : "#000" }]}>
-                    {selectedSong.Artist?.name || "Not found"}
-                  </Text>
-                  <Text style={[styles.artistBio, { color: isDarkMode ? "#aaa" : "#555" }]}>
-                    {selectedSong.Artist?.bio || "Not found"}
-                  </Text>
-                </View>
-              </ImageBackground>
-            </View>
-          )}
-        </ScrollView>
-      </GestureRecognizer>
-
-      {/* Floating Collapsible Button */}
-      <View style={styles.floatingButtonContainer}>
-        <CollapsibleActionButton
-          fullLyricText={fullLyricText}
-          onCopy={handleCopy}
-          onShare={handleShare}
-          isDarkMode={isDarkMode}
-        />
+      <View style={{ flex: 1, position: "relative" }}>
+        <GestureDetector gesture={pinchGesture}>
+          <Animated.View>
+            <GestureRecognizer
+              onSwipeLeft={onSwipeLeft}
+              onSwipeRight={onSwipeRight}
+              config={{ velocityThreshold: 0.5, directionalOffsetThreshold: 50 }}
+            >
+              <ScrollView style={styles.scrollContainer} contentContainerStyle={{ flexGrow: 1 }}>
+                {selectedSong && (
+                  <View style={styles.songContainer}>
+                    <ImageBackground
+                      source={
+                        isDarkMode
+                          ? require("../assets/images/S.jpg")
+                          : require("../assets/images/inverted_S.jpg")
+                      }
+                      resizeMode="cover"
+                      style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42 }]}
+                    >
+                      <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
+                        {selectedSong.title && <Text style={styles.selectedSongPlainTitle}>
+                          {selectedSong.title
+                            .toLowerCase()
+                            .split(" ")
+                            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                            .join(" ")}
+                        </Text>}
+                        {selectedSong.chorus && <Text style={styles.selectedSongTitle}>{selectedSong.chorus}</Text>}
+                        {[selectedSong.verse1, selectedSong.verse2, selectedSong.verse3, selectedSong.verse4,
+                          selectedSong.verse5, selectedSong.verse6, selectedSong.verse7]
+                          .filter(Boolean)
+                          .map((verse, idx) => (
+                            <Text key={idx} style={styles.verse1Style}>{verse}</Text>
+                          ))}
+                      </SafeAreaView>
+                      <View style={styles.footerContainer}>
+                        <Text style={[styles.artistName, { color: isDarkMode ? "#aaa" : "#555" }]}>
+                          {selectedSong.Artist?.name !== "Not Specified"
+                            ? selectedSong.Artist?.name
+                              .toLowerCase().split(" ")
+                              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                              .join(" ")
+                            : null}
+                        </Text>
+                        <Text style={[styles.artistBio, { color: isDarkMode ? "#aaa" : "#555" }]}>
+                          {selectedSong.Artist?.bio || "Not found"}
+                        </Text>
+                      </View>
+                    </ImageBackground>
+                  </View>
+                )}
+              </ScrollView>
+              <View style={[styles.floatingButtonContainer, { backgroundColor: isDarkMode ? "#000" : "#fff" }]}>
+                <CollapsibleActionButton
+                  fullLyricText={fullLyricText}
+                  onCopy={handleCopy}
+                  onShare={handleShare}
+                  isDarkMode={isDarkMode}
+                />
+              </View>
+            </GestureRecognizer>
+          </Animated.View>
+        </GestureDetector>
       </View>
 
       {/* Modals */}
       {/* Search Modal */}
       <Modal
         isVisible={isSearchModalVisible}
-        onBackdropPress={() => {
-          setSearchModalVisible(false);
-          setSearchText("");
-          setSelectedCategory(null);
-          const selectedLanguageSongs = dataSongs
-            .filter((lang) => lang.language === selectedLanguage && !lang.deletedAt)
-            .flatMap((lang) => lang.LyricsContents);
-          setFilteredSongs(selectedLanguageSongs);
-        }}
-        backdropColor="#000"
         backdropOpacity={0.5}
+        avoidKeyboard
+        propagateSwipe
+        style={{ margin: 0, justifyContent: "flex-start" }}
+        onBackdropPress={closeSearchModal}
+        onBackButtonPress={closeSearchModal}
       >
-        <View style={styles.modalContainer}>
-          <TextInput
-            style={styles.searchInput}
-            placeholder={localizations.find((key) => key.language === selectedLanguage)?.LyricsCopiedTitle || "Search..."}
-            placeholderTextColor={isDarkMode ? "black" : "white"}
-            value={searchText}
-            onChangeText={(text) => {
-              setSearchText(text);
-              searchSongs(text);
-            }}
-          />
-          {filteredSongs.length > 0 ? (
-            <FlatList<LyricsContent>
-              data={filteredSongs}
-              keyExtractor={(item) => `${item.Id}`}
-              renderItem={renderSongItem}
-              nestedScrollEnabled
-            />
-          ) : (
-            <Text style={styles.noResultsText}>No results found</Text>
-          )}
-        </View>
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined}>
+          <View style={styles.fancyModal}>
+            <View style={styles.searchHeader}>
+              <TextInput
+                style={styles.fancyInput}
+                placeholder={localizations.find((key) => key.language === selectedLanguage)?.SearchHolder || "Search..."}
+                placeholderTextColor="#888"
+                value={searchText}
+                onChangeText={(text) => {
+                  setSearchText(text);
+                  searchSongs(text);
+                }}
+              />
+            </View>
+            {filteredSongs.length > 0 ? (
+              <FlashList
+                data={filteredSongs}
+                keyExtractor={(item) => `${item.Id}`}
+                renderItem={({ item }) => (
+                  <TouchableOpacity
+                    style={[styles.songRow, { backgroundColor: isDarkMode ? "#fff" : "#121212" }]}
+                    onPress={() => {
+                      setSelectedSong(item);
+                      setCurrentSongIndex(fullSongs.findIndex(s => s.Id === item.Id));
+                      closeSearchModal();
+                    }}
+                  >
+                    <View style={styles.songIndex}>
+                      <Text style={[styles.indexText, { color: isDarkMode ? "#000" : "#9acd32" }]}>
+                        {fullSongs.findIndex(s => s.Id === item.Id) + 1}
+                      </Text>
+                    </View>
+                    <View style={styles.songInfo}>
+                      <Text style={[styles.songTitle, { color: isDarkMode ? "#000" : "#fff" }]} numberOfLines={1}>{item.title}</Text>
+                      {item.Artist && <Text style={[styles.songSubtitle, { color: isDarkMode ? "#444" : "#aaa" }]} numberOfLines={1}>{item.Artist.name}</Text>}
+                    </View>
+                  </TouchableOpacity>
+                )}
+                estimatedItemSize={300}
+                keyboardShouldPersistTaps="handled"
+              />
+            ) : (
+              <View style={styles.emptyBox}>
+                <Text style={styles.emptyText}>No songs found</Text>
+              </View>
+            )}
+          </View>
+        </KeyboardAvoidingView>
       </Modal>
 
       {/* Favorites Modal */}
@@ -460,51 +445,48 @@ useEffect(() => {
       >
         <View style={styles.favoritesModalContent}>
           <SongList
-  data={dataSongs
-    .filter((l) => l.language === selectedLanguage && !l.deletedAt)
-    .flatMap((l) => normalizeLyricsContents(l.LyricsContents))}
-  onPressItem={(item) => {
-    setSelectedSong(item);
-    setFavoritesModalVisible(false);
-  }}
-  favorites={favorites}
-  onToggleFavorite={(songId) => toggleFavorite(songId, true)} // wrapper
-  currentLanguage={selectedLanguage}
-  loadMore={() => {}}
-  loading={loading}
-  removalOnly
-/>
-
+            data={fullSongs}
+            onPressItem={(item) => {
+              setSelectedSong(item);
+              setFavoritesModalVisible(false);
+            }}
+            favorites={favorites}
+            onToggleFavorite={(songId) => toggleFavorite(songId, true)}
+            currentLanguage={selectedLanguage}
+            loadMore={() => {}}
+            loading={loading}
+            removalOnly
+          />
         </View>
       </Modal>
 
       {/* Language Selection Modal */}
       <Modal
-  isVisible={isModalVisible}
-  onBackdropPress={() => setModalVisible(false)}
-  animationIn="slideInUp"
-  animationOut="slideOutDown"
-  backdropOpacity={0.5}
-  style={{ margin: 0 }}
->
-  <View style={styles.modalContent}>
-    {uniqueLanguages.map((language) => (
-      <TouchableOpacity
-        key={language}
-        onPress={() => {
-          handleLanguageSelect(language);
-          setModalVisible(false);
-        }}
-        style={styles.languageOption}
+        isVisible={isModalVisible}
+        onBackdropPress={() => setModalVisible(false)}
+        animationIn="slideInUp"
+        animationOut="slideOutDown"
+        backdropOpacity={0.5}
+        style={{ margin: 0 }}
       >
-        <Text style={styles.languageText}>{language}</Text>
-      </TouchableOpacity>
-    ))}
-  </View>
-</Modal>
+        <View style={styles.modalContent}>
+          {uniqueLanguages.map((language) => (
+            <TouchableOpacity
+              key={language}
+              onPress={() => {
+                handleLanguageSelect(language);
+                setModalVisible(false);
+              }}
+              style={styles.languageOption}
+            >
+              <Text style={styles.languageText}>{language}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </Modal>
 
     </View>
   );
 };
 
-export default NavbarScreen; 
+export default NavbarScreen;

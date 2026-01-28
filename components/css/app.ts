@@ -1,4 +1,4 @@
-import { useTheme } from "@/app/ThemeProvier";
+import { useTheme } from "@/app/ThemeProvider";
 import { Dimensions, StyleSheet } from "react-native";
 const { width, height } = Dimensions.get("window");
 const getStyles = (
@@ -29,13 +29,23 @@ const getStyles = (
     },
     modalContainer: {
       width: "100%",
-      padding: 10,
+      height: height * 0.7,
+      justifyContent:"center",
       backgroundColor: isDarkMode ? "white" : "black",
       borderRadius: 10,
       alignItems: "center",
       borderWidth: 1,
       borderColor: "white",
+      marginTop:"40%"
     },
+    fancyModal: {
+  height: height * 0.85,
+ // backgroundColor: "#111456",
+  borderTopLeftRadius: 24,
+  borderTopRightRadius: 24,
+  marginTop: 100,
+  paddingHorizontal: 16,
+},
     backgroundImage: {
       paddingLeft: 20,
       flex: 1,
@@ -81,10 +91,12 @@ const getStyles = (
       marginBottom: 20,
     },
     floatingButtonContainer: {
-      position: "relative",
-      marginBottom: -40,
-      transform: [{ scale: 0.6 }],
-      marginRight: -80,
+         position: "relative",
+         marginBottom: 60,
+         transform: [{ scale: 0.8 }],
+         marginRight:  -42,
+       //  backgroundColor:isDarkMode ? "#fff":"#07c455ff"
+      
     },
     categoryButton: {
       padding: 10,
@@ -147,6 +159,10 @@ const getStyles = (
       direction: "ltr",
       color: isDarkMode ? "black" : "white",
     },
+    listContainer: {
+      flex: 1,   
+                   // 🔑 FlatList fills remaining space
+    },
     listContent: {
       paddingVertical: 10,
     },
@@ -164,7 +180,7 @@ const getStyles = (
       fontFamily: fontFamily,
       fontWeight: "bold",
       marginBottom: 5,
-      marginLeft: 15,
+    //  marginLeft: 15,
       color: isDarkMode ? "white" : "black",
     },
     //Not used any where
@@ -400,12 +416,12 @@ const getStyles = (
     },
       footerContainer: {
     width: "100%",
-    paddingVertical: 12,
+   paddingVertical: 12,
     paddingHorizontal: 20,
     borderTopWidth: 0.5,
     borderTopColor: "#888",
     position: "absolute",
-    bottom: 40,
+    bottom: 60,
     left: 10,
   },
   artistName: {
@@ -416,6 +432,85 @@ const getStyles = (
     fontSize: 12,
     marginTop: 4,
   },
+
+
+searchHeader: {
+  marginBottom: 0,
+  alignContent:"center",
+   flexDirection:"row",
+  alignItems:"center"
+},
+
+fancyInput: {
+  
+  height: 48,
+  flex: 1, // ⭐ THIS is the key
+  borderTopRightRadius: 15,
+  borderTopLeftRadius: 15,
+  backgroundColor: isDarkMode ? "#d1cdcdff" : "#1e1e1e",
+  paddingHorizontal: 15,
+  color: "#fff",
+  fontSize: 16,
+},
+orderText: {
+  marginLeft: 10,
+  fontSize: 14,
+  fontWeight: "600",
+  color: "#9acd32",
+},
+
+songRow: {
+  flexDirection: "row",
+  alignItems: "center",
+  paddingVertical: 14,
+  borderBottomWidth: 0.5,
+  borderBottomColor: "#333",
+  height:70
+},
+
+songIndex: {
+  width: 30,
+  height: 30,
+  borderRadius: 17,
+  //backgroundColor: "#2a2a2a",
+  justifyContent: "center",
+  alignItems: "center",
+  marginRight: 12,
+},
+
+indexText: {
+  color:isDarkMode ? "#fff":"#9acd32",
+ // fontWeight: "bold",
+},
+
+songInfo: {
+  flex: 1,
+},
+
+// songTitle: {
+//   color: "#fff",
+//   fontSize: 16,
+//   fontWeight: "600",
+// },
+
+songSubtitle: {
+  color: "#aaa",
+  fontSize: 13,
+  marginTop: 2,
+},
+
+emptyBox: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor:"White"
+},
+
+emptyText: {
+  color: "#777",
+  fontSize: 16,
+},
+
   });
 };
 export default getStyles;
