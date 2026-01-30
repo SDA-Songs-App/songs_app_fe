@@ -46,6 +46,7 @@
     },
     "owner": "sda-user",
     "extra": {
+      "API_URL": "http://10.72.30.211:3001",
       "router": {
         "origin": false
       },

@@ -13,6 +13,8 @@ import {
   Platform,
   KeyboardAvoidingView,
   Animated,
+  Button,
+  FlatList,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
@@ -62,6 +64,18 @@ const normalizeLyricsContents = (value: any): LyricsContent[] => {
   }
   return [];
 };
+const displayLanguage = (lang: string) => {
+  if (!lang) return "";
+
+  const lower = lang.toLowerCase();
+
+  if (lower === "oromo" || lower === "nuer") {
+    return lower;
+  }
+
+  // everything else stays Ethiopic (NO conversion)
+  return lang;
+};
 
 const NavbarScreen: FC<NavbarScreenProps> = () => {
   const navigation = useNavigation<NavigationProp>();
@@ -74,7 +88,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const [orientation, setOrientation] = useState<'portrait' | 'landscape'>(
     windowDimensions.width > windowDimensions.height ? "landscape" : "portrait"
   );
-
+  
   const { dataSongsToLoad: dataSongs, setDataSongs, syncUpdates } = useSongs();
 
   // Orientation
@@ -160,7 +174,24 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     }
   }, [fullSongs]);
 
-  const uniqueLanguages = Array.from(new Set(dataSongs.map((song) => song.language)));
+ const uniqueLanguages = useMemo(() => {
+  const map = new Map<string, string>();
+
+  dataSongs
+    .sort(
+      (a, b) =>
+        new Date(b.updatedAt ?? 0).getTime() -
+        new Date(a.updatedAt ?? 0).getTime()
+    )
+    .forEach(song => {
+      if (!map.has(song.language)) {
+        map.set(song.language, song.language);
+      }
+    });
+
+  return Array.from(map.values());
+}, [dataSongs]);
+
 
   // Toggle favorite
   const toggleFavorite = useCallback(
@@ -281,7 +312,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           </TouchableOpacity>
         )}
         <Text style={styles.number}>
-          {songIndexInFullList >= 0 ? `#${songIndexInFullList + 1}` : ""}
+          #
+  {typeof songIndexInFullList === "number" && songIndexInFullList >= 0
+    ? songIndexInFullList + 1
+    : ""}
         </Text>
         <TouchableOpacity onPress={() => setSearchModalVisible(true)}>
           <Icon name="search" size={20} color="#fff" />
@@ -301,7 +335,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           <Icon name="cog" size={20} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.pickerContainer}>
-          <Text style={styles.pickerText}>{selectedLanguage}</Text>
+          <Text style={styles.pickerText}> {displayLanguage(selectedLanguage)}</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={toggleTheme}>
           <Ionicons name={isDarkMode ? "moon" : "sunny"} size={25} color="#fff" />
@@ -329,7 +363,8 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       resizeMode="cover"
                       style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42 }]}
                     >
-                      <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
+                      <SafeAreaView style={{ flex: 1}}>
+                        <ScrollView contentContainerStyle={{ padding: 16 }}>
                         {selectedSong.title && <Text style={styles.selectedSongPlainTitle}>
                           {selectedSong.title
                             .toLowerCase()
@@ -343,7 +378,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                           .filter(Boolean)
                           .map((verse, idx) => (
                             <Text key={idx} style={styles.verse1Style}>{verse}</Text>
-                          ))}
+                          ))}</ScrollView>
                       </SafeAreaView>
                       <View style={styles.footerContainer}>
                         <Text style={[styles.artistName, { color: isDarkMode ? "#aaa" : "#555" }]}>
@@ -360,7 +395,8 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                       </View>
                     </ImageBackground>
                   </View>
-                )}
+                 
+                )}            
               </ScrollView>
               <View style={[styles.floatingButtonContainer, { backgroundColor: isDarkMode ? "#000" : "#fff" }]}>
                 <CollapsibleActionButton
@@ -475,7 +511,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
               key={language}
               onPress={() => {
                 handleLanguageSelect(language);
-                setModalVisible(false);
+                setTimeout(() => setModalVisible(false), 50);
               }}
               style={styles.languageOption}
             >

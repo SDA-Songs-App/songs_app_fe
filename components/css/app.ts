@@ -79,6 +79,7 @@ const getStyles = (
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "flex-start",
+      lineHeight: fontSize * 1.5,
     },
     footer: {
       fontSize: 12,

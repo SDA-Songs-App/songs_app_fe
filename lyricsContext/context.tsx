@@ -10,6 +10,7 @@ import {
 } from "@/data/database/localDb";
 import Constants from "expo-constants";
 import { ReactNode, useEffect, useState, createContext, useContext } from "react";
+import { Platform, ToastAndroid } from "react-native";
 
 interface SongContextType {
   dataSongsToLoad: SongContent[];
@@ -60,11 +61,27 @@ export const SongProvider = ({ children }: { children: ReactNode }) => {
   const [err, setError] = useState<string | null>(null);
   const [hasUpdates, setHasUpdates] = useState(false);
 
-  const getApiUrl = () => {
+const getApiUrl = async (): Promise<string> => {
+  const prodBase = 'https://sda-songs-be.onrender.com';
+  try {
+    const res = await fetch(`${prodBase}/lyrics`, { method: 'HEAD' }); // optional small request to check
+    if (res.ok) {
+     // console.log("Using production backend");
+      return prodBase;
+    }
+  } catch (e) {
+    console.warn("Online data unreachable:", e);
+  }
+
+  if (__DEV__) {
     const debuggerHost = Constants.expoGoConfig?.debuggerHost || Constants.expoConfig?.hostUri;
     const host = debuggerHost?.split(':')[0] || 'localhost';
     return `http://${host}:3001`;
-  };
+  }
+
+  throw new Error("No backend available");
+};
+
 
   const saveSongToLocal = async (song: SongContent) => {
     try {
@@ -95,7 +112,7 @@ const normalizeSongs = (songs: any[]): SongContent[] => {
     LyricsContents: Array.isArray(song.LyricsContents)
       ? song.LyricsContents.map((lyric: any) => ({
           Id: Number(lyric.Id ?? song.Id),
-         // languageKey: lyric.languageKey ?? song.language, // required
+          languageKey: lyric.languageKey ?? song.language, // required
           Category: lyric.Category ?? song.category ?? "",  // required
           title: lyric.title ?? "",
           chorus: lyric.chorus ?? "",
@@ -119,13 +136,24 @@ const normalizeSongs = (songs: any[]): SongContent[] => {
       : [],
   }));
 };
+const showToast = (msg: string) => {
+  if (Platform.OS === "android") {
+    ToastAndroid.show(msg, ToastAndroid.SHORT);
+  } else {
+    console.log("Toast:", msg); // fallback for iOS
+  }
+};
+
   const syncUpdates = async () => {
     try {
       const lastSyncedAt = await getLastSyncedAt();
-      const apiBase = getApiUrl();
+      const apiBase = await getApiUrl();
 
       const res = await fetch(`${apiBase}/lyrics/sync?since=${lastSyncedAt ?? ""}`);
-      if (!res.ok) throw new Error("Sync failed");
+      if (!res.ok) {
+         showToast("Sync failed");
+         return;
+      }
 
       const backendData = await res.json();
       const incoming = normalizeSongs(backendData.updated);
@@ -141,7 +169,7 @@ const normalizeSongs = (songs: any[]): SongContent[] => {
       setData(transformSongsByLanguage(finalSongs));
       setHasUpdates(false);
     } catch (e) {
-      console.error("Sync error:", e);
+      console.warn("Trying to Sync:", e);
     }
   };
 
@@ -165,7 +193,7 @@ const normalizeSongs = (songs: any[]): SongContent[] => {
         }
 
         // Try fetching online songs
-        const apiBase = getApiUrl();
+        const apiBase = await getApiUrl();
         try {
           const res = await fetch(`${apiBase}/lyrics`);
           if (!res.ok) throw new Error(`API fetch failed: ${res.status}`);
