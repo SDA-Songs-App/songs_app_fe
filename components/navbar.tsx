@@ -43,7 +43,7 @@ const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
   navigation: StackNavigationProp<any>;
-  route:  {
+  route: {
     key: string;
     name: string;
     params?: any;
@@ -84,11 +84,13 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const [fontFamily, setFontFamily] = useState("Roboto");
   const styles = getStyles(isDarkMode, fontSize, fontFamily);
   const [isModalVisible, setModalVisible] = useState(false);
-  const [windowDimensions, setWindowDimensions] = useState(Dimensions.get("window"));
-  const [orientation, setOrientation] = useState<'portrait' | 'landscape'>(
-    windowDimensions.width > windowDimensions.height ? "landscape" : "portrait"
+  const [windowDimensions, setWindowDimensions] = useState(
+    Dimensions.get("window"),
   );
-  
+  const [orientation, setOrientation] = useState<"portrait" | "landscape">(
+    windowDimensions.width > windowDimensions.height ? "landscape" : "portrait",
+  );
+
   const { dataSongsToLoad: dataSongs, setDataSongs, syncUpdates } = useSongs();
 
   // Orientation
@@ -97,7 +99,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       setWindowDimensions(window);
       setOrientation(window.width > window.height ? "landscape" : "portrait");
     };
-    const subscription = Dimensions.addEventListener("change", handleOrientationChange);
+    const subscription = Dimensions.addEventListener(
+      "change",
+      handleOrientationChange,
+    );
     return () => subscription.remove();
   }, []);
 
@@ -174,43 +179,70 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     }
   }, [fullSongs]);
 
- const uniqueLanguages = useMemo(() => {
-  const map = new Map<string, string>();
+  const uniqueLanguages = useMemo(() => {
+    const map = new Map<string, string>();
 
-  dataSongs
-    .sort(
-      (a, b) =>
-        new Date(b.updatedAt ?? 0).getTime() -
-        new Date(a.updatedAt ?? 0).getTime()
-    )
-    .forEach(song => {
-      if (!map.has(song.language)) {
-        map.set(song.language, song.language);
-      }
-    });
+    dataSongs
+      .sort(
+        (a, b) =>
+          new Date(b.updatedAt ?? 0).getTime() -
+          new Date(a.updatedAt ?? 0).getTime(),
+      )
+      .forEach((song) => {
+        if (!map.has(song.language)) {
+          map.set(song.language, song.language);
+        }
+      });
 
-  return Array.from(map.values());
-}, [dataSongs]);
+    return Array.from(map.values());
+  }, [dataSongs]);
 
+  // Toggle favorite handler
+  const toggleFavorite = useCallback(
+    async (songId: number, isAdding: boolean) => {
+      const favoriteKey: FavoriteKey = `${selectedLanguage}_${songId}`;
+      setFavorites((prev) => {
+        let newFavorites;
+        if (isAdding) {
+          newFavorites = prev.includes(favoriteKey)
+            ? prev.filter((key) => key !== favoriteKey)
+            : [...prev, favoriteKey];
+        } else {
+          newFavorites = prev.includes(favoriteKey)
+            ? prev.filter((key) => key !== favoriteKey)
+            : [...prev, favoriteKey];
+        }
+        // Save to AsyncStorage
+        AsyncStorage.setItem("favorites", JSON.stringify(newFavorites)).catch(
+          (error) => console.error("Error saving favorite:", error),
+        );
+        return newFavorites;
+      });
+    },
+    [selectedLanguage],
+  );
 
-  // Toggle favorite
+  /*
   const toggleFavorite = useCallback(
     async (songId: number, isAdding: boolean) => {
       const favoriteKey: FavoriteKey = `${selectedLanguage}_${songId}`;
       setFavorites((prev) => {
         let newFavorites = prev;
         if (isAdding) {
-          if (!prev.includes(favoriteKey)) newFavorites = [...prev, favoriteKey];
+          if (!prev.includes(favoriteKey))
+            newFavorites = [...prev, favoriteKey];
         } else {
           newFavorites = prev.filter((key) => key !== favoriteKey);
         }
-        AsyncStorage.setItem("favorites", JSON.stringify(newFavorites)).catch(console.error);
+        AsyncStorage.setItem("favorites", JSON.stringify(newFavorites)).catch(
+          console.error,
+        );
         return newFavorites;
       });
     },
-    [selectedLanguage]
+    [selectedLanguage],
   );
-
+  */
   const getSwipeSongs = useCallback(() => fullSongs, [fullSongs]);
 
   // Swipe handlers
@@ -244,12 +276,15 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     const trimmed = text.trim().toLowerCase();
     if (/^\d+$/.test(trimmed)) {
       const idx = parseInt(trimmed, 10) - 1;
-      setFilteredSongs(idx >= 0 && idx < fullSongs.length ? [fullSongs[idx]] : []);
+      setFilteredSongs(
+        idx >= 0 && idx < fullSongs.length ? [fullSongs[idx]] : [],
+      );
       return;
     }
-    const filtered = fullSongs.filter((song) =>
-      song.title?.toLowerCase().includes(trimmed) ||
-      song.Artist?.name?.toLowerCase().includes(trimmed)
+    const filtered = fullSongs.filter(
+      (song) =>
+        song.title?.toLowerCase().includes(trimmed) ||
+        song.Artist?.name?.toLowerCase().includes(trimmed),
     );
     setFilteredSongs(filtered);
   };
@@ -264,13 +299,17 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     selectedSong?.verse5,
     selectedSong?.verse6,
     selectedSong?.verse7,
-  ].filter(Boolean).join("\n");
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   const handleCopy = (text: string) => {
     Clipboard.setString(text);
     Alert.alert(
-      localizations.find((key) => key.language === selectedLanguage)?.LyricsCopiedTitle || "",
-      localizations.find((key) => key.language === selectedLanguage)?.LyricsCopiedDescription || ""
+      localizations.find((key) => key.language === selectedLanguage)
+        ?.LyricsCopiedTitle || "",
+      localizations.find((key) => key.language === selectedLanguage)
+        ?.LyricsCopiedDescription || "",
     );
   };
 
@@ -279,8 +318,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       await Share.share({ message: text });
     } catch {
       Alert.alert(
-        localizations.find((key) => key.language === selectedLanguage)?.CopyErrorTitle || "",
-        localizations.find((key) => key.language === selectedLanguage)?.CopyErrorDescription || ""
+        localizations.find((key) => key.language === selectedLanguage)
+          ?.CopyErrorTitle || "",
+        localizations.find((key) => key.language === selectedLanguage)
+          ?.CopyErrorDescription || "",
       );
     }
   };
@@ -291,12 +332,19 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     setSearchModalVisible(false);
   }, [fullSongs]);
 
-  const songIndexInFullList = fullSongs.findIndex(s => s.Id === selectedSong?.Id);
+  const songIndexInFullList = fullSongs.findIndex(
+    (s) => s.Id === selectedSong?.Id,
+  );
 
   const pinchGesture = Gesture.Pinch()
-    .onUpdate((event) => { scale.value = event.scale; })
+    .onUpdate((event) => {
+      scale.value = event.scale;
+    })
     .onEnd(() => {
-      const newSize = Math.min(Math.max(savedScale.value * scale.value, 12), 40);
+      const newSize = Math.min(
+        Math.max(savedScale.value * scale.value, 12),
+        40,
+      );
       savedScale.value = newSize;
       scale.value = 1;
       runOnJS(setFontSize)(newSize);
@@ -307,38 +355,55 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       {/* Navbar */}
       <View style={styles.navbar}>
         {selectedSong && (
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}
+          >
             <Icon name="arrow-left" size={20} color="#fff" />
           </TouchableOpacity>
         )}
         <Text style={styles.number}>
           #
-  {typeof songIndexInFullList === "number" && songIndexInFullList >= 0
-    ? songIndexInFullList + 1
-    : ""}
+          {typeof songIndexInFullList === "number" && songIndexInFullList >= 0
+            ? songIndexInFullList + 1
+            : ""}
         </Text>
         <TouchableOpacity onPress={() => setSearchModalVisible(true)}>
           <Icon name="search" size={20} color="#fff" />
         </TouchableOpacity>
         {selectedSong && (
-          <TouchableOpacity onPress={() => toggleFavorite(selectedSong.Id, true)}>
+          <TouchableOpacity
+            onPress={() => toggleFavorite(selectedSong.Id, true)}
+          >
             <Icon name="plus-square" size={20} color="#fff" />
           </TouchableOpacity>
         )}
         <TouchableOpacity onPress={() => setFavoritesModalVisible(true)}>
           <Icon name="list" size={20} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert("Info", "መዝሙር ማጨዎቻ ሊሰራ ታቅዷል")}>
+        <TouchableOpacity
+          onPress={() => Alert.alert("Info", "መዝሙር ማጨዎቻ ሊሰራ ታቅዷል")}
+        >
           <Icon name="play" size={20} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("ቅርጽ፟_ማስተካከያ")}>
           <Icon name="cog" size={20} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.pickerContainer}>
-          <Text style={styles.pickerText}> {displayLanguage(selectedLanguage)}</Text>
+        <TouchableOpacity
+          onPress={() => setModalVisible(true)}
+          style={styles.pickerContainer}
+        >
+          <Text style={styles.pickerText}>
+            {" "}
+            {displayLanguage(selectedLanguage)}
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={toggleTheme}>
-          <Ionicons name={isDarkMode ? "moon" : "sunny"} size={25} color="#fff" />
+          <Ionicons
+            name={isDarkMode ? "moon" : "sunny"}
+            size={25}
+            color="#fff"
+          />
         </TouchableOpacity>
       </View>
 
@@ -349,9 +414,15 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
             <GestureRecognizer
               onSwipeLeft={onSwipeLeft}
               onSwipeRight={onSwipeRight}
-              config={{ velocityThreshold: 0.5, directionalOffsetThreshold: 50 }}
+              config={{
+                velocityThreshold: 0.5,
+                directionalOffsetThreshold: 50,
+              }}
             >
-              <ScrollView style={styles.scrollContainer} contentContainerStyle={{ flexGrow: 1 }}>
+              <ScrollView
+                style={styles.scrollContainer}
+                contentContainerStyle={{ flexGrow: 1 }}
+              >
                 {selectedSong && (
                   <View style={styles.songContainer}>
                     <ImageBackground
@@ -361,44 +432,86 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                           : require("../assets/images/inverted_S.jpg")
                       }
                       resizeMode="cover"
-                      style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42 }]}
+                      style={[
+                        styles.backgroundImage,
+                        { paddingBottom: deviceHeight * 0.42 },
+                      ]}
                     >
-                      <SafeAreaView style={{ flex: 1}}>
+                      <SafeAreaView style={{ flex: 1 }}>
                         <ScrollView contentContainerStyle={{ padding: 16 }}>
-                        {selectedSong.title && <Text style={styles.selectedSongPlainTitle}>
-                          {selectedSong.title
-                            .toLowerCase()
-                            .split(" ")
-                            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                            .join(" ")}
-                        </Text>}
-                        {selectedSong.chorus && <Text style={styles.selectedSongTitle}>{selectedSong.chorus}</Text>}
-                        {[selectedSong.verse1, selectedSong.verse2, selectedSong.verse3, selectedSong.verse4,
-                          selectedSong.verse5, selectedSong.verse6, selectedSong.verse7]
-                          .filter(Boolean)
-                          .map((verse, idx) => (
-                            <Text key={idx} style={styles.verse1Style}>{verse}</Text>
-                          ))}</ScrollView>
+                          {selectedSong.title && (
+                            <Text style={styles.selectedSongPlainTitle}>
+                              {selectedSong.title
+                                .toLowerCase()
+                                .split(" ")
+                                .map(
+                                  (word) =>
+                                    word.charAt(0).toUpperCase() +
+                                    word.slice(1),
+                                )
+                                .join(" ")}
+                            </Text>
+                          )}
+                          {selectedSong.chorus && (
+                            <Text style={styles.selectedSongTitle}>
+                              {selectedSong.chorus}
+                            </Text>
+                          )}
+                          {[
+                            selectedSong.verse1,
+                            selectedSong.verse2,
+                            selectedSong.verse3,
+                            selectedSong.verse4,
+                            selectedSong.verse5,
+                            selectedSong.verse6,
+                            selectedSong.verse7,
+                          ]
+                            .filter(Boolean)
+                            .map((verse, idx) => (
+                              <Text key={idx} style={styles.verse1Style}>
+                                {verse}
+                              </Text>
+                            ))}
+                        </ScrollView>
                       </SafeAreaView>
                       <View style={styles.footerContainer}>
-                        <Text style={[styles.artistName, { color: isDarkMode ? "#aaa" : "#555" }]}>
+                        <Text
+                          style={[
+                            styles.artistName,
+                            { color: isDarkMode ? "#aaa" : "#555" },
+                          ]}
+                        >
                           {selectedSong.Artist?.name !== "Not Specified"
                             ? selectedSong.Artist?.name
-                              .toLowerCase().split(" ")
-                              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                              .join(" ")
+                                .toLowerCase()
+                                .split(" ")
+                                .map(
+                                  (word) =>
+                                    word.charAt(0).toUpperCase() +
+                                    word.slice(1),
+                                )
+                                .join(" ")
                             : null}
                         </Text>
-                        <Text style={[styles.artistBio, { color: isDarkMode ? "#aaa" : "#555" }]}>
+                        <Text
+                          style={[
+                            styles.artistBio,
+                            { color: isDarkMode ? "#aaa" : "#555" },
+                          ]}
+                        >
                           {selectedSong.Artist?.bio || "Not found"}
                         </Text>
                       </View>
                     </ImageBackground>
                   </View>
-                 
-                )}            
+                )}
               </ScrollView>
-              <View style={[styles.floatingButtonContainer, { backgroundColor: isDarkMode ? "#000" : "#fff" }]}>
+              <View
+                style={[
+                  styles.floatingButtonContainer,
+                  { backgroundColor: isDarkMode ? "#000" : "#fff" },
+                ]}
+              >
                 <CollapsibleActionButton
                   fullLyricText={fullLyricText}
                   onCopy={handleCopy}
@@ -422,12 +535,17 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
         onBackdropPress={closeSearchModal}
         onBackButtonPress={closeSearchModal}
       >
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : undefined}
+        >
           <View style={styles.fancyModal}>
             <View style={styles.searchHeader}>
               <TextInput
                 style={styles.fancyInput}
-                placeholder={localizations.find((key) => key.language === selectedLanguage)?.SearchHolder || "Search..."}
+                placeholder={
+                  localizations.find((key) => key.language === selectedLanguage)
+                    ?.SearchHolder || "Search..."
+                }
                 placeholderTextColor="#888"
                 value={searchText}
                 onChangeText={(text) => {
@@ -442,21 +560,49 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                 keyExtractor={(item) => `${item.Id}`}
                 renderItem={({ item }) => (
                   <TouchableOpacity
-                    style={[styles.songRow, { backgroundColor: isDarkMode ? "#fff" : "#121212" }]}
+                    style={[
+                      styles.songRow,
+                      { backgroundColor: isDarkMode ? "#fff" : "#121212" },
+                    ]}
                     onPress={() => {
                       setSelectedSong(item);
-                      setCurrentSongIndex(fullSongs.findIndex(s => s.Id === item.Id));
+                      setCurrentSongIndex(
+                        fullSongs.findIndex((s) => s.Id === item.Id),
+                      );
                       closeSearchModal();
                     }}
                   >
                     <View style={styles.songIndex}>
-                      <Text style={[styles.indexText, { color: isDarkMode ? "#000" : "#9acd32" }]}>
-                        {fullSongs.findIndex(s => s.Id === item.Id) + 1}
+                      <Text
+                        style={[
+                          styles.indexText,
+                          { color: isDarkMode ? "#000" : "#9acd32" },
+                        ]}
+                      >
+                        {fullSongs.findIndex((s) => s.Id === item.Id) + 1}
                       </Text>
                     </View>
                     <View style={styles.songInfo}>
-                      <Text style={[styles.songTitle, { color: isDarkMode ? "#000" : "#fff" }]} numberOfLines={1}>{item.title}</Text>
-                      {item.Artist && <Text style={[styles.songSubtitle, { color: isDarkMode ? "#444" : "#aaa" }]} numberOfLines={1}>{item.Artist.name}</Text>}
+                      <Text
+                        style={[
+                          styles.songTitle,
+                          { color: isDarkMode ? "#000" : "#fff" },
+                        ]}
+                        numberOfLines={1}
+                      >
+                        {item.title}
+                      </Text>
+                      {item.Artist && (
+                        <Text
+                          style={[
+                            styles.songSubtitle,
+                            { color: isDarkMode ? "#444" : "#aaa" },
+                          ]}
+                          numberOfLines={1}
+                        >
+                          {item.Artist.name}
+                        </Text>
+                      )}
                     </View>
                   </TouchableOpacity>
                 )}
@@ -520,7 +666,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           ))}
         </View>
       </Modal>
-
     </View>
   );
 };

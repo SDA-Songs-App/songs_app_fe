@@ -47,7 +47,7 @@ const SongList = memo(
     // Filter favorites for current language
     const currentLangFavorites = useMemo(
       () => favorites.filter((key) => key.startsWith(`${currentLanguage}_`)),
-      [favorites, currentLanguage]
+      [favorites, currentLanguage],
     );
 
     const { isDarkMode, toggleTheme } = useTheme();
@@ -59,14 +59,27 @@ const SongList = memo(
     const filteredData = useMemo(
       () =>
         data.filter((item) =>
-          currentLangFavorites.includes(`${currentLanguage}_${item.Id}`)
+          currentLangFavorites.includes(`${currentLanguage}_${item.Id}`),
         ),
-      [data, currentLangFavorites, currentLanguage]
+      [data, currentLangFavorites, currentLanguage],
     );
 
-    const renderItem: ListRenderItem<LyricsContent> = ({ item }) => {
+    const filteredDataWithIndices = useMemo(() => {
+      return data
+        .map((item, index) => ({
+          ...item,
+          displayIndex: index + 1,
+        }))
+        .filter((item) =>
+          currentLangFavorites.includes(`${currentLanguage}_${item.Id}`),
+        );
+    }, [data, currentLangFavorites, currentLanguage]);
+
+    const renderItem: ListRenderItem<
+      LyricsContent & { displayIndex: number }
+    > = ({ item }) => {
       const isFavorite = currentLangFavorites.includes(
-        `${currentLanguage}_${item.Id}`
+        `${currentLanguage}_${item.Id}`,
       );
 
       return (
@@ -75,7 +88,7 @@ const SongList = memo(
           onPress={() => onPressItem(item)}
         >
           <View style={styles.songInfoContainer}>
-            <Text style={styles.songNumber}>#{item.Id}</Text>
+            <Text style={styles.songNumber}>#{item.displayIndex}</Text>
             <View style={styles.songTextContainer}>
               <Text style={styles.songTitle}>{item.title}</Text>
               {/* <Text style={styles.songArtist}>{item.artist}</Text> */}
@@ -97,7 +110,7 @@ const SongList = memo(
 
     return (
       <FlatList
-        data={filteredData}
+        data={filteredDataWithIndices}
         renderItem={renderItem}
         keyExtractor={(item) => `${currentLanguage}_${item.Id}`}
         onEndReached={loadMore}
@@ -111,12 +124,17 @@ const SongList = memo(
         }
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
-            <Text style={styles.emptyText}>{allSongs.find((key) =>key.language_key ===currentLanguage)?.notFound}</Text>
+            <Text style={styles.emptyText}>
+              {
+                allSongs.find((key) => key.language_key === currentLanguage)
+                  ?.notFound
+              }
+            </Text>
           </View>
         }
       />
     );
-  }
+  },
 );
 
 // const styles = StyleSheet.create({
