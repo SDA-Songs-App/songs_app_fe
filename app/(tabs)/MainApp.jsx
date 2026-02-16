@@ -2,13 +2,13 @@ import React from "react";
 import { useTheme } from "../ThemeProvider";
 import { StatusBar } from "expo-status-bar";
 import HomeScreen from "@/components/homescreen";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator  } from "@react-navigation/native-stack";
 import FontSizeAdjustScreen from "@/components/FontAdjustScreen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import NavbarWithSongs from "../screens/NavbarWithSongs";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 function MainApp() {
   const { theme, isDarkMode } = useTheme();
@@ -22,7 +22,7 @@ function MainApp() {
       />
       <SafeAreaView style={{ flex: 1, backgroundColor: isDarkMode ? "black" : "green" }}>
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen
               name="Home"
               component={HomeScreen}

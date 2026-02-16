@@ -44,15 +44,6 @@
     "updates": {
       "url": "https://u.expo.dev/ba6b0bcf-af8f-4360-a946-b5ae058f744d"
     },
-    "owner": "sda-user",
-    "extra": {
-      "API_URL": "http://10.72.30.211:3001",
-      "router": {
-        "origin": false
-      },
-      "eas": {
-        "projectId": "12ff9f06-1cc6-496d-9116-ea9c7fd0f738"
-      }
-    }
+    "owner": "sda-user"
   }
 }

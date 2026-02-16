@@ -18,7 +18,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import GestureRecognizer from "react-native-swipe-gestures";
 import Modal from "react-native-modal";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -37,21 +37,17 @@ import { useSongs } from "@/lyricsContext/context";
 import { RootStackParams } from "@/app/types";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { runOnJS, useSharedValue } from "react-native-reanimated";
-
 const { height: deviceHeight } = Dimensions.get("window");
-
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
-  navigation: StackNavigationProp<any>;
+  navigation: NativeStackNavigationProp<any>;
   route:  {
     key: string;
     name: string;
     params?: any;
   };
 };
-
 type FavoriteKey = `${string}_${number}`;
-
 const normalizeLyricsContents = (value: any): LyricsContent[] => {
   if (Array.isArray(value)) return value;
   if (typeof value === "string") {
@@ -76,11 +72,10 @@ const displayLanguage = (lang: string) => {
   // everything else stays Ethiopic (NO conversion)
   return lang;
 };
-
 const NavbarScreen: FC<NavbarScreenProps> = () => {
   const navigation = useNavigation<NavigationProp>();
   const { isDarkMode, toggleTheme } = useTheme();
-  const [fontSize, setFontSize] = useState(16);
+  const [fontSize, setFontSize] = useState(18);
   const [fontFamily, setFontFamily] = useState("Roboto");
   const styles = getStyles(isDarkMode, fontSize, fontFamily);
   const [isModalVisible, setModalVisible] = useState(false);
@@ -88,19 +83,16 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const [orientation, setOrientation] = useState<'portrait' | 'landscape'>(
     windowDimensions.width > windowDimensions.height ? "landscape" : "portrait"
   );
-  
   const { dataSongsToLoad: dataSongs, setDataSongs, syncUpdates } = useSongs();
-
   // Orientation
   useEffect(() => {
     const handleOrientationChange = ({ window }: { window: any }) => {
-      setWindowDimensions(window);
-      setOrientation(window.width > window.height ? "landscape" : "portrait");
-    };
+          setWindowDimensions(window);
+          setOrientation(window.width > window.height ? "landscape" : "portrait");
+        };
     const subscription = Dimensions.addEventListener("change", handleOrientationChange);
-    return () => subscription.remove();
-  }, []);
-
+        return () => subscription.remove();
+      }, []);
   // Search & Favorites
   const [isSearchModalVisible, setSearchModalVisible] = useState(false);
   const [isFavoritesModalVisible, setFavoritesModalVisible] = useState(false);
@@ -108,14 +100,12 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const [filteredSongs, setFilteredSongs] = useState<LyricsContent[]>([]);
   const [selectedSong, setSelectedSong] = useState<LyricsContent | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState("አማርኛ");
-
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [swipeLock, setSwipeLock] = useState(false);
   const [loading, setLoading] = useState(false);
   const scale = useSharedValue(1);
   const savedScale = useSharedValue(16);
   const [favorites, setFavorites] = useState<FavoriteKey[]>([]);
-
   // Load font preferences
   useEffect(() => {
     const loadPreferences = async () => {
@@ -126,10 +116,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     };
     loadPreferences();
   }, []);
-
   // Load favorites
   useEffect(() => {
-    const loadFavorites = async () => {
+      const loadFavorites = async () => {
       const storedFavorites = await AsyncStorage.getItem("favorites");
       if (storedFavorites) {
         const parsedFavorites = JSON.parse(storedFavorites);
@@ -141,7 +130,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     };
     loadFavorites();
   }, []);
-
   // Fetch songs from backend or local DB
   useEffect(() => {
     const fetchAndSyncSongs = async () => {
@@ -157,7 +145,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     };
     fetchAndSyncSongs();
   }, []);
-
   // Derived: full songs of selected language
   const fullSongs = useMemo(() => {
     return dataSongs
@@ -173,7 +160,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       setCurrentSongIndex(0);
     }
   }, [fullSongs]);
-
  const uniqueLanguages = useMemo(() => {
   const map = new Map<string, string>();
 
@@ -191,28 +177,30 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
 
   return Array.from(map.values());
 }, [dataSongs]);
-
-
   // Toggle favorite
-  const toggleFavorite = useCallback(
+ const toggleFavorite = useCallback(
     async (songId: number, isAdding: boolean) => {
       const favoriteKey: FavoriteKey = `${selectedLanguage}_${songId}`;
       setFavorites((prev) => {
-        let newFavorites = prev;
+        let newFavorites;
         if (isAdding) {
-          if (!prev.includes(favoriteKey)) newFavorites = [...prev, favoriteKey];
+          newFavorites = prev.includes(favoriteKey)
+            ? prev.filter((key) => key !== favoriteKey)
+            : [...prev, favoriteKey];
         } else {
-          newFavorites = prev.filter((key) => key !== favoriteKey);
+          newFavorites = prev.includes(favoriteKey)
+            ? prev.filter((key) => key !== favoriteKey)
+            : [...prev, favoriteKey];
         }
-        AsyncStorage.setItem("favorites", JSON.stringify(newFavorites)).catch(console.error);
+        // Save to AsyncStorage
+        AsyncStorage.setItem("favorites", JSON.stringify(newFavorites)).catch(
+          (error) => console.error("Error saving favorite:", error),
+        );
         return newFavorites;
       });
     },
-    [selectedLanguage]
-  );
-
+    [selectedLanguage],)
   const getSwipeSongs = useCallback(() => fullSongs, [fullSongs]);
-
   // Swipe handlers
   const onSwipeLeft = useCallback(() => {
     const songs = getSwipeSongs();
@@ -223,7 +211,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     setSwipeLock(true);
     setTimeout(() => setSwipeLock(false), 250);
   }, [currentSongIndex, swipeLock, getSwipeSongs]);
-
   const onSwipeRight = useCallback(() => {
     const songs = getSwipeSongs();
     if (swipeLock || currentSongIndex <= 0) return;
@@ -233,12 +220,10 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     setSwipeLock(true);
     setTimeout(() => setSwipeLock(false), 250);
   }, [currentSongIndex, swipeLock, getSwipeSongs]);
-
   // Language selection
   const handleLanguageSelect = (language: string) => {
-    setSelectedLanguage(language);
+        setSelectedLanguage(language);
   };
-
   // Search
   const searchSongs = (text: string) => {
     const trimmed = text.trim().toLowerCase();
@@ -248,9 +233,9 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       return;
     }
     const filtered = fullSongs.filter((song) =>
-      song.title?.toLowerCase().includes(trimmed) ||
+      song.title?.toLowerCase().includes(trimmed) || 
       song.Artist?.name?.toLowerCase().includes(trimmed)
-    );
+    )
     setFilteredSongs(filtered);
   };
 
@@ -265,7 +250,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     selectedSong?.verse6,
     selectedSong?.verse7,
   ].filter(Boolean).join("\n");
-
   const handleCopy = (text: string) => {
     Clipboard.setString(text);
     Alert.alert(
@@ -273,7 +257,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       localizations.find((key) => key.language === selectedLanguage)?.LyricsCopiedDescription || ""
     );
   };
-
   const handleShare = async (text: string) => {
     try {
       await Share.share({ message: text });
@@ -284,31 +267,34 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
       );
     }
   };
-
   const closeSearchModal = useCallback(() => {
     setSearchText("");
     setFilteredSongs(fullSongs);
     setSearchModalVisible(false);
   }, [fullSongs]);
-
   const songIndexInFullList = fullSongs.findIndex(s => s.Id === selectedSong?.Id);
-
-  const pinchGesture = Gesture.Pinch()
-    .onUpdate((event) => { scale.value = event.scale; })
-    .onEnd(() => {
-      const newSize = Math.min(Math.max(savedScale.value * scale.value, 12), 40);
-      savedScale.value = newSize;
-      scale.value = 1;
-      runOnJS(setFontSize)(newSize);
-    });
-
+const MIN_SIZE = 20;
+const MAX_SIZE = 40;
+const pinchGesture = Gesture.Pinch()
+  .onUpdate((event) => {
+    // Apply temporary scale but don't go below min or above max
+    const newScale = savedScale.value * event.scale;
+    scale.value = Math.min(Math.max(newScale, MIN_SIZE), MAX_SIZE) / savedScale.value;
+  })
+  .onEnd(() => {
+    // Save the final size, clamped
+    const newSize = Math.min(Math.max(savedScale.value * scale.value, MIN_SIZE), MAX_SIZE);
+    savedScale.value = newSize;
+    scale.value = 1;
+    runOnJS(setFontSize)(newSize);
+  });
   return (
     <View style={styles.container}>
       {/* Navbar */}
       <View style={styles.navbar}>
         {selectedSong && (
           <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Icon name="arrow-left" size={20} color="#fff" />
+            <Icon name="home" size={20} color="#fff" />
           </TouchableOpacity>
         )}
         <Text style={styles.number}>
@@ -341,17 +327,8 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           <Ionicons name={isDarkMode ? "moon" : "sunny"} size={25} color="#fff" />
         </TouchableOpacity>
       </View>
-
-      {/* Swipe Gesture */}
-      <View style={{ flex: 1, position: "relative" }}>
-        <GestureDetector gesture={pinchGesture}>
-          <Animated.View>
-            <GestureRecognizer
-              onSwipeLeft={onSwipeLeft}
-              onSwipeRight={onSwipeRight}
-              config={{ velocityThreshold: 0.5, directionalOffsetThreshold: 50 }}
-            >
-              <ScrollView style={styles.scrollContainer} contentContainerStyle={{ flexGrow: 1 }}>
+           <View>
+             <ScrollView style={styles.scrollContainer} contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 16}}>
                 {selectedSong && (
                   <View style={styles.songContainer}>
                     <ImageBackground
@@ -361,58 +338,65 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
                           : require("../assets/images/inverted_S.jpg")
                       }
                       resizeMode="cover"
-                      style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42 }]}
+                      style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42,  }]}
                     >
+                      <GestureDetector gesture={pinchGesture}>
+                       <Animated.View> 
+                  <GestureRecognizer
+                    onSwipeLeft={onSwipeLeft}
+                    onSwipeRight={onSwipeRight}
+                    config={{ velocityThreshold: 0.5, directionalOffsetThreshold: 50 }}
+                  >
                       <SafeAreaView style={{ flex: 1}}>
-                        <ScrollView contentContainerStyle={{ padding: 16 }}>
-                        {selectedSong.title && <Text style={styles.selectedSongPlainTitle}>
+                        {selectedSong.title && 
+                        <Text style={styles.selectedSongPlainTitle}>
                           {selectedSong.title
                             .toLowerCase()
                             .split(" ")
                             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                             .join(" ")}
                         </Text>}
-                        {selectedSong.chorus && <Text style={styles.selectedSongTitle}>{selectedSong.chorus}</Text>}
-                        {[selectedSong.verse1, selectedSong.verse2, selectedSong.verse3, selectedSong.verse4,
-                          selectedSong.verse5, selectedSong.verse6, selectedSong.verse7]
-                          .filter(Boolean)
-                          .map((verse, idx) => (
-                            <Text key={idx} style={styles.verse1Style}>{verse}</Text>
-                          ))}</ScrollView>
-                      </SafeAreaView>
-                      <View style={styles.footerContainer}>
-                        <Text style={[styles.artistName, { color: isDarkMode ? "#aaa" : "#555" }]}>
-                          {selectedSong.Artist?.name !== "Not Specified"
-                            ? selectedSong.Artist?.name
-                              .toLowerCase().split(" ")
-                              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                              .join(" ")
-                            : null}
-                        </Text>
-                        <Text style={[styles.artistBio, { color: isDarkMode ? "#aaa" : "#555" }]}>
-                          {selectedSong.Artist?.bio || "Not found"}
-                        </Text>
-                      </View>
+                        {selectedSong.chorus && 
+                        <Text style={styles.selectedSongTitle}>{selectedSong.chorus}</Text>}
+                            {[selectedSong.verse1, selectedSong.verse2, selectedSong.verse3, selectedSong.verse4,
+                              selectedSong.verse5, selectedSong.verse6, selectedSong.verse7]
+                              .filter(Boolean)
+                              .map((verse, idx) => (
+                        <Text key={idx} style={styles.verse1Style}>{verse}</Text>
+                          ))}                        
+                      </SafeAreaView>                     
+                      </GestureRecognizer>
+                      </Animated.View> 
+                      </GestureDetector>
                     </ImageBackground>
                   </View>
-                 
-                )}            
+                )} 
+                 <View style={styles.footerContainer}>
+                          <Text style={[styles.artistName, { color: isDarkMode ? "#aaa" : "#555" }]}>
+                            {selectedSong?.Artist?.name !== "Not Specified"
+                              ? selectedSong?.Artist?.name
+                                .toLowerCase().split(" ")
+                                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                                .join(" ")
+                              : null}
+                          </Text>
+                          <Text style={[styles.artistBio, { color: isDarkMode ? "#aaa" : "#555" }]}>
+                            {selectedSong?.Artist?.bio || "Not found"}
+                          </Text>
+                  </View>  
               </ScrollView>
-              <View style={[styles.floatingButtonContainer, { backgroundColor: isDarkMode ? "#000" : "#fff" }]}>
-                <CollapsibleActionButton
-                  fullLyricText={fullLyricText}
-                  onCopy={handleCopy}
-                  onShare={handleShare}
-                  isDarkMode={isDarkMode}
-                />
+              <View style ={{display:"flex"}}>             
+                <View style={[styles.floatingButtonContainer, { backgroundColor: isDarkMode ? "#000" : "#fff" }]}>
+                  <CollapsibleActionButton
+                    fullLyricText={fullLyricText}
+                    onCopy={handleCopy}
+                    onShare={handleShare}
+                    isDarkMode={isDarkMode}
+                  />
+                
+                </View>
+                 </View>
               </View>
-            </GestureRecognizer>
-          </Animated.View>
-        </GestureDetector>
-      </View>
-
-      {/* Modals */}
-      {/* Search Modal */}
       <Modal
         isVisible={isSearchModalVisible}
         backdropOpacity={0.5}
@@ -471,7 +455,6 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           </View>
         </KeyboardAvoidingView>
       </Modal>
-
       {/* Favorites Modal */}
       <Modal
         isVisible={isFavoritesModalVisible}
@@ -520,9 +503,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
           ))}
         </View>
       </Modal>
-
     </View>
   );
 };
-
 export default NavbarScreen;

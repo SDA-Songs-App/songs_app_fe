@@ -18,7 +18,7 @@ const getStyles = (
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: 10,
+      padding: 5,
       backgroundColor: isDarkMode ? "green" : "#2a2a2a",
       //// marginTop: 2,
     },
@@ -47,10 +47,12 @@ const getStyles = (
   paddingHorizontal: 16,
 },
     backgroundImage: {
-      paddingLeft: 20,
+     // paddingLeft: 20,
       flex: 1,
       // Ensures the image covers the entire background
-      justifyContent: "center",
+     // justifyContent: "center",
+      position:"relative",
+      width: "100%",
     },
     modalBackground: {
       flex: 1,
@@ -80,6 +82,7 @@ const getStyles = (
       justifyContent: "center",
       alignItems: "flex-start",
       lineHeight: fontSize * 1.5,
+      paddingLeft:20
     },
     footer: {
       fontSize: 12,
@@ -93,7 +96,7 @@ const getStyles = (
     },
     floatingButtonContainer: {
          position: "relative",
-         marginBottom: 60,
+        // marginBottom: 60,
          transform: [{ scale: 0.8 }],
          marginRight:  -42,
        //  backgroundColor:isDarkMode ? "#fff":"#07c455ff"
@@ -211,7 +214,7 @@ const getStyles = (
       borderTopRightRadius: 20,
     },
     selectedSongPlainTitle: {
-      fontSize: fontSize + fontSize * 0.25,
+       fontSize: fontSize + fontSize * 0.25,
       textShadowColor: isDarkMode ? "rgba(13, 106, 18, 0.75)" : "#F295ED",
       textShadowOffset: { width: 0, height: 0 },
       textShadowRadius: 10,
@@ -231,14 +234,10 @@ const getStyles = (
       fontWeight: "bold",
       color: isDarkMode ? "green" : "#00FFFF",
       paddingBottom: 20,
+     // textAlign:"center"
+     paddingLeft:20
     },
-    selectedSongTitle1: {
-      fontSize: fontSize,
-      fontFamily: fontFamily,
-      fontWeight: "bold",
-      color: "black",
-      marginBottom: 10,
-    },
+  
     controlButton: {
       fontSize: 18,
       fontFamily: fontFamily,
@@ -343,12 +342,12 @@ const getStyles = (
       fontWeight: "bold",
     },
     scrollContainer: {
-      flexGrow: 1, // Allows the content to grow
+       //flexGrow: 1, // Allows the content to grow
       // Center content vertically
     },
     songContainer: {
       width: Dimensions.get("window").width * 0.99, // Slightly narrower for balanced spacing
-      justifyContent: "flex-start",
+      justifyContent: "center",
       height: "100%",
       borderRadius: 0, // Rounded corners
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a", // Soft background color
@@ -416,14 +415,16 @@ const getStyles = (
       zIndex: 1,
     },
       footerContainer: {
-    width: "100%",
-   paddingVertical: 12,
-    paddingHorizontal: 20,
+    //width: "100%",
+   //paddingVertical: 12,
+    //paddingHorizontal: 20,
     borderTopWidth: 0.5,
     borderTopColor: "#888",
     position: "absolute",
-    bottom: 60,
+    //marginBottom: -105,
     left: 10,
+    bottom:55,
+   // marginBottom:-500
   },
   artistName: {
     fontSize: 16,

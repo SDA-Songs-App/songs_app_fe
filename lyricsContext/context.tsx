@@ -81,25 +81,6 @@ const getApiUrl = async (): Promise<string> => {
 
   throw new Error("No backend available");
 };
-
-
-  const saveSongToLocal = async (song: SongContent) => {
-    try {
-      await deleteRowById(String(song.Id));
-      await saveToLocalDB([song]);
-
-      const updatedLocal = await getFromLocalDB();
-      const normalizedLocal = updatedLocal.map(s => ({
-        ...s,
-        LyricsContents: normalizeLyricsContents(s.LyricsContents)
-      }));
-
-      setData(transformSongsByLanguage(normalizedLocal));
-    } catch (e) {
-      console.error("Save song failed:", e);
-    }
-  };
-
 const normalizeSongs = (songs: any[]): SongContent[] => {
   return songs.map(song => ({
     Id: Number(song.Id),
@@ -136,6 +117,25 @@ const normalizeSongs = (songs: any[]): SongContent[] => {
       : [],
   }));
 };
+
+  const saveSongToLocal = async (song: SongContent) => {
+    try {
+      await deleteRowById(String(song.Id));
+      await saveToLocalDB([song]);
+
+      const updatedLocal = await getFromLocalDB();
+      const normalizedLocal = updatedLocal.map(s => ({
+        ...s,
+        LyricsContents: normalizeLyricsContents(s.LyricsContents)
+      }));
+
+      setData(transformSongsByLanguage(normalizedLocal));
+    } catch (e) {
+      console.error("Save song failed:", e);
+    }
+  };
+
+
 const showToast = (msg: string) => {
   if (Platform.OS === "android") {
     ToastAndroid.show(msg, ToastAndroid.SHORT);
@@ -157,10 +157,15 @@ const showToast = (msg: string) => {
 
       const backendData = await res.json();
       const incoming = normalizeSongs(backendData.updated);
-
+      const softDeletedSongs = incoming.filter(song =>song.deletedAt)
+      for(const song of softDeletedSongs){
+         await deleteRowById(String(song.Id))
+      }
+      const activeSongs = incoming.filter(song =>!song.deletedAt)
       const localSongs = await getFromLocalDB();
       const mergedMap = new Map<string, SongContent>();
-      [...localSongs, ...incoming].forEach(song => mergedMap.set(`${song.Id}_${song.language}`, song));
+      [...localSongs, ...activeSongs].forEach(song => mergedMap
+                                     .set(`${song.Id}_${song.language}`, song));
 
       const finalSongs = Array.from(mergedMap.values()).filter(song => !song.deletedAt);
       await saveToLocalDB(finalSongs);
@@ -185,11 +190,11 @@ const showToast = (msg: string) => {
           const normalizedLocal = transformSongsByLanguage(
             localSongs.map(s => ({
               ...s,
-              LyricsContents: normalizeLyricsContents(s.LyricsContents)
+              Lyricsontents: normalizeLyricsContents(s.LyricsContents)
             }))
           );
           setData(normalizedLocal);
-          console.log("Loaded local songs:", normalizedLocal.length);
+          console.log("Loaded local songs:", localSongs.length);
         }
 
         // Try fetching online songs

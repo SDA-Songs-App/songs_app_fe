@@ -1,4 +1,5 @@
 import * as SQLite from 'expo-sqlite';
+import { useEffect } from 'react';
 
 const DB_NAME = 'sdaSongs.db';
 const LYRICS_TABLE = 'LyricsContents';
@@ -41,7 +42,6 @@ export const initializeDatabase = async (): Promise<void> => {
             value TEXT NOT NULL
           );
         `);
-
         await database.execAsync(`
           CREATE TABLE IF NOT EXISTS sync_meta (
             id INTEGER PRIMARY KEY CHECK (id = 1),
@@ -96,7 +96,7 @@ export const getFromLocalDB = async (table = LYRICS_TABLE): Promise<any[]> => {
     `SELECT * FROM \`${table}\``
   )) as DbRow[];
 
-  return rows.map(r => JSON.parse(r.value));
+  return rows.map(r => JSON.parse(r.value)).filter(song =>!song?.deletedAt);
 };
 
 export const getItemById = async (
@@ -178,3 +178,10 @@ export const clearTable = async (
   console.log('Local data cleared');
   await database.runAsync(`DELETE FROM \`${table}\``);
 };
+// const logAllLocalSongs = async()=>{
+//   const rows  = await getFromLocalDB();
+//   console.log("All Rows in SQLITE", rows)
+// }
+// useEffect (() =>{
+// logAllLocalSongs()
+// }, [])
