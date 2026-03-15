@@ -15,8 +15,9 @@ import {
   Animated,
   Button,
   FlatList,
+  Pressable,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import GestureRecognizer from "react-native-swipe-gestures";
@@ -37,6 +38,10 @@ import { useSongs } from "@/lyricsContext/context";
 import { RootStackParams } from "@/app/types";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { runOnJS, useSharedValue } from "react-native-reanimated";
+import CategoryScroll from "./categories/categories";
+import { LanguageName } from "./categories/language-key";
+import { useRootNavigationState } from "expo-router";
+import { useLanguage } from "./languageContext/language-context";
 const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
@@ -93,19 +98,33 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
     const subscription = Dimensions.addEventListener("change", handleOrientationChange);
         return () => subscription.remove();
       }, []);
+        const route = useRoute().params;
+        
+  const {language:initialLanguage} = useRoute().params|| {};
   // Search & Favorites
   const [isSearchModalVisible, setSearchModalVisible] = useState(false);
   const [isFavoritesModalVisible, setFavoritesModalVisible] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [filteredSongs, setFilteredSongs] = useState<LyricsContent[]>([]);
   const [selectedSong, setSelectedSong] = useState<LyricsContent | null>(null);
-  const [selectedLanguage, setSelectedLanguage] = useState("አማርኛ");
+  const {language:selectedLanguage, setLanguage:setSelectedLanguage} = useLanguage();
+  
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [swipeLock, setSwipeLock] = useState(false);
   const [loading, setLoading] = useState(false);
   const scale = useSharedValue(1);
   const savedScale = useSharedValue(16);
   const [favorites, setFavorites] = useState<FavoriteKey[]>([]);
+  const [selectedCategory,setSelectedCategory] = useState("All")
+  //const route = useNavigation()
+useEffect(() => {
+  
+     if (initialLanguage) {
+          setSelectedLanguage(initialLanguage)
+        }
+       
+
+}, [initialLanguage]);
   // Load font preferences
   useEffect(() => {
     const loadPreferences = async () => {
@@ -288,6 +307,21 @@ const pinchGesture = Gesture.Pinch()
     scale.value = 1;
     runOnJS(setFontSize)(newSize);
   });
+  //const categories = ["All","THANKSGIVING", "Testmony","Prayer","Praise", "Worship","CONFESS","DEVOTIONAL","CHRISTIAN_LIVING"]
+  const uniqueCategories = ["All",Array.from(new Set(filteredSongs.map(item => item.Category)))];
+const categories = useMemo(() => {
+  const uniqueCategories = Array.from(
+    new Set(filteredSongs.map(item => item.Category))
+  );
+  return ["All", ...uniqueCategories];
+}, [filteredSongs]);
+
+const songsByCategory = useMemo(()=>{
+   if(selectedCategory ==="All")
+    return filteredSongs
+  return filteredSongs.filter(song =>song.Category === selectedCategory)
+},[filteredSongs, selectedCategory])
+
   return (
     <View style={styles.container}>
       {/* Navbar */}
@@ -326,11 +360,10 @@ const pinchGesture = Gesture.Pinch()
         <TouchableOpacity onPress={toggleTheme}>
           <Ionicons name={isDarkMode ? "moon" : "sunny"} size={25} color="#fff" />
         </TouchableOpacity>
-      </View>
-           <View>
-             <ScrollView style={styles.scrollContainer} contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 16}}>
+        </View>
+        <View>
+             <ScrollView style={styles.scrollContainer} contentContainerStyle={{ flexGrow: 1}}>
                 {selectedSong && (
-                  <View style={styles.songContainer}>
                     <ImageBackground
                       source={
                         isDarkMode
@@ -369,9 +402,8 @@ const pinchGesture = Gesture.Pinch()
                       </Animated.View> 
                       </GestureDetector>
                     </ImageBackground>
-                  </View>
                 )} 
-                 <View style={styles.footerContainer}>
+                <View style={styles.footerContainer}>
                           <Text style={[styles.artistName, { color: isDarkMode ? "#aaa" : "#555" }]}>
                             {selectedSong?.Artist?.name !== "Not Specified"
                               ? selectedSong?.Artist?.name
@@ -383,7 +415,7 @@ const pinchGesture = Gesture.Pinch()
                           <Text style={[styles.artistBio, { color: isDarkMode ? "#aaa" : "#555" }]}>
                             {selectedSong?.Artist?.bio || "Not found"}
                           </Text>
-                  </View>  
+                </View>  
               </ScrollView>
               <View style ={{display:"flex"}}>             
                 <View style={[styles.floatingButtonContainer, { backgroundColor: isDarkMode ? "#000" : "#fff" }]}>
@@ -394,21 +426,29 @@ const pinchGesture = Gesture.Pinch()
                     isDarkMode={isDarkMode}
                   />
                 
-                </View>
-                 </View>
               </View>
+              </View>
+      </View>
       <Modal
         isVisible={isSearchModalVisible}
         backdropOpacity={0.5}
         avoidKeyboard
         propagateSwipe
-        style={{ margin: 0, justifyContent: "flex-start" }}
+        style={{ margin: 0 }}
         onBackdropPress={closeSearchModal}
         onBackButtonPress={closeSearchModal}
       >
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined}>
-          <View style={styles.fancyModal}>
-            <View style={styles.searchHeader}>
+           <View style={styles.fancyModal}>
+        <View>
+      <CategoryScroll 
+          lyricsData={filteredSongs} 
+          selectedCategory={selectedCategory} 
+          setSelectedCategory={setSelectedCategory}
+          selectedLanguage={selectedLanguage as LanguageName}>
+      </CategoryScroll>
+    </View>
+    <View style={styles.searchHeader}>
               <TextInput
                 style={styles.fancyInput}
                 placeholder={localizations.find((key) => key.language === selectedLanguage)?.SearchHolder || "Search..."}
@@ -422,7 +462,7 @@ const pinchGesture = Gesture.Pinch()
             </View>
             {filteredSongs.length > 0 ? (
               <FlashList
-                data={filteredSongs}
+                data={songsByCategory}
                 keyExtractor={(item) => `${item.Id}`}
                 renderItem={({ item }) => (
                   <TouchableOpacity

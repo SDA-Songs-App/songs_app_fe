@@ -2,10 +2,13 @@ import React from "react";
 import ThemeProvider from "../ThemeProvider";
 
 import MainApp from "../(tabs)/MainApp";
+import LanguageProvider from "@/components/languageContext/language-context";
+//import { LanguageProvider } from "@/components/languageContext/language-context";
 export default function App() {
   return (
     <ThemeProvider>
-      <MainApp />
+      <LanguageProvider><MainApp /></LanguageProvider>
+      
     </ThemeProvider>
   );
 }

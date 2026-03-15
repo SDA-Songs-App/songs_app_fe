@@ -1,0 +1,9 @@
+export type CategoryKey = 
+    | "PRAISE" 
+    | "PRAYER" 
+    | "THANKSGIVING"
+    | "CHRISTIAN_LIVING"
+    | "DEVOTIONAL"
+    | "WORSHIP"
+    | "CONFESS"
+    | "TESTIMONY"

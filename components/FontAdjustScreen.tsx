@@ -77,13 +77,6 @@ const FontSizeAdjustScreen: React.FC<FontSizeAdjustProps> = ({
     await AsyncStorage.setItem("fontSize", String(size));
     await AsyncStorage.setItem("fontFamily", family);
   };
-
-  const handleFontSizeChange = (size: number) => {
-    setFontSize(size);
-    savePreferences(size, fontFamily);
-    onFontSizeChange(size);
-  };
-
   const handleFontSelect = async (font: string) => {
     setSelectedFont(font);
     setFontFamily(font);

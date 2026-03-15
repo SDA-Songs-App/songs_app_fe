@@ -91,8 +91,7 @@ const getStyles = (
     },
     categoryContainer: {
       flexDirection: "row",
-      justifyContent: "space-around",
-      marginBottom: 20,
+      marginBottom: 12,
     },
     floatingButtonContainer: {
          position: "relative",
@@ -447,8 +446,8 @@ fancyInput: {
   
   height: 48,
   flex: 1, // ⭐ THIS is the key
-  borderTopRightRadius: 15,
-  borderTopLeftRadius: 15,
+  borderTopRightRadius: 0,
+  borderTopLeftRadius: 0,
   backgroundColor: isDarkMode ? "#d1cdcdff" : "#1e1e1e",
   paddingHorizontal: 15,
   color: "#fff",
@@ -460,7 +459,17 @@ orderText: {
   fontWeight: "600",
   color: "#9acd32",
 },
-
+chip: {
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: 25,
+    marginRight: 12,
+    elevation: 3,
+  },
+  text: {
+    fontWeight: "600",
+    fontSize: 14,
+  },
 songRow: {
   flexDirection: "row",
   alignItems: "center",
