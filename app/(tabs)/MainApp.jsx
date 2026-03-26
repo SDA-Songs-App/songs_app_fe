@@ -7,7 +7,10 @@ import FontSizeAdjustScreen from "@/components/FontAdjustScreen";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import NavbarWithSongs from "../screens/NavbarWithSongs";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-
+import SettingsScreen from "@/components/settings-components/setting";
+import About from "@/components/settings-components/about"
+import UserGuide from "@/components/settings-components/user-guide";
+import Contributors from "@/components/settings-components/contributors";
 const Stack = createNativeStackNavigator();
 
 function MainApp() {
@@ -34,12 +37,24 @@ function MainApp() {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="FontSettings"
-              component={FontSizeAdjustScreen}
+              name="About"
+              component={About}
+            />
+             <Stack.Screen
+              name="Privacy"
+              component={UserGuide}
+            />
+            <Stack.Screen
+              name="UserGuide"
+              component={UserGuide}
+            />
+            <Stack.Screen
+              name="Contributors"
+              component={Contributors}
             />
             <Stack.Screen
               name="ቅርጽ፟_ማስተካከያ"
-              component={FontSizeAdjustScreen}
+              component={SettingsScreen}
             />
           </Stack.Navigator>
         </GestureHandlerRootView>

@@ -538,7 +538,7 @@ const songsByCategory = useMemo(()=>{
               }}
               style={styles.languageOption}
             >
-              <Text style={styles.languageText}>{language}</Text>
+              <Text style={styles.languageText}>{language ==="ሲዳሚኛ"?"ሲዳምኛ":language}</Text>
             </TouchableOpacity>
           ))}
         </View>

@@ -28,11 +28,6 @@ type Props = {children:ReactNode}
     setSelectedLanguage(lang);
     await AsyncStorage.setItem("selectedLanguage", lang)
   }
-  // Save language to AsyncStorage whenever it changes
-//   useEffect(() => {
-//     AsyncStorage.setItem("selectedLanguage", selectedLanguage).catch(console.error);
-//   }, [selectedLanguage]);
-
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
       {children}

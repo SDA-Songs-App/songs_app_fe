@@ -6,6 +6,10 @@ type RootStackParams = {
   FontSettings: undefined;
   ቅርጽ፟_ማስተካከያ: undefined;
   settings: undefined;
+  About:undefined;
+  UserGuide: undefined;
+  Privacy: undefined
+  Contributors:undefined
 };
 type RooStackSettingsParams = {
   settings: undefined;

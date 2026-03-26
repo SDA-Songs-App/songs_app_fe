@@ -1,0 +1,340 @@
+{
+    "langId": 7,
+    "titleTop": "Itiyophiyu giddo",
+    "titleMain": "Sabaatteki Barra Adiventistete Ammana",
+    "titleMain2": "Sidaamu Afii Faarru Appilikeshine",
+    "selectHeader": "Afii Dooriri",
+    "buttonText": "Suffi",
+    "scriptureTitle": "✨ Barraho Qullaawa Borro",
+    "contents_translations": [
+        {
+            "id": 1,
+            "book": "Faarfannaa",
+            "reference": "23:1",
+            "verse_text": "Kaaliiqi allaalaancho'yaati; hoogeemmori mitturino dino."
+        },
+        {
+            "id": 2,
+            "book": "Faarfannaa",
+            "reference": "46:1",
+            "verse_text": "Maganu golonkeetinna wolqankeeti; qarru iillannonke yanna baalate kaa'late qixxaawaho."
+        },
+        {
+            "id": 3,
+            "book": "Faarfannaa",
+            "reference": "119:105",
+            "verse_text": "Qaalikki lekka'yara caabbichoho; doogo'yara xawaabbaho."
+        },
+        {
+            "id": 4,
+            "book": "Lawwishsha",
+            "reference": "3:5-6",
+            "verse_text": "«Wo'mu wodanikkinni Kaaliiqa addaxxi ikkinnina, umikki egennora irkidhooti. Assattorira baalaho Magano albaanni qo'li; isino halaalaancho doogo kulannohe."
+        },
+        {
+            "id": 5,
+            "book": "Lawwishsha",
+            "reference": "3:13-14",
+            "verse_text": "«Egenno afi'rannohunna buuxa lexxannohu ba'raa'rinoho. Woxe egenno roortino; culka lexxantenni, egenno lexxa woyyitanno."
+        },
+        {
+            "id": 6,
+            "book": "Ibraawu",
+            "reference": "11:1",
+            "verse_text": "Amma'nate yaa hexxotenni agadhinoonni coye hawaqi'ratenna, illete leellinokki coyeno buuxi'rate yaate."
+        },
+        {
+            "id": 7,
+            "book": "Maariqosa",
+            "reference": "9:23",
+            "verse_text": "Yesuusi qole, «Dandiittoro yaatto? Ammanannohura baalunkuri dandaamanno» yiisi."
+        },
+        {
+            "id": 8,
+            "book": "Maatewoosa",
+            "reference": "17:20",
+            "verse_text": "Yesuusi, «Ammana'ne xe'inohuraati. Halaale kuleemmo'nena, shiimiidi gumi geeshshi amma'na heedhoomme'nero konne ilaala, ‹Kawiinni kai!› yitiniro ha'ranno; dandiitinannikkiri mitturino dihee'ranno."
+        },
+        {
+            "id": 9,
+            "book": "Roomu",
+            "reference": "10:17",
+            "verse_text": "Amma'na macciishshatenni dagganno; macciishshinannihuno Kiristoosi qaaleeti."
+        },
+        {
+            "id": 10,
+            "book": "Yohaannisa",
+            "reference": "3:16",
+            "verse_text": "Kunni garinni Maganu baattote aana noo manna baala baxino daafira, iso amma'ninohu baalu hegere heeshsho afi'ranno gede ikkinnina ba\"annokki gede, Maganu mitto Beettosi uyino."
+        },
+        {
+            "id": 11,
+            "book": "Roomu",
+            "reference": "8:38-39",
+            "verse_text": "Kunnira, reyono ikkito heeshsho, sokkaasineno ikkito gashshaano, xa noohano ikko gedensaanni daannohu, aye wolqano ikkito, iimiidino ikko woriidi, wole kalaqamano ikkiro, Mootichinke Kiristoosi Yesuusi widoonni afi'noommohu Maganu baxilliwiinni badankera dandaannori nookkita afoommo."
+        },
+        {
+            "id": 12,
+            "book": "1 Yohaannisa",
+            "reference": "4:19",
+            "verse_text": "Maganu ninke balaxe baxinonke daafira ninkeno banxeemmosi."
+        },
+        {
+            "id": 13,
+            "book": "Ermiyaasi",
+            "reference": "31:3",
+            "verse_text": "ani Kaaliiqi insara fafe hee're leelloommonsa. «Bagamannokki baxillinni baxoommo'ne; hakko baxillinni anewa gamba assoommo'ne."
+        },
+        {
+            "id": 14,
+            "book": "Faarfannaa",
+            "reference": "136:1-3",
+            "verse_text": "Shaqqado ikkinohura Kaaliiqa galattesi; bagamannokkihu baxillisino hegerehona. Maganna baalanta roorino Magano galattesi; bagamannokkihu baxillisino hegerehona. Mootoollate Mooticha Magano galattesi; bagamannokkihu baxillisino hegerehona."
+        },
+        {
+            "id": 15,
+            "book": "Filiphisiyuusa",
+            "reference": "4:13",
+            "verse_text": "Wolqa aannoehunni Kiristoosinni baalankare assa dandeemmo."
+        },
+        {
+            "id": 16,
+            "book": "Isayyaasi",
+            "reference": "41:10",
+            "verse_text": "Ani ledokki noommona waajjitooti; ani Maganokkiitina hexxo mudhitooti. Ani jawaachisheemmohe, kaa'leemmohe; wolqaataame anga'yanni gargare gatiseemmohe."
+        },
+        {
+            "id": 17,
+            "book": "Iyaasu",
+            "reference": "1:9",
+            "verse_text": "Ha'ratto darga baalaho ani Kaaliiqi Maganikki ledokki noommona, ‹Bashshi yitooti! Jawaati!› yee hajajummoheta habbooti. Horonta waajjitooti; hexxono mudhitooti» yee coyi'risi."
+        },
+        {
+            "id": 18,
+            "book": "2 Qorontoosi",
+            "reference": "12:9-10",
+            "verse_text": "Isi kayinni, «Ane wolqa guutte leeltannohu ate wolqiweelle aana ikkinohura elto'ya ikkitannohe» yiinoe. Kunnira Kiristoosi wolqa aana'ya fooliishshidhanno gede, albinni roorse wolqiweelle'yanni naaxxa baxeemmo. Wolqa afi'reemmohu wolqiweeleemmo woyite ikkinohura, Kiristoosi daafira yee wolqiweelummoro, xonamummoro, mitii'mummoro, xiiwamummoro, qarramummoro tashshi yaannoe."
+        },
+        {
+            "id": 19,
+            "book": "Yohaannisa",
+            "reference": "14:27",
+            "verse_text": "«Keere'ya ki'newa woreemmo; keere'ya eemmo'ne. Ani eemmo'ne keeri tini gobba uyitanno'nehu gedeeha di'ikkino. Wodani'ne masoonke; waajjitinoonte!"
+        },
+        {
+            "id": 20,
+            "book": "Filiphisiyuusa",
+            "reference": "4:6-7",
+            "verse_text": "Baalunku coyira galaxxitinanninna huuccidhinanni hasidhinoonni coye Maganoho ku'le ikkinnina, mittu coyirano yaaddinoonte. Mannu hedora aleenni ikkinohu Maganu keeri, Kiristoosi Yesuusinni wodana'nenna hedo'ne agaranno."
+        },
+        {
+            "id": 21,
+            "book": "Isayyaasi",
+            "reference": "26:3-4",
+            "verse_text": "Kaaliiqa, ate hexxatenni kaajjite heedhannorira, wo'ma keere aattonsa. Mootichu Kaaliiqi hegere golootina, geedote geeshsha iso addaxxe."
+        },
+        {
+            "id": 22,
+            "book": "Qolasiyaasa",
+            "reference": "3:15",
+            "verse_text": "Mitte mannimma biso ikkitine woshshantinoonnihu keerehootina, Kiristoosi keeri wodani'nera mooho. Galatu mannano ikke."
+        },
+        {
+            "id": 23,
+            "book": "Faarfannaa",
+            "reference": "29:11",
+            "verse_text": "Kaaliiqi mannisira wolqa aanno; Kaaliiqi mannasi maassi're keere woranno."
+        },
+        {
+            "id": 24,
+            "book": "Lawwishsha",
+            "reference": "16:3",
+            "verse_text": "Hedokki qiniitannohe gede, assattore baala Kaaliiqira eeggo uyi'ri."
+        },
+        {
+            "id": 25,
+            "book": "Yaiqoobi",
+            "reference": "1:5-6",
+            "verse_text": "Ki'ne giddo egenno xe'inosihu hee'riro, Magano huucci'ro; Maganuno aannosi. Isi ayeno mishikkinni baalunkura elate shooshaqa Maganooti. Ikkollana mannu mittoreno huluullamikkinni ammanatenni huucci'ro. Huluullamanno manchi bubbe ganteenna shashshafaminoha baaru dambala lawanno."
+        },
+        {
+            "id": 26,
+            "book": "Faarfannaa",
+            "reference": "32:6-7",
+            "verse_text": "Kunnira, qarru lolahi iillannonsakki gede, keeraano baala yanna heedheenna, ate huuccidho. Ati anera maaxameemmo dargaati; qarrunni agarattoe; gatisaanchimmakkinni gaangeessoottoe daafira, qoonqo'ya naggi asse faarsi'reemmohe."
+        },
+        {
+            "id": 27,
+            "book": "Roomu",
+            "reference": "15:13",
+            "verse_text": "Hexxo'ne Qullaawu Ayyaani wolqanni lophitanno gede, hexxo aanno Magani amma'nitinoonnisi daafira hagiirrenna keere wonsho'ne."
+        },
+        {
+            "id": 28,
+            "book": "Ermiyaasi Wi'ishsha",
+            "reference": "3:22-23",
+            "verse_text": "Ba'nummokkinni gantoommohu, bagamannokkihu Kaaliiqi baxilli hegereha ikkino daafiraati; maarosino gooffannokkite. Soodo soodontenni haarote; ammanamasino jawate."
+        },
+        {
+            "id": 29,
+            "book": "Ibraawu",
+            "reference": "10:23-24",
+            "verse_text": "Hexxo uyinonkehu ammanaminoha ikkino daafira, xa ammanne farci'neemmo hexxo ka'anna kawa yinummokkinni duu'ne cu'mi'no. Baxille afi'ratenna dancha looso loosate mimmitonke kakkayinso."
+        },
+        {
+            "id": 30,
+            "book": "Faarfannaa",
+            "reference": "33:20",
+            "verse_text": "Kaa'laanchinkenna wonqonke Kaaliiqaatina, ninke iso hexxineemmo."
+        },
+        {
+            "id": 31,
+            "book": "Miikiyaasi",
+            "reference": "7:7",
+            "verse_text": "Ani kayinni Kaaliiqa agadheemmo. Gatisaancho'ya Magano hexxeemmo. Isino macciishshannoe."
+        },
+        {
+            "id": 33,
+            "book": "Nehemiya",
+            "reference": "8:10",
+            "verse_text": "Isino, «Xa mini mini'nera hadhine noo'neta dancha sagalenna ago buxanete ledo beeqqitine ittinanninna agginanni hagiidhe. Techo Maganinke Kaaliiqira baxxinoha qullaawa barra ikkino daafira dadillitinoonte. Kaaliiqi hagiirri wolqa'neeti» yiinsa."
+        },
+        {
+            "id": 34,
+            "book": "Faarfannaa",
+            "reference": "118:23-24",
+            "verse_text": "Konne coye assinohu Kaaliiqaati; ninkeno illenkenni la'ne maala'linoommo. Kuni Kaaliiqira qeellete barraati; kunni barrinni hagiidhino; tashshino yoonke."
+        },
+        {
+            "id": 35,
+            "book": "Roomu",
+            "reference": "12:11-12",
+            "verse_text": "Jawaattine loosse ikkinnina, cee'maleeyye ikkitinoonte. Ayyaanunni laalaattine Mootichahono soqqamme. Hexxotenni hagiidhe; qarru yannara cince; jaattine huuccidhe."
+        },
+        {
+            "id": 36,
+            "book": "Yohaannisa",
+            "reference": "15:11-12",
+            "verse_text": "«Konne coye kuloommo'nehu hagiirri'ya giddo'ne hee'ranno gedeetinna ki'ne hagiirrino wo'ma ikkanno gedeeti. Ane hajajo, ani baxummo'nente gede, ki'ne ki'neneewano baxantinaraati."
+        },
+        {
+            "id": 37,
+            "book": "Faarfannaa",
+            "reference": "16:11",
+            "verse_text": "Heeshshote doogo leellishoottoena, ledokki hee'ra'ya hagiirrunni wonshitannoe; qiniitekkiinni hee'ra hegere hagiirre uyitannoe."
+        },
+        {
+            "id": 38,
+            "book": "Faarfannaa",
+            "reference": "150:6",
+            "verse_text": "Lubbotenni heedhinoonni kalaqami baalu, Kaaliiqa galattesi! Kaaliiqi galatamo!"
+        },
+        {
+            "id": 39,
+            "book": "Qolasiyaasa",
+            "reference": "3:16",
+            "verse_text": "Maganu qaali wo'me hee'ro'ne; egenno baalatenni mimmito'ne rosiissenna seejje. Faarsotenni, guwishshunninna, geewotenni, Magano wodani'nenni galattinanni faarse."
+        },
+        {
+            "id": 40,
+            "book": "1 Tesalonqee",
+            "reference": "5:16-18",
+            "verse_text": "Wo'manka woyite hagiidhe! 17Agurtinikkinni huuccidhe! Baalunku coyira galaxxe! Yesuusi Kiristoosinni afidhinoonni heeshshonni Maganu ki'newiinni hasi'ranno coyi konneeti."
+        },
+        {
+            "id": 41,
+            "book": "Faarfannaa",
+            "reference": "95:1",
+            "verse_text": "Amme, Kaaliiqa galantona! Agaraanchu Maganinkera hagiirrunni faarsinona."
+        },
+        {
+            "id": 42,
+            "book": "Ibraawu",
+            "reference": "13:15-16",
+            "verse_text": "Kunnira, Yesuusi Kiristoosi widoonni qolle wo'ma woyite galatu kakkalo Maganoho shiqinsho. Tini kakkalo suumenkenni, «Isi Mootichankeeti» yine uyineemmote. Dancha coye assanna afidhinoonnire woleho beeha habbinoonte. Magano hagiirsiissannoti hattoo kakkalooti."
+        },
+        {
+            "id": 43,
+            "book": "Maatewoosa",
+            "reference": "5:15-16",
+            "verse_text": "Caabbicho xawinse ka'ne mine wo'mankawa xawanno gede tuuqu aana usurranni ikkinnina aanaho gawate gombisannohu dino. Mannu dancha looso'ne lae gordu Anna'ne galatanno gede, caabbichi'ne mannu albaanni xawo» yii."
+        },
+        {
+            "id": 44,
+            "book": "Galaatiya",
+            "reference": "5:22-23",
+            "verse_text": "Ayyaanu laalo kayinni baxilleho, hagiirreho, keereho, cincate, shooshanqete, danchummate, ammanamate, joongilleho, meessanaa qee'late; togoore giwanno seeri dino."
+        },
+        {
+            "id": 45,
+            "book": "Qolasiyaasa",
+            "reference": "3:23-24",
+            "verse_text": "Assitinannire baala mannaho ikkikkinni Mootichu Yesuusira assitinannihu gede taalu wodaninni asse. Mootichuwiinni iqqa ba'raarshu gede assitine adhitinannita affinoonni. Soqqantinannihu Mootichu Kiristoosiraati."
+        },
+        {
+            "id": 46,
+            "book": "Efesoona",
+            "reference": "4:32",
+            "verse_text": "Mimmiti'nera shaqqaddanna shooshaqoota ikke; Maganu Kiristoosinni cubbo'ne agurino'nente gede, ki'neno mimmiti'ne sao agurre."
+        },
+        {
+            "id": 47,
+            "book": "Luqaasa",
+            "reference": "6:27-28",
+            "verse_text": "«Macciishshitinannirira kuleemmo'nena, baarigaarra'ne baxxe! Gibbanno'nerira danchare asse. 28Runtanno'nere maassidhe; sao assitanno'nerira Magano huuccensa."
+        },
+        {
+            "id": 48,
+            "book": "Yohaannisa",
+            "reference": "11:25-27",
+            "verse_text": "Yesuusino, «Kaonna heeshsho aneeti; ane ammanannohu reyiro nafa lubbotenni hee'ranno. 26Hee'rannohunna ane ammanannohu baalu hegerera direyanno. Konne coye ammanatta?» yiise. Iseno, «Ee Mooticha'ya ammaneemma; ati tenne gobba daanno yiniha Kiristoosa Maganu Beetto ikkoottota ammanoomma» yitusi."
+        },
+        {
+            "id": 49,
+            "book": "Amoota",
+            "reference": "21:4",
+            "verse_text": "Hindiiddo baala illensanni feyanno; albi ikkito sa'ino daafira, reyo woy dadillu woy wi'la woy shetto kunni ka'a diheedhanno» yitannoti lowo huuro fultanna macciishshummo."
+        },
+        {
+            "id": 50,
+            "book": "1 Pheexiroosa",
+            "reference": "5:6-7",
+            "verse_text": "Yannasinni gotti assanno'ne gede, wolqaataame Maganu anga woroonni umo'ne heeshshi asse. Ki'nere malannohu isootina, qarrisanno'nere baala isi aana tuqqe."
+        },
+        {
+            "id": 51,
+            "book": "Roomu",
+            "reference": "6:23",
+            "verse_text": "Cubbu laalchi reyote; Maganuwiinni afi'nanni ba'raa'ri kayinni, Mootichinke Kiristoosi Yesuusi widoonni hegere heeshshooti."
+        },
+        {
+            "id": 52,
+            "book": "Qolasiyaasa",
+            "reference": "3:16",
+            "verse_text": "Maganu qaali wo'me hee'ro'ne; egenno baalatenni mimmito'ne rosiissenna seejje. Faarsotenni, guwishshunninna, geewotenni, Magano wodani'nenni galattinanni faarse."
+        }
+    ],
+    "setting":{
+        "title":"setting"
+    },
+     "userGuide":{
+        "title":"አጠቃቀም"
+    },"about":{
+        "title":"አጠቃቀም",
+        "titleDescription":""
+    },"sharing":{
+        "title":"ስለ መተግበሪያው"
+    },
+    "privacyPolicy":{
+        "title":"መተግበሪያውን ያጋሩ"
+    },"shareLyricsWithUs":{
+        "title":"መዝሙርን ያጋሩን"
+    },"contributors":{
+        "title":" አስተዋጽኦ አድራጊዎች "
+    },"contactUs":{
+        "title":" አስተዋጽኦ አድራጊዎች "
+    },
+    "more":{
+        "title":"ተጨማሪ "
+    }
+}

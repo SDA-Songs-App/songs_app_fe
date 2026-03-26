@@ -36,6 +36,7 @@ export default function LandingPage() {
   const[randomVerse, setRandomVerse] = useState<Verse | null>(null);
   const currentVerse = versesLLocalization[language]
   const header = currentVerse.selectHeader
+  const langauageLabel = language ==='oromo'?'Afaan Oromo':language
  const languageOptions = Object.keys(versesLLocalization).map((lang) => ({
   label: lang,
   value: lang
@@ -52,7 +53,7 @@ useEffect(() =>{
   //                    (new Date().getDate())
   const index = dayNumber % currentVerse.contents_translation.length;
     setRandomVerse(currentVerse.contents_translation[index]) 
-}, []);
+}, [language]);
 useEffect(() =>{
   Font.loadAsync({
     "Montserrat":require("../../assets/fonts/Montserrat-VariableFont_wght.ttf"),
@@ -74,18 +75,11 @@ return (
 {/* Header */}
 <View style={styles.titleContainer}>
 
-{/* <Text style={styles.welcome}>{currentVerse.titleTop}</Text> */}
-
-<View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "center" }}>
-  {<Text style={styles.titleTop}>{currentVerse.titleTop}</Text> }
-  <Text style={styles.titleMain}>{currentVerse.titleMain}</Text>
-  <Text style={styles.titleMain2}>
-  {currentVerse.titleMain2}
-</Text>
-</View>
-
-
-
+    {<Text style={styles.titleTop}>
+      {currentVerse.titleTop + "\n"}
+      {currentVerse.titleMain + "\n"}
+      {currentVerse.titleMain2}</Text> }
+ 
 </View>
 
 
@@ -99,7 +93,7 @@ return (
     <RNPickerSelect
       onValueChange={handleLanguageChange}
       value={language}
-      items={languageOptions}
+      items={languageOptions }
       placeholder={{label:header, value:null}}
       style={{
         inputIOS: styles.languageBox,
@@ -113,8 +107,11 @@ return (
         name="chevron-up" 
         size={22} 
         color="#000000"
-        paddingTop ="" />
-        <Ionicons name="chevron-down" size={22} color="#000000" />
+         />
+      <Ionicons 
+        name="chevron-down" 
+        size={22} 
+        color="#000000" />
     </View>
   )
  }}
@@ -137,9 +134,9 @@ return (
 
 
 {/* Scripture Card */}
-
 <View style={styles.card}>
   <View style ={styles.verticalBar}/>
+ 
     <View style ={styles.cardContent}>
         <Text style={styles.cardTitle}>
           {currentVerse.scriptureTitle}
@@ -171,7 +168,10 @@ justifyContent:"space-between"
 
 titleContainer:{
 alignItems:"center",
-marginTop:40
+paddingTop:40,
+paddingBottom:40,
+display:'flex',
+justifyContent:'center'
 },
 
 welcome:{
@@ -184,7 +184,8 @@ marginBottom:20
 titleTop:{
 fontSize:22,
 fontWeight:"bold",
-color:"#fff"
+color:"#fff",
+textAlign:"center"
 },
 
 titleMain:{
@@ -241,13 +242,13 @@ fontWeight:"600"
 
 card:{
 backgroundColor:"#fff",
-padding:20,
+padding:5,
 //borderRadius:15,
 marginTop:30,
 shadowColor:"#01196e",
 shadowOpacity:0.2,
 shadowRadius:6,
-height:200,
+height:250,
 
 },
 
@@ -296,15 +297,26 @@ verticalBarContainer: {
 },
 verticalBar: {
    position: "absolute",
-  //left: -4,
- // bottom: -20,
+  width: 4,          // make bar narrow if shadow is vertical
+  height: "101%",    // full height
+  borderRadius: 3,
+  backgroundColor: "#2fa4a9", // main bar color
+  shadowColor: "#000",
+  shadowOffset: { width: -4, height: 0 }, // negative width = left
+  shadowOpacity: 0.3,
+  shadowRadius: 4,
+  // Android shadow (approximate left-only)
+  elevation: 4,// Android
+},
+verticalBar2: {
+   position: "absolute",
+   right:0,
   width: 6,          // make bar narrow if shadow is vertical
   height: "125%",    // full height
   borderRadius: 3,
   backgroundColor: "#2fa4a9", // main bar color
-  // iOS shadow
   shadowColor: "#000",
-  shadowOffset: { width: -4, height: 0 }, // negative width = left
+  shadowOffset: { width: 4, height: 0 }, // negative width = left
   shadowOpacity: 0.3,
   shadowRadius: 4,
   // Android shadow (approximate left-only)

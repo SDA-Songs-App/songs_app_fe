@@ -46,10 +46,7 @@ export default function CategoryScroll({
       >
         {categories.map((item) => {
           const isActive = selectedCategory === item;
-          const translationLabel =
-            item === "All"
-              ? "All"
-              : categoryTranslations[item as CategoryKey]?.[selectedLanguage] ?? item;
+          const translationLabel = categoryTranslations[item as CategoryKey]?.[selectedLanguage] ?? item;
           return (
             <Pressable
               key={item}

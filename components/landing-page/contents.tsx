@@ -42,7 +42,7 @@ export const landingPageContents = {
         scriptureTitle: "✨ የዕለቱ መጽሐፍ ቅዱስ k",
     }, 
     ሀዲይኛ:{
-        titleTop:"በኢትዮጵያ k",
+        titleTop:"በኢትዮጵያ ",
         titleMain:"ሰባተኛ ቀን አድቬንቲስት ቤተክርስቲያን h",
         subtitle:"",
         languageLabel:"አማርኛ",

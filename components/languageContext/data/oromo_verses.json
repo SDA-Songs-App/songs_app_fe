@@ -1,0 +1,340 @@
+{
+    "langId": 2,
+    "titleTop": "Itoophiyaatti",
+    "titleMain": "Waliigaltee Waldaa Kiristaanaa Sda",
+    "titleMain2": "Appilikeeshinii Faarfannaa Afaanota Adda Addaatiin Qophaa'e",
+    "selectHeader": "Afaan Filadhu",
+    "buttonText": "Itti Fufi",
+    "scriptureTitle": "✨ Dubbii Guyyaa",
+    "contents_translations": [
+        {
+            "id": 1,
+            "book": "Faarfannaa",
+            "reference": "23:1",
+            "verse_text": "Waaqayyo tiksee koo ti; ani homaa hin dhabu."
+        },
+        {
+            "id": 2,
+            "book": "Faarfannaa",
+            "reference": "46:1",
+            "verse_text": "Waaqni daʼoo fi jabina keenya; inni gargaarsa yeroo hunda rakkina keessatti nu wajjin jiruu dha."
+        },
+        {
+            "id": 3,
+            "book": "Faarfannaa",
+            "reference": "119:105",
+            "verse_text": "Dubbiin kee miilla kootiif ibsaa dha; daandii kootiif immoo ifa."
+        },
+        {
+            "id": 4,
+            "book": "Mammaaksa",
+            "reference": "3:5-6",
+            "verse_text": "Garaa kee guutuun Waaqayyoon amanadhu; hubannaa kees hin abdatin; karaa kee hunda keessatti isa dursi; innis daandii kee siif qajeelcha."
+        },
+        {
+            "id": 5,
+            "book": "Mammaaksa",
+            "reference": "3:13-14",
+            "verse_text": "Namni ogummaa argatu kan hubannaas argatu eebbifamaa dha; ogummaan meetii caalaa faayidaa qabaatii; warqee caalaas buʼaa namaaf buusa."
+        },
+        {
+            "id": 6,
+            "book": "Ibroota",
+            "reference": "11:1",
+            "verse_text": "Amantiin waan abdannu tokko dhugumaan ni taʼa jennee fudhachuu dha; waan ijaan hin argine tokko immoo qabatamaadha jennee heduu dha."
+        },
+        {
+            "id": 7,
+            "book": "Maarqos",
+            "reference": "9:23",
+            "verse_text": "Yesuusis, “ ‘Yoo dandeesse’ jettaa? Nama amanuuf wanni hundi ni dandaʼama” jedheen."
+        },
+        {
+            "id": 8,
+            "book": "Maatewos",
+            "reference": "17:20",
+            "verse_text": "Innis akkana jedhee deebise; “Sababii amantiin keessan xinnaateefii dha. Ani dhuguman isinitti hima; isin utuu amantii xinnoo hamma sanyii sanaaficaa qabaattanii silaa tulluu kanaan, ‘Asii kaʼii achi darbi’ jechuu ni dandeessu; innis ni darba. Wanni isiniif hin dandaʼamne tokko iyyuu hin jiru. ["
+        },
+        {
+            "id": 9,
+            "book": "Roomaa",
+            "reference": "10:17",
+            "verse_text": "Egaa amantiin ergaa dhagaʼuudhaan dhufa; ergaan kunis karaa dubbii waaʼee Kiristoosiin dhagaʼama."
+        },
+        {
+            "id": 10,
+            "book": "Yohannis",
+            "reference": "3:16",
+            "verse_text": "Kan isatti amanu hundi jireenya bara baraa akka qabaatuuf malee akka hin badneef, Waaqni hamma Ilma isaa tokkicha kennutti addunyaa jaallateeraatii."
+        },
+        {
+            "id": 11,
+            "book": "Roomaa",
+            "reference": "8:38-39",
+            "verse_text": "Duuti yookaan jireenyi, ergamoonni yookaan bulchitoonni, hangafoonni, wanni ammaa yookaan wanni dhufuuf jiru yookaan humni tokko iyyuu, ol dheerinni yookaan gad fageenyi yookaan uumamni biraa kam iyyuu jaalala Waaqaa kan Kiristoos Yesuus Gooftaa keenyaa irraa akka gargar nu baasuu hin dandeenye ani amaneera."
+        },
+        {
+            "id": 12,
+            "book": "1 Yohannis",
+            "reference": "4:19",
+            "verse_text": "Nu sababii inni duraan dursee nu jaallateef isa jaallanna."
+        },
+        {
+            "id": 13,
+            "book": "Eermiyaas",
+            "reference": "31:3",
+            "verse_text": "Waaqayyo fagoodhaa natti mulʼatee akkana jedhe: “Ani jaalala bara baraatiin si jaalladheera; kanaafuu ani arjummaa kootiin ofitti si harkiseera."
+        },
+        {
+            "id": 14,
+            "book": "Faarfannaa",
+            "reference": "136:1-3",
+            "verse_text": "Waaqayyoof galata galchaa; inni gaariidhaatii. Jaalalli isaa bara baraan jiraata. 2Waaqa waaqotaatiif galata galchaa. Jaalalli isaa bara baraan jiraata. Gooftaa Gooftotaatiif galata galchaa: Jaalalli isaa bara baraan jiraata."
+        },
+        {
+            "id": 15,
+            "book": "Filiphisiiyus",
+            "reference": "4:13",
+            "verse_text": "Ani isa humna naa kennu sanaan waan hunda gochuu nan dandaʼa."
+        },
+        {
+            "id": 16,
+            "book": "Isaayyaas",
+            "reference": "41:10",
+            "verse_text": "Kanaafuu ati hin sodaatin; ani si wajjin jiraatii; hin raafamin; ani Waaqa keetii. Ani sin jabeessa; sin gargaaras; ani harka koo mirgaa qajeelaa sanaan hirkisee ol sin qaba."
+        },
+        {
+            "id": 17,
+            "book": "Iyaasuu",
+            "reference": "1:9",
+            "verse_text": "Ani akkana jedhee si hin ajajnee? Cimi; ija jabaadhus. Waan Waaqayyo Waaqni kee iddoo ati deemtu hundumatti si wajjin taʼuuf, hin sodaatin; abdiis hin kutatin.”"
+        },
+        {
+            "id": 18,
+            "book": "2 Qorontos",
+            "reference": "12:9-10",
+            "verse_text": "Inni garuu, “Ayyaanni koo si gaʼa; humni koo dadhabbii keessatti guutuu taʼaatii” naan jedhe. Kanaafuu humni Kiristoos akka narra boqotuuf waaʼee dadhabbii kootii caalchisee gammaduudhaan akka malee nan boona. Ani waaʼee Kiristoosiif jedhee dadhabbii keessatti, arrabsoo keessatti, gidiraa keessatti, ariʼatama keessatti, rakkina keessattis gammaduun koo kanumaaf. Yoos ani yeroon dadhabutti nan jabaadhaatii."
+        },
+        {
+            "id": 19,
+            "book": "Yohannis",
+            "reference": "14:27",
+            "verse_text": "Ani nagaa isin biratti nan hambisa; nagaa koos isiniif nan kenna. Ani akka addunyaan kennutti isiniif hin kennu. Garaan keessan hin raafamin; hin sodaatinis."
+        },
+        {
+            "id": 20,
+            "book": "Filiphisiiyus",
+            "reference": "4:6-7",
+            "verse_text": "Waan hundumaa keessatti Waaqa kadhachuu fi waammataan, galata wajjinis gaaffii keessan Waaqatti dhiʼeeffadhaa malee waan tokko illee hin yaaddaʼinaa. Nagaan Waaqaa kan hubannaa hundaa ol taʼe sun karaa Kiristoos Yesuusiin qalbii fi yaada keessan ni eega."
+        },
+        {
+            "id": 21,
+            "book": "Isaayyaas",
+            "reference": "26:3-4",
+            "verse_text": "Inni sitti irkateeraatii, nama yaadni garaa isaa si wajjin jiru, ati nagaa hirʼina hin qabneen isa eegda. Sababii Waaqayyo, Waaqayyo mataan isaa, Kattaa bara baraa taʼeef, bara baraan Waaqayyoon amanadhaa."
+        },
+        {
+            "id": 22,
+            "book": "Qolosaayis",
+            "reference": "3:15",
+            "verse_text": "Nagaan Kiristoos kan isin akkuma kutaa dhagna tokkootti itti waamamtan sun garaa keessan keessatti haa moʼu. Warra galateeffattanis taʼaa."
+        },
+        {
+            "id": 23,
+            "book": "Faarfannaa",
+            "reference": "29:11",
+            "verse_text": "Waaqayyo saba isaatiif jabina kenna; Waaqayyo saba isaa nagaadhaan eebbisa."
+        },
+        {
+            "id": 24,
+            "book": "Mammaaksa",
+            "reference": "16:3",
+            "verse_text": "Waan hojjettu hunda Waaqayyotti kennadhu; karoorri kees siif milkaaʼa."
+        },
+        {
+            "id": 25,
+            "book": "Yaa'iqoob",
+            "reference": "1:5-6",
+            "verse_text": "Isin keessaa namni tokko iyyuu hanqina ogummaa yoo qabaate, Waaqa utuu hin tuffatin nama hundumaaf arjummaan kennu haa kadhatu; isaafis ni kennama. Inni garuu yommuu kadhatu amantiin haa kadhatu; hin shakkinis; namni shakku akka dambalii galaanaa kan bubbeen dhaʼamee oofamuu ti."
+        },
+        {
+            "id": 26,
+            "book": "Faarfannaa",
+            "reference": "32:6-7",
+            "verse_text": "Kanaafuu namni amanamaan kam iyyuu, yeroo ati itti argamtutti si haa kadhatu; lolaan bishaan guddaas isa bira hin gaʼu. Ati iddoo ani itti dhokadhuu dha; rakkina irraa na eegda; faarfannaa moʼannaatiinis na marsita."
+        },
+        {
+            "id": 27,
+            "book": "Roomaa",
+            "reference": "15:13",
+            "verse_text": "Isinis akka humna Hafuura Qulqulluutiin abdiitti akka malee guddattaniif, Waaqni abdii sun isa amanachuu keessaniin gammachuu fi nagaa hundumaan isin haa guutu."
+        },
+        {
+            "id": 28,
+            "book": "Faaruu Eermiyaas",
+            "reference": "3:22-23",
+            "verse_text": "Nu sababii jaalala Waaqayyoo guddaa sanaatiif hin badnu; gara laafinni isaa hin dhumuutii. Isaan ganama hunda haaraa dha; amanamummaan kees guddaa dha."
+        },
+        {
+            "id": 29,
+            "book": "Ibroota",
+            "reference": "10:23-24",
+            "verse_text": "Inni waadaa gale sun waan amanamaa taʼeef kottaa nu utuu hin raafamin abdii dhugaa baanu sana jabeessinee qabannaa. Kottaa jaalalaa fi hojii gaariif wal kakaasuuf itti yaadnaa."
+        },
+        {
+            "id": 30,
+            "book": "Faarfannaa",
+            "reference": "33:20",
+            "verse_text": "Lubbuun keenya abdiidhaan Waaqayyoon eeggatti; innis gargaarsa keenyaa fi gaachana keenya."
+        },
+        {
+            "id": 31,
+            "book": "Miikiyaas",
+            "reference": "7:7",
+            "verse_text": "Ani garuu abdiidhaan Waaqayyoon nan eeggadha; fayyisaa koo Waaqa nan eeggadha; Waaqni koo na dhagaʼa."
+        },
+        {
+            "id": 33,
+            "book": "Nahimiiyaa",
+            "reference": "8:10",
+            "verse_text": "Kana irratti Nahimiyaan akkana jedhe; “Dhaqaatii nyaata filatamaa nyaadhaa; dhugaatii miʼaawaas dhugaa; warra waan qophaaʼe tokko illee hin qabneefis waa ergaa. Guyyaan kun guyyaa Gooftaa keenyaaf qulqulleeffamee dha. Sababii gammachuun Waaqayyoo jabina keessan taʼeef hin gaddinaa.”"
+        },
+        {
+            "id": 34,
+            "book": "Faarfannaa",
+            "reference": "118:23-24",
+            "verse_text": "Waaqayyo waan kana hojjeteera; kunis ija keenyatti dinqii dha. Guyyaan kun guyyaa Waaqayyo uumee dha; kottaa ni ililchina; itti gammannas."
+        },
+        {
+            "id": 35,
+            "book": "Roomaa",
+            "reference": "12:11-12",
+            "verse_text": "Gooftaa tajaajiluu keessatti hafuura gubaa qabaadhaa malee hinaaffaa hin dhabinaa. 12Abdiidhaan gammadaa; dhiphina obsaa; kadhannaatti cimaa."
+        },
+        {
+            "id": 36,
+            "book": "Yohannis",
+            "reference": "15:11-12",
+            "verse_text": "Akka gammachuun koo isin keessa jiraatuu fi akka gammachuun keessanis guutuu taʼuuf ani waan kana isinitti himeera. Ajajni koo isa kana: Akkuma ani isin jaalladhetti isinis wal jaalladhaa."
+        },
+        {
+            "id": 37,
+            "book": "Faarfannaa",
+            "reference": "16:11",
+            "verse_text": "Ati karaa jireenyaa na barsiifta; fuula kee durattis gammachuudhaan na guutta; gara mirga keetii gammachuu bara baraatu jira."
+        },
+        {
+            "id": 38,
+            "book": "Faarfannaa",
+            "reference": "150:6",
+            "verse_text": "Wanni hafuura baafatu hundinuu Waaqayyoon haa jajatu. Haalleluuyaa."
+        },
+        {
+            "id": 39,
+            "book": "Qolosaayis",
+            "reference": "3:16",
+            "verse_text": "Dubbiin Kiristoos baayʼinaan isin keessa haa jiraatu; ogummaa hundaan wal barsiisaa; wal gorsaas; faarfannaadhaan, weedduu galataatii fi faarfannaa Hafuuraatiin garaa keessan keessatti Waaqa galateeffadhaa."
+        },
+        {
+            "id": 40,
+            "book": "1 Tasalooniqee",
+            "reference": "5:16-18",
+            "verse_text": "Yeroo hunda gammadaa; 17utuu gargar hin kutin kadhadhaa. Haala hundumaa keessatti Waaqa galateeffadhaa; fedhiin Waaqni Kiristoos Yesuusitti isiniif qabu kanaatii."
+        },
+        {
+            "id": 41,
+            "book": "Faarfannaa",
+            "reference": "95:1",
+            "verse_text": "Kottaa Waaqayyoof faarfannaa; Kattaa fayyina keenyaatiifis ni ililchinaa."
+        },
+        {
+            "id": 42,
+            "book": "Ibroota",
+            "reference": "13:15-16",
+            "verse_text": "Kanaafuu kottaa utuu gargar hin kutin karaa Yesuusiitiin aarsaa galataa Waaqaaf haa dhiʼeessinu; aarsaan kunis dubbii maqaa isaa beeksisuuf afaan keenya keessaa baʼuu dha. Waan gaarii gochuu fi waan qabdanis namaan gaʼuu hin dhiisinaa; Waaqni aarsaa akkasiitti gammadaatii."
+        },
+        {
+            "id": 43,
+            "book": "Maatewos",
+            "reference": "5:15-16",
+            "verse_text": "Yookaan namoonni ibsaa qabsiisanii gombisaa jala hin kaaʼan. Qooda kanaa baattuu isaa irra kaaʼu; ibsaan sunis namoota mana keessa jiran hundaaf ifa kenna. 16Akka namoonni hojii keessan isa gaarii arganii abbaa keessan kan samii irraatiif ulfina kennaniif ifni keessanis akkasuma fuula namootaa duratti haa ifu."
+        },
+        {
+            "id": 44,
+            "book": "Galaatiyaa",
+            "reference": "5:22-23",
+            "verse_text": "Iji Hafuuraa garuu jaalala, gammachuu, nagaa, obsa, arjummaa, gaarummaa, amanamummaa, garraamummaa fi of qabuu dha. Seerri waan akkanaa mormus hin jiru."
+        },
+        {
+            "id": 45,
+            "book": "Qolosaayis",
+            "reference": "3:23-24",
+            "verse_text": "Waan hojjettan hunda akka waan namaaf hojjettaniitti utuu hin taʼin akka waan Gooftaaf hojjettaniitti garaa guutuudhaan hojjedhaa; kunis sababii isin akka Gooftaa biraa badhaasa dhaalaa argattan beektaniif. Kan isin tajaajilaa jirtan Kiristoos Goofticha."
+        },
+        {
+            "id": 46,
+            "book": "Efesoon",
+            "reference": "4:32",
+            "verse_text": "Akkuma Waaqni karaa Kiristoosiin dhiifama isinii godhe sana, isinis dhiifama walii godhaa; walii naʼaa; garaas walii laafaa."
+        },
+        {
+            "id": 47,
+            "book": "Luqaas",
+            "reference": "6:27-28",
+            "verse_text": "“Ani garuu isin warra na dhageessanitti nan hima; diinota keessan jaalladhaa; warra isin jibbaniif waan gaarii hojjedhaa; 28warra isin abaaran eebbisaa; warra isin miidhaniifis kadhadhaa."
+        },
+        {
+            "id": 48,
+            "book": "Yohannis",
+            "reference": "11:25-27",
+            "verse_text": "Yesuus immoo akkana isheedhaan jedhe; “Duʼaa kaʼuu fi jireenyi ana. Namni natti amanu yoo duʼe iyyuu ni jiraata; 26kan na keessa jiraatuu fi kan natti amanu hundinuu bara baraan hin duʼu. Kana ni amantaa ree?” Isheenis, “Eeyyee yaa Gooftaa, akka ati Kiristoos yookaan Masiihicha Ilma Waaqaa kan gara addunyaa dhufu sana taate nan amana” jetteen."
+        },
+        {
+            "id": 49,
+            "book": "Mul'ata",
+            "reference": "21:4",
+            "verse_text": "Inni imimmaan hunda ija isaanii irraa ni haqa. Siʼachi duuti yookaan gaddi yookaan booʼichi yookaan dhiphinni hin jiraatu; sirni moofaan sun darbeeraatii.”"
+        },
+        {
+            "id": 50,
+            "book": "1 Pheexiros",
+            "reference": "5:6-7",
+            "verse_text": "Kanaafuu akka Waaqni yeroo malutti ol isin qabuuf, harka isaa humna qabeessa sana jalatti gad of qabaa. 7Inni isiniif waan yaaduuf, yaaddoo keessan hunda isa irra kaaʼadhaa."
+        },
+        {
+            "id": 51,
+            "book": "Roomaa",
+            "reference": "6:23",
+            "verse_text": "Mindaan cubbuu duʼaatii; kennaan Waaqaa garuu karaa Gooftaa keenya Kiristoos Yesuusiin jireenya bara baraa ti."
+        },
+        {
+            "id": 52,
+            "book": "Qolosaayis",
+            "reference": "3:16",
+            "verse_text": "Dubbiin Kiristoos baayʼinaan isin keessa haa jiraatu; ogummaa hundaan wal barsiisaa; wal gorsaas; faarfannaadhaan, weedduu galataatii fi faarfannaa Hafuuraatiin garaa keessan keessatti Waaqa galateeffadhaa."
+        }
+    ],
+    "setting":{
+        "title":"setting"
+    },
+     "userGuide":{
+        "title":"አጠቃቀም"
+    },"about":{
+        "title":"አጠቃቀም",
+        "titleDescription":""
+    },"sharing":{
+        "title":"ስለ መተግበሪያው"
+    },
+    "privacyPolicy":{
+        "title":"መተግበሪያውን ያጋሩ"
+    },"shareLyricsWithUs":{
+        "title":"መዝሙርን ያጋሩን"
+    },"contributors":{
+        "title":" አስተዋጽኦ አድራጊዎች "
+    },"contactUs":{
+        "title":" አስተዋጽኦ አድራጊዎች "
+    },
+    "more":{
+        "title":"ተጨማሪ "
+    }
+}
