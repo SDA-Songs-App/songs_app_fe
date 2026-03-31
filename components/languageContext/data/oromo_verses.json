@@ -27,13 +27,13 @@
         },
         {
             "id": 4,
-            "book": "Mammaaksa",
+            "book": "Fakkeenya",
             "reference": "3:5-6",
             "verse_text": "Garaa kee guutuun Waaqayyoon amanadhu; hubannaa kees hin abdatin; karaa kee hunda keessatti isa dursi; innis daandii kee siif qajeelcha."
         },
         {
             "id": 5,
-            "book": "Mammaaksa",
+            "book": "Fakkeenya",
             "reference": "3:13-14",
             "verse_text": "Namni ogummaa argatu kan hubannaas argatu eebbifamaa dha; ogummaan meetii caalaa faayidaa qabaatii; warqee caalaas buʼaa namaaf buusa."
         },
@@ -81,7 +81,7 @@
         },
         {
             "id": 13,
-            "book": "Eermiyaas",
+            "book": "Ermiyaas",
             "reference": "31:3",
             "verse_text": "Waaqayyo fagoodhaa natti mulʼatee akkana jedhe: “Ani jaalala bara baraatiin si jaalladheera; kanaafuu ani arjummaa kootiin ofitti si harkiseera."
         },
@@ -93,7 +93,7 @@
         },
         {
             "id": 15,
-            "book": "Filiphisiiyus",
+            "book": "Fiiliphisiyuus",
             "reference": "4:13",
             "verse_text": "Ani isa humna naa kennu sanaan waan hunda gochuu nan dandaʼa."
         },
@@ -147,13 +147,13 @@
         },
         {
             "id": 24,
-            "book": "Mammaaksa",
+            "book": "Fakkeenya",
             "reference": "16:3",
             "verse_text": "Waan hojjettu hunda Waaqayyotti kennadhu; karoorri kees siif milkaaʼa."
         },
         {
             "id": 25,
-            "book": "Yaa'iqoob",
+            "book": "Yaaqoob",
             "reference": "1:5-6",
             "verse_text": "Isin keessaa namni tokko iyyuu hanqina ogummaa yoo qabaate, Waaqa utuu hin tuffatin nama hundumaaf arjummaan kennu haa kadhatu; isaafis ni kennama. Inni garuu yommuu kadhatu amantiin haa kadhatu; hin shakkinis; namni shakku akka dambalii galaanaa kan bubbeen dhaʼamee oofamuu ti."
         },
@@ -287,7 +287,7 @@
             "id": 48,
             "book": "Yohannis",
             "reference": "11:25-27",
-            "verse_text": "Yesuus immoo akkana isheedhaan jedhe; “Duʼaa kaʼuu fi jireenyi ana. Namni natti amanu yoo duʼe iyyuu ni jiraata; 26kan na keessa jiraatuu fi kan natti amanu hundinuu bara baraan hin duʼu. Kana ni amantaa ree?” Isheenis, “Eeyyee yaa Gooftaa, akka ati Kiristoos yookaan Masiihicha Ilma Waaqaa kan gara addunyaa dhufu sana taate nan amana” jetteen."
+            "verse_text": "Yesuus immoo akkana isheedhaan jedhe; “Duʼaa kaʼuu fi jireenyi ana. Namni natti amanu yoo duʼe iyyuu ni jiraata; 26kan na keessa jiraatuu fi kan natti amanu hundinuu bara baraan hin duʼu. Kana ni amantaa ree?” Isheenis, “Eeyyee yaa Gooftaa, akka ati Kiristoos#11:27 yookaan Masiihicha Ilma Waaqaa kan gara addunyaa dhufu sana taate nan amana” jetteen."
         },
         {
             "id": 49,
@@ -314,27 +314,32 @@
             "verse_text": "Dubbiin Kiristoos baayʼinaan isin keessa haa jiraatu; ogummaa hundaan wal barsiisaa; wal gorsaas; faarfannaadhaan, weedduu galataatii fi faarfannaa Hafuuraatiin garaa keessan keessatti Waaqa galateeffadhaa."
         }
     ],
-    "setting":{
-        "title":"setting"
+    "setting": {
+        "title": "setting"
     },
-     "userGuide":{
-        "title":"አጠቃቀም"
-    },"about":{
-        "title":"አጠቃቀም",
-        "titleDescription":""
-    },"sharing":{
-        "title":"ስለ መተግበሪያው"
+    "userGuide": {
+        "title": "አጠቃቀም"
     },
-    "privacyPolicy":{
-        "title":"መተግበሪያውን ያጋሩ"
-    },"shareLyricsWithUs":{
-        "title":"መዝሙርን ያጋሩን"
-    },"contributors":{
-        "title":" አስተዋጽኦ አድራጊዎች "
-    },"contactUs":{
-        "title":" አስተዋጽኦ አድራጊዎች "
+    "about": {
+        "title": "አጠቃቀም",
+        "titleDescription": ""
     },
-    "more":{
-        "title":"ተጨማሪ "
+    "sharing": {
+        "title": "ስለ መተግበሪያው"
+    },
+    "privacyPolicy": {
+        "title": "መተግበሪያውን ያጋሩ"
+    },
+    "shareLyricsWithUs": {
+        "title": "መዝሙርን ያጋሩን"
+    },
+    "contributors": {
+        "title": " አስተዋጽኦ አድራጊዎች "
+    },
+    "contactUs": {
+        "title": " አስተዋጽኦ አድራጊዎች "
+    },
+    "more": {
+        "title": "ተጨማሪ "
     }
 }

@@ -15,9 +15,11 @@ import { navigate } from "expo-router/build/global-state/routing";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Font from "expo-font"
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, Dimensions } from "react-native";
 import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
+import { ScrollView } from "react-native-gesture-handler";
 // import * as FontLoading from "expo-app-loading"
+import {scale, verticalScale, moderateScale} from "react-native-size-matters"
 
 
 
@@ -153,11 +155,16 @@ return (
 </View>
 
 </View>
-
 </SafeAreaView>
 </LinearGradient>
 );
 }
+
+const {width, height} = Dimensions.get("window");
+//Scaling helpers
+//const scale = (size: number) => (width / 375) * size; //Based on standard width
+//const vScale = (size: number) => (height / 812) * size; //Based on standard height
+
 
 const styles = StyleSheet.create({
 
@@ -168,21 +175,22 @@ justifyContent:"space-between"
 
 titleContainer:{
 alignItems:"center",
-paddingTop:40,
-paddingBottom:40,
+paddingTop: verticalScale(30),//vScale(20),
+paddingBottom: verticalScale(10),//vScale(20),
 display:'flex',
 justifyContent:'center'
 },
 
 welcome:{
-fontSize:22,
+fontSize:scale(22),//scale(22),//scale(22),
 color:"#fff",
 fontWeight:"600",
-marginBottom:20
+marginBottom:verticalScale(18),//verticalScale(18)
 },
 
 titleTop:{
-fontSize:22,
+fontSize:scale(22),//scale(15),//scale(18),
+lineHeight: moderateScale(28),
 fontWeight:"bold",
 color:"#fff",
 textAlign:"center"
@@ -190,12 +198,12 @@ textAlign:"center"
 
 titleMain:{
 
-fontSize:22,
+fontSize:scale(20),//moderateScale(15), //scale(18),
 fontWeight:"bold",
 color:"#fff"
 },
 titleMain2:{
-fontSize:22,
+fontSize:scale(20),//moderateScale(15), //scale(18),
 fontWeight:"bold",
 color:"#fff"
 },
@@ -204,88 +212,89 @@ bottomContainer:{
 backgroundColor:"#e4e4e4",
 //borderTopLeftRadius:30,
 //borderTopRightRadius:30,
-padding:25,
-marginTop:100
+padding:scale(20),
+marginTop:verticalScale(50)
 
 },
 
 languageLabel:{
-fontSize:20,
+fontSize:moderateScale(20),
 fontWeight:"600",
-marginBottom:20
+marginBottom:verticalScale(20)
 },
 
 languageBox:{
   backgroundColor:"#cfd9d9",
-  borderRadius:30,
-  padding:15,
+  borderRadius:scale(30),//scale(30),
+  padding: scale(15),//scale(15),
   textAlign:"center",
   borderColor: "#2a6cff",
-  paddingVertical:16,
+  paddingVertical:12,//vScale(25),
    shadowOpacity: 0.4,
     shadowRadius: 6,
 },
 
 button:{
-marginTop:25,
+marginTop:verticalScale(25),//vScale(30),
 backgroundColor:"#2fa4a9",
-padding:15,
-borderRadius:30,
+padding:scale(10),//scale(30),
+borderRadius:scale(30),//scale(30),
 alignItems:"center"
 },
 
 buttonText:{
 color:"#fff",
-fontSize:16,
+fontSize:moderateScale(16),
 fontWeight:"600"
 },
 
 card:{
 backgroundColor:"#fff",
-padding:5,
-//borderRadius:15,
-marginTop:30,
+padding:scale(10),
+borderRadius:scale(15),
+marginTop:verticalScale(20),
 shadowColor:"#01196e",
 shadowOpacity:0.2,
 shadowRadius:6,
-height:250,
+height:verticalScale(230),
 
 },
 
 cardTitle:{
-fontSize:18,
+fontSize:moderateScale(18),//scale(18),
 fontWeight:"600",
 //textDecorationLine:'underline'
 },
 
 verse:{
-fontSize:16,
-marginTop:10
+fontSize:moderateScale(16),//scale(18),
+marginTop: verticalScale(10), //vScale(12)
+lineHeight: moderateScale(24)
 },
 ref:{
-fontSize:14,
+fontSize:moderateScale(16),
 fontStyle:'italic',
-marginTop:10
+marginTop:verticalScale(10)
 },
 circle1:{
   fontFamily:"LexendGiga",
 position:"absolute",
-width:200,
-height:200,
-borderRadius:100,
+width:width*0.5,
+height:width*0.5,
+borderRadius:width*0.25,
 backgroundColor:"rgba(255,255,255,0.15)",
-top:-40,
-left:-40
+top:-verticalScale(40),
+left:-verticalScale(40)
 },
 
 circle2:{
 position:"absolute",
-width:180,
-height:180,
-borderRadius:90,
+width:width*0.45,
+height:width*0.45,
+borderRadius:width*0.225,
 backgroundColor:"rgba(255,255,255,0.15)",
-top:180,
-right:-40
+top:verticalScale(180),
+right:-scale(30)
 },
 verticalBarContainer: {
   shadowColor: "#000",
@@ -297,8 +306,8 @@ verticalBarContainer: {
 },
 verticalBar: {
    position: "absolute",
-  width: 4,          // make bar narrow if shadow is vertical
-  height: "101%",    // full height
+  width: scale(8),          // make bar narrow if shadow is vertical
+  height: "102%",    // full height
   borderRadius: 3,
   backgroundColor: "#2fa4a9", // main bar color
   shadowColor: "#000",
@@ -311,7 +320,7 @@ verticalBar: {
 verticalBar2: {
    position: "absolute",
    right:0,
-  width: 6,          // make bar narrow if shadow is vertical
+  width: scale(5),          // make bar narrow if shadow is vertical
   height: "125%",    // full height
   borderRadius: 3,
   backgroundColor: "#2fa4a9", // main bar color
@@ -324,13 +333,13 @@ verticalBar2: {
 },
 cardContent: {
   flex: 1,
-  marginLeft: 12,
+  marginLeft: scale(10),
 },
 bottomRow: {
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-  marginTop: 12,
+  marginTop: verticalScale(10),
 },
 icons: {
   flexDirection: "row",
