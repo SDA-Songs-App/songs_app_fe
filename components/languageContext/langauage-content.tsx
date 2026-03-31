@@ -184,12 +184,12 @@ export const versesLLocalization: Record<string, VerseLocalization> = {
     titleTop: sidama.titleTop,
     titleMain: sidama.titleMain,
     titleMain2:sidama.titleMain2,
-    selectHeader:gurage.selectHeader,
-    buttonText: gurage.buttonText,
-    scriptureTitle: gurage.scriptureTitle,
+    selectHeader:sidama.selectHeader,
+    buttonText: sidama.buttonText,
+    scriptureTitle: sidama.scriptureTitle,
     // value: "ቃልህ ለእግርህ ብርሃን ነው",
     // ref: "መዝ 119:105",
-     contents_translation:gurage.contents_translations as Verse[]
+     contents_translation:sidama.contents_translations as Verse[]
   },
 
   Nuer: {

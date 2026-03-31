@@ -9,253 +9,253 @@
     "contents_translations": [
         {
             "id": 1,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "23:1",
             "verse_text": "Waa'i eese allaaraancho; iina hanqatoo luwwi ma'lluchchim bee'e."
         },
         {
             "id": 2,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "46:1",
             "verse_text": "Waa'i neese egeraanchoo niina malaayyee; neesenne afoo hawwi hundannem ixxi niina hara'mmaancho."
         },
         {
             "id": 3,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "119:105",
             "verse_text": "Ki seer i lokkina sha'a; i googinam caakka."
         },
         {
             "id": 4,
-            "book": "Makiis",
+            "book": "Kobi'llishshi Kitaaba",
             "reference": "3:5-6",
             "verse_text": "Ki wodaninne hundinnem Waa'anne amma'nne; ki lachchannem bakke'llitte. Ki googonne hundannem Waa'a la'e; ixxim ki googo xabbaa'ookko."
         },
         {
             "id": 5,
-            "book": "Makiis",
+            "book": "Kobi'llishshi Kitaaba",
             "reference": "3:13-14",
             "verse_text": "Qoorooma siixxu manchii qoossimmam ixxi diinat issu manchii maasse'amaakkoohane. Ee bikkina qooroom biriinsi lophphoo tirfa siidisookko; worqiinsi e'lloo awwaadom uwwookko."
         },
         {
             "id": 6,
-            "book": "Ibiraa'u",
+            "book": "Ibro'i Asso",
             "reference": "11:1",
             "verse_text": "Amma'nnato yimmi «Soodonne siixxinoommo» yinaa neeyyantoommi luwwa siixxinummaannisa issaa malbee'isa la'isoohane. Moo'nnumbee'i luwwam moo'nnummi luwwisa issaa la'isoohane."
         },
         {
             "id": 7,
-            "book": "Maariqosa",
+            "book": "Maarqoos Mishiraachcha",
             "reference": "9:23",
             "verse_text": "Yesuusim ixxena « ‹Xantilas› yitoollannihe? Amma'nnoohaannina hundem luwwim xanamookko» yukko."
         },
         {
             "id": 8,
-            "book": "Maatewoosa",
+            "book": "Maatiwoos Mishiraachcha",
             "reference": "17:20",
             "verse_text": "Yesuusim «Ki'nnuwwik amma'nnat hoffan ihu bikkinatte. Hanqinam an ki'nnuwwina kuroommo; winxo'i shaa'n sireqax amma'nnat ki'nnuwwina hee'uta'n ka duuna ‹Ka beyyiinsi ki'llaa eekke'e mare› yitakko'aare marookko. Ki'nnuwwa kaa'oo luwwim ma'lluchchim hee'ooyyo."
         },
         {
             "id": 9,
-            "book": "Room",
+            "book": "Oroome'i Asso",
             "reference": "10:17",
             "verse_text": "Ee bikkina amma'nnat waarookkok macceesakko'i luwwiinsette. Macceesakkamokim Kiristoos bikkina kuramu luwwa."
         },
         {
             "id": 10,
-            "book": "Yohaannisa",
+            "book": "Maatiwoos Mishiraachcha",
             "reference": "3:16",
             "verse_text": "Mashka'oomim Waa'i ka uulla iittaa ixxeka mexxo'i Beeto uwwukkok ixxonne amma'nnookkok ayyim heer heerina hee'oo heechcha siixxoo'isinatte bagaan bi'oo'isinayyo."
         },
         {
             "id": 11,
-            "book": "Room",
+            "book": "Oroome'i Asso",
             "reference": "8:38-39",
             "verse_text": "Lehom ihuta'n te'im heechcham ihuta'n te'im Waa'i asse'amaanom ihuta'n te'im gassaanoom ihuta'n te'im kaba yoo luwwam ihuta'n te'im hanenne waaroo luwwam ihuta'n te'im malaayyaammuwwam ihuta'n te'im duunam ihuta'n te'im cebbam ihuta'n te'im qooccamu luwwi hundam ihuta'n mahim ni Moollanni Yesuus Kiristoosinne Waa'i neese iittu iittiinsi annanni isseena xanoobee'isa an la'aammo."
         },
         {
             "id": 12,
-            "book": "1 Yohaannisa",
+            "book": "1 Yohaannis Asso",
             "reference": "4:19",
             "verse_text": "Waa'i neese gaassaa iittu bikkina neesem iittinoommo."
         },
         {
             "id": 13,
-            "book": "Erimiyaasa",
+            "book": "Ermiyaas Kitaaba",
             "reference": "31:3",
             "verse_text": "An ixxuwwina qee'llonnem moo'amummo; Isra'ee'l minaadaba, oono'o an ki'nnuwwa heer heerina iittaammo; ee bikkina heer heeraxxi i biijoomim ki'nnuwwina qoxxaa hee'ookko."
         },
         {
             "id": 14,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "136:1-3",
-            "verse_text": "Danaam ihu bikkina Waa'a galaxxehe; ixxi eroommi heer heerinatte. 2Waa'uwwiinsi hundiinsim lophphoo Waa'a galaxxehe; ixxi eroommi heer heerinatte. Moollanno'ina hundinam Moollanna galaxxehe; ixxi eroommi heer heerinatte."
+            "verse_text": "Danaam ihu bikkina Waa'a galaxxehe; ixxi eroommi heer heerinatte. Waa'uwwiinsi hundiinsim lophphoo Waa'a galaxxehe; ixxi eroommi heer heerinatte. Moollanno'ina hundinam Moollanna galaxxehe; ixxi eroommi heer heerinatte."
         },
         {
             "id": 15,
-            "book": "Pilippisiyyuusa",
+            "book": "Filiphphisiyus Asso",
             "reference": "4:13",
             "verse_text": "Kiristoos iina uwwoo malaayyinne hundem luwwam isseena xanoommo."
         },
         {
             "id": 16,
-            "book": "Isayyaasa",
+            "book": "Isayyaas Kitaaba",
             "reference": "41:10",
             "verse_text": "An kiinninne maqirette ihummi bikkina baddititte; An kiina Moollanni ihummi bikkina muggititte. An keese qoxxisoommo hara'mmoommome; kaachcha uwwoo i wodinnem keese bakkiisoommo."
         },
         {
             "id": 17,
-            "book": "Iyaasu",
+            "book": "Iyaas Kitaaba",
             "reference": "1:9",
             "verse_text": "Mattoo beyyi hundannem an ki Moollanni Waa'i kiinninne maqire yoo bikkina murte'ee qoxxee yaa ijaajummoyyonihe? Ee bikkina badditittee muggitittee» yukko."
         },
         {
             "id": 18,
-            "book": "2 Qoronqosa",
+            "book": "2 Qorontoos Asso",
             "reference": "12:9-10",
             "verse_text": "Ihukkaarem Moollanni «Iikki eroommi kiina ihookko; ki hoonginne i malaayyi lophphaa moo'amookko» yukko. Kiristoosik malaayyi eesenne ihoo'isina i hoonginne lobakata liiramummuuyyi bakke'oommo. An hoogoommaare qoxxoommi bikkina Kiristoos bikkina hoogoommaare, game'llakkamaare, hawwoommaare, hawwisakkamaaree u'n eesenne afoohaaree liiramoommo."
         },
         {
             "id": 19,
-            "book": "Yohaannisa",
+            "book": "Maatiwoos Mishiraachcha",
             "reference": "14:27",
             "verse_text": "An ki'nnuwwina xumma uwwoommo. Oo uwwoommi xummim i xumma. An uwwoommi xummi ka uulli manni uwwoo xummi'nnoo'aneyyo. Ki'nnuwwik wodan baa'aa baddoone."
         },
         {
             "id": 20,
-            "book": "Pilippisiyyuusa",
+            "book": "Filiphphisiyus Asso",
             "reference": "4:6-7",
             "verse_text": "Ki'nnuwwi Waa'a uunxitakkam amman hundam lobakata galaxxitakku'uuyyi ki'nnuwwina hasisoo luwwi hundinam Waa'a xa'mmehe bagaan matem luwwannem kichche'llakkotte. Manni qoossoohaanniinsi hanaan ihaakkoo Waa'ik xummi Yesuus Kiristoos kollinne ki'nnuwwika wodanoo tiiroo egerookko."
         },
         {
             "id": 21,
-            "book": "Isayyaasa",
+            "book": "Isayyaas Kitaaba",
             "reference": "26:3-4",
             "verse_text": "Moollanna! Keesenne qoxxita'a amma'nnantam keenina at hanqo'i xumma uwwitootto. Ni Moollanni Waa'i niina heer heerina daphphixxi beyyi ihu bikkina heer heerinam ixxonne amma'nnammehe."
         },
         {
             "id": 22,
-            "book": "Qolasiyaasa",
+            "book": "Qollaasiyaas Asso",
             "reference": "3:15",
             "verse_text": "Hanqinam ki'nnuwwa mat orachchi issaa Waa'i weeshu bikkina Kiristoos uwwu xummi ki'nnuwwa awwonsona. Waa'am galaxxitakkam keen ikkehe."
         },
         {
             "id": 23,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "29:11",
             "verse_text": "Waa'i ixxi minaadabina malaayye uwwookko; ixxuwwam xumma uwwimminne maasse'ookko."
         },
         {
             "id": 24,
-            "book": "Makiis",
+            "book": "Kobi'llishshi Kitaaba",
             "reference": "16:3",
             "verse_text": "Ki baxo hundam Waa'ina yabo uwwe; ki swwit hundim wo'mmookko."
         },
         {
             "id": 25,
-            "book": "Yaiqooba",
+            "book": "Yaqoob Asso",
             "reference": "1:5-6",
             "verse_text": "Ki'nnuwwi lambe'iinsi qooroom hoffe'u manchi hee'ukkaare Waa'a uunxona; Waa'im uwwookko. Mashka'oomim ixxi ma'lluwwam hooroo'n hundinam biijoominne uwwoo Waa'a. Ihukkaarem manchi mahannem maloo'n amma'nnatinne uunxona. Maloo manchi hafachchi gafe'aa heekkeesu womoora labookko."
         },
         {
             "id": 26,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "32:6-7",
             "verse_text": "Ee bikkina kiina amma'nnanto'i ki minaadab hundim hawwi ammane keese uunxitamo; malaayyaam hawwi dirisisa afukkaarem ixxuwwa hore'em nakkooyyo. Waa'a! At iina maaxamoommi beyyo; odim eese hawwiinsi gatissootto; jor afoobee'isa oot ikki bikkina an kiina sagara iimaa'aa zammaroommo."
         },
         {
             "id": 27,
-            "book": "Room",
+            "book": "Oroome'i Asso",
             "reference": "15:13",
             "verse_text": "Waa'i ki'nnuwwina uwwoo neeyyat Keesammi Ayyaa'n malaayyinne lophphoo'isina amma'nnatinne siidamoo liiranchaa xummaa hundam neeyyato uwwoo Waa'i ki'nnuwwinam lonsaa uwwona."
         },
         {
             "id": 28,
-            "book": "Erimiyaas Wi'ishsha",
+            "book": "Kichchechchi Kitaaba",
             "reference": "3:22-23",
             "verse_text": "Bi'nnummi bee'ek tungibee'i Waa'i qishixxatiinsii heer heerina hee'oo ixxi iittiinsii ki'ukkaanninnette. Oo keenim darina darina haareechcho; kiikki amma'nnantaattoohaannoomim lobakata."
         },
         {
             "id": 29,
-            "book": "Ibiraa'u",
+            "book": "Ibro'i Asso",
             "reference": "10:23-24",
             "verse_text": "Neeyyato aagu Waa'i amma'nnamaakkoohan ihu bikkina amma'nninaa kulloommi ee neeyyato qoxxinsaa amandona. Iittinnee er baxinnee mat mulleka baqaa'nneena sawwinona."
         },
         {
             "id": 30,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "33:20",
             "verse_text": "Waa'i niina egeroohanee hara'mmoohanee ihu bikkina neese ixxonne neeyyato issinoommo."
         },
         {
             "id": 31,
-            "book": "Miikiyaasa",
+            "book": "Mikkiyaas Kitaaba",
             "reference": "7:7",
             "verse_text": "Ihukkaarem an Waa'anne neeyyato issoommo; eese gatisaanchi ihu Moollannam egeroommo; ixxim macceesookko."
         },
         {
             "id": 33,
-            "book": "Nehemiya",
+            "book": "Nahim Kitaaba",
             "reference": "8:10",
             "verse_text": "Nahimim «Mallehe, doo'l hurbaata ittakka'a xee'oo agga aggehe bee'aanninam ki'nnuwwina yoohaanniinsi baxxansehe; kaballi ni Waa'ina keesamaakkoo balla; Waa'ik liiranchi ki'nnuwwina malaayyi ihu bikkina kichche'llakkotte» yukko."
         },
         {
             "id": 34,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "118:23-24",
             "verse_text": "Oohim Waa'i baxo; ni illinam malallato. Kuk Waa'i baxaakkoo kaachchi balla; ixxonne liirammona; lobakatam liirammona."
         },
         {
             "id": 35,
-            "book": "Room",
+            "book": "Oroome'i Asso",
             "reference": "12:11-12",
             "verse_text": "Keesammi Ayyaaninne iibbitakka'a Moollannina awwaaddehe bagaan ceentakkotte. Neeyyatonne liirammehe. Hawwo iyyaqqitakkam keen ikkehe. Hundi ammanem Waa'a uunxehe."
         },
         {
             "id": 36,
-            "book": "Yohaannisa",
+            "book": "Maatiwoos Mishiraachcha",
             "reference": "15:11-12",
             "verse_text": "«An ka woshsha ki'nnuwwina wocummok i liiranchi ki'nnuwwanne ihoo'isinatte; ki'nnuwwannem liiranchi wo'mmoo'isinatte. I ijaaj kane; An ki'nnuwwa iittummisam ki'nnuwwina'i ki'nnuwwim iittammehe."
         },
         {
             "id": 37,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "16:11",
             "verse_text": "At iina heechchi googo moo'issootto; ki beyyonne wo'm liiranchi yookko; ki makkannem heer heerina hee'oo heelli hee'ookko."
         },
         {
             "id": 38,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "150:6",
             "verse_text": "Fooraam qooccanchi hundim Waa'a galaxxona. Waa'i galaxxamona!"
         },
         {
             "id": 39,
-            "book": "Qolasiyaasa",
+            "book": "Qollaasiyaas Asso",
             "reference": "3:16",
             "verse_text": "Kiristoosik sagar ki'nnuwwanne wo'mmaa hee'ona. Ki'nnuwwina'i ki'nnuwwim qooroominne hundinnem losixxammehee soqqammehee. Galaxxi mazmuura, lombi mazmuulluwwaa keesamaakkoo mazmuulluwwaa ki'nnuwwi wodanonne Waa'a galaxxitakku'uuyyi zammallehe."
         },
         {
             "id": 40,
-            "book": "1 Tesalonqee",
+            "book": "1 Tasalonqe'i Asso",
             "reference": "5:16-18",
-            "verse_text": "Hundi ammanem liirammehe. 17Hundi ammanem Waa'a uunxehe. Duuha'i hundinnem Waa'a galaxxehe. Yesuus Kiristoosanne ikkakko'i bikkina Waa'i ki'nnuwwiinsi hasookkok eehane."
+            "verse_text": "Hundi ammanem liirammehe. Hundi ammanem Waa'a uunxehe. Duuha'i hundinnem Waa'a galaxxehe. Yesuus Kiristoosanne ikkakko'i bikkina Waa'i ki'nnuwwiinsi hasookkok eehane."
         },
         {
             "id": 41,
-            "book": "Mazmura",
+            "book": "Mazmuu'l Kitaaba",
             "reference": "95:1",
             "verse_text": "Waallehe, Waa'a galaxxinona; neese gatisaanchi Waa'inam liiranchinne zammallona."
         },
         {
             "id": 42,
-            "book": "Ibiraa'u",
+            "book": "Ibro'i Asso",
             "reference": "13:15-16",
             "verse_text": "Eehaara'i Yesuus kollinne hundi ammanem galaxxi kitima Waa'ina hincaa'nnona. Oohim ixxi summi bikkina suumiinsi firoo galaxxi kitima. Eroka issimmii yoo luwwika mannina baxxansimmii Waa'a liiransoo kitim ihu bikkina ee'isa issimma xaddakkotte."
         },
         {
             "id": 43,
-            "book": "Maatewoosa",
+            "book": "Maatiwoos Mishiraachcha",
             "reference": "5:15-16",
             "verse_text": "Caakka caakkisaa sanfi woronne dissookkok ayyim bee'e. Ihukkaarem minenne yoo manni hundinam caakkisoo'isina qoffit beyyonne dissakkamo. Ee'isam manni ki'nnuwwika er baxo moo'aa iimanenne yoo ki'nnuwwina Anna galaxxoo'isina ki'nnuwwik caakki manni illagenne caakkona» yukko."
         },
@@ -267,7 +267,7 @@
         },
         {
             "id": 45,
-            "book": "Qolasiyaasa",
+            "book": "Qollaasiyaas Asso",
             "reference": "3:23-24",
             "verse_text": "Baxxakkam bax hundam manninatte ihoo'n Moollannina awwaaddakkamaannisa issitakka'a wodaninne baxxehe. Eekka issitakkamok ki'nnuwwi awwaaddakkamok Moollanni Kiristoosatte ihu bikkina Moollanniinsi heechchi irifo'i gulumma a'llitakkamisa laqqehe."
         },
@@ -285,7 +285,7 @@
         },
         {
             "id": 48,
-            "book": "Yohaannisa",
+            "book": "Maatiwoos Mishiraachcha",
             "reference": "11:25-27",
             "verse_text": "Yesuus isena dabaraa «An lehiinsi ki'isoommanee heechcha uwwoommanee. Eesenne amma'nnookkok lehukkaarem hee'ookko. Foorinne yookkokim eesenne amma'nnookkok hore'em lehooyyo. At eekka amma'nnitoohonnihe?» yukko. 27Maarta'am ixxena dabatta'a «Eeyya, Moollanna! At ka uulla waaroo doo'llantaattoo Kiristoosatte ikkittisa an amma'nnoommo; at Waa'i Beeto» yito'o."
         },
@@ -303,38 +303,43 @@
         },
         {
             "id": 51,
-            "book": "Room",
+            "book": "Oroome'i Asso",
             "reference": "6:23",
             "verse_text": "Mashka'oomim baaxii'llek lasaanchi leho; ihukkaarem Waa'i kora'am uwwu uwwanchik lasaanchi ni Moollanni Yesuus Kiristoos kollinne heer heerina hee'oo heechcha."
         },
         {
             "id": 52,
-            "book": "Qolasiyaasa",
+            "book": "Qollaasiyaas Asso",
             "reference": "3:16",
             "verse_text": "Kiristoosik sagar ki'nnuwwanne wo'mmaa hee'ona. Ki'nnuwwina'i ki'nnuwwim qooroominne hundinnem losixxammehee soqqammehee. Galaxxi mazmuura, lombi mazmuulluwwaa keesamaakkoo mazmuulluwwaa ki'nnuwwi wodanonne Waa'a galaxxitakku'uuyyi zammallehe."
         }
-    ], 
-    "setting":{
-        "title":"Axxishsha"
+    ],
+    "setting": {
+        "title": "Axxishsha"
     },
-     "userGuide":{
-        "title":"Awwaaxaa'n awonsaa"
-    },"about":{
-        "title":"Baxisaanch bikkina",
-        "titleDescription":""
-    },"sharing":{
-        "title":"Baxisaancho daayansehe"
+    "userGuide": {
+        "title": "Awwaaxaa'n awonsaa"
     },
-    "privacyPolicy":{
-        "title":"Annomax seera privacy"
-    },"shareLyricsWithUs":{
-        "title":"Gemero'o daayansehe "
-    },"contributors":{
-        "title":"Anga-edaano"
-    },"contactUs":{
-        "title":" ያግኙን"
+    "about": {
+        "title": "Baxisaanch bikkina",
+        "titleDescription": ""
     },
-    "more":{
-        "title":"Ejjo'o"
+    "sharing": {
+        "title": "Baxisaancho daayansehe"
+    },
+    "privacyPolicy": {
+        "title": "Annomax seera privacy"
+    },
+    "shareLyricsWithUs": {
+        "title": "Gemero'o daayansehe "
+    },
+    "contributors": {
+        "title": "Anga-edaano"
+    },
+    "contactUs": {
+        "title": " ያግኙን"
+    },
+    "more": {
+        "title": "Ejjo'o"
     }
 }

@@ -1,11 +1,11 @@
 {
     "langId": 9,
-    "titleTop": "Etiopia",
-    "titleMain": "Kanitha Thab-de Adbentith",
-    "titleMain2": "Kuër Thök Diit mi kɔr Thök Nath",
-    "selectHeader": "Yier Thök",
-    "buttonText": "Ŋot ŋäp",
-    "scriptureTitle": "✨ Thiek mi Baibul",
+    "titleTop": "Kä Ithiopia",
+    "titleMain": "Kanitha Adbentit Päthä Bäkäl",
+    "titleMain2": "Apu thök ni kët kënë thook ti guany ni kën",
+    "selectHeader": "Kuany thokdu",
+    "buttonText": "Wäär",
+    "scriptureTitle": "✨ Ciëëk Ruac Kuoth ni Changmë",
     "contents_translations": [
         {
             "id": 1,
@@ -27,61 +27,61 @@
         },
         {
             "id": 4,
-            "book": "Thiek",
+            "book": "Pɛl",
             "reference": "3:5-6",
             "verse_text": "Kä ŋäth Kuoth Nhial kɛ lɔcdu kɛɛliw, kä cu ŋäth ni ca̱r wecdu kärɔa. Kä ŋäcni jɛ ni ciaŋ rɛy ja̱lu, bɛ dupku jak kä cuŋ."
         },
         {
             "id": 5,
-            "book": "Thiek",
+            "book": "Pɛl",
             "reference": "3:13-14",
             "verse_text": "Puɔ̱th akɛ ram in ci ŋäc ŋɔaani jek kɛnɛ ram in ci jɛ liŋ. Kɛ ɣöö gɔaa ni min jekɛ kä ŋäc ŋɔaani kä min derɛ jek kä ciɛk in bo̱r, kɛnɛ min derɛ jekɛ kä da̱a̱p."
         },
         {
             "id": 6,
-            "book": "Ibru",
+            "book": "Ɣib",
             "reference": "11:1",
             "verse_text": "Täämɛ ŋa̱th ɛ thuɔ̱k kɛ ŋɔaani ti görkɛ i̱ bi ben, kɛnɛ ŋäc ŋɔaani ti /ca nɛn."
         },
         {
             "id": 7,
-            "book": "Margu",
+            "book": "Mak",
             "reference": "9:23",
             "verse_text": "Cu Yecu jɛ jiök i̱, “Mi ti̱i̱kɛ lua̱ŋ! Ŋɔak diaal dëë kɛ lät kä ram mi tekɛ ŋa̱th.”"
         },
         {
             "id": 8,
-            "book": "Mathiäŋ",
+            "book": "Mɛ̈t",
             "reference": "17:20",
             "verse_text": "Kä cuɛ kɛ jiök i̱, “Ɛ ɣöö kuiy ŋa̱thdun. Kä ɛpuc ɣän la̱rä jɛ yɛ, mi te yɛn kɛ ŋa̱th mi ce̱tkɛ kuɛ̈ɛ̈ mi tɔt, dërɛ päm ɛmɛ jiök i̱, ‘Woc rɔ wanɛ mɛ, kä wër wi̱ni mi,’ kä bɛ wä, kɛ ɣöö thilɛ mi bi yɛ dhal. ["
         },
         {
             "id": 9,
-            "book": "Rom",
+            "book": "Röm",
             "reference": "10:17",
             "verse_text": "Kɛ ɣöö ŋa̱th bëë kä mi ca liŋ, kä mi ca liŋ bëë kɛ lat cio̱tdä Kritho."
         },
         {
             "id": 10,
-            "book": "Yowana",
+            "book": "Jɔ̱ɔ̱n ",
             "reference": "3:16",
             "verse_text": "“Kɛ ɣöö nhɔk Kuoth nɛy diaal ɛlɔ̱ŋ, cuɛ Gatdɛ kɛl ni kärɔa muɔc, kɛ ɣöö ram mi wä jɛ ŋäth, /cɛ bi li̱w, bɛ tekɛ tëk mi thil pek."
         },
         {
             "id": 11,
-            "book": "Rom",
+            "book": "Röm",
             "reference": "8:38-39",
             "verse_text": "Kɛ ɣöö ŋa̱cä jɛ ɛpuc pa̱ny ɛn ɣöö cäŋɛ lia̱a̱, kiɛ tëk, ja̱a̱k nhial, ruac kua̱ri, ŋɔaani ti te thi̱n, kɛnɛ ŋɔaani tin bi ben, kiɛ tin te lua̱ŋ, kiɛ mi te ni nhial, kiɛ mi te ni piny i̱, kiɛ mi dɔ̱ŋ rɛy cäkä kɛɛliw, thilɛ duɔ̱ɔ̱r mi bi kɔn da̱a̱k kä nhök Kuɔth rɛy Kritho Yecu Kuääran!"
         },
         {
             "id": 12,
-            "book": "1 Yowana",
+            "book": "1 Jɔ̱ɔ̱n",
             "reference": "4:19",
             "verse_text": "Nho̱k kɔn, kɛ ɣöö cɛ kɔn nhɔk kɛ nhiam."
         },
         {
             "id": 13,
-            "book": "Jeremaya",
+            "book": "Yir",
             "reference": "31:3",
             "verse_text": "cu Kuoth Nhial rɔ nyuɔth ni nänä ruacɛ. Ɣän nhɔakä ji̱ kɛ nhök mi thil pek. Kɛ kui̱ ɛmɔ cua̱ ŋot nikɛ mi ka̱a̱pä nhökdä kɛ ji̱."
         },
@@ -93,49 +93,49 @@
         },
         {
             "id": 15,
-            "book": "Pilipi",
+            "book": "Pil",
             "reference": "4:13",
             "verse_text": "Dëë ti diaal la̱t rɛydɛ ɛn min jak ɣä kä bum."
         },
         {
             "id": 16,
-            "book": "Isaya",
+            "book": "I-ca-yaa",
             "reference": "41:10",
             "verse_text": "/Cuarɛ dual, ta̱a̱ kɛɛl kɛ yɛ, kä /cuarɛ diɛɛr, kɛ ɣöö ɛ ɣän Kuothdun. Ɣän bä yɛ moc buɔ̱m kä bä yɛ luäk, ɣän bä yɛ käp kɛ tet cuëëcdä min bum."
         },
         {
             "id": 17,
-            "book": "Josua",
+            "book": "Jɔc",
             "reference": "1:9",
             "verse_text": "Ɛ niɛ min cä la̱r ji̱ i̱ kämni lɔcdu buɔ̱m, kä /cu bath, kɛ ɣöö bä te kɛɛl kɛ ji̱ gua̱thni diaal ɣän Kuothdu ni Kuoth Nhial.”"
         },
         {
             "id": 18,
-            "book": "2 Korinto",
+            "book": "2 Kor",
             "reference": "12:9-10",
             "verse_text": "Kä duundɛ ɣöö cuɛ ɣä jiök i̱, “Puɔ̱thdä ro̱ŋɛ kɛ ji̱, kɛ ɣöö buɔ̱mdä cɛ lät agɔaa rɛy kɔ̱cädu.” Kä inɔ bä rɔ liak kɛ tɛ̈th lɔaac kɛ kui̱ kɔ̱cädä, kɛ ɣöö dee buɔ̱m Kritho cieŋ rɛydä. Kɛ kui̱c ɛmɔ ɣän tɛth lɔcdä mi kɔ̱a̱cä kä kuëthkɛ ɣä kä la̱tdä ɛlɔ̱ŋ, kä ciaŋkɛ ɣä a jiäk kɛnɛ rik kɛ kui̱ Kritho. Kɛ ɣöö mi kɔ̱a̱cä, ɣän bä buɔ̱m."
         },
         {
             "id": 19,
-            "book": "Yowana",
+            "book": "Jɔ̱ɔ̱n ",
             "reference": "14:27",
             "verse_text": "Ɣän ba̱nyä yɛ mal, malä ka̱mä jɛ yɛ. Ɣän /cä jɛ käm yɛ, ce̱tkɛ min käm ɣɔw ɛ yɛ. A lo̱ckun, /ci diɛɛr, kä akɛ /ci dual."
         },
         {
             "id": 20,
-            "book": "Pilipi",
+            "book": "Pil",
             "reference": "4:6-7",
             "verse_text": "/Cuarɛ diɛɛr kɛ duɔ̱ɔ̱r, kä duundɛ ɣöö kɛ pal thiëcɛ Kuoth kɛ ti diaal tin görɛ, thiëcɛ jɛ ni ciaŋ kɛ tɛ̈th lɔaac. Mal Kuɔth min leny ni ŋäc ŋɔaani nath, bɛ lo̱ckun amäni ca̱r wuɔ̱thnikun tit rɛy Kritho Yecu."
         },
         {
             "id": 21,
-            "book": "Isaya",
+            "book": "I-ca-yaa",
             "reference": "26:3-4",
             "verse_text": "Kä tit mal in thuɔ̱k, kɛ ram in cuŋ ni kä ji̱, ram in ci ŋa̱thdɛ la̱th kä ji̱. Ŋäth ni Kuoth Nhial amäni cäŋ kɛl, kɛ ɣöö Kuoth Nhial ni Kuoth ɛ päm mi do̱raar."
         },
         {
             "id": 22,
-            "book": "Kolothi",
+            "book": "Kol",
             "reference": "3:15",
             "verse_text": "Kä a mal Kritho yiɛɛn lo̱ckun, min ca cɔl ni yɛ ala puɔ̱ny kɛl. Kä a lo̱ckun tɛth."
         },
@@ -147,13 +147,13 @@
         },
         {
             "id": 24,
-            "book": "Thiek",
+            "book": "Pɛl",
             "reference": "16:3",
             "verse_text": "Kämni lätku diaal Kuoth Nhial, bi cärku diaal gɔw."
         },
         {
             "id": 25,
-            "book": "Jakobo",
+            "book": "Jem",
             "reference": "1:5-6",
             "verse_text": "Mi tëëkɛ raan kä yɛ mi dak pɛlɛ, a jɛ pal Kuoth in mooc nɛy diaal kɛ tet mi lɔr kɛ tɛ̈th lɔaac, kä ba jɛ ka̱m ji̱. Kä duundɛ ɣöö thiecɛ kɛ ŋa̱th a thil diw, kɛ ɣöö ram mi te diw ce̱tdɛ kɛ muaŋ baar mi jak jiɔam ɛ kä yɔ̱k ɛ jɛ."
         },
@@ -165,19 +165,19 @@
         },
         {
             "id": 27,
-            "book": "Rom",
+            "book": "Röm",
             "reference": "15:13",
             "verse_text": "A Kuoth ŋäthä thiäŋ yɛ kɛ tɛ̈th lɔaac kɛnɛ mal rɛy ŋäthä, kɛ ɣöö bi ŋa̱thdun te thi̱n kɛ lua̱ŋ Yieekä in Gɔaa in Rɛl Rɔ."
         },
         {
             "id": 28,
-            "book": "Liit Jeremaya",
+            "book": "Jiɛth",
             "reference": "3:22-23",
             "verse_text": "Kɛ nhök Kuɔth Nhial in thil pek, /kenɛ nɛy ŋuɔk raar, kɛ ɣöö /ci pälidɛ ikä thuk. La tekɛ thi̱n ni ciaŋ kɛ runwaŋ, kɛ ɣöö di̱t gɔɔydɛ ɛlɔ̱ŋ."
         },
         {
             "id": 29,
-            "book": "Ibru",
+            "book": "Ɣib",
             "reference": "10:23-24",
             "verse_text": "Kuanɛ ŋa̱thdan in latnɛ käp a bum a thil guɛ̈l, kɛ ɣöö jɛn ram in ci ruacdɛ lat ŋääthɛ rɔ. 24Kuanɛ diɛɛr kɛ rɔ kä lua̱knɛ rɔ̱ kä nyuɔthnɛ nhök kɛnɛ lät ti gɔw."
         },
@@ -189,13 +189,13 @@
         },
         {
             "id": 31,
-            "book": "Mika",
+            "book": "Mikaa",
             "reference": "7:7",
             "verse_text": "Duundɛ ɣöö ɣän bä guic ni Kuoth Nhial, ɣän bä lip ni käändä ni Kuoth, ɛn Kuothdä bɛ ɣä liŋ."
         },
         {
             "id": 33,
-            "book": "Nehemaya",
+            "book": "Nɛm",
             "reference": "8:10",
             "verse_text": "Kä cu Nɛ-ɣɛm-yaa kɛ jiök i̱, “Wiaa dho̱rikun, wiaa camɛ mi̱th tin com kä mathɛ kɔaŋ in gɔaa kä muɔcɛ nɛy tin thilɛ mi ca rialikä. Kɛ ɣöö ɛn cäŋ ɛmɛ ɛ cäŋ mi rɛl gɔɔydɛ rɔ kä Kuääran. Ɛ lo̱ckun /ci jiɛth, kɛ ɣöö tɛ̈th lɔaac Kuɔth Nhial ɛ jɛn la buɔ̱mdun ɔ.”"
         },
@@ -207,13 +207,13 @@
         },
         {
             "id": 35,
-            "book": "Rom",
+            "book": "Röm",
             "reference": "12:11-12",
             "verse_text": "La̱tdɛ a bum a yɛ cɛ dual, la̱tdɛ Kuäär ni Kuoth ikä kɛ yiëëdun kɛɛliw. A lo̱ckun tɛth kɛ ŋa̱th kɛ mi bi ben, ta̱yɛ kɛ dhieel rɛy rikni, kä la̱ŋɛ ni ciaŋ."
         },
         {
             "id": 36,
-            "book": "Yowana",
+            "book": "Jɔ̱ɔ̱n ",
             "reference": "15:11-12",
             "verse_text": "Ɣän latdä yɛ ŋɔaani ti̱ti̱ kɛ ɣöö dee tɛ̈th lɔaacdä te rɛydun, kɛ ɣöö bi tɛ̈th lɔaacdun ro̱ŋ. “Nɛmɛ ɛ jɛn ŋutdä, ɛn ɣöö bia rɔ̱ nhɔk ce̱tkɛ min cä yɛ nhɔk."
         },
@@ -231,13 +231,13 @@
         },
         {
             "id": 39,
-            "book": "Kolothi",
+            "book": "Kol",
             "reference": "3:16",
             "verse_text": "A riet Kritho cieŋ rɛydun riäŋä, ŋi̱eecɛ rɔ̱ kä cuɔmɛ rɔ̱ rɛy pɛlä kɛɛliw. Kä kɛ̈tdɛ diit kɛnɛ diit puɔnyä Kuɔth kɛ diit yieekä kɛ tɛ̈th lɔaacdun."
         },
         {
             "id": 40,
-            "book": "1 Thethalonika",
+            "book": "1 Thɛ",
             "reference": "5:16-18",
             "verse_text": "A lo̱ckun tɛth ni ciaŋ. 17Palɛ Kuoth a thil lɔ̱a̱ŋ. La̱rɛ jɛ tɛ̈th lɔaac rɛy ciɛŋni diaal, kɛ ɣöö mɛmɛ ɛ jɛn min go̱o̱r Kuoth ɛ rɛy Kritho Yecu kɛ kui̱dan."
         },
@@ -249,92 +249,97 @@
         },
         {
             "id": 42,
-            "book": "Ibru",
+            "book": "Ɣib",
             "reference": "13:15-16",
             "verse_text": "Kä kɛ Yecu, kuanɛ Kuoth thöp muc liakä ni ciaŋ, tin la rieet thuɔk nɛɛni tin cɔalkɛ jɛ i̱ Kuäär. /Cuarɛ lät kä ti gɔw päl, kɛnɛ nyuak kɛ tin tekɛ yɛ, kɛ ɣöö kɛn muc tɔ̱tɔ̱ tɛ̈thkɛ lɔc Kuɔth."
         },
         {
             "id": 43,
-            "book": "Mathiäŋ",
+            "book": "Mɛ̈t",
             "reference": "5:15-16",
             "verse_text": "/Ci naath mac dee dɔp kä la̱th kɛ jɛ thaar diëny, ba jɛ kuëŋ wi̱i̱kä duɔ̱ɔ̱r, kä mɛrɛ nɛy diaal tin te dueel. Kɛ jɛn duɔ̱ɔ̱p ɛmɔ a buaydun buɔy nhiam nath, kɛ ɣöö bikɛ lätkun ti gɔw nɛn, kä bikɛ Guurun in te nhial liak.”"
         },
         {
             "id": 44,
-            "book": "Galatia",
+            "book": "Gäl",
             "reference": "5:22-23",
             "verse_text": "Kä kuay Yieekä Kuɔth ɛ jɛn nhök, tɛ̈th lɔaac, mal, li̱ep bitdä, ciaŋ gɔɔyä, kɛ muɔ̱c mi lɔr, ŋa̱th mi ro̱ŋ, ciaŋ wutdä pa̱ny, puɔ̱t lɔaac. Thilɛ ŋut kɛ kui̱ kä ti ce̱tkɛ ti̱ti̱."
         },
         {
             "id": 45,
-            "book": "Kolothi",
+            "book": "Kol",
             "reference": "3:23-24",
             "verse_text": "Kä mɔ la la̱tdun ɔ, la̱tdɛ jɛ kɛ pek lɔaacdun kɛɛliw, ce̱tkɛ mi la̱tdɛ kä Kuäär ni Yecu, a /ci mɔ a mi la̱tkɛ kä naath. Tiɛmɛ jɛ ɛn ɣöö bia muc jek kä Kuäär ni Yecu, min cɛ la̱r nɛɛkɛ. Yɛn la̱tdɛ ni Kuäär in la Kritho ikä."
         },
         {
             "id": 46,
-            "book": "Epetho",
+            "book": "Ɛpɛ",
             "reference": "4:32",
             "verse_text": "A lo̱ckun kɔ̱c kɛ rɔ̱ kä nhɔakɛ rɔ̱, pa̱lɛ rɔ̱ ikä, ce̱tkɛ min ci Kuoth yɛ pälikä rɛy Kritho."
         },
         {
             "id": 47,
-            "book": "Luka",
+            "book": "Luk",
             "reference": "6:27-28",
             "verse_text": "“Ɣän la̱rä jɛ yɛ, yɛn nɛy tin li̱ŋ ɛn ɣöö, nhɔakɛ ji̱ tɛ̈run. Kä la̱tdɛ nɛy tin nyiɛrkɛ yɛ kä gɔy. Puɔthɛ nɛy tin lamkɛ yɛ, kä palɛ Kuoth kɛ kui̱ nɛɛni tin kuëthkɛ yɛ."
         },
         {
             "id": 48,
-            "book": "Yowana",
+            "book": "Jɔ̱ɔ̱n ",
             "reference": "11:25-27",
             "verse_text": "Cu Yecu jɛ jiök i̱, “Ɛ ɣän jieec nath li̱th, kä ɛ ɣän tëk. Nɛy tin ŋa̱thkɛ ɣä acäŋ cikɛ li̱w, bikɛ tëk. Kä nɛy diaal tin tëk, kä ŋa̱thkɛ ɣä, /cikɛ bi met li̱w. Ji̱n ŋääthi mɛmɛ?” Cuɛ Yecu jiök i̱, “Ɣɔ̱ɔ̱n, Kuäär, ɣän ŋa̱a̱thä jɛ ɛn ɣöö ɛ ji̱n Kritho, in la Gat Kuɔth, min ci ben wi̱i̱ muɔ̱ɔ̱n.”"
         },
         {
             "id": 49,
-            "book": "Ŋuɔt",
+            "book": "Nyuuth",
             "reference": "21:4",
             "verse_text": "Kä bɛ mer nyinkiɛn diaal poc. Kä bɛ cu thil lia̱a̱, kɛnɛ pa̱r, kɛ wiee, kɛnɛ bɛ̈c pua̱ny, kɛ ɣöö ci ŋɔaani tëë kɔn thuuk.”"
         },
         {
             "id": 50,
-            "book": "1 Petero",
+            "book": "1 Pit",
             "reference": "5:6-7",
             "verse_text": "Kɛ kui̱ ɛmɔ jakɛ rɔ kä kuiy tetdä Kuɔth in bum, kɛ ɣöö bɛ yɛ kap nhial kɛ gua̱a̱th in lot rɔ. Ka̱mɛ jɛ ti diaal tin diɛrkɛ yɛ, kɛ ɣöö diɛɛrɛ kɛ kui̱dun."
         },
         {
             "id": 51,
-            "book": "Rom",
+            "book": "Röm",
             "reference": "6:23",
             "verse_text": "Kɛ ɣöö pek la̱t duerä ɛ lia̱a̱, kä muc Kuɔth baaŋ ɛ tëk mi do̱raar rɛy Kritho Yecu Kuääran."
         },
         {
             "id": 52,
-            "book": "Kolothi",
+            "book": "Kol",
             "reference": "3:16",
             "verse_text": "A riet Kritho cieŋ rɛydun riäŋä, ŋi̱eecɛ rɔ̱ kä cuɔmɛ rɔ̱ rɛy pɛlä kɛɛliw. Kä kɛ̈tdɛ diit kɛnɛ diit puɔnyä Kuɔth kɛ diit yieekä kɛ tɛ̈th lɔaacdun."
         }
     ],
-    "setting":{
-        "title":"setting"
+    "setting": {
+        "title": "setting"
     },
-     "userGuide":{
-        "title":"አጠቃቀም"
-    },"about":{
-        "title":"አጠቃቀም",
-        "titleDescription":""
-    },"sharing":{
-        "title":"ስለ መተግበሪያው"
+    "userGuide": {
+        "title": "አጠቃቀም"
     },
-    "privacyPolicy":{
-        "title":"መተግበሪያውን ያጋሩ"
-    },"shareLyricsWithUs":{
-        "title":"መዝሙርን ያጋሩን"
-    },"contributors":{
-        "title":" አስተዋጽኦ አድራጊዎች "
-    },"contactUs":{
-        "title":" አስተዋጽኦ አድራጊዎች "
+    "about": {
+        "title": "አጠቃቀም",
+        "titleDescription": ""
     },
-    "more":{
-        "title":"ተጨማሪ "
+    "sharing": {
+        "title": "ስለ መተግበሪያው"
+    },
+    "privacyPolicy": {
+        "title": "መተግበሪያውን ያጋሩ"
+    },
+    "shareLyricsWithUs": {
+        "title": "መዝሙርን ያጋሩን"
+    },
+    "contributors": {
+        "title": " አስተዋጽኦ አድራጊዎች "
+    },
+    "contactUs": {
+        "title": " አስተዋጽኦ አድራጊዎች "
+    },
+    "more": {
+        "title": "ተጨማሪ "
     }
 }
