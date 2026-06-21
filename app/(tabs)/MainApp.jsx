@@ -11,6 +11,8 @@ import SettingsScreen from "@/components/settings-components/setting";
 import About from "@/components/settings-components/about"
 import UserGuide from "@/components/settings-components/user-guide";
 import Contributors from "@/components/settings-components/contributors";
+import Privacy from "@/components/settings-components/privacy";
+import ShareToTelegram from "@/components/settings-components/share-song";
 const Stack = createNativeStackNavigator();
 
 function MainApp() {
@@ -42,7 +44,7 @@ function MainApp() {
             />
              <Stack.Screen
               name="Privacy"
-              component={UserGuide}
+              component={Privacy}
             />
             <Stack.Screen
               name="UserGuide"
@@ -56,6 +58,9 @@ function MainApp() {
               name="ቅርጽ፟_ማስተካከያ"
               component={SettingsScreen}
             />
+            <Stack.Screen
+              name='ShareSong'
+              component={ShareToTelegram}/>
           </Stack.Navigator>
         </GestureHandlerRootView>
       </SafeAreaView>

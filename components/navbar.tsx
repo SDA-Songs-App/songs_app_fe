@@ -459,7 +459,7 @@ const translateCategory = (category?: string): string => {
                             .join(" ")}
                         </Text>}
                         {selectedSong.chorus && 
-                        <Text style={styles.selectedSongTitle}>{selectedSong.chorus}</Text>}
+                        <Text style={styles.selectedSongTitle}>{selectedSong.chorus}{'\n \n'}</Text>}
                             {[selectedSong.verse1, selectedSong.verse2, selectedSong.verse3, selectedSong.verse4,
                               selectedSong.verse5, selectedSong.verse6, selectedSong.verse7]
                               .filter(Boolean)

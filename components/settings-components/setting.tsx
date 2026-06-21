@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Linking } from "react-native";
 import { Ionicons, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { languages } from "../landing-page/contents";
@@ -36,7 +36,10 @@ const SettingsScreen = () => {
       {/* Settings Options */}
       <View style={styles.card}>
         {/* <Text style={{color:"Green", fontSize:20, fontWeight:"bold"}}>Support</Text> */}
-        <SettingRow icon={<FontAwesome5 name="user" size={20} color="#000" />} 
+        <SettingRow 
+            icon={<FontAwesome5 
+            name="user" size={20} 
+            color="#000" />} 
             label={contentInCurrentLang.userGuide.title}
             onPress={() =>navigation.navigate("UserGuide")}/>
         <SettingRow 
@@ -45,10 +48,13 @@ const SettingsScreen = () => {
                                    size={20} 
                                    color="#000"
                            />} 
-                    label={contentInCurrentLang.shareLyricsWithUs.title} />
+                    label={contentInCurrentLang.shareLyricsWithUs.title} 
+                    onPress={() =>Linking.openURL('https://t.me/SDAStagingApp')}/>
+        </View>
+        <View style = {styles.card}>
         <SettingRow 
               icon={<Ionicons 
-              name="language" 
+              name="people-outline" 
               size={20} 
               color="#000" />} 
               label={contentInCurrentLang.contributors.title}
@@ -63,19 +69,14 @@ const SettingsScreen = () => {
         onPress={() =>navigation.navigate("Privacy")}/>
       </View>
 
-      {/* Premium Status */}
-      <TouchableOpacity style={styles.premiumCard}>
-        
-        <Text style={{ color: "#177078" }}>{contentInCurrentLang.contactUS.title}</Text>
-        <Ionicons name="chevron-forward" size={20} color="#177078" />
-      </TouchableOpacity>
+ 
       {/* Refer a friend */}
 
       {/* Other Settings */}
       <View style={styles.card}>
         <SettingRow 
             icon={<Ionicons 
-            name="information-circle-outline" 
+            name="share-social-outline" 
             size={20} 
             color="#000" />} 
             label={contentInCurrentLang.sharing.title} />  
