@@ -1,7 +1,7 @@
 {
     "langId": 7,
     "titleTop": "Itiyophiyu giddo",
-    "titleMain": "Sabaatteki Barra Adiventistete Ammana",
+    "titleMain": "Adiventistete Ammana",
     "titleMain2": "Sidaamu Afii Faarru Appilikeshine",
     "selectHeader": "Afii Dooriri",
     "buttonText": "Suffi",
@@ -71,7 +71,7 @@
             "id": 11,
             "book": "Roomu Sokka",
             "reference": "8:38-39",
-            "verse_text": "Kunnira, reyono ikkito heeshsho, sokkaasineno ikkito gashshaano, xa noohano ikko gedensaanni daannohu, aye wolqano ikkito, iimiidino ikko woriidi, wole kalaqamano ikkiro, Mootichinke Kiristoosi Yesuusi widoonni afi'noommohu Maganu baxilliwiinni badankera dandaannori nookkita afoommo."
+            "verse_text": "Kunnira, reyono ikkito heeshsho, sokkaasineno ikkito gashshaano, xa noohano ikko gedensaanni daannohu, aye wolqano ikkito, iimiidino ikko woriidi, wole kalaqamano ikkiro, Mootichinke Kiristoosi Yesuusi widoonni afi'noommohu."
         },
         {
             "id": 12,
@@ -113,7 +113,7 @@
             "id": 18,
             "book": "2 Qorontoosi",
             "reference": "12:9-10",
-            "verse_text": "Isi kayinni, «Ane wolqa guutte leeltannohu ate wolqiweelle aana ikkinohura elto'ya ikkitannohe» yiinoe. Kunnira Kiristoosi wolqa aana'ya fooliishshidhanno gede, albinni roorse wolqiweelle'yanni naaxxa baxeemmo. Wolqa afi'reemmohu wolqiweeleemmo woyite ikkinohura, Kiristoosi daafira yee wolqiweelummoro, xonamummoro, mitii'mummoro, xiiwamummoro, qarramummoro tashshi yaannoe."
+            "verse_text": "Isi kayinni, «Ane wolqa guutte leeltannohu ate wolqiweelle aana ikkinohura elto'ya ikkitannohe» yiinoe. Kunnira Kiristoosi wolqa aana'ya fooliishshidhanno gede, albinni roorse wolqiweelle'yanni naaxxa baxeemmo. Wolqa afi'reemmohu wolqiweeleemmo woyite ikkinohura, Kiristoosi daafira yee wolqiweelummoro."
         },
         {
             "id": 19,
@@ -287,7 +287,8 @@
             "id": 48,
             "book": "Yohaannisi",
             "reference": "11:25-27",
-            "verse_text": "Yesuusino, «Kaonna heeshsho aneeti; ane ammanannohu reyiro nafa lubbotenni hee'ranno. 26Hee'rannohunna ane ammanannohu baalu hegerera direyanno. Konne coye ammanatta?» yiise. Iseno, «Ee Mooticha'ya ammaneemma; ati tenne gobba daanno yiniha Kiristoosa Maganu Beetto ikkoottota ammanoomma» yitusi."
+            "verse_text": "Yesuusino, «Kaonna heeshsho aneeti; ane ammanannohu reyiro nafa lubbotenni hee'ranno. 26Hee'rannohunna ane ammanannohu baalu hegerera direyanno. Konne coye ammanatta?» yiise. Iseno, «Ee Mooticha'ya ammaneemma; » yitusi."
+
         },
         {
             "id": 49,

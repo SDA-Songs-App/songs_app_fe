@@ -1,7 +1,7 @@
 {
     "langId": 4,
     "titleTop": "Tophe",
-    "titleMain": "Lamalqi Bare Adventis Tselot Mineen",
+    "titleMain": "Adventis Tselot Mineen",
     "titleMain2": "Anana Anana Lagaan Qixxammee Appilikeshina",
     "selectHeader": "Afoo Do'orriye",
     "buttonText": "Insiye",
@@ -71,7 +71,7 @@
             "id": 11,
             "book": "Roome Sohinuta",
             "reference": "8:38-39",
-            "verse_text": "Hikkannii rehunta ikko, heechchanta ikko, Magani samee soqqamaannunka ikko, gashshaannunka ikko, teesu yooiinka ikko, ka zakku waalanoonka ikko, hakka maqoohaa ikko, xoqqiyeeiinka ikko, hirikk yeeiinka ikko, hakka qooccanchahaa ikko Qarichchuanne Yesuus Kiristoosi wudiin yoo Magani iittaachch annanna assonneta dandumbuu ikkoga daggeemm."
+            "verse_text": "Hikkannii rehunta ikko, heechchanta ikko, Magani samee soqqamaannunka ikko, gashshaannunka ikko, teesu yooiinka ikko, ka zakku waalanoonka ikko, hakka maqoohaa ikko, xoqqiyeeiinka ikko, hirikk yeeiinka ikko"
         },
         {
             "id": 12,
@@ -89,7 +89,7 @@
             "id": 14,
             "book": "Mazmuuri Matsaafa",
             "reference": "136:1-3",
-            "verse_text": "Maganu biiza ikkotannee isu galaxxiyye; iittas doollii horiinka heaataa. Wole magannaakkaachch horiichchin abba ikko Maganu galaxxiyye; iittas doollii horiinka heaataa. Qaribbaakka Qarichchu ikko Maganu galaxxiyye; iittas doollii horiinka heaataa."
+            "verse_text": "Maganu biiza ikkotannee isu galaxxiyye; iittas doollii horiinka heaataa. Wole magannaakkaachch horiichchin abba ikko Maganu galaxxiyye; iittas doollii horiinka heaataa. Qaribbaakka Qarichchu ikko Maganu."
         },
         {
             "id": 15,
@@ -113,7 +113,7 @@
             "id": 18,
             "book": "2 Qorontoosi Sohinuta",
             "reference": "12:9-10",
-            "verse_text": "Xahu ikkodaa Qarichchu «Ii maqoo xooff lallanoo kii hoongeen ikkotannee abbu aassanchui ihanokke» yee'e. Hikkannii Kiristoosi maqoo ii aleen ihunta hattann jeechchoochchii abba hoongeentai bajigoon bolxota hasaamm. An maqoo daqqaammii hoogima ihaammi jaata ikkotannee Kiristoositannee hoogaammi, borooramaammi, hawwaammi, sharramaammina u'nnamaammi jaata bajiqqamaamm."
+            "verse_text": "Xahu ikkodaa Qarichchu «Ii maqoo xooff lallanoo kii hoongeen ikkotannee abbu aassanchui ihanokke» yee'e. Hikkannii Kiristoosi maqoo ii aleen ihunta hattann jeechchoochchii abba hoongeentai bajigoon bolxota hasaamm."
         },
         {
             "id": 19,
@@ -125,7 +125,7 @@
             "id": 20,
             "book": "Filiphsuusi Sohinuta",
             "reference": "4:6-7",
-            "verse_text": "Hikkannii horaanka xahitannee Maganu uucciin, uusatoonii galatiinii Maganiba hinciyye bagaan mexxoarriihaa kichche'eenoochchiyye. Manni maleesiichch aliin ikko Magani xummu wozanakki'nnee sawwittakki'nnee Yesuus Kiristoosiin qorabano."
+            "verse_text": "Hikkannii horaanka xahitannee Maganu uucciin, uusatoonii galatiinii Maganiba hinciyye bagaan mexxoarriihaa kichche'eenoochchiyye. Manni maleesiichch aliin ikko Magani xummu wozanakki'nnee sawwittakki'nnee Yesuus."
         },
         {
             "id": 21,
@@ -155,7 +155,7 @@
             "id": 25,
             "book": "Yaqoobe Sohinuta",
             "reference": "1:5-6",
-            "verse_text": "Ki'nne'eechch ayeehaa qoorimat kottoosida gadu'nnaachch horiinka fafishsh aassano Maganu uuccaqqun; isiinka aassanos. Xahu ikkodaa lamoo'mmu'nnaachch amma'nnatiin uuccun; daafunkus lamoo'mmano manchu bobiriin gombamanona shafashshafamano woi worjaamu agudano."
+            "verse_text": "Ki'nne'eechch ayeehaa qoorimat kottoosida gadu'nnaachch horiinka fafishsh aassano Maganu uuccaqqun; isiinka aassanos."
         },
         {
             "id": 26,
@@ -197,7 +197,7 @@
             "id": 33,
             "book": "Nahimiya",
             "reference": "8:10",
-            "verse_text": "Nahimiya minaadaba «Orooteen woyyata ichchata ichchiyye; xeano agganka aggiyye; ammoo mexxurruu yoossabairiinka yoo'nneriichch beekkeen sokkiyyessa; ku baru nii Maganii maassa'ammeehaa bari; Magani bajigut ki'nne'ee qaarimata ikkootannee kichche'eenoochchiyye» yeessa."
+            "verse_text": "Nahimiya minaadaba «Orooteen woyyata ichchata ichchiyye; xeano agganka aggiyye; ammoo mexxurruu yoossabairiinka yoo'nneriichch beekkeen sokkiyyessa;"
         },
         {
             "id": 34,
@@ -233,7 +233,7 @@
             "id": 39,
             "book": "Qollaasiyaasi Sohinuta",
             "reference": "3:16",
-            "verse_text": "Kiristoosi laagat aazeentakki'nne wiimimaan heun; qoorimaan horaanin matu matukki'nne rosishshiyye; ammoo saccammiyye; hittigunta mazmuriin, kebbeeshshaanii amma'nnati heechcha mazmuri laagaanii Maganu wozaniichch keisseen galaxxiteenan zammarriyye."
+            "verse_text": "Kiristoosi laagat aazeentakki'nne wiimimaan heun; qoorimaan horaanin matu matukki'nne rosishshiyye; ammoo saccammiyye; hittigunta mazmuriin,"
         },
         {
             "id": 40,
@@ -251,13 +251,13 @@
             "id": 42,
             "book": "Ibr manni Sohinuta",
             "reference": "13:15-16",
-            "verse_text": "Hikkannii naoot horanta jaata galati kitima hikkasin su'mmiihans naqqassaa afee laaluta Yesuusi wudiin Maganii hincassinun. Hittigunta bareeda xaha assuhaa yookki'nnera wolo keeniin beeqqamuhaa habbeenoochchiyye; daafunkus hittigoonu kitimu Maganu bajiqqansanoa."
+            "verse_text": "Hikkannii naoot horanta jaata galati kitima hikkasin su'mmiihans naqqassaa afee laaluta Yesuusi wudiin Maganii hincassinun."
         },
         {
             "id": 43,
             "book": "Maatoose Matsaafa",
             "reference": "5:15-16",
-            "verse_text": "Mannu kuraazi caakkishshikei mini mannii horiinka caakkano ma'nneen bagaan zaale aazeen afuushshanoba'a. Hikkanniganka ki'nne'ee caakku manni bireen caakkun; hikkannii isso'oot ki'nne'ee danaamita hujita xuudd samaan yoo Anna'nne galaxxitaai» yeei."
+            "verse_text": "Mannu kuraazi caakkishshikei mini mannii horiinka caakkano ma'nneen bagaan zaale aazeen afuushshanoba'a. Hikkanniganka ki'nne'ee caakku manni bireen caakkun;"
         },
         {
             "id": 44,
@@ -287,7 +287,7 @@
             "id": 48,
             "book": "Yohaannise Matsaafa",
             "reference": "11:25-27",
-            "verse_text": "Yesuusu «Rehoochch keuhuu heechchatii aneet; ammoo esaan amma'nnanoo reheedan fooliin heano. Esaan heanoohuu ees amma'nnanoohuu horunku horan rehanoba'a; at hikkaan amma'nnitanindo?» yeese. Maartan «Āā, Qarichcho! At uulla ali waalano yamammo Kiristoosa Magani Beetu ihukk amma'nnaamm» yitoos."
+            "verse_text": "Yesuusu «Rehoochch keuhuu heechchatii aneet; ammoo esaan amma'nnanoo reheedan fooliin heano. Esaan heanoohuu ees amma'nnanoohuu horunku horan rehanoba'a; at hikkaan amma'nnitanindo?» yeese."
         },
         {
             "id": 49,
@@ -311,7 +311,7 @@
             "id": 52,
             "book": "Qollaasiyaasi Sohinuta",
             "reference": "3:16",
-            "verse_text": "Kiristoosi laagat aazeentakki'nne wiimimaan heun; qoorimaan horaanin matu matukki'nne rosishshiyye; ammoo saccammiyye; hittigunta mazmuriin, kebbeeshshaanii amma'nnati heechcha mazmuri laagaanii Maganu wozaniichch keisseen galaxxiteenan zammarriyye."
+            "verse_text": "Kiristoosi laagat aazeentakki'nne wiimimaan heun; qoorimaan horaanin matu matukki'nne rosishshiyye; ammoo saccammiyye; hittigunta mazmuriin, kebbeeshshaanii amma'nnati heechcha mazmuri laagaanii."
         }
     ],
     "setting": {

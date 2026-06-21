@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 import { useEffect } from 'react';
 
-const DB_NAME = 'sdaSongs.db';
+const DB_NAME = 'sdaSongsAllLangsFinal.db';
 const LYRICS_TABLE = 'LyricsContents';
 
 interface DbRow {

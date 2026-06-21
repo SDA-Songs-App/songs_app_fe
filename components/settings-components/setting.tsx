@@ -70,9 +70,7 @@ const SettingsScreen = () => {
         <Ionicons name="chevron-forward" size={20} color="#177078" />
       </TouchableOpacity>
       {/* Refer a friend */}
-      <View style={styles.referCard}>
-        <Text style={styles.referText}>{contentInCurrentLang.more.title}</Text>    
-      </View>
+
       {/* Other Settings */}
       <View style={styles.card}>
         <SettingRow 

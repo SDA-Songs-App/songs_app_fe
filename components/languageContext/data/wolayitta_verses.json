@@ -53,8 +53,9 @@
             "id": 8,
             "book": "Maatiyoosa",
             "reference": "17:20",
-            "verse_text": "Yaagin Yesuusi eta yaagiis; “Hegee intte ammanoi guuxxido gishshataassa; taani intteyyo tumaa odais; intteyyo sanaafici giyo qii mittee aifee keena ammanoi de7iyaakko, intte ha deriyaa, ‘Hagaappe yaa shiiqa’ yaagiyaakko i shiiqana; intte ai oottanaukka danddayana."
-        },
+            "verse_text": "Yaagin Yesuusi eta yaagiis; “Hegee intte ammanoi guuxxido gishshataassa; taani intteyyo tumaa odais; intteyyo sanaafici giyo qii mittee aifee keena ammanoi de7iyaakko, intte ha deriyaa, ‘Hagaappe yaa shiiqa’ yaagiyaakko i shiiqana; "
+
+            },
         {
             "id": 9,
             "book": "Roome",
@@ -71,7 +72,8 @@
             "id": 11,
             "book": "Roome",
             "reference": "8:38-39",
-            "verse_text": "Aissi giikko, haiqo gidin, de7o gidin, kiitanchchata gidin, haariyaageeta gidin, ha77i de7iyaagaa gidin, sinttappe yaanaagaa gidin, wolqqaamata gidin, bolla saluwaa gidin, garssa sa7aa gidin, ai mereta gidinkka, Kiristtoos Yesuusan de7iya Xoossaa siiquwaappe nuna shaakkanau danddayennaagaa taani eraas."
+            "verse_text": "Aissi giikko, haiqo gidin, de7o gidin, kiitanchchata gidin, haariyaageeta gidin, ha77i de7iyaagaa gidin, sinttappe yaanaagaa gidin, wolqqaamata gidin, bolla saluwaa gidin, garssa sa7aa gidin, ai mereta gidinkka,"
+
         },
         {
             "id": 12,
@@ -113,7 +115,8 @@
             "id": 18,
             "book": "Naa77antto Qoronttoosa",
             "reference": "12:9-10",
-            "verse_text": "Godai tana, “Ta aaro kehatettai neeyyo gidana; aissi giikko, ta wolqqai daafuran polettees” yaagiis; hegaa gishshau, Kiristtoosa wolqqai tanan de7ana mala, ta daafuran ceeqettanau taani daro ufaittais. Taani Kiristtoosa gishshau daafuriyoogan, asan cayettiyoogan, waayettiyoogan, yedetettiyoogan, metootiyoogan ufaittais; aissi giikko, taani daafuriyo wode, he wode minnais."
+            "verse_text": "Godai tana, “Ta aaro kehatettai neeyyo gidana; aissi giikko, ta wolqqai daafuran polettees” yaagiis; hegaa gishshau, Kiristtoosa wolqqai tanan de7ana mala, ta daafuran ceeqettanau taani daro ufaittais."
+
         },
         {
             "id": 19,
@@ -125,7 +128,8 @@
             "id": 20,
             "book": "Piliphphisiyuusa",
             "reference": "4:6-7",
-            "verse_text": "Xoossaa intte woossiyo woosa ubban a keehi galatiiddi, inttena koshshiyaabaa ubbau woossiteppe attin, issibaukka hirggoppite. Qassi asa eratettaa ubbaappe aadhdhiya Xoossaa sarotettai intte wozanaanne intte qofaa Godaa Yesuus Kiristtoosa baggaara naagana."
+            "verse_text": "Xoossaa intte woossiyo woosa ubban a keehi galatiiddi, inttena koshshiyaabaa ubbau woossiteppe attin, issibaukka hirggoppite. Qassi asa eratettaa ubbaappe aadhdhiya Xoossaa sarotettai intte wozanaanne intte qofaa "
+
         },
         {
             "id": 21,
@@ -155,13 +159,15 @@
             "id": 25,
             "book": "Yaaqooba",
             "reference": "1:5-6",
-            "verse_text": "SHin intteppe ooninne baayyo aadhdhida eratettai xayikko, borennan ubbau kehatettan immiya Xoossaa woosso. I ayyo immana. SHin i aibiininne sirennan ammanuwan Xoossaa woosso. Aissi giikko, siriya urai carkkoi sugin qaaxxiya abbaa beetaa mala."
+            "verse_text": "Xoossaa intte woossiyo woosa ubban a keehi galatiiddi, inttena koshshiyaabaa ubbau woossiteppe attin, issibaukka hirggoppite. Qassi asa eratettaa ubbaappe aadhdhiya Xoossaa sarotettai intte wozanaanne intte qofaa"
+
         },
         {
             "id": 26,
             "book": "Mazamure Maxaafaa",
             "reference": "32:6-7",
-            "verse_text": "Hegaa gishshau, Xoossaa asa gidiya ooninne, neeni beettishin, nena woosso. Gita haattai kixxiyo wode, tumuppe he uraa gakkenna. Neeni taayyo qosettiyo soho; neeni tana metuwaappe naagana. Atotettaa yettaa yexxiyaageeta ta yuushuwan wottadasa."
+            "verse_text": "Hegaa gishshau, Xoossaa asa gidiya ooninne, neeni beettishin, nena woosso. Gita haattai kixxiyo wode, tumuppe he uraa gakkenna. Neeni taayyo qosettiyo soho; neeni tana metuwaappe naagana. "
+
         },
         {
             "id": 27,
@@ -197,7 +203,8 @@
             "id": 33,
             "book": "Nahimiyaa Maxaafaa",
             "reference": "8:10",
-            "verse_text": "Qassi Nahimee gujjidikka hagaadan yaagiis; “Biite, modhdhuwaa miite; mal77iyaabaakka uyite; qassi bainnaageetussikka intteegaappe shaakkidi immite. Aissi giikko, hachchi gallassai nu GODAASSI geeshsha gallassa. GODAA ufaissai intteyyo wolqqa gidiyo gishshau azzanoppite” yaagiis."
+            "verse_text": "Qassi Nahimee gujjidikka hagaadan yaagiis; “Biite, modhdhuwaa miite; mal77iyaabaakka uyite; qassi bainnaageetussikka intteegaappe shaakkidi immite. Aissi giikko, hachchi gallassai nu GODAASSI geeshsha gallassa. "
+
         },
         {
             "id": 34,
@@ -287,7 +294,8 @@
             "id": 48,
             "book": "Yohaannisa",
             "reference": "11:25-27",
-            "verse_text": "Yesuusi iyyo, “Taani denddonne de7o; tana ammaniya urai harai atto, haiqqikkokka paxa de7ana. Qassi paxa de7iya urainne tana ammaniya urai ubbai mulekka haiqqenna; hegaa neeni ammanai?” yaagiis. Martta zaarada, “Godau, ee taani ammanais; neeni Xoossaa Na7aa, sa7aa yaanau de7iya Kiristtoosa gidiyoogaa taani ammanais” yaagaasu."
+            "verse_text": "Yesuusi iyyo, “Taani denddonne de7o; tana ammaniya urai harai atto, haiqqikkokka paxa de7ana. Qassi paxa de7iya urainne tana ammaniya urai ubbai mulekka haiqqenna; hegaa neeni ammanai?” yaagiis. Martta zaarada,"
+
         },
         {
             "id": 49,

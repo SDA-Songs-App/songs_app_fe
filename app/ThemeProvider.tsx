@@ -14,10 +14,10 @@ interface ThemeProviderProps {
 }
  const ThemeProvider:React.FC<ThemeProviderProps> = ({children}) =>{
     const colorScheme = Appearance.getColorScheme();
-    const [isDarkMode, setIsDarkMode] = useState(colorScheme =="dark")
+    const [isDarkMode, setIsDarkMode] = useState(colorScheme =="light")
     useEffect(() => {
         const subscription = Appearance.addChangeListener(({colorScheme}) =>{
-            setIsDarkMode(colorScheme == 'dark')
+            setIsDarkMode(colorScheme == 'light')
         })
         return () =>subscription.remove()
     }, [])

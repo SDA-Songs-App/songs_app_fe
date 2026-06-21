@@ -20,10 +20,10 @@ function MainApp() {
     <SafeAreaProvider>
       <StatusBar
         style="light"
-        backgroundColor={isDarkMode ? "#0a8f25" : "#1a1a1a"}
+        backgroundColor={isDarkMode ? "#1F6F5B" : "#1a1a1a"}
         translucent={false}
       />
-      <SafeAreaView style={{ flex: 1, backgroundColor: isDarkMode ? "black" : "green" }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: isDarkMode ? "black" : "#1F6F5B" }}>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen

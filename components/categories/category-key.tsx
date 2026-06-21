@@ -7,4 +7,5 @@ export type CategoryKey =
     | "WORSHIP"
     | "CONFESS"
     | "TESTIMONY"
+    | "MISCELLANEOUS"
     | "All"

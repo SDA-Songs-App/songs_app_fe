@@ -53,7 +53,8 @@
             "id": 8,
             "book": "Maatewos",
             "reference": "17:20",
-            "verse_text": "Innis akkana jedhee deebise; “Sababii amantiin keessan xinnaateefii dha. Ani dhuguman isinitti hima; isin utuu amantii xinnoo hamma sanyii sanaaficaa qabaattanii silaa tulluu kanaan, ‘Asii kaʼii achi darbi’ jechuu ni dandeessu; innis ni darba. Wanni isiniif hin dandaʼamne tokko iyyuu hin jiru. ["
+            "verse_text": "Innis akkana jedhee deebise; “Sababii amantiin keessan xinnaateefii dha. Ani dhuguman isinitti hima; isin utuu amantii xinnoo hamma sanyii sanaaficaa qabaattanii silaa tulluu kanaan, ‘Asii kaʼii achi darbi’ jechuu ni dandeessu; innis ni darba."
+        
         },
         {
             "id": 9,
@@ -71,7 +72,7 @@
             "id": 11,
             "book": "Roomaa",
             "reference": "8:38-39",
-            "verse_text": "Duuti yookaan jireenyi, ergamoonni yookaan bulchitoonni, hangafoonni, wanni ammaa yookaan wanni dhufuuf jiru yookaan humni tokko iyyuu, ol dheerinni yookaan gad fageenyi yookaan uumamni biraa kam iyyuu jaalala Waaqaa kan Kiristoos Yesuus Gooftaa keenyaa irraa akka gargar nu baasuu hin dandeenye ani amaneera."
+            "verse_text": "Duuti yookaan jireenyi, ergamoonni yookaan bulchitoonni, hangafoonni, wanni ammaa yookaan wanni dhufuuf jiru yookaan humni tokko iyyuu, ol dheerinni yookaan gad fageenyi yookaan uumamni biraa kam iyyuu jaalala Waaqaa kan Kiristoos Yesuus ..."
         },
         {
             "id": 12,
@@ -113,7 +114,7 @@
             "id": 18,
             "book": "2 Qorontos",
             "reference": "12:9-10",
-            "verse_text": "Inni garuu, “Ayyaanni koo si gaʼa; humni koo dadhabbii keessatti guutuu taʼaatii” naan jedhe. Kanaafuu humni Kiristoos akka narra boqotuuf waaʼee dadhabbii kootii caalchisee gammaduudhaan akka malee nan boona. Ani waaʼee Kiristoosiif jedhee dadhabbii keessatti, arrabsoo keessatti, gidiraa keessatti, ariʼatama keessatti, rakkina keessattis gammaduun koo kanumaaf. Yoos ani yeroon dadhabutti nan jabaadhaatii."
+            "verse_text": "Inni garuu, “Ayyaanni koo si gaʼa; humni koo dadhabbii keessatti guutuu taʼaatii” naan jedhe. Kanaafuu humni Kiristoos akka narra boqotuuf waaʼee dadhabbii kootii caalchisee gammaduudhaan akka malee nan boona ."
         },
         {
             "id": 19,
@@ -125,7 +126,7 @@
             "id": 20,
             "book": "Filiphisiiyus",
             "reference": "4:6-7",
-            "verse_text": "Waan hundumaa keessatti Waaqa kadhachuu fi waammataan, galata wajjinis gaaffii keessan Waaqatti dhiʼeeffadhaa malee waan tokko illee hin yaaddaʼinaa. Nagaan Waaqaa kan hubannaa hundaa ol taʼe sun karaa Kiristoos Yesuusiin qalbii fi yaada keessan ni eega."
+            "verse_text":" Waan hundumaa keessatti Waaqa kadhachuu fi waammataan, galata wajjinis gaaffii keessan Waaqatti dhiʼeeffadhaa malee waan tokko illee hin yaaddaʼinaa. Nagaan Waaqaa kan hubannaa hundaa ol taʼe sun karaa Kiristoos Yesuusiin.."
         },
         {
             "id": 21,

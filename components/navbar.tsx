@@ -42,6 +42,11 @@ import CategoryScroll from "./categories/categories";
 import { LanguageName } from "./categories/language-key";
 import { useRootNavigationState } from "expo-router";
 import { useLanguage } from "./languageContext/language-context";
+
+import {Audio} from "expo-av"
+import { categoryTranslations } from "./categories/categoryTranslations";
+import { LinearGradient } from "expo-linear-gradient";
+
 const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
@@ -67,17 +72,12 @@ const normalizeLyricsContents = (value: any): LyricsContent[] => {
 };
 const displayLanguage = (lang: string) => {
   if (!lang) return "";
-
-  const lower = lang.toLowerCase();
-
-  if (lower === "oromo" || lower === "nuer") {
-    return lower;
-  }
-
-  // everything else stays Ethiopic (NO conversion)
-  return lang;
+  lang ==(lang=='oromo'?'A.Oromo':lang);
+  return lang.charAt(0).toUpperCase() + lang.slice(1).toLowerCase();;
 };
 const NavbarScreen: FC<NavbarScreenProps> = () => {
+  const [sound, setSound] = useState<Audio.Sound | null>(null);
+const [isPlaying, setIsPlaying] = useState(false);
   const navigation = useNavigation<NavigationProp>();
   const { isDarkMode, toggleTheme } = useTheme();
   const [fontSize, setFontSize] = useState(18);
@@ -117,6 +117,40 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
   const [favorites, setFavorites] = useState<FavoriteKey[]>([]);
   const [selectedCategory,setSelectedCategory] = useState("All")
   //const route = useNavigation()
+  const playSound = async () => {
+  try {
+    if (sound) {
+      // If already loaded → toggle play/pause
+      if (isPlaying) {
+        await sound.pauseAsync();
+        setIsPlaying(false);
+      } else {
+        await sound.playAsync();
+        setIsPlaying(true);
+      }
+      return;
+    }
+
+    // Load sound first time
+    const { sound: newSound } = await Audio.Sound.createAsync(
+      require("../assets/audio/smu-audio.mp3") // <-- your file here
+    );
+
+    setSound(newSound);
+    setIsPlaying(true);
+    await newSound.playAsync();
+
+  } catch (error) {
+    console.log("Error playing sound:", error);
+  }
+};
+useEffect(() => {
+  return () => {
+    if (sound) {
+      sound.unloadAsync();
+    }
+  };
+}, [sound]);
 useEffect(() => {
   
      if (initialLanguage) {
@@ -170,7 +204,6 @@ useEffect(() => {
       .filter((l) => l.language === selectedLanguage && !l.deletedAt)
       .flatMap((l) => normalizeLyricsContents(l.LyricsContents));
   }, [dataSongs, selectedLanguage]);
-
   // Set filtered songs when dataSongs or language changes
   useEffect(() => {
     if (fullSongs.length > 0) {
@@ -257,7 +290,6 @@ useEffect(() => {
     )
     setFilteredSongs(filtered);
   };
-
   const fullLyricText = [
     selectedSong?.title,
     selectedSong?.chorus,
@@ -291,7 +323,7 @@ useEffect(() => {
     setFilteredSongs(fullSongs);
     setSearchModalVisible(false);
   }, [fullSongs]);
-  const songIndexInFullList = fullSongs.findIndex(s => s.Id === selectedSong?.Id);
+const songIndexInFullList = fullSongs.findIndex(s => s.Id === selectedSong?.Id);
 const MIN_SIZE = 20;
 const MAX_SIZE = 40;
 const pinchGesture = Gesture.Pinch()
@@ -308,7 +340,7 @@ const pinchGesture = Gesture.Pinch()
     runOnJS(setFontSize)(newSize);
   });
   //const categories = ["All","THANKSGIVING", "Testmony","Prayer","Praise", "Worship","CONFESS","DEVOTIONAL","CHRISTIAN_LIVING"]
-  const uniqueCategories = ["All",Array.from(new Set(filteredSongs.map(item => item.Category)))];
+const uniqueCategories = ["All",Array.from(new Set(filteredSongs.map(item => item.Category)))];
 const categories = useMemo(() => {
   const uniqueCategories = Array.from(
     new Set(filteredSongs.map(item => item.Category))
@@ -321,14 +353,40 @@ const songsByCategory = useMemo(()=>{
     return filteredSongs
   return filteredSongs.filter(song =>song.Category === selectedCategory)
 },[filteredSongs, selectedCategory])
+useEffect(() => {
+  return () => {
+    if (sound) {
+      sound.unloadAsync();
+    }
+  };
+}, [sound]);
 
+const displayLanguageName = (lang: string) => {
+  if (!lang) return "";
+
+  const normalized = lang.toLowerCase();
+
+  if (normalized === "amharic") return "አማርኛ";
+if (normalized === "sidama") return "ሲዳሚኛ";
+  return lang;
+};//category translation
+const translateCategory = (category?: string): string => {
+  if (!category) return "";
+
+  return (
+    categoryTranslations[
+      category as keyof typeof categoryTranslations]?.[selectedLanguage]
+     || category
+  );
+};
+//selectedLanguage ==(selectedLanguage !=='oromo'?selectedLanguage:'A.Oromo')
   return (
     <View style={styles.container}>
       {/* Navbar */}
       <View style={styles.navbar}>
         {selectedSong && (
           <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Icon name="home" size={20} color="#fff" />
+            <Icon name="home" size={18} color="#fff" />
           </TouchableOpacity>
         )}
         <Text style={styles.number}>
@@ -338,27 +396,38 @@ const songsByCategory = useMemo(()=>{
     : ""}
         </Text>
         <TouchableOpacity onPress={() => setSearchModalVisible(true)}>
-          <Icon name="search" size={20} color="#fff" />
+          <Icon name="search" size={18} color="#fff" />
         </TouchableOpacity>
         {selectedSong && (
           <TouchableOpacity onPress={() => toggleFavorite(selectedSong.Id, true)}>
-            <Icon name="plus-square" size={20} color="#fff" />
+            <Icon name="plus-square" size={18} color="#fff" />
           </TouchableOpacity>
         )}
         <TouchableOpacity onPress={() => setFavoritesModalVisible(true)}>
-          <Icon name="list" size={20} color="#fff" />
+          <Icon name="list" size={18} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => Alert.alert("Info", "መዝሙር ማጨዎቻ ሊሰራ ታቅዷል")}>
-          <Icon name="play" size={20} color="#fff" />
+          <Icon name={isPlaying?"pause":"play"} size={18} color="#fff" onPress={() =>playSound} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("ቅርጽ፟_ማስተካከያ")}>
-          <Icon name="cog" size={20} color="#fff" />
+          <Icon name="cog" size={18} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.pickerContainer}>
-          <Text style={styles.pickerText}> {displayLanguage(selectedLanguage)}</Text>
-        </TouchableOpacity>
+        <LinearGradient
+  colors={
+    isDarkMode
+      ? ["rgba(20, 100, 71, 0.9)", "rgba(20, 100, 71, 0.4)"]
+      : ["rgba(23, 47, 37, 0.9)", "rgba(23, 47, 37, 0.4)"]
+  }
+  style={styles.pickerContainer}
+>
+  <TouchableOpacity onPress={() => setModalVisible(true)}>
+    <Text style={styles.pickerText}>
+      {displayLanguage(selectedLanguage ) =='Oromo'?'A.Oromo':displayLanguage(selectedLanguage )}
+    </Text>
+  </TouchableOpacity>
+</LinearGradient>
         <TouchableOpacity onPress={toggleTheme}>
-          <Ionicons name={isDarkMode ? "moon" : "sunny"} size={25} color="#fff" />
+          <Ionicons name={isDarkMode ? "moon" : "sunny"} size={20} color="#fff" />
         </TouchableOpacity>
         </View>
         <View>
@@ -413,12 +482,12 @@ const songsByCategory = useMemo(()=>{
                               : null}
                           </Text>
                           <Text style={[styles.artistBio, { color: isDarkMode ? "#aaa" : "#555" }]}>
-                            {selectedSong?.Artist?.bio || "Not found"}
+                            {translateCategory(selectedSong?.Category) || "Not found"}
                           </Text>
                 </View>  
               </ScrollView>
               <View style ={{display:"flex"}}>             
-                <View style={[styles.floatingButtonContainer, { backgroundColor: isDarkMode ? "#000" : "#fff" }]}>
+                <View style={[styles.floatingButtonContainer]}>
                   <CollapsibleActionButton
                     fullLyricText={fullLyricText}
                     onCopy={handleCopy}
@@ -445,7 +514,8 @@ const songsByCategory = useMemo(()=>{
           lyricsData={filteredSongs} 
           selectedCategory={selectedCategory} 
           setSelectedCategory={setSelectedCategory}
-          selectedLanguage={selectedLanguage as LanguageName}>
+          selectedLanguage={selectedLanguage as LanguageName}
+          translateCategory={translateCategory}>
       </CategoryScroll>
     </View>
     <View style={styles.searchHeader}>
@@ -538,7 +608,9 @@ const songsByCategory = useMemo(()=>{
               }}
               style={styles.languageOption}
             >
-              <Text style={styles.languageText}>{language ==="ሲዳሚኛ"?"ሲዳምኛ":language}</Text>
+             <Text style={styles.languageText}>
+              {displayLanguageName(language) ==='oromo'?'A.Oromo':displayLanguage(language)}
+             </Text>
             </TouchableOpacity>
           ))}
         </View>

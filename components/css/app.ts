@@ -19,7 +19,12 @@ const getStyles = (
       justifyContent: "space-between",
       alignItems: "center",
       padding: 5,
-      backgroundColor: isDarkMode ? "green" : "#2a2a2a",
+      backgroundColor: isDarkMode ? "#1F6F5B" : "#2a2a2a",
+        borderBottomWidth: 0.5,
+  borderBottomColor: isDarkMode ? "#2E8B57" : "#DCEFE2",
+  elevation: 4, // Android shadow
+  shadowOpacity: 0.12, // iOS shadow
+
       //// marginTop: 2,
     },
     number: {
@@ -98,7 +103,7 @@ const getStyles = (
         // marginBottom: 60,
          transform: [{ scale: 0.8 }],
          marginRight:  -42,
-       //  backgroundColor:isDarkMode ? "#fff":"#07c455ff"
+         backgroundColor:isDarkMode ? "#fff":"#1F6F5B"
       
     },
     categoryButton: {
@@ -328,15 +333,22 @@ const getStyles = (
     },
 
     pickerContainer: {
-      width: 50,
+      width: 65,
       fontSize: 20,
       fontWeight: "100",
       paddingVertical: 5,
       paddingRight: -7,
+      borderWidth:0.8,
+      borderColor:'#ccc',
+      borderRadius:15,
+      textAlign:'center',
+      alignContent:'center'
+      //backgroundColor:isDarkMode?'#146447':'#172f26'
     },
     pickerText: {
-      color: "#fff",
+      color: isDarkMode?"#fff":"#fff",
       fontSize: 13,
+      textAlign:'center',
       //fontFamily: fontFamily,
       fontWeight: "bold",
     },

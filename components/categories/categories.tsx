@@ -1,10 +1,10 @@
 import { LyricsContent } from "@/constants/songsTypes";
-interface Props {
-  lyricsData: LyricsContent[];
-  selectedCategory: string;
-  setSelectedCategory: (category: string) => void;
-  selectedLanguage: LanguageName; // use proper type
-}
+// interface Props {
+//   lyricsData: LyricsContent[];
+//   selectedCategory: string;
+//   setSelectedCategory: (category: string) => void;
+//   selectedLanguage: LanguageName; // use proper type
+// }
 import React, { useMemo } from "react";
 import {
   ScrollView,
@@ -22,12 +22,15 @@ interface Props {
   selectedCategory: string;
   setSelectedCategory: (category: string) => void;
   selectedLanguage: LanguageName; // use proper type
+  translateCategory:   (category?: string) => string;
 }
 export default function CategoryScroll({
   lyricsData,
   selectedCategory,
   setSelectedCategory,
   selectedLanguage, 
+  translateCategory
+  
 }: Props) {
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === "dark";
@@ -46,7 +49,7 @@ export default function CategoryScroll({
       >
         {categories.map((item) => {
           const isActive = selectedCategory === item;
-          const translationLabel = categoryTranslations[item as CategoryKey]?.[selectedLanguage] ?? item;
+          const translationLabel = translateCategory(item);
           return (
             <Pressable
               key={item}
@@ -55,7 +58,7 @@ export default function CategoryScroll({
                 styles.chip,
                 {
                   backgroundColor: isActive
-                    ? "#2e7d32"
+                    ? "#1F6F5B"
                     : isDarkMode
                     ? "#1e1e1e"
                     : "#f1f1f1",

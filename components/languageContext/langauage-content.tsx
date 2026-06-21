@@ -106,7 +106,7 @@ export const versesLLocalization: Record<string, VerseLocalization> = {
      more:oromo.more
   },
 
-  ትግረኛ: {
+  ትግርኛ: {
     langId:3,
     setting:tigre.setting,
     userGuide:tigre.userGuide,
