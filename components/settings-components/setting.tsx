@@ -24,7 +24,6 @@ const SettingsScreen = () => {
   const {language} = useLanguage()   // coming from gloabl context 
   type Language = keyof typeof versesLLocalization;
   const contentInCurrentLang = versesLLocalization[language];
-
   return (
     <ScrollView style={styles.container}>
       {/* Back button + header */}
@@ -68,11 +67,6 @@ const SettingsScreen = () => {
               label={contentInCurrentLang.privacyPolicy.title}
         onPress={() =>navigation.navigate("Privacy")}/>
       </View>
-
- 
-      {/* Refer a friend */}
-
-      {/* Other Settings */}
       <View style={styles.card}>
         <SettingRow 
             icon={<Ionicons 
@@ -141,5 +135,4 @@ const styles = StyleSheet.create({
   referText: { color: "#fff", fontSize: 16, fontWeight: "600" },
   referSubText: { color: "#fff", marginTop: 4 },
 });
-
 export default SettingsScreen;

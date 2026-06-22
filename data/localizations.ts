@@ -75,7 +75,7 @@ const localizations =[
         CopyErrorTitle:"ስህተት",
         CopyErrorDescription:"መዝሙሩን ማጋራት አልተቻለም።",
         LyricsCopiedTitle:"ተቀድቷል",
-          SearchHolder:"Hasi ...",
+        SearchHolder:"Hasi ...",
         LyricsCopiedDescription:"መዝሙሩ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
 
     },

@@ -79,6 +79,22 @@ const UserGuide = () => {
     <Icon name="list" size={20} color="#000" />
     <Text style={styles.cell}>{"፡  "}የተመረጡ የመዝሙር ዝርዝርን ያሳያል</Text>
   </View>
+
+   {/* Search list*/}
+  <View style={styles.row}>
+    <Icon name="cog" size={20} color="#000" />
+    <Text style={styles.cell}>{"፡  "}የመተግበሪያውን ቅንብሮች ይከፍታል</Text>
+  </View>
+  <View style={styles.row}>
+    <Icon name="sun" size={20} color="#000" />
+    <Text>/</Text>
+    <Icon name="moon" size={20} color="#000" />
+    <Text style={styles.cell}>{"፡  "}የብርሃን ወይም የጨለማ ገጽታ ያሳያል</Text>
+  </View>
+  <View style={styles.row}>
+    <Icon name="plus" size={18} color="#fff" style ={{backgroundColor:'green', borderRadius:20}} />
+    <Text style={styles.cell}>{"፡  "}የተመረጠውን መዝሙር ለሌሎች ተጠቃሚዎች በተለያዩ መተግበሪያዎች(Telegram, WhatsApp, Facebook) ወዘተ ወደሚያጋራ እንዲሁም የተመረጠውን መዝሙር ኮፒ ለማድረግ ወደሚያስሽል ምልክት ያመራል</Text>
+  </View>
 </View>
         
     </ScrollView>

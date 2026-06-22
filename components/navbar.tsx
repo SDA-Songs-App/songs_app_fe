@@ -521,7 +521,7 @@ const translateCategory = (category?: string): string => {
     <View style={styles.searchHeader}>
               <TextInput
                 style={styles.fancyInput}
-                placeholder={localizations.find((key) => key.language === selectedLanguage)?.SearchHolder || "Search..."}
+                placeholder={localizations.find((key) => key.language === selectedLanguage)?.SearchHolder || "Barbaad ..."}
                 placeholderTextColor="#888"
                 value={searchText}
                 onChangeText={(text) => {
