@@ -472,7 +472,7 @@ fancyInput: {
   borderTopLeftRadius: 0,
   backgroundColor: isDarkMode ? "#d1cdcdff" : "#1e1e1e",
   paddingHorizontal: 15,
-  color: "#fff",
+  color: isDarkMode?"#000":'#fff',
   fontSize: 16,
 },
 orderText: {
