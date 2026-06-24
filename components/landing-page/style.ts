@@ -133,7 +133,7 @@ verticalBarContainer: {
 verticalBar: {
    position: "absolute",
   width: scale(4),          // make bar narrow if shadow is vertical
-  height: "109%",    // full height
+  height: "110%",    // full height
   borderRadius: 3,
   backgroundColor: isDarkMode?"#1F6F5B":'#fff', // main bar color
   shadowColor: "#000",

@@ -192,7 +192,7 @@ export const versesLLocalization: Record<string, VerseLocalization> = {
      contents_translation:sidama.contents_translations as Verse[]
   },
 
-  Nuer: {
+  nuer: {
     langId:8,
     setting:nuer.setting,
     userGuide:nuer.userGuide,

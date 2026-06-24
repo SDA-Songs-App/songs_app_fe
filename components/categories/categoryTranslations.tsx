@@ -106,7 +106,7 @@ Record<string, string>
   All:{
     አማርኛ:'ሁሉም',
     oromo:'Hundum',
-    ወላይትኛ:'All',
+    ወላይትኛ:'Ubba',
     ትግርኛ:'ኩሉ', 
     ጉራጊኛ:'ሁሉም',
     ከምባትኛ:'Hundanka', 

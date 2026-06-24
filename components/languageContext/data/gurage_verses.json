@@ -318,26 +318,26 @@
         "title": "setting"
     },
     "userGuide": {
-        "title": "አጠቃቀም"
+        "title": "የተጠቃሚ መመሪያ"
     },
     "about": {
-        "title": "አጠቃቀም",
-        "titleDescription": ""
+        "title": "ስለ መተግበሪያው",
+        "titleDescription": "ይህ መተግበሪያ በኢትዮጵያ ሰባትኛ ቀን አድቬንቲስት ቤ/ያን በተለያዩ ቋንቋዎች ያሉ መዝሙሮችን ያቀርባል፤ ተጠቃሚዎችም በመረጡት ቋንቋ መዝሙሮችን በቀላሉ እንዲያነቡ፣ እንዲማሩ እና እንዲዘምሩ ያግዛል።"
     },
     "sharing": {
-        "title": "ስለ መተግበሪያው"
-    },
-    "privacyPolicy": {
         "title": "መተግበሪያውን ያጋሩ"
     },
+    "privacyPolicy": {
+        "title": "የግላዊነት ፖሊሲ"
+    },
     "shareLyricsWithUs": {
-        "title": "መዝሙርን ያጋሩን"
+        "title": "መዝሙር ያጋሩን"
     },
     "contributors": {
         "title": " አስተዋጽኦ አድራጊዎች "
     },
     "contactUs": {
-        "title": " አስተዋጽኦ አድራጊዎች "
+        "title": "ያግኙን(አስተያየት) "
     },
     "more": {
         "title": "ተጨማሪ "

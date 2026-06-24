@@ -2,9 +2,13 @@ import React from "react";
 import { versesLLocalization } from "../languageContext/langauage-content";
 import { useLanguage } from "../languageContext/language-context";
 import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { useTheme } from "@/app/ThemeProvider";
+import getStyle from "./css/about-css";
 const About = () => {
    const {language} = useLanguage()   // coming from gloabl context 
   //  type Language = keyof typeof versesLLocalization;
+  const { isDarkMode, toggleTheme } = useTheme();
+     const styles = getStyle(isDarkMode);
     const contentInCurrentLang = versesLLocalization[language];
   return (
     <ScrollView style={styles.container}>
@@ -63,39 +67,4 @@ const About = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: "bold",
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "600",
-    marginTop: 16,
-    marginBottom: 8,
-  },
-  text: {
-    fontSize: 16,
-    lineHeight: 24,
-    marginBottom: 10,
-    color: "#333",
-  },
-  list: {
-    marginLeft: 10,
-    marginBottom: 10,
-  },
-  listItem: {
-    fontSize: 16,
-    lineHeight: 22,
-    marginBottom: 4,
-  },
-});
-
 export default About;

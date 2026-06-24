@@ -102,7 +102,9 @@ return (
       <RNPickerSelect
         onValueChange={handleLanguageChange}
         value={language}
-        items={languageOptions }
+        items={languageOptions.map( item =>({
+          ...item, label:item.label =='oromo'?'A.Oromo': item.label =='nuer'?'Nuer':item.label
+        })) }
         placeholder={{label:header, value:null}}
         style={{
           inputIOS: styles.languageBox,

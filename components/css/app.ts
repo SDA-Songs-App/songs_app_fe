@@ -1,5 +1,6 @@
 import { useTheme } from "@/app/ThemeProvider";
 import { Dimensions, StyleSheet } from "react-native";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 const { width, height } = Dimensions.get("window");
 const getStyles = (
   isDarkMode: boolean,
@@ -79,15 +80,17 @@ const getStyles = (
     favoriteSongItem: {},
     verse1Style: {
       color: isDarkMode ? "black" : "white",
-      fontSize: fontSize, //20
-      fontFamily: fontFamily,
-      paddingBottom: 30,
-      fontWeight: "bold",
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "flex-start",
-      lineHeight: fontSize * 1.5,
-      paddingLeft:20
+     // color: isDarkMode ? 'black' : 'white',
+  fontFamily: fontFamily,
+  //fontWeight: 'bold',
+
+  fontSize: moderateScale(16),
+  lineHeight: moderateScale(24),
+
+  textAlign: 'left',      // align all line starts
+  width: '70%',           // fixed width for the verse block
+  paddingBottom: 30,
+     // lineHeight: moderateScale(24)
     },
     footer: {
       fontSize: 12,
@@ -218,7 +221,7 @@ const getStyles = (
       borderTopRightRadius: 20,
     },
     selectedSongPlainTitle: {
-       fontSize: fontSize + fontSize * 0.25,
+      //fontSize: fontSize + fontSize * 0.25,
       textShadowColor: isDarkMode ? "rgba(13, 106, 18, 0.75)" : "#F295ED",
       textShadowOffset: { width: 0, height: 0 },
       textShadowRadius: 10,
@@ -226,23 +229,29 @@ const getStyles = (
       textDecorationLine: "underline",
       textDecorationStyle: "solid",
       textDecorationColor: isDarkMode ? "rgba(13, 106, 18, 0.75)" : "#F295ED",
-      textAlign: "center",
+      textAlign: "left",
       color: isDarkMode ? "rgba(0, 11, 28, 0.8)" : "rgba(255, 244, 227, 0.8)",
       fontWeight: "bold",
       paddingBottom: 10,
-      padding: 5,
-    },
+      paddingTop:20,
+      fontSize:moderateScale(16),//scale(18),
+
+     },
     selectedSongTitle: {
-      fontSize: fontSize,
       fontFamily: fontFamily,
-      fontWeight: "bold",
-      color: isDarkMode ? "green" : "#00FFFF",
-      paddingBottom: 20,
-     // textAlign:"center"
-     paddingLeft:20
+     // color: isDarkMode ? "green" : "#00FFFF",
+      color: isDarkMode ? "rgba(0, 11, 28, 0.8)" : "rgba(255, 244, 227, 0.8)",
+
+     // paddingBottom: 10,
+      textAlign:"left",
+      width:'70%',
+      fontSize:moderateScale(18),//scale(18),
+      textShadowColor: isDarkMode ? "rgba(13, 106, 18, 0.75)" : "#F295ED",
+      textShadowOffset: { width: 0, height: 0 },
+      textShadowRadius: 10,
+      textDecorationStyle: "solid",
     },
-  
-    controlButton: {
+      controlButton: {
       fontSize: 18,
       fontFamily: fontFamily,
       fontWeight: "bold",
@@ -302,9 +311,10 @@ const getStyles = (
     },
     modalContent: {
       position: "absolute",
-      top: 60,
+      top: 50,
       right: 5,
-      width: width * 0.3, //for responsive sizing
+      minWidth: 140, 
+      maxWidth:200,//for responsive sizing
       backgroundColor: isDarkMode ? "#fff" : "#2a2a2a",
       borderRadius: 8,
       borderWidth: isDarkMode ? 0 : 1,

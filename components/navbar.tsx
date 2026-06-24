@@ -16,6 +16,7 @@ import {
   Button,
   FlatList,
   Pressable,
+  ActivityIndicator,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
@@ -42,7 +43,7 @@ import CategoryScroll from "./categories/categories";
 import { LanguageName } from "./categories/language-key";
 import { useRootNavigationState } from "expo-router";
 import { useLanguage } from "./languageContext/language-context";
-
+import * as Progress from "react-native-progress";
 import {Audio} from "expo-av"
 import { categoryTranslations } from "./categories/categoryTranslations";
 import { LinearGradient } from "expo-linear-gradient";
@@ -89,6 +90,7 @@ const [isPlaying, setIsPlaying] = useState(false);
     windowDimensions.width > windowDimensions.height ? "landscape" : "portrait"
   );
   const { dataSongsToLoad: dataSongs, setDataSongs, syncUpdates } = useSongs();
+  const [syncProgress, setSyncProgress] = useState(0);
   // Orientation
   useEffect(() => {
     const handleOrientationChange = ({ window }: { window: any }) => {
@@ -185,18 +187,29 @@ useEffect(() => {
   }, []);
   // Fetch songs from backend or local DB
   useEffect(() => {
+    let interval:NodeJS.Timeout;
     const fetchAndSyncSongs = async () => {
       try {
         setLoading(true);
+        setSyncProgress(0);
+        interval = setInterval(() =>{
+          setSyncProgress(prev =>{
+            if(prev >=95) return prev;
+            return prev + 2;
+          })
+        }, 300)
         await initializeDatabase();
         await syncUpdates(); // fetch new songs from backend
       } catch (error) {
         console.error("Failed to fetch and sync songs:", error);
       } finally {
-        setLoading(false);
+        clearInterval(interval);
       }
     };
     fetchAndSyncSongs();
+    return () =>{
+       if(interval) clearInterval(interval)
+    }
   }, []);
   // Derived: full songs of selected language
   const fullSongs = useMemo(() => {
@@ -210,6 +223,10 @@ useEffect(() => {
       setFilteredSongs(fullSongs);
       setSelectedSong(fullSongs[0]);
       setCurrentSongIndex(0);
+      setSyncProgress(100); 
+      setTimeout(() => {
+      setLoading(false);
+    }, 300); 
     }
   }, [fullSongs]);
  const uniqueLanguages = useMemo(() => {
@@ -290,8 +307,10 @@ useEffect(() => {
     )
     setFilteredSongs(filtered);
   };
+  const underline = selectedSong?.title ? "*".repeat(selectedSong.title.length) : "";
   const fullLyricText = [
     selectedSong?.title,
+    underline,
     selectedSong?.chorus,
     selectedSong?.verse1,
     selectedSong?.verse2,
@@ -300,7 +319,7 @@ useEffect(() => {
     selectedSong?.verse5,
     selectedSong?.verse6,
     selectedSong?.verse7,
-  ].filter(Boolean).join("\n");
+  ].filter(Boolean).join("\n \n");
   const handleCopy = (text: string) => {
     Clipboard.setString(text);
     Alert.alert(
@@ -429,8 +448,34 @@ const translateCategory = (category?: string): string => {
         <TouchableOpacity onPress={toggleTheme}>
           <Ionicons name={isDarkMode ? "moon" : "sunny"} size={20} color="#fff" />
         </TouchableOpacity>
+        
         </View>
         <View>
+          
+             {/* Sync Progress */}
+    {loading ? (
+        <View
+    style={{
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop:80
+    }}
+  >
+    <ActivityIndicator size="large" color={isDarkMode?"#1F6F5B":'#fff'} />
+    <Text
+      style={{
+        marginTop: 40,
+        fontSize: 16,
+        color: isDarkMode ? "#fff" : "#000",
+      }}
+    >
+      Syncing...
+    </Text>
+  </View>
+   
+    ):(
+          <View>
              <ScrollView style={styles.scrollContainer} contentContainerStyle={{ flexGrow: 1}}>
                 {selectedSong && (
                     <ImageBackground
@@ -440,7 +485,7 @@ const translateCategory = (category?: string): string => {
                           : require("../assets/images/inverted_S.jpg")
                       }
                       resizeMode="cover"
-                      style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42,  }]}
+                      style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42,   minHeight: deviceHeight, }]}
                     >
                       <GestureDetector gesture={pinchGesture}>
                        <Animated.View> 
@@ -450,6 +495,7 @@ const translateCategory = (category?: string): string => {
                     config={{ velocityThreshold: 0.5, directionalOffsetThreshold: 50 }}
                   >
                       <SafeAreaView style={{ flex: 1}}>
+                        <View style={{ width: "100%", alignItems: "center" }}>
                         {selectedSong.title && 
                         <Text style={styles.selectedSongPlainTitle}>
                           {selectedSong.title
@@ -458,6 +504,7 @@ const translateCategory = (category?: string): string => {
                             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                             .join(" ")}
                         </Text>}
+                        
                         {selectedSong.chorus && 
                         <Text style={styles.selectedSongTitle}>{selectedSong.chorus}{'\n \n'}</Text>}
                             {[selectedSong.verse1, selectedSong.verse2, selectedSong.verse3, selectedSong.verse4,
@@ -465,7 +512,8 @@ const translateCategory = (category?: string): string => {
                               .filter(Boolean)
                               .map((verse, idx) => (
                         <Text key={idx} style={styles.verse1Style}>{verse}</Text>
-                          ))}                        
+                          ))} 
+                        </View>                       
                       </SafeAreaView>                     
                       </GestureRecognizer>
                       </Animated.View> 
@@ -497,6 +545,8 @@ const translateCategory = (category?: string): string => {
                 
               </View>
               </View>
+             </View>
+              )}
       </View>
       <Modal
         isVisible={isSearchModalVisible}

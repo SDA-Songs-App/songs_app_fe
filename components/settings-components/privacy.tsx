@@ -1,8 +1,11 @@
 
 import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
-
+import { useTheme } from "@/app/ThemeProvider";
+import getStyle from "./css/privacy-css";
 const Privacy = () => {
+   const { isDarkMode, toggleTheme } = useTheme();
+   const styles = getStyle(isDarkMode);
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>የግላዊነት መመሪያ</Text>
@@ -51,36 +54,3 @@ const Privacy = () => {
 
 export default Privacy;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  date: {
-    textAlign: "center",
-    marginBottom: 20,
-    color: "gray",
-  },
-  section: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginTop: 15,
-  },
-  paragraph: {
-    fontSize: 14,
-    lineHeight: 20,
-    marginTop: 5,
-  },
-  footer: {
-    marginTop: 30,
-    textAlign: "center",
-    fontWeight: "bold",
-  },
-})
