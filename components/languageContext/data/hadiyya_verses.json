@@ -1,8 +1,8 @@
 {
     "langId": 3,
     "titleTop": "Itophphe'i Adveentist",
-    "titleMain": " Uunxaqq Minine",
-    "titleMain2": "Anan Anan Suumuwwinne Gudaakkoo Baxisaancho",
+    "titleMain": " Uunxaxx Minene",
+    "titleMain2": "Anan Anan Suumuwwinne Gudaakkoo Applikeeshiina",
     "selectHeader": "Suume Doo'llehe",
     "buttonText": "Asheere",
     "scriptureTitle": "✨ Ayyaa'mmi Keesammi Sagara",
@@ -321,15 +321,15 @@
         "title": "Awwaaxaa'n awonsaa"
     },
     "about": {
-        "title": "Baxisaanch bikkina",
+        "title": "Applikeeshii'n bikkina",
         "titleDescription": "ይህ መተግበሪያ በኢትዮጵያ ሰባትኛ ቀን አድቬንቲስት ቤ/ያን በተለያዩ ቋንቋዎች ያሉ መዝሙሮችን ያቀርባል፤ ተጠቃሚዎችም በመረጡት ቋንቋ መዝሙሮችን በቀላሉ እንዲያነቡ፣ እንዲማሩ እና እንዲዘምሩ ያግዛል።"
 
     },
     "sharing": {
-        "title": "Baxisaancho daayansehe"
+        "title": "Applikeeshiina daayansehe"
     },
     "privacyPolicy": {
-        "title": "Annomax seera privacy"
+        "title": "Annomax seera(privacy policy)"
     },
     "shareLyricsWithUs": {
         "title": "Gemero'o daayansehe "

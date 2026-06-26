@@ -12,7 +12,6 @@ import {
   SafeAreaView,
   Platform,
   KeyboardAvoidingView,
-  Animated,
   Button,
   FlatList,
   Pressable,
@@ -38,12 +37,11 @@ import { initializeDatabase } from "@/data/database/localDb";
 import { useSongs } from "@/lyricsContext/context";
 import { RootStackParams } from "@/app/types";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
-import { runOnJS, useSharedValue } from "react-native-reanimated";
+import Animated,{ runOnJS, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 import CategoryScroll from "./categories/categories";
 import { LanguageName } from "./categories/language-key";
 import { useRootNavigationState } from "expo-router";
 import { useLanguage } from "./languageContext/language-context";
-import * as Progress from "react-native-progress";
 import {Audio} from "expo-av"
 import { categoryTranslations } from "./categories/categoryTranslations";
 import { LinearGradient } from "expo-linear-gradient";
@@ -115,7 +113,7 @@ const [isPlaying, setIsPlaying] = useState(false);
   const [swipeLock, setSwipeLock] = useState(false);
   const [loading, setLoading] = useState(false);
   const scale = useSharedValue(1);
-  const savedScale = useSharedValue(16);
+  const savedScale = useSharedValue(fontSize);
   const [favorites, setFavorites] = useState<FavoriteKey[]>([]);
   const [selectedCategory,setSelectedCategory] = useState("All")
   //const route = useNavigation()
@@ -146,6 +144,9 @@ const [isPlaying, setIsPlaying] = useState(false);
     console.log("Error playing sound:", error);
   }
 };
+useEffect(() => {
+  savedScale.value = fontSize;
+}, [fontSize]);
 useEffect(() => {
   return () => {
     if (sound) {
@@ -343,7 +344,7 @@ useEffect(() => {
     setSearchModalVisible(false);
   }, [fullSongs]);
 const songIndexInFullList = fullSongs.findIndex(s => s.Id === selectedSong?.Id);
-const MIN_SIZE = 20;
+const MIN_SIZE = 16;
 const MAX_SIZE = 40;
 const pinchGesture = Gesture.Pinch()
   .onUpdate((event) => {
@@ -398,6 +399,11 @@ const translateCategory = (category?: string): string => {
      || category
   );
 };
+const animatedStyle = useAnimatedStyle(() => {
+  return {
+    transform: [{ scale: scale.value }],
+  };
+});
 //selectedLanguage ==(selectedLanguage !=='oromo'?selectedLanguage:'A.Oromo')
   return (
     <View style={styles.container}>
@@ -432,25 +438,25 @@ const translateCategory = (category?: string): string => {
           <Icon name="cog" size={18} color="#fff" />
         </TouchableOpacity>
         <LinearGradient
-  colors={
-    isDarkMode
-      ? ["rgba(20, 100, 71, 0.9)", "rgba(20, 100, 71, 0.4)"]
-      : ["rgba(23, 47, 37, 0.9)", "rgba(23, 47, 37, 0.4)"]
-  }
-  style={styles.pickerContainer}
->
-  <TouchableOpacity onPress={() => setModalVisible(true)}>
-    <Text style={styles.pickerText}>
-      {displayLanguage(selectedLanguage ) =='Oromo'?'A.Oromo':displayLanguage(selectedLanguage )}
-    </Text>
-  </TouchableOpacity>
-</LinearGradient>
+        colors={
+          isDarkMode
+            ? ["rgba(20, 100, 71, 0.9)", "rgba(20, 100, 71, 0.4)"]
+            : ["rgba(23, 47, 37, 0.9)", "rgba(23, 47, 37, 0.4)"]
+        }
+        style={styles.pickerContainer}
+      >
+        <TouchableOpacity onPress={() => setModalVisible(true)}>
+          <Text style={styles.pickerText}>
+            {displayLanguage(selectedLanguage ) =='Oromo'?'A.Oromo':displayLanguage(selectedLanguage )}
+          </Text>
+        </TouchableOpacity>
+      </LinearGradient>
         <TouchableOpacity onPress={toggleTheme}>
           <Ionicons name={isDarkMode ? "moon" : "sunny"} size={20} color="#fff" />
         </TouchableOpacity>
         
-        </View>
-        <View>
+      </View>
+      <View>
           
              {/* Sync Progress */}
     {loading ? (
@@ -488,7 +494,7 @@ const translateCategory = (category?: string): string => {
                       style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42,   minHeight: deviceHeight, }]}
                     >
                       <GestureDetector gesture={pinchGesture}>
-                       <Animated.View> 
+                       <Animated.View style={animatedStyle}> 
                   <GestureRecognizer
                     onSwipeLeft={onSwipeLeft}
                     onSwipeRight={onSwipeRight}
@@ -516,7 +522,7 @@ const translateCategory = (category?: string): string => {
                         </View>                       
                       </SafeAreaView>                     
                       </GestureRecognizer>
-                      </Animated.View> 
+                      </Animated.View > 
                       </GestureDetector>
                     </ImageBackground>
                 )} 
@@ -533,8 +539,8 @@ const translateCategory = (category?: string): string => {
                             {translateCategory(selectedSong?.Category) || "Not found"}
                           </Text>
                 </View>  
-              </ScrollView>
-              <View style ={{display:"flex"}}>             
+            </ScrollView>
+            <View style ={{display:"flex"}}>             
                 <View style={[styles.floatingButtonContainer]}>
                   <CollapsibleActionButton
                     fullLyricText={fullLyricText}
@@ -544,9 +550,9 @@ const translateCategory = (category?: string): string => {
                   />
                 
               </View>
-              </View>
-             </View>
-              )}
+            </View>
+         </View>
+          )}
       </View>
       <Modal
         isVisible={isSearchModalVisible}

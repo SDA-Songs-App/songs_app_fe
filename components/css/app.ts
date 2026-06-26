@@ -1,13 +1,16 @@
 import { useTheme } from "@/app/ThemeProvider";
+import { useState } from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import { moderateScale, verticalScale } from "react-native-size-matters";
 const { width, height } = Dimensions.get("window");
+
 const getStyles = (
   isDarkMode: boolean,
   fontSize: number,
   fontFamily: string
 ) => {
   // const { isDarkMode } = useTheme();
+  
   return StyleSheet.create({
     container: {
       backgroundColor: isDarkMode ? "#f2f2f2" : "#1a1a1a",
@@ -84,8 +87,8 @@ const getStyles = (
   fontFamily: fontFamily,
   //fontWeight: 'bold',
 
-  fontSize: moderateScale(16),
-  lineHeight: moderateScale(24),
+  fontSize: moderateScale(fontSize),
+  lineHeight: moderateScale(fontSize),
 
   textAlign: 'left',      // align all line starts
   width: '70%',           // fixed width for the verse block
@@ -234,7 +237,7 @@ const getStyles = (
       fontWeight: "bold",
       paddingBottom: 10,
       paddingTop:20,
-      fontSize:moderateScale(16),//scale(18),
+      fontSize:moderateScale(fontSize),//scale(18),
 
      },
     selectedSongTitle: {
@@ -245,7 +248,7 @@ const getStyles = (
      // paddingBottom: 10,
       textAlign:"left",
       width:'70%',
-      fontSize:moderateScale(18),//scale(18),
+      fontSize:moderateScale(fontSize),//scale(18),
       textShadowColor: isDarkMode ? "rgba(13, 106, 18, 0.75)" : "#F295ED",
       textShadowOffset: { width: 0, height: 0 },
       textShadowRadius: 10,
