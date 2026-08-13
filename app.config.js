@@ -2,6 +2,17 @@ export default ({ config }) => ({
   ...config,
   plugins: [
     ...(config.plugins || []),
+     [
+      "expo-build-properties",
+      {
+        android: {
+          compileSdkVersion: 35,
+          targetSdkVersion: 35,
+          buildToolsVersion: "35.0.0",
+        },
+      },
+    ]
+    ,
     "expo-router"
   ],
   extra: {

@@ -13,6 +13,7 @@ import UserGuide from "@/components/settings-components/user-guide";
 import Contributors from "@/components/settings-components/contributors";
 import Privacy from "@/components/settings-components/privacy";
 import ShareToTelegram from "@/components/settings-components/share-song";
+import Toast from "react-native-toast-message";
 const Stack = createNativeStackNavigator();
 
 function MainApp() {
@@ -62,6 +63,7 @@ function MainApp() {
               name='ShareSong'
               component={ShareToTelegram}/>
           </Stack.Navigator>
+           <Toast />
         </GestureHandlerRootView>
       </SafeAreaView>
     </SafeAreaProvider>

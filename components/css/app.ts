@@ -83,17 +83,16 @@ const getStyles = (
     favoriteSongItem: {},
     verse1Style: {
       color: isDarkMode ? "black" : "white",
-     // color: isDarkMode ? 'black' : 'white',
-  fontFamily: fontFamily,
-  //fontWeight: 'bold',
-
-  fontSize: moderateScale(fontSize),
-  lineHeight: moderateScale(fontSize),
-
-  textAlign: 'left',      // align all line starts
-  width: '70%',           // fixed width for the verse block
-  paddingBottom: 30,
-     // lineHeight: moderateScale(24)
+      fontFamily: fontFamily,
+      fontSize: moderateScale(fontSize),
+      lineHeight: moderateScale(fontSize),
+      alignItems: 'center',      // align all line starts
+     // width: '100%',           // fixed width for the verse block
+      paddingBottom: 30,     
+      alignContent:'flex-start',
+      paddingLeft:5
+     // textAlign: 'left',
+  //alignSelf: 'stretch',
     },
     footer: {
       fontSize: 12,
@@ -247,7 +246,8 @@ const getStyles = (
 
      // paddingBottom: 10,
       textAlign:"left",
-      width:'70%',
+     // width:'100%',
+      paddingLeft:5,
       fontSize:moderateScale(fontSize),//scale(18),
       textShadowColor: isDarkMode ? "rgba(13, 106, 18, 0.75)" : "#F295ED",
       textShadowOffset: { width: 0, height: 0 },
@@ -405,19 +405,21 @@ const getStyles = (
       marginLeft: 10,
       height: 40,
     },
-    favoritesModalContainer: {
-      justifyContent: "center",
-      margin: 20,
-    },
-    favoritesModalContent: {
-      backgroundColor: isDarkMode ? "#fff" : "black",
+favoritesModalContainer: {
+ 
+  justifyContent: "center",
+ 
+  margin: 20,
+},
+favoritesModalContent: {
+ backgroundColor: isDarkMode ? "#fff" : "black",
       fontFamily: fontFamily,
-      padding: 20,
-      borderRadius: 20,
+      padding: 10,
+      borderRadius: 10,
       borderWidth: 0.5,
       borderColor: "white",
       maxHeight: "80%",
-    },
+},
     lyricContainer: {
       backgroundColor: isDarkMode ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.7)",
       paddingVertical: 16,

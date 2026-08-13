@@ -1,10 +1,10 @@
 {
     "langId": 7,
-    "titleTop": "Itiyophiyu giddo",
-    "titleMain": "Adiventistete Ammana",
-    "titleMain2": "Sidaamu Afii Faarru Appilikeshine",
-    "selectHeader": "Afii Dooriri",
-    "buttonText": "Suffi",
+    "titleTop": "Itiyophiyu Lamalki Barri", 
+    "titleMain": "Adiveentistete Amma’na",
+    "titleMain2": "Sidaamu Afii Faarso Appilikeeshiine",
+    "selectHeader": "Afoo Doori",
+    "buttonText": "Sufi",
     "scriptureTitle": "✨ Barraho Qullaawa Borro",
     "contents_translations": [
         {
@@ -113,7 +113,7 @@
             "id": 18,
             "book": "2 Qorontoosi",
             "reference": "12:9-10",
-            "verse_text": "Isi kayinni, «Ane wolqa guutte leeltannohu ate wolqiweelle aana ikkinohura elto'ya ikkitannohe» yiinoe. Kunnira Kiristoosi wolqa aana'ya fooliishshidhanno gede, albinni roorse wolqiweelle'yanni naaxxa baxeemmo. Wolqa afi'reemmohu wolqiweeleemmo woyite ikkinohura, Kiristoosi daafira yee wolqiweelummoro."
+            "verse_text": "Isi kayinni, «Ane wolqa guutte leeltannohu ate wolqiweelle aana ikkinohura elto'ya ikkitannohe» yiinoe. Kunnira Kiristoosi wolqa aana'ya fooliishshidhanno gede, albinni roorse wolqiweelle'yanni naaxxa baxeemmo."
         },
         {
             "id": 19,
@@ -155,7 +155,7 @@
             "id": 25,
             "book": "Yaiqoobi",
             "reference": "1:5-6",
-            "verse_text": "Ki'ne giddo egenno xe'inosihu hee'riro, Magano huucci'ro; Maganuno aannosi. Isi ayeno mishikkinni baalunkura elate shooshaqa Maganooti. Ikkollana mannu mittoreno huluullamikkinni ammanatenni huucci'ro. Huluullamanno manchi bubbe ganteenna shashshafaminoha baaru dambala lawanno."
+            "verse_text": "Ki'ne giddo egenno xe'inosihu hee'riro, Magano huucci'ro; Maganuno aannosi. Isi ayeno mishikkinni baalunkura elate shooshaqa Maganooti. Ikkollana mannu mittoreno huluullamikkinni ammanatenni huucci'ro."
         },
         {
             "id": 26,
@@ -251,7 +251,7 @@
             "id": 42,
             "book": "Ibirawoota",
             "reference": "13:15-16",
-            "verse_text": "Kunnira, Yesuusi Kiristoosi widoonni qolle wo'ma woyite galatu kakkalo Maganoho shiqinsho. Tini kakkalo suumenkenni, «Isi Mootichankeeti» yine uyineemmote. Dancha coye assanna afidhinoonnire woleho beeha habbinoonte. Magano hagiirsiissannoti hattoo kakkalooti."
+            "verse_text": "Kunnira, Yesuusi Kiristoosi widoonni qolle wo'ma woyite galatu kakkalo Maganoho shiqinsho. Tini kakkalo suumenkenni, «Isi Mootichankeeti» yine uyineemmote. Dancha coye assanna afidhinoonnire woleho beeha habbinoonte."
         },
         {
             "id": 43,

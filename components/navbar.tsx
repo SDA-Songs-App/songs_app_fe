@@ -17,6 +17,7 @@ import {
   Pressable,
   ActivityIndicator,
 } from "react-native";
+import { ToastAndroid } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -44,7 +45,8 @@ import { useRootNavigationState } from "expo-router";
 import { useLanguage } from "./languageContext/language-context";
 import {Audio} from "expo-av"
 import { categoryTranslations } from "./categories/categoryTranslations";
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from "expo-linear-gradient"; 
+import { landingPageContents } from "./landing-page/contents";
 
 const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
@@ -79,7 +81,7 @@ const NavbarScreen: FC<NavbarScreenProps> = () => {
 const [isPlaying, setIsPlaying] = useState(false);
   const navigation = useNavigation<NavigationProp>();
   const { isDarkMode, toggleTheme } = useTheme();
-  const [fontSize, setFontSize] = useState(18);
+  const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Roboto");
   const styles = getStyles(isDarkMode, fontSize, fontFamily);
   const [isModalVisible, setModalVisible] = useState(false);
@@ -116,6 +118,7 @@ const [isPlaying, setIsPlaying] = useState(false);
   const savedScale = useSharedValue(fontSize);
   const [favorites, setFavorites] = useState<FavoriteKey[]>([]);
   const [selectedCategory,setSelectedCategory] = useState("All")
+  const languageContent = landingPageContents
   //const route = useNavigation()
   const playSound = async () => {
   try {
@@ -252,6 +255,7 @@ useEffect(() => {
     async (songId: number, isAdding: boolean) => {
       const favoriteKey: FavoriteKey = `${selectedLanguage}_${songId}`;
       setFavorites((prev) => {
+         const isAlreadyFavorite = prev.includes(favoriteKey);
         let newFavorites;
         if (isAdding) {
           newFavorites = prev.includes(favoriteKey)
@@ -265,11 +269,74 @@ useEffect(() => {
         // Save to AsyncStorage
         AsyncStorage.setItem("favorites", JSON.stringify(newFavorites)).catch(
           (error) => console.error("Error saving favorite:", error),
-        );
+        );         
         return newFavorites;
       });
     },
     [selectedLanguage],)
+const addFavorite = useCallback(
+  async (songId: number) => {
+    const favoriteKey: FavoriteKey = `${selectedLanguage}_${songId}`;
+
+    setFavorites((prev) => {
+      if (prev.includes(favoriteKey)) return prev;
+
+      const newFavorites = [...prev, favoriteKey];
+
+      AsyncStorage.setItem("favorites", JSON.stringify(newFavorites)).catch(
+        (error) => console.error("Error saving favorite:", error)
+      );
+      switch(selectedLanguage){
+        case 'አማርኛ':
+        ToastAndroid.show("ወደ ተወዳጅ የመዝሙር ጎራ ተካቷል",ToastAndroid.SHORT);
+        break;
+          case 'oromo':
+        ToastAndroid.show("Faarfannaa jaalatamoo keessatti dabalameera",ToastAndroid.SHORT);
+        break;  
+        case 'ከምባትኛ':
+        ToastAndroid.show("ዶዕረንቶ መዝሙረበ በርገሜዕ",ToastAndroid.SHORT)
+        break;
+        case 'ሲዳሚኛ':
+        ToastAndroid.show("ወደ ተወዳጅ የመዝሙር ጎራ ተካቷል",ToastAndroid.SHORT);
+        break;  
+        case 'ጉራጊኛ':
+        ToastAndroid.show("ወደ ተወዳጅ የመዝሙር ጎራ ተካቷል",ToastAndroid.SHORT);
+        break;
+        case 'ትግርኛ':
+        ToastAndroid.show("ኣብቲ ህቡብ ደርፊ ዓውዲ ተኻቲቱ ኣሎ",ToastAndroid.SHORT);
+        break;
+        case 'nuer':  
+        ToastAndroid.show("Added To Favorites",ToastAndroid.SHORT);
+        break;
+        case 'ወላይትኛ':
+        ToastAndroid.show("ወደ ተወዳጅ የመዝሙር ጎራ ተካቷል",ToastAndroid.SHORT);
+        break;
+        case 'ሀዲይኛ':
+        ToastAndroid.show("ወደ ተወዳጅ የመዝሙር ጎራ ተካቷል",ToastAndroid.SHORT);
+        break;
+      default:ToastAndroid.show("Added To Favorites",ToastAndroid.SHORT);
+      }
+      return newFavorites;
+    });
+  },
+  [selectedLanguage]
+);
+const removeFavorite = useCallback(
+  async (songId: number) => {
+    const favoriteKey: FavoriteKey = `${selectedLanguage}_${songId}`;
+
+    setFavorites((prev) => {
+      const newFavorites = prev.filter((key) => key !== favoriteKey);
+
+      AsyncStorage.setItem("favorites", JSON.stringify(newFavorites)).catch(
+        (error) => console.error("Error saving favorite:", error)
+      );
+
+      return newFavorites;
+    });
+  },
+  [selectedLanguage]
+);
   const getSwipeSongs = useCallback(() => fullSongs, [fullSongs]);
   // Swipe handlers
   const onSwipeLeft = useCallback(() => {
@@ -344,7 +411,7 @@ useEffect(() => {
     setSearchModalVisible(false);
   }, [fullSongs]);
 const songIndexInFullList = fullSongs.findIndex(s => s.Id === selectedSong?.Id);
-const MIN_SIZE = 16;
+const MIN_SIZE = 12;
 const MAX_SIZE = 40;
 const pinchGesture = Gesture.Pinch()
   .onUpdate((event) => {
@@ -424,7 +491,7 @@ const animatedStyle = useAnimatedStyle(() => {
           <Icon name="search" size={18} color="#fff" />
         </TouchableOpacity>
         {selectedSong && (
-          <TouchableOpacity onPress={() => toggleFavorite(selectedSong.Id, true)}>
+          <TouchableOpacity onPress={() => addFavorite(selectedSong.Id)}>
             <Icon name="plus-square" size={18} color="#fff" />
           </TouchableOpacity>
         )}
@@ -494,7 +561,7 @@ const animatedStyle = useAnimatedStyle(() => {
                       style={[styles.backgroundImage, { paddingBottom: deviceHeight * 0.42,   minHeight: deviceHeight, }]}
                     >
                       <GestureDetector gesture={pinchGesture}>
-                       <Animated.View style={animatedStyle}> 
+                       <Animated.View> 
                   <GestureRecognizer
                     onSwipeLeft={onSwipeLeft}
                     onSwipeRight={onSwipeRight}
@@ -510,15 +577,17 @@ const animatedStyle = useAnimatedStyle(() => {
                             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                             .join(" ")}
                         </Text>}
-                        
+                       <View style ={{alignContent:'space-evenly'}}> 
                         {selectedSong.chorus && 
-                        <Text style={styles.selectedSongTitle}>{selectedSong.chorus}{'\n \n'}</Text>}
-                            {[selectedSong.verse1, selectedSong.verse2, selectedSong.verse3, selectedSong.verse4,
-                              selectedSong.verse5, selectedSong.verse6, selectedSong.verse7]
-                              .filter(Boolean)
-                              .map((verse, idx) => (
-                        <Text key={idx} style={styles.verse1Style}>{verse}</Text>
-                          ))} 
+                          <Text style={styles.selectedSongTitle}>{'\n'+ selectedSong.chorus}{'\n \n'}</Text>} 
+                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse1}</Text>
+                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse2}</Text>
+                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse3}</Text>
+                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse4}</Text>
+                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse5}</Text>
+                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse6}</Text>
+                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse7}</Text>
+                       </View> 
                         </View>                       
                       </SafeAreaView>                     
                       </GestureRecognizer>
@@ -623,11 +692,11 @@ const animatedStyle = useAnimatedStyle(() => {
       </Modal>
       {/* Favorites Modal */}
       <Modal
-        isVisible={isFavoritesModalVisible}
-        onBackdropPress={() => setFavoritesModalVisible(false)}
-        backdropTransitionOutTiming={0}
-        style={styles.favoritesModalContainer}
-      >
+          isVisible={isFavoritesModalVisible}
+          onBackdropPress={() => setFavoritesModalVisible(false)}
+          backdropTransitionOutTiming={0}         
+          style={styles.favoritesModalContainer}
+        >
         <View style={styles.favoritesModalContent}>
           <SongList
             data={fullSongs}

@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/sda-logo-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "versionCode": 3 
     },
     "web": {
       "bundler": "metro",
@@ -35,7 +36,17 @@
       "expo-router",
       "expo-asset",
       "expo-font",
-      "expo-sqlite"
+      "expo-sqlite", 
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35, 
+            "buildToolsVersion": "35.0.0"
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

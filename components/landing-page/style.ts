@@ -17,9 +17,8 @@ const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string) =>{
               buttonText:{
               color:"#fff",
               fontSize:moderateScale(16),
-              fontWeight:"600"
               },
-              circle1:{
+            circle1:{
                 position:"absolute",
                 width:width*0.45,
                 height:width*0.45,
@@ -44,11 +43,11 @@ const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string) =>{
                 display:'flex',
                 justifyContent:'center', 
                 },
-                welcome:{
-            fontSize:scale(22),//scale(22),//scale(22),
-            color:"#fff",
-            fontWeight:"600",
-            marginBottom:verticalScale(18),//verticalScale(18)
+            welcome:{
+                fontSize:scale(22),//scale(22),//scale(22),
+                color:"#fff",
+                fontWeight:"600",
+                marginBottom:verticalScale(18),//verticalScale(18)
             },
             titleTop:{
             fontSize:scale(20),//scale(15),//scale(18),
@@ -99,28 +98,27 @@ marginTop:verticalScale(20),
 shadowColor:"#01196e",
 shadowOpacity:0.2,
 shadowRadius:3,
-height:verticalScale(230),
-
+//height:verticalScale(230),
 },
-
 cardTitle:{
 fontSize:moderateScale(18),//scale(18),
 fontWeight:"600",
 color:isDarkMode?'#000':'#fff'
 //textDecorationLine:'underline'
 },
-
 verse:{
-fontSize:moderateScale(16),//scale(18),
+fontSize:moderateScale(14),//scale(18),
 marginTop: verticalScale(10), //vScale(12)
-lineHeight: moderateScale(24),
+//lineHeight: moderateScale(12),
 color:isDarkMode?'#000':'#fff'
 },
 ref:{
-fontSize:moderateScale(16),
+fontSize:moderateScale(12),
 fontStyle:'italic',
-marginTop:verticalScale(10),
-color:isDarkMode?'#000':'#fff'
+marginTop:verticalScale(0),
+color:isDarkMode?'#000':'#fff',
+paddingLeft:10,
+fontWeight:'bold'
 },
 verticalBarContainer: {
   shadowColor: "#000",
@@ -131,20 +129,20 @@ verticalBarContainer: {
   borderRadius: 0,
 },
 verticalBar: {
-   position: "absolute",
+  position: "absolute",
   width: scale(4),          // make bar narrow if shadow is vertical
-  height: "110%",    // full height
+  height: "100%",    
   borderRadius: 3,
   backgroundColor: isDarkMode?"#1F6F5B":'#fff', // main bar color
   shadowColor: "#000",
   shadowOffset: { width: -4, height: 0 }, // negative width = left
   shadowOpacity: 0.3,
   shadowRadius: 4,
-  // Android shadow (approximate left-only)
   elevation: 4,// Android
 },
 cardContent: {
-  flex: 1,
+ // flex: 1,
+ height:'100%',
   marginLeft: scale(10),
   backgroundColor:isDarkMode?'#cfd9d9':'#262121'
 },

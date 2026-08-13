@@ -103,7 +103,7 @@ return (
         onValueChange={handleLanguageChange}
         value={language}
         items={languageOptions.map( item =>({
-          ...item, label:item.label =='oromo'?'A.Oromo': item.label =='nuer'?'Nuer':item.label
+          ...item, label:item.label =='oromo'?'Afaan Oromo': item.label =='nuer'?'Nuer':item.label=='ሲዳሚኛ'?'Sidaamu Afoo':item.label
         })) }
         placeholder={{label:header, value:null}}
         style={{
@@ -147,20 +147,22 @@ return (
   {/* Scripture Card */}
   <View style={styles.card}>
     <View style ={styles.verticalBar}/>
-  
-      <View style ={styles.cardContent}>
-          <Text style={styles.cardTitle}>
-          {currentVerse.scriptureTitle} 
-          </Text>
-          <Text style={styles.verse}>
-          
-          {randomVerse?.verse_text}
-          </Text>
-          <Text style={styles.ref}>
-            
-            {randomVerse?.book} {randomVerse?.reference}
-          </Text>
-      </View>
+     
+        <View style ={styles.cardContent}>
+            <Text style={styles.cardTitle}>
+            {currentVerse.scriptureTitle} 
+            </Text>
+           <ScrollView
+              style={{ maxHeight: 260 }}
+              showsVerticalScrollIndicator>
+                 <Text style={styles.verse}>                
+                  {randomVerse?.verse_text}</Text>
+                  <Text style={styles.ref}>                    
+                    {randomVerse?.book} {randomVerse?.reference}
+                  </Text>
+            </ScrollView>
+        </View>
+     
   </View>
 
   </View>
