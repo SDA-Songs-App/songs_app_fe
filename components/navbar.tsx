@@ -18,7 +18,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { ToastAndroid } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import GestureRecognizer from "react-native-swipe-gestures";
@@ -100,9 +100,9 @@ const [isPlaying, setIsPlaying] = useState(false);
     const subscription = Dimensions.addEventListener("change", handleOrientationChange);
         return () => subscription.remove();
       }, []);
-        const route = useRoute().params;
-        
-  const {language:initialLanguage} = useRoute().params|| {};
+        const route = useRoute<RouteProp<RootStackParams, "Navbar">>().params;
+
+  const {language:initialLanguage} = useRoute<RouteProp<RootStackParams, "Navbar">>().params|| {};
   // Search & Favorites
   const [isSearchModalVisible, setSearchModalVisible] = useState(false);
   const [isFavoritesModalVisible, setFavoritesModalVisible] = useState(false);
@@ -191,7 +191,7 @@ useEffect(() => {
   }, []);
   // Fetch songs from backend or local DB
   useEffect(() => {
-    let interval:NodeJS.Timeout;
+    let interval: ReturnType<typeof setInterval>;
     const fetchAndSyncSongs = async () => {
       try {
         setLoading(true);
@@ -679,7 +679,6 @@ const animatedStyle = useAnimatedStyle(() => {
                     </View>
                   </TouchableOpacity>
                 )}
-                estimatedItemSize={300}
                 keyboardShouldPersistTaps="handled"
               />
             ) : (

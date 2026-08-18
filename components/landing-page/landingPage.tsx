@@ -12,7 +12,8 @@ import RNPickerSelect from "react-native-picker-select";
 import { landingPageContents } from "./contents";
 import { Verse, versesLLocalization } from "../languageContext/langauage-content";
 import { navigate } from "expo-router/build/global-state/routing";
-import { useNavigation } from "@react-navigation/native";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { RootStackParams } from "@/app/types";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Font from "expo-font"
 import { ActivityIndicator, Dimensions } from "react-native";
@@ -53,7 +54,7 @@ export default function LandingPage() {
  const handleLanguageChange = (value:Language)=>{
     setLanguage(value)
  }
-const navigation = useNavigation();
+const navigation = useNavigation<NavigationProp<RootStackParams>>();
 useEffect(() =>{
   const today = new Date();
   const dayNumber = Math.floor(today.getTime() / (1000 * 60 * 60 * 24))
@@ -127,20 +128,17 @@ return (
     )
   }}
         useNativeAndroidPickerStyle={false}
+        pickerProps={{ mode: "dropdown" }}
       />
   {/* Button */}
   <Pressable
     style={styles.button}
     onPress={()=>navigation.navigate("Navbar", {language})}
   >
-    <TouchableOpacity>
-  
         <Text style={styles.buttonText}>
           {currentVerse.buttonText}
         </Text>
-          
-    </TouchableOpacity>
-    
+
   </Pressable>
 
 

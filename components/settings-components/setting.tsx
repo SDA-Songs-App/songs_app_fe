@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Linking } from "react-native";
 import { Ionicons, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { RootStackParams } from "@/app/types";
 import { languages } from "../landing-page/contents";
 import { useLanguage } from "../languageContext/language-context";
 import { versesLLocalization } from "../languageContext/langauage-content";
@@ -13,7 +14,7 @@ interface SettingRowProps {
   onPress?: () => void; // optional
 }
   const SettingsScreen = () => {
-  const navigation  = useNavigation()
+  const navigation  = useNavigation<NavigationProp<RootStackParams>>()
   const {language} = useLanguage()   // coming from gloabl context 
   type Language = keyof typeof versesLLocalization;
   const contentInCurrentLang = versesLLocalization[language];

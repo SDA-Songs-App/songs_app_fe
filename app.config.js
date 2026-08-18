@@ -9,6 +9,8 @@ export default ({ config }) => ({
           compileSdkVersion: 35,
           targetSdkVersion: 35,
           buildToolsVersion: "35.0.0",
+          enableMinifyInReleaseBuilds: true,
+          enableShrinkResourcesInReleaseBuilds: true,
         },
       },
     ]

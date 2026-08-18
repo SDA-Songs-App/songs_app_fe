@@ -7,11 +7,10 @@
     "preview": {
       "android": {
         "buildType": "apk"
-    }
-    ,
-    "env": {
+      },
+      "env": {
         "EXPO_PUBLIC_API_URL": "https://songs-app-be.onrender.com"
-    }
+      }
     },
     "preview2": {
       "android": {
@@ -25,10 +24,11 @@
       "distribution": "internal"
     },
     "production": {
-       "android": {
+      "autoIncrement": true,
+      "android": {
         "buildType": "app-bundle"
       },
-        "env": {
+      "env": {
         "EXPO_PUBLIC_API_URL": "https://songs-app-be.onrender.com"
       }
     }

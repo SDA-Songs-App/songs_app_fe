@@ -82,11 +82,11 @@ const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string) =>{
 languageBox:{
   backgroundColor:isDarkMode?"#cfd9d9":'#1e1a1a',
   borderRadius:scale(30),//scale(30),
-  padding: scale(15),//scale(15),
+  paddingHorizontal: scale(15),
   textAlign:"center",
   borderColor: "#2a6cff",
   color:isDarkMode?'#000':'#fff',
-  paddingVertical:12,//vScale(25),
+  paddingVertical:scale(10),
    shadowOpacity: 0.4,
     shadowRadius: 6,
 },

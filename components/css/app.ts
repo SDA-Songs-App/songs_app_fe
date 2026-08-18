@@ -169,7 +169,6 @@ const getStyles = (
       borderColor: "#ddd",
       textAlign: "left",
       writingDirection: "ltr",
-      direction: "ltr",
       color: isDarkMode ? "black" : "white",
     },
     listContainer: {
