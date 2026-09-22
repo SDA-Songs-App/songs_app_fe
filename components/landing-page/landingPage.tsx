@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Image,
   SafeAreaView,
-  TouchableOpacity,
   Pressable,
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
@@ -16,11 +15,12 @@ import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { RootStackParams } from "@/app/types";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Font from "expo-font"
-import { ActivityIndicator, Dimensions } from "react-native";
+import { ActivityIndicator, useWindowDimensions } from "react-native";
 import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
+import Animated, { FadeInDown, FadeIn } from "react-native-reanimated";
 // import * as FontLoading from "expo-app-loading"
- 
+
 import {scale, verticalScale, moderateScale} from "react-native-size-matters"
 import { useTheme } from "@/app/ThemeProvider";
 import getStyle from "./style";
@@ -45,7 +45,8 @@ export default function LandingPage() {
   const { isDarkMode, toggleTheme } = useTheme();
     const [fontSize, setFontSize] = useState(18);
     const [fontFamily, setFontFamily] = useState("Roboto");
-  const styles = getStyle(isDarkMode, fontSize, fontFamily);
+  const { width, height } = useWindowDimensions();
+  const styles = getStyle(isDarkMode, fontSize, fontFamily, width);
   const langauageLabel = language ==='oromo'?'Afaan Oromo':language
  const languageOptions = Object.keys(versesLLocalization).map((lang) => ({
   label: lang,
@@ -75,31 +76,39 @@ if(!fontLoad)
   return <ActivityIndicator size={"large"} style ={{flex:1}} />;
 return (
 <LinearGradient
-  colors={isDarkMode?["#1F6F5B", "#1F6F5B"]:["#000", "#000"]}
+  colors={isDarkMode?["#278a71", "#1F6F5B", "#154439"]:["#2a2a2a", "#000", "#000"]}
+  start={{ x: 0, y: 0 }}
+  end={{ x: 1, y: 1 }}
   style={{ flex: 1 }}
 >
   <SafeAreaView style={styles.container}>
   {/* Background circles */}
   <View style={styles.circle1}/>
+  <View style={styles.circle3}/>
   <View style={styles.circle2}/>
+  <View style={styles.content}>
   {/* Header */}
-  <View style={styles.titleContainer}>
-
+  <Animated.View entering={FadeIn.duration(500)} style={styles.titleContainer}>
+      <View style={styles.emblemCircle}>
+        <Ionicons name="musical-notes" size={scale(24)} color="#fff" />
+      </View>
       {<Text style={styles.titleTop}>
-        {currentVerse.titleTop}{' '} 
+        {currentVerse.titleTop}{' '}
         {currentVerse.titleMain}{' '}
         {currentVerse.titleMain2}</Text> }
-  
+
+  </Animated.View>
   </View>
 
 
   {/* Bottom White Section */}
-  <View style={styles.bottomContainer}>
-      <TouchableOpacity>
+  <Animated.View entering={FadeInDown.duration(500).delay(120)} style={[styles.bottomContainer, styles.content]}>
+      <View style={styles.languageLabelRow}>
+        <Feather name="globe" size={scale(18)} color={isDarkMode?"#000":"#fff"} />
         <Text style={styles.languageLabel}>
           {currentVerse.selectHeader}
         </Text>
-      </TouchableOpacity>
+      </View>
       <RNPickerSelect
         onValueChange={handleLanguageChange}
         value={language}
@@ -132,26 +141,30 @@ return (
       />
   {/* Button */}
   <Pressable
-    style={styles.button}
+    style={({pressed}) => [styles.button, pressed && styles.buttonPressed]}
     onPress={()=>navigation.navigate("Navbar", {language})}
   >
         <Text style={styles.buttonText}>
           {currentVerse.buttonText}
         </Text>
+        <Feather name="arrow-right" size={scale(18)} color="#fff" />
 
   </Pressable>
 
 
   {/* Scripture Card */}
-  <View style={styles.card}>
+  <Animated.View entering={FadeInDown.duration(500).delay(220)} style={styles.card}>
     <View style ={styles.verticalBar}/>
-     
+
         <View style ={styles.cardContent}>
-            <Text style={styles.cardTitle}>
-            {currentVerse.scriptureTitle} 
-            </Text>
+            <View style={styles.cardHeaderRow}>
+              <Ionicons name="sparkles" size={scale(16)} color={isDarkMode?"#1F6F5B":"#9acd32"} />
+              <Text style={styles.cardTitle}>
+              {currentVerse.scriptureTitle}
+              </Text>
+            </View>
            <ScrollView
-              style={{ maxHeight: 260 }}
+              style={{ maxHeight: Math.min(height * 0.32, 280) }}
               showsVerticalScrollIndicator>
                  <Text style={styles.verse}>                
                   {randomVerse?.verse_text}</Text>
@@ -160,10 +173,10 @@ return (
                   </Text>
             </ScrollView>
         </View>
-     
-  </View>
 
-  </View>
+  </Animated.View>
+
+  </Animated.View>
   </SafeAreaView>
 </LinearGradient>
 );
