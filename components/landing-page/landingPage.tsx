@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
   SafeAreaView,
   Pressable,
   Modal,
@@ -41,7 +40,6 @@ type VerseLocalization = {
 export default function LandingPage() {
   const [fontLoad, setFontLoad] = useState(false)
   const [pickerOpen, setPickerOpen] = useState(false)
-  const [resume, setResume] = useState<{ number: number; title: string } | null>(null)
   type Language = keyof typeof versesLLocalization;
   const [language, setLanguage] = useState<Language>("አማርኛ");
   const[randomVerse, setRandomVerse] = useState<Verse | null>(null);
@@ -74,16 +72,6 @@ useEffect(() =>{
     setRandomVerse(currentVerse.contents_translation[index]) 
 }, [language]);
 useEffect(() => {
-  let cancelled = false
-  setResume(null)
-  AsyncStorage.getItem(`lastSongMeta:${language}`).then((raw) => {
-    if (cancelled || !raw) return
-    const meta = JSON.parse(raw) as { number?: number; title?: string }
-    if (meta.number && meta.number > 0) setResume({ number: meta.number, title: meta.title ?? "" })
-  }).catch(() => {})
-  return () => { cancelled = true }
-}, [language])
-useEffect(() => {
   AsyncStorage.getItem("lastLanguage").then((saved) => {
     if (saved && saved in versesLLocalization) setLanguage(saved as Language)
   }).catch(() => {})
@@ -112,9 +100,6 @@ return (
   <View style={[styles.content, { flex: 1, justifyContent: "center", minHeight: verticalScale(150) }]}>
   {/* Header */}
   <Animated.View entering={FadeIn.duration(500)} style={styles.titleContainer}>
-      <View style={styles.emblemCircle}>
-        <Ionicons name="musical-notes" size={scale(24)} color="#fff" />
-      </View>
       {<Text style={styles.titleTop}>
         {currentVerse.titleTop}{' '}
         {currentVerse.titleMain}{' '}
@@ -181,36 +166,18 @@ return (
         </Pressable>
       </Modal>
   {/* Button */}
-  {resume ? (
-    <>
-
-      <Pressable
-        style={({pressed}) => [styles.buttonSecondary, pressed && styles.buttonPressed]}
-        onPress={()=>{
-          AsyncStorage.setItem("lastLanguage", language).catch(() => {})
-          navigation.navigate("Navbar", {language, openList: true})
-        }}
-      >
-        <Text style={styles.buttonSecondaryText}>
-          {currentVerse.buttonText}
-        </Text>
-        <Feather name="list" size={scale(18)} color={isDarkMode?"#1F6F5B":"#fff"} />
-      </Pressable>
-    </>
-  ) : (
-    <Pressable
-      style={({pressed}) => [styles.button, pressed && styles.buttonPressed]}
-      onPress={()=>{
-        AsyncStorage.setItem("lastLanguage", language).catch(() => {})
-        navigation.navigate("Navbar", {language, openList: true})
-      }}
-    >
-      <Text style={styles.buttonText}>
-        {currentVerse.buttonText}
-      </Text>
-      <Feather name="arrow-right" size={scale(18)} color="#fff" />
-    </Pressable>
-  )}
+  <Pressable
+    style={({pressed}) => [styles.button, pressed && styles.buttonPressed]}
+    onPress={()=>{
+      AsyncStorage.setItem("lastLanguage", language).catch(() => {})
+      navigation.navigate("Navbar", {language, openList: true})
+    }}
+  >
+    <Text style={styles.buttonText}>
+      {currentVerse.buttonText}
+    </Text>
+    <Feather name="arrow-right" size={scale(18)} color="#fff" />
+  </Pressable>
 
 
   {/* Scripture Card */}

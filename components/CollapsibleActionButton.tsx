@@ -1,7 +1,7 @@
 // CollapsibleActionButton.tsx
 import React, { useState } from "react";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import { Ionicons } from "@expo/vector-icons";
 
 type CollapsibleActionButtonProps = {
   fullLyricText: string;
@@ -32,18 +32,18 @@ const CollapsibleActionButton: React.FC<CollapsibleActionButtonProps> = ({
             onPress={() => onCopy(fullLyricText)}
             style={styles.actionButton}
           >
-            <Icon name="copy" size={20} color="#fff" />
+            <Ionicons name="copy-outline" size={22} color="#fff" />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => onShare(fullLyricText)}
             style={styles.actionButton}
           >
-            <Icon name="share" size={20} color="#fff" />
+            <Ionicons name="share-social-outline" size={22} color="#fff" />
           </TouchableOpacity>
         </View>
       )}
       <TouchableOpacity onPress={toggleExpand} style={styles.mainButton}>
-        <Icon name={expanded ? "times" : "plus"} size={24} color="#fff" />
+        <Ionicons name={expanded ? "close" : "add"} size={28} color="#fff" />
       </TouchableOpacity>
     </View>
   );
@@ -58,10 +58,10 @@ const getStyles = (isDarkMode: boolean) =>
       alignItems: "center",
     },
     mainButton: {
-      backgroundColor: isDarkMode ? "green" : "#333",
-      width: 56,
-      height: 56,
-      borderRadius: 28,
+      backgroundColor: isDarkMode ? "#1F6F5B" : "#2a2a2a",
+      width: 48,
+      height: 48,
+      borderRadius: 24,
       justifyContent: "center",
       alignItems: "center",
     },
@@ -70,10 +70,10 @@ const getStyles = (isDarkMode: boolean) =>
       alignItems: "center",
     },
     actionButton: {
-      backgroundColor: isDarkMode ? "#000" : "gray",
-      width: 48,
-      height: 48,
-      borderRadius: 24,
+      backgroundColor: isDarkMode ? "#1F6F5B" : "#2a2a2a",
+      width: 44,
+      height: 44,
+      borderRadius: 22,
       justifyContent: "center",
       alignItems: "center",
       marginBottom: 20,

@@ -26,7 +26,7 @@ import Modal from "react-native-modal";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Clipboard from "expo-clipboard";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { FlashList } from "@shopify/flash-list";
 import SongList from "./SongList";
 import PresentationMode from "./PresentationMode";
@@ -50,7 +50,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { landingPageContents } from "./landing-page/contents";
 
 const LAST_SONG_KEY_PREFIX = "lastSongId:";
-const LAST_SONG_META_KEY_PREFIX = "lastSongMeta:";
 const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
@@ -255,11 +254,6 @@ useEffect(() => {
   useEffect(() => {
     if (!selectedSong || !fullSongs.some((s) => s.Id === selectedSong.Id)) return;
     AsyncStorage.setItem(`${LAST_SONG_KEY_PREFIX}${selectedLanguage}`, String(selectedSong.Id)).catch(() => {});
-    const number = fullSongs.findIndex((s) => s.Id === selectedSong.Id) + 1;
-    AsyncStorage.setItem(
-      `${LAST_SONG_META_KEY_PREFIX}${selectedLanguage}`,
-      JSON.stringify({ number, title: selectedSong.title ?? "" })
-    ).catch(() => {});
   }, [selectedSong, fullSongs, selectedLanguage]);
   // Landing "Start" opens the song list once the songs are available
   const openedListRef = useRef(false);
@@ -513,32 +507,45 @@ const animatedStyle = useAnimatedStyle(() => {
       {/* Navbar */}
       <View style={styles.navbar}>
         {selectedSong && (
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Icon name="home" size={18} color="#fff" />
+          <TouchableOpacity hitSlop={8} onPress={() => navigation.goBack()} accessibilityLabel="Home">
+            <Ionicons name="home-outline" size={22} color="#fff" />
           </TouchableOpacity>
         )}
-        <Text style={styles.number}>
-          #
-  {typeof songIndexInFullList === "number" && songIndexInFullList >= 0
-    ? songIndexInFullList + 1
-    : ""}
-        </Text>
-        <TouchableOpacity onPress={() => setSearchModalVisible(true)}>
-          <Icon name="search" size={18} color="#fff" />
+        <View
+          style={{
+            paddingVertical: 3,
+            paddingHorizontal: 10,
+            borderRadius: 14,
+            backgroundColor: "rgba(255,255,255,0.16)",
+          }}
+        >
+          <Text style={[styles.number, { fontSize: 16, fontWeight: "700" }]}>
+            #
+            {typeof songIndexInFullList === "number" && songIndexInFullList >= 0
+              ? songIndexInFullList + 1
+              : ""}
+          </Text>
+        </View>
+        <TouchableOpacity hitSlop={8} onPress={() => setSearchModalVisible(true)} accessibilityLabel="Search songs">
+          <Ionicons name="search-outline" size={22} color="#fff" />
         </TouchableOpacity>
         {selectedSong && (
-          <TouchableOpacity onPress={() => addFavorite(selectedSong.Id)}>
-            <Icon name="plus-square" size={18} color="#fff" />
+          <TouchableOpacity hitSlop={8} onPress={() => addFavorite(selectedSong.Id)} accessibilityLabel="Add to list">
+            <MaterialCommunityIcons
+              name={favorites.includes(`${selectedLanguage}_${selectedSong.Id}`) ? "playlist-check" : "playlist-plus"}
+              size={28}
+              color={favorites.includes(`${selectedLanguage}_${selectedSong.Id}`) ? "#9acd32" : "#fff"}
+            />
           </TouchableOpacity>
         )}
-        <TouchableOpacity onPress={() => setFavoritesModalVisible(true)}>
-          <Icon name="list" size={18} color="#fff" />
+        <TouchableOpacity hitSlop={8} onPress={() => setFavoritesModalVisible(true)} accessibilityLabel="My list">
+          <MaterialCommunityIcons name="playlist-music" size={28} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert("Info", "መዝሙር ማጨዎቻ ሊሰራ ታቅዷል")}>
-          <Icon name={isPlaying?"pause":"play"} size={18} color="#fff" onPress={() =>playSound} />
+        <TouchableOpacity hitSlop={8} onPress={() => Alert.alert("Info", "መዝሙር ማጨዎቻ ሊሰራ ታቅዷል")} accessibilityLabel="Play audio">
+          <Ionicons name={isPlaying ? "pause-circle-outline" : "play-circle-outline"} size={26} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("ቅርጽ፟_ማስተካከያ")}>
-          <Icon name="cog" size={18} color="#fff" />
+        <TouchableOpacity hitSlop={8} onPress={() => navigation.navigate("ቅርጽ፟_ማስተካከያ")} accessibilityLabel="Settings">
+          <Ionicons name="settings-outline" size={22} color="#fff" />
         </TouchableOpacity>
         <LinearGradient
         colors={
@@ -554,8 +561,8 @@ const animatedStyle = useAnimatedStyle(() => {
           </Text>
         </TouchableOpacity>
       </LinearGradient>
-        <TouchableOpacity onPress={toggleTheme}>
-          <Ionicons name={isDarkMode ? "moon" : "sunny"} size={20} color="#fff" />
+        <TouchableOpacity hitSlop={8} onPress={toggleTheme} accessibilityLabel="Toggle theme">
+          <Ionicons name={isDarkMode ? "moon-outline" : "sunny-outline"} size={22} color="#fff" />
         </TouchableOpacity>
         
       </View>
@@ -659,16 +666,16 @@ const animatedStyle = useAnimatedStyle(() => {
                     style={{
                       position: "absolute",
                       bottom: 80,
-                      right: 73,
-                      width: 56,
-                      height: 56,
-                      borderRadius: 28,
+                      right: 65,
+                      width: 48,
+                      height: 48,
+                      borderRadius: 24,
                       justifyContent: "center",
                       alignItems: "center",
-                      backgroundColor: isDarkMode ? "green" : "#333",
+                      backgroundColor: isDarkMode ? "#1F6F5B" : "#2a2a2a",
                     }}
                   >
-                    <Icon name="chalkboard" size={22} color="#fff" />
+                    <Ionicons name="easel-outline" size={28} color="#fff" />
                   </TouchableOpacity>
                   <CollapsibleActionButton
                     fullLyricText={fullLyricText}
@@ -776,6 +783,8 @@ const animatedStyle = useAnimatedStyle(() => {
         visible={isPresentationVisible}
         song={selectedSong}
         songNumber={songIndexInFullList >= 0 ? songIndexInFullList + 1 : undefined}
+        fontFamily={fontFamily}
+        language={selectedLanguage}
         onClose={() => setPresentationVisible(false)}
         onNextSong={
           currentSongIndex < fullSongs.length - 1
