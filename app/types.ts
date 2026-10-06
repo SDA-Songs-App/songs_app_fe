@@ -2,7 +2,7 @@ import React from "react";
 
 type RootStackParams = {
   Home: undefined;
-  Navbar: { language?: string } | undefined;
+  Navbar: { language?: string; openList?: boolean } | undefined;
   FontSettings: undefined;
   ቅርጽ፟_ማስተካከያ: undefined;
   settings: undefined;

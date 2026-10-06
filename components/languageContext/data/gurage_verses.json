@@ -5,7 +5,7 @@
     "titleMain2": "የጉራጊኛ ዝምራ መተግበሪያ",
     "selectHeader": "ቋንቋ ይምረጡ",
     "buttonText": "ቀጥል",
-    "scriptureTitle": "✨ የዕለቱ ጥቅስ",
+    "scriptureTitle": " የዕለቱ ጥቅስ",
     "contents_translations": [
         {
             "id": 1,
@@ -191,7 +191,7 @@
             "id": 31,
             "book": "ሚክያስ",
             "reference": "7:7",
-            "verse_text": "እያጭን እግዘር ኧቅየቴ፤ ያተርፌ ጌታ ተሰፋ አሜቴ ትም ይሰሜቴ።"
+            "verse_text": "እያጭን እግዘር ኧቅየቴ፤ ያተርፌ ጌታ ተሰፋ አሜቴ ትም ይሰሜቴ።"
         },
         {
             "id": 33,

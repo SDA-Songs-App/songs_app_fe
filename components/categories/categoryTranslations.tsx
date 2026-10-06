@@ -109,7 +109,7 @@ Record<string, string>
     ወላይትኛ:'Ubba',
     ትግርኛ:'ኩሉ', 
     ጉራጊኛ:'ሁሉም',
-    ከምባትኛ:'Hundanka', 
+    ከምባትኛ:'ሁንደንከ', 
     ሀዲይኛ:'Hundam',
     NUER:'All',
     ሲዳሚኛ:'Baalunku'

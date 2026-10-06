@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
+import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -29,6 +29,7 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import { Ionicons } from "@expo/vector-icons";
 import { FlashList } from "@shopify/flash-list";
 import SongList from "./SongList";
+import PresentationMode from "./PresentationMode";
 import CollapsibleActionButton from "./CollapsibleActionButton";
 import getStyles from "../components/css/app";
 import { useTheme } from "@/app/ThemeProvider";
@@ -48,6 +49,8 @@ import { categoryTranslations } from "./categories/categoryTranslations";
 import { LinearGradient } from "expo-linear-gradient"; 
 import { landingPageContents } from "./landing-page/contents";
 
+const LAST_SONG_KEY_PREFIX = "lastSongId:";
+const LAST_SONG_META_KEY_PREFIX = "lastSongMeta:";
 const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
@@ -102,10 +105,11 @@ const [isPlaying, setIsPlaying] = useState(false);
       }, []);
         const route = useRoute<RouteProp<RootStackParams, "Navbar">>().params;
 
-  const {language:initialLanguage} = useRoute<RouteProp<RootStackParams, "Navbar">>().params|| {};
+  const {language:initialLanguage, openList} = useRoute<RouteProp<RootStackParams, "Navbar">>().params|| {};
   // Search & Favorites
   const [isSearchModalVisible, setSearchModalVisible] = useState(false);
   const [isFavoritesModalVisible, setFavoritesModalVisible] = useState(false);
+  const [isPresentationVisible, setPresentationVisible] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [filteredSongs, setFilteredSongs] = useState<LyricsContent[]>([]);
   const [selectedSong, setSelectedSong] = useState<LyricsContent | null>(null);
@@ -223,16 +227,48 @@ useEffect(() => {
   }, [dataSongs, selectedLanguage]);
   // Set filtered songs when dataSongs or language changes
   useEffect(() => {
-    if (fullSongs.length > 0) {
-      setFilteredSongs(fullSongs);
-      setSelectedSong(fullSongs[0]);
-      setCurrentSongIndex(0);
-      setSyncProgress(100); 
-      setTimeout(() => {
+    if (fullSongs.length === 0) return;
+    let cancelled = false;
+    setFilteredSongs(fullSongs);
+    setSyncProgress(100);
+    setTimeout(() => {
       setLoading(false);
-    }, 300); 
-    }
+    }, 300);
+    (async () => {
+      let index = 0;
+      try {
+        const savedId = await AsyncStorage.getItem(`${LAST_SONG_KEY_PREFIX}${selectedLanguage}`);
+        if (savedId) {
+          const savedIndex = fullSongs.findIndex((s) => String(s.Id) === savedId);
+          if (savedIndex >= 0) index = savedIndex;
+        }
+      } catch {}
+      if (cancelled) return;
+      setSelectedSong(fullSongs[index]);
+      setCurrentSongIndex(index);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [fullSongs]);
+  // Remember the last-read song per language
+  useEffect(() => {
+    if (!selectedSong || !fullSongs.some((s) => s.Id === selectedSong.Id)) return;
+    AsyncStorage.setItem(`${LAST_SONG_KEY_PREFIX}${selectedLanguage}`, String(selectedSong.Id)).catch(() => {});
+    const number = fullSongs.findIndex((s) => s.Id === selectedSong.Id) + 1;
+    AsyncStorage.setItem(
+      `${LAST_SONG_META_KEY_PREFIX}${selectedLanguage}`,
+      JSON.stringify({ number, title: selectedSong.title ?? "" })
+    ).catch(() => {});
+  }, [selectedSong, fullSongs, selectedLanguage]);
+  // Landing "Start" opens the song list once the songs are available
+  const openedListRef = useRef(false);
+  useEffect(() => {
+    if (openList && !openedListRef.current && fullSongs.length > 0) {
+      openedListRef.current = true;
+      setSearchModalVisible(true);
+    }
+  }, [openList, fullSongs.length]);
  const uniqueLanguages = useMemo(() => {
   const map = new Map<string, string>();
 
@@ -580,15 +616,21 @@ const animatedStyle = useAnimatedStyle(() => {
                        <View style ={{alignContent:'space-evenly'}}> 
                         {selectedSong.chorus && 
                           <Text style={styles.selectedSongTitle}>{'\n'+ selectedSong.chorus}{'\n \n'}</Text>} 
-                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse1}</Text>
-                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse2}</Text>
-                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse3}</Text>
-                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse4}</Text>
-                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse5}</Text>
-                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse6}</Text>
-                          <Text style={styles.verse1Style}>{'\n'+ selectedSong.verse7}</Text>
-                       </View> 
-                        </View>                       
+                          {[
+                            selectedSong.verse1,
+                            selectedSong.verse2,
+                            selectedSong.verse3,
+                            selectedSong.verse4,
+                            selectedSong.verse5,
+                            selectedSong.verse6,
+                            selectedSong.verse7,
+                          ].map((verse, i) =>
+                            verse && verse.trim() ? (
+                              <Text key={i} style={styles.verse1Style}>{'\n' + verse}</Text>
+                            ) : null
+                          )}
+                       </View>
+                        </View>
                       </SafeAreaView>                     
                       </GestureRecognizer>
                       </Animated.View > 
@@ -611,6 +653,23 @@ const animatedStyle = useAnimatedStyle(() => {
             </ScrollView>
             <View style ={{display:"flex"}}>             
                 <View style={[styles.floatingButtonContainer]}>
+                  <TouchableOpacity
+                    onPress={() => setPresentationVisible(true)}
+                    accessibilityLabel="Presentation mode"
+                    style={{
+                      position: "absolute",
+                      bottom: 80,
+                      right: 73,
+                      width: 56,
+                      height: 56,
+                      borderRadius: 28,
+                      justifyContent: "center",
+                      alignItems: "center",
+                      backgroundColor: isDarkMode ? "green" : "#333",
+                    }}
+                  >
+                    <Icon name="chalkboard" size={22} color="#fff" />
+                  </TouchableOpacity>
                   <CollapsibleActionButton
                     fullLyricText={fullLyricText}
                     onCopy={handleCopy}
@@ -712,6 +771,22 @@ const animatedStyle = useAnimatedStyle(() => {
           />
         </View>
       </Modal>
+
+      <PresentationMode
+        visible={isPresentationVisible}
+        song={selectedSong}
+        songNumber={songIndexInFullList >= 0 ? songIndexInFullList + 1 : undefined}
+        onClose={() => setPresentationVisible(false)}
+        onNextSong={
+          currentSongIndex < fullSongs.length - 1
+            ? () => {
+                const nextIndex = currentSongIndex + 1;
+                setCurrentSongIndex(nextIndex);
+                setSelectedSong(fullSongs[nextIndex]);
+              }
+            : undefined
+        }
+      />
 
       {/* Language Selection Modal */}
       <Modal

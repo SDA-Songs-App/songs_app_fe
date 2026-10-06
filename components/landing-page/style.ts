@@ -6,7 +6,7 @@ const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string, width:
         return StyleSheet.create({
               container:{
               flex:1,
-              justifyContent:"space-between",
+              justifyContent:"flex-end",
               },
               content:{
               width:"100%",
@@ -28,6 +28,23 @@ const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string, width:
               shadowOpacity:0.25,
               shadowRadius:8,
               elevation:6,
+              },
+              buttonSecondary:{
+              flexDirection:"row",
+              justifyContent:"center",
+              alignItems:"center",
+              gap:8,
+              marginTop:verticalScale(12),
+              paddingVertical:scale(12),
+              paddingHorizontal:scale(20),
+              borderRadius:scale(30),
+              borderWidth:1.5,
+              borderColor:isDarkMode?"#1F6F5B":"rgba(255,255,255,0.5)",
+              },
+              buttonSecondaryText:{
+              color:isDarkMode?"#1F6F5B":"#fff",
+              fontSize:moderateScale(15),
+              fontWeight:"600",
               },
               buttonPressed:{
               opacity:0.85,
@@ -120,6 +137,8 @@ const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string, width:
             paddingTop:verticalScale(26),
             paddingBottom:verticalScale(24),
             marginTop:verticalScale(30),
+            flexShrink:1,
+            minHeight:0,
             shadowColor:"#000",
             shadowOffset:{width:0,height:-4},
             shadowOpacity:0.15,
@@ -158,6 +177,8 @@ backgroundColor:isDarkMode?"#cfd9d9":"#262121",
 padding:scale(14),
 borderRadius:scale(18),
 marginTop:verticalScale(22),
+flexShrink:1,
+minHeight:0,
 overflow:"hidden",
 shadowColor:"#01196e",
 shadowOffset:{width:0,height:6},
@@ -199,8 +220,10 @@ verticalBarContainer: {
 },
 verticalBar: {
   position: "absolute",
+  top: 0,
+  bottom: 0,
+  left: 0,
   width: scale(4),
-  height: "100%",
   borderRadius: 3,
   backgroundColor: isDarkMode?"#1F6F5B":'#fff',
   shadowColor: "#000",
@@ -210,7 +233,8 @@ verticalBar: {
   elevation: 4,
 },
 cardContent: {
- height:'100%',
+ flexShrink:1,
+  minHeight:0,
   marginLeft: scale(12),
   backgroundColor:isDarkMode?'#cfd9d9':'#262121'
 },
