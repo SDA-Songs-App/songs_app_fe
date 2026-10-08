@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+.DS_Store
+expo-env.d.ts
+
+# Unused in the app (only smu-audio.mp3 is required); keeps the upload small
+assets/audio/smu-audio.mp4
