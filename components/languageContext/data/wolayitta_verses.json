@@ -55,7 +55,7 @@
             "reference": "17:20",
             "verse_text": "Yaagin Yesuusi eta yaagiis; “Hegee intte ammanoi guuxxido gishshataassa; taani intteyyo tumaa odais; intteyyo sanaafici giyo qii mittee aifee keena ammanoi de7iyaakko, intte ha deriyaa, ‘Hagaappe yaa shiiqa’ yaagiyaakko i shiiqana; "
 
-            },
+        },
         {
             "id": 9,
             "book": "Roome",
@@ -325,7 +325,7 @@
     "setting": {
         "title": "setting"
     },
-  "userGuide": {
+    "userGuide": {
         "title": "የተጠቃሚ መመሪያ"
     },
     "about": {

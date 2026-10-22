@@ -1,8 +1,8 @@
 {
     "langId": 2,
-    "titleTop": "Itoophiyaatti",
-    "titleMain": "Waliigaltee Waldaa Kiristaanaa Sda",
-    "titleMain2": "Appilikeeshinii Faarfannaa Afaanota Adda Addaatiin Qophaa'e",
+    "titleTop": "Waldaa",
+    "titleMain": "Adveentistii Guyyaa Torbaffaa Ityoophiyaatti",
+    "titleMain2": "Appilikeeshinii Faarfannaa Afaanota Garagaraatiin Qophaa'e",
     "selectHeader": "Afaan Filadhu",
     "buttonText": "Itti Fufi",
     "scriptureTitle": "Dubbii Guyyaa",
@@ -17,7 +17,7 @@
             "id": 2,
             "book": "Faarfannaa",
             "reference": "46:1",
-            "verse_text": "Waaqni daʼoo fi jabina keenya; inni gargaarsa yeroo hunda rakkina keessatti nu wajjin jiruu dha."
+            "verse_text": "Waaqni da'oo fi jabina keenya, inni gargaarsa yeroo hunda rakkina keessatti nu wajjin jiruu dha."
         },
         {
             "id": 3,
@@ -29,7 +29,7 @@
             "id": 4,
             "book": "Fakkeenya",
             "reference": "3:5-6",
-            "verse_text": "Garaa kee guutuun Waaqayyoon amanadhu; hubannaa kees hin abdatin; karaa kee hunda keessatti isa dursi; innis daandii kee siif qajeelcha."
+            "verse_text": "Garaa kee guutuun Waaqayyoon amanadhu, hubannaa kees hin abdatin; karaa kee hunda keessatti isa dursi; innis daandii kee siif qajeelcha."
         },
         {
             "id": 5,
@@ -41,13 +41,13 @@
             "id": 6,
             "book": "Ibroota",
             "reference": "11:1",
-            "verse_text": "Amantiin waan abdannu tokko dhugumaan ni taʼa jennee fudhachuu dha; waan ijaan hin argine tokko immoo qabatamaadha jennee heduu dha."
+            "verse_text": "Amantiin waan abdannu tokko dhugumaan ni ta'a jennee fudhachuu dha; waan ijaan hin argine tokko immoo qabatamaadha jennee heduu dha."
         },
         {
             "id": 7,
             "book": "Maarqos",
             "reference": "9:23",
-            "verse_text": "Yesuusis, “ ‘Yoo dandeesse’ jettaa? Nama amanuuf wanni hundi ni dandaʼama” jedheen."
+            "verse_text": "Yesuusis, “ 'Yoo dandeesse' jettaa? Nama amanuuf wanni hundi ni dandaʼama” jedheen."
         },
         {
             "id": 8,
@@ -60,7 +60,7 @@
             "id": 9,
             "book": "Roomaa",
             "reference": "10:17",
-            "verse_text": "Egaa amantiin ergaa dhagaʼuudhaan dhufa; ergaan kunis karaa dubbii waaʼee Kiristoosiin dhagaʼama."
+            "verse_text": "Egaa amantiin ergaa dhaga'uudhaan dhufa; ergaan kunis karaa dubbii waaʼee Kiristoosiin dhagaʼama."
         },
         {
             "id": 10,

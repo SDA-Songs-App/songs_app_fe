@@ -68,8 +68,8 @@ const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string, width:
                 },
             titleContainer:{
                 alignItems:"center",
-                paddingTop: verticalScale(56),
-                paddingBottom: verticalScale(24),
+                paddingTop: verticalScale(32),
+                paddingBottom: verticalScale(16),
                 paddingHorizontal:scale(12),
                 display:'flex',
                 justifyContent:'center',

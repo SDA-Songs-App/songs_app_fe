@@ -1,0 +1,31 @@
+{
+  "_readme": "Copy an entry into events.json to publish it. Dates are YYYY-MM-DD. 'display' is banner, popup or both. Text is per language key (use 'default' as a fallback for all languages). Only https links to approved hosts (t.me, youtube, facebook, this site) and images hosted on this site are accepted.",
+  "events": [
+    {
+      "id": "concert-2026-11-14",
+      "startsAt": "2026-11-01",
+      "endsAt": "2026-11-14",
+      "eventDate": "2026-11-14",
+      "display": "both",
+      "accentColor": "#1F6F5B",
+      "imageUrl": "https://sda-songs-app.github.io/songs_app_fe/events/concert.jpg",
+      "linkUrl": "https://t.me/SDAStagingApp",
+      "title": {
+        "default": "Praise Concert",
+        "አማርኛ": "የምስጋና መዝሙር ኮንሰርት"
+      },
+      "description": {
+        "default": "Join us for an evening of songs and worship.",
+        "አማርኛ": "በመዝሙርና በአምልኮ ምሽት ይቀላቀሉን።"
+      },
+      "location": {
+        "default": "Addis Ababa",
+        "አማርኛ": "አዲስ አበባ"
+      },
+      "linkLabel": {
+        "default": "Learn more",
+        "አማርኛ": "ተጨማሪ ይመልከቱ"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "events": [
+    {
+      "id": "concert-2026-11-14",
+      "startsAt": "2026-10-22",
+      "endsAt": "2026-11-14",
+      "eventDate": "2026-11-14",
+      "title": {
+        "default": "Praise Concert",
+        "አማርኛ": "የመዝሙር ኮንሰርት",
+        "oromo": "Sagantaa Faarfannaa"
+      },
+      "description": {
+        "default": "Join us for an evening of songs and worship.",
+        "አማርኛ": "በመዝሙርና በአምልኮ ምሽት ይቀላቀሉን።",
+        "oromo": "Sagantaa faarfannaa fi waaqeffannaa irratti nu waliin ta'aa."
+      },
+      "linkUrl": "https://t.me/SDAStagingApp",
+      "accentColor": "#1F6F5B",
+      "display": "both"
+    }
+  ]
+}

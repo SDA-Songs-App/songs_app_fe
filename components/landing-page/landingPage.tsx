@@ -26,6 +26,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {scale, verticalScale, moderateScale} from "react-native-size-matters"
 import { useTheme } from "@/app/ThemeProvider";
 import getStyle from "./style";
+import EventAnnouncements from "./event-announcements";
 
 
 
@@ -97,10 +98,10 @@ return (
   <View style={styles.circle1}/>
   <View style={styles.circle3}/>
   <View style={styles.circle2}/>
-  <View style={[styles.content, { flex: 1, justifyContent: "center", minHeight: verticalScale(150) }]}>
+  <View style={[styles.content, { flexGrow: 1, flexShrink: 0, justifyContent: "center" }]}>
   {/* Header */}
   <Animated.View entering={FadeIn.duration(500)} style={styles.titleContainer}>
-      {<Text style={styles.titleTop}>
+      {<Text style={styles.titleTop} maxFontSizeMultiplier={1.15}>
         {currentVerse.titleTop}{' '}
         {currentVerse.titleMain}{' '}
         {currentVerse.titleMain2}</Text> }
@@ -179,6 +180,8 @@ return (
     <Feather name="arrow-right" size={scale(18)} color="#fff" />
   </Pressable>
 
+
+  <EventAnnouncements language={language} isDarkMode={isDarkMode} />
 
   {/* Scripture Card */}
   <Animated.View entering={FadeInDown.duration(500).delay(220)} style={styles.card}>
