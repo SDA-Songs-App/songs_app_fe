@@ -2,7 +2,7 @@
     "langId": 2,
     "titleTop": "Waldaa",
     "titleMain": "Adveentistii Guyyaa Torbaffaa Ityoophiyaatti",
-    "titleMain2": "Appilikeeshinii Faarfannaa Afaanota Garagaraatiin Qophaa'e",
+    "titleMain2": "Appilikeeshinii Faarfannaa Afaanota Garagaraatiin Qophaa'e ",
     "selectHeader": "Afaan Filadhu",
     "buttonText": "Itti Fufi",
     "scriptureTitle": "Dubbii Guyyaa",
@@ -319,7 +319,7 @@
         }
     ],
     "setting": {
-        "title": "setting"
+        "title": "Qindaa'ina"
     },
    "userGuide": {
         "title": "የተጠቃሚ መመሪያ"

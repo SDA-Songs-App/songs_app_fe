@@ -3,12 +3,14 @@ import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { useTheme } from "@/app/ThemeProvider";
 import getStyle from "./css/privacy-css";
+import SettingsHeader from "./SettingsHeader";
 const Privacy = () => {
    const { isDarkMode, toggleTheme } = useTheme();
    const styles = getStyle(isDarkMode);
   return (
+    <View style={{ flex: 1, backgroundColor: isDarkMode ? "#fff" : "#302828" }}>
+    <SettingsHeader title="የግላዊነት መመሪያ" />
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>የግላዊነት መመሪያ</Text>
       <Text style={styles.date}>መጨረሻ የተሻሻለበት ቀን፦ ጥቅምት 6, 2026</Text>
 
       <Text style={styles.paragraph}>
@@ -67,6 +69,7 @@ const Privacy = () => {
         {/*footet contnets*/}
       </Text>
     </ScrollView>
+    </View>
   );
 };
 

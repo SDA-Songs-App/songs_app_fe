@@ -3,6 +3,7 @@ import { moderateScale, scale, verticalScale } from "react-native-size-matters"
 
 const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string, width:number) =>{
         const maxContentWidth = Math.min(width, 520);
+        const titleFontSize = Math.min(scale(18), 20);
         return StyleSheet.create({
               container:{
               flex:1,
@@ -81,13 +82,14 @@ const getStyle = (isDarkMode:boolean, fontSize:Number, fontFamily:string, width:
                 marginBottom:verticalScale(18),
             },
             titleTop:{
-            fontSize:Math.min(scale(20), 24),
-            lineHeight: Math.min(scale(17), 21) * 1.4,
+            fontSize:titleFontSize,
+            lineHeight: Math.round(titleFontSize * 1.5),
             fontWeight:"700",
             color:"#ffffff",
             textAlign:"center",
             letterSpacing:0.3,
             paddingHorizontal:scale(8),
+            paddingBottom:8,
             textShadowColor:"rgba(0,0,0,0.35)",
             textShadowOffset:{width:0,height:1},
             textShadowRadius:4,

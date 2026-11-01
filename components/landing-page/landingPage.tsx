@@ -38,9 +38,12 @@ type VerseLocalization = {
   value: string
   ref: string
 }
+const HIDDEN_LANGUAGES = ["nuer"];
+
 export default function LandingPage() {
   const [fontLoad, setFontLoad] = useState(false)
   const [pickerOpen, setPickerOpen] = useState(false)
+  const [panelHeight, setPanelHeight] = useState(0)
   type Language = keyof typeof versesLLocalization;
   const [language, setLanguage] = useState<Language>("አማርኛ");
   const[randomVerse, setRandomVerse] = useState<Verse | null>(null);
@@ -53,10 +56,12 @@ export default function LandingPage() {
   const insets = useSafeAreaInsets();
   const styles = getStyle(isDarkMode, fontSize, fontFamily, width);
   const langauageLabel = language ==='oromo'?'Afaan Oromo':language
- const languageOptions = Object.keys(versesLLocalization).map((lang) => ({
-  label: lang,
-  value: lang
-}));
+ const languageOptions = Object.keys(versesLLocalization)
+  .filter((lang) => !HIDDEN_LANGUAGES.includes(lang))
+  .map((lang) => ({
+    label: lang,
+    value: lang
+  }));
  const displayLanguage = (lang: string) =>
   lang === 'oromo' ? 'Afaan Oromo' : lang === 'nuer' ? 'Nuer' : lang === 'ሲዳሚኛ' ? 'Sidaamu Afoo' : lang
  const handleLanguageChange =(value:Language)=>{
@@ -74,7 +79,7 @@ useEffect(() =>{
 }, [language]);
 useEffect(() => {
   AsyncStorage.getItem("lastLanguage").then((saved) => {
-    if (saved && saved in versesLLocalization) setLanguage(saved as Language)
+    if (saved && saved in versesLLocalization && !HIDDEN_LANGUAGES.includes(saved)) setLanguage(saved as Language)
   }).catch(() => {})
 }, [])
 useEffect(() =>{
@@ -111,7 +116,10 @@ return (
 
 
   {/* Bottom White Section */}
-  <View style={[styles.bottomContainer, styles.content, { paddingBottom: verticalScale(24) + insets.bottom }]}>
+  <View
+    style={[styles.bottomContainer, styles.content, { paddingBottom: verticalScale(24) + insets.bottom }]}
+    onLayout={(e) => setPanelHeight(e.nativeEvent.layout.height)}
+  >
       <View style={styles.languageLabelRow}>
         <Feather size={scale(18)} color={isDarkMode?"#000":"#fff"} />
         <Text style={styles.languageLabel}>
@@ -181,8 +189,6 @@ return (
   </Pressable>
 
 
-  <EventAnnouncements language={language} isDarkMode={isDarkMode} />
-
   {/* Scripture Card */}
   <Animated.View entering={FadeInDown.duration(500).delay(220)} style={styles.card}>
     <View style ={styles.verticalBar}/>
@@ -209,6 +215,7 @@ return (
   </Animated.View>
 
   </View>
+  <EventAnnouncements language={language} bottomOffset={panelHeight + verticalScale(10)} />
   </SafeAreaView>
 </LinearGradient>
 );

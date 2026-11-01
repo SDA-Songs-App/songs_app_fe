@@ -50,6 +50,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { landingPageContents } from "./landing-page/contents";
 
 const LAST_SONG_KEY_PREFIX = "lastSongId:";
+const HIDDEN_LANGUAGES = ["nuer"];
 const { height: deviceHeight } = Dimensions.get("window");
 type NavigationProp = DrawerNavigationProp<RootStackParams>;
 type NavbarScreenProps = {
@@ -219,10 +220,13 @@ useEffect(() => {
     }
   }, []);
   // Derived: full songs of selected language
-  const fullSongs = useMemo(() => {
-    return dataSongs
+const fullSongs = useMemo(() => {
+    const extracted = dataSongs
       .filter((l) => l.language === selectedLanguage && !l.deletedAt)
       .flatMap((l) => normalizeLyricsContents(l.LyricsContents));
+
+    // Sort the final flat list of songs in ascending order (Oldest/First ID to Newest/Last ID)
+    return extracted.sort((a, b) => (a.Id ?? 0) - (b.Id ?? 0));
   }, [dataSongs, selectedLanguage]);
   // Set filtered songs when dataSongs or language changes
   useEffect(() => {
@@ -278,7 +282,9 @@ useEffect(() => {
       }
     });
 
-  return Array.from(map.values());
+  return Array.from(map.values()).filter(
+    (language) => !HIDDEN_LANGUAGES.includes(language.toLowerCase())
+  );
 }, [dataSongs]);
   // Toggle favorite
  const toggleFavorite = useCallback(

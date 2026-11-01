@@ -11,18 +11,20 @@ import { useLanguage } from "../languageContext/language-context";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { useTheme } from "@/app/ThemeProvider";
 import getStyle from "./css/user-guide-css";
+import SettingsHeader from "./SettingsHeader";
 
 const UserGuide = () => {
   const lang = useLanguage();
 const { isDarkMode, toggleTheme } = useTheme();
    const styles = getStyle(isDarkMode);
   return (
+    <View style={{ flex: 1, backgroundColor: isDarkMode ? "#fff" : "#302828" }}>
+    <SettingsHeader title="የተጠቃሚ መመሪያ" />
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={true}
     >
-      <Text style={styles.header}>የተጠቃሚ መመሪያ {'\n'}</Text>
 
       <Text style={styles.stepsTitle}>1. ወደ መዝሙር ገጽ መሄድ</Text>
       <Text  style={styles.stepsTitle}>2. መተግበሪያውን ይክፈቱ</Text>
@@ -96,6 +98,7 @@ const { isDarkMode, toggleTheme } = useTheme();
 </View>
         
     </ScrollView>
+    </View>
   );
 };
 export default UserGuide;
